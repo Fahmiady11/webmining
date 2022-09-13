@@ -85,7 +85,7 @@ c.Output = "dataPuan.csv"
 twint.run.Search(c)
 
 
-# ##Penjelasan Pandas
+# ## Penjelasan Pandas
 
 # **Pandas adalah paket Python open source yang paling sering dipakai untuk menganalisis data serta membangun sebuah machine learning. Pandas dibuat berdasarkan satu package lain bernama Numpy**
 
@@ -110,7 +110,7 @@ data
 
 # **NLTK adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.**
 
-# ##Penjelasan Sastrawi
+# ## Penjelasan Sastrawi
 
 # **Python Sastrawi adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”**
 
@@ -123,7 +123,7 @@ get_ipython().system('pip install nltk')
 get_ipython().system('pip install Sastrawi')
 
 
-# ##Penjelasan RE
+# ## Penjelasan RE
 
 # **Re module Python menyediakan seperangkat fungsi yang memungkinkan kita untuk mencari sebuah string untuk match (match).**
 
