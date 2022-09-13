@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # **CRAWLING DATA PTA TRUNOJOYO.AC.ID MENGGUNAKAN METODE VECTOR SPACE MODEL**
+# # CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL
 
 # Untuk Tahap-Tahap sebagai berikut:
 
@@ -14,111 +14,122 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 
-# 2.Pindah Path ke /content/drive/MyDrive/webmining/webmining/content
+# 2.Pindah Path ke /content/drive/MyDrive/webmining/webmining
 
-# In[8]:
-
-
-get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/content')
+# In[40]:
 
 
-# 3.Selanjutnya Import Scrapy atau Install jika belum pernah Menginstall
-
-# In[9]:
+get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/')
 
 
-try:
-    import scrapy
-except:
-    get_ipython().system('pip install scrapy')
-    import scrapy
+# 3.Clone Twint dari Github Twint Project
+
+# In[5]:
 
 
-# 4.Import Pandas yang nantinya digunakan untuk membaca file Json maupun CSV
+get_ipython().system('git clone --depth=1 https://github.com/twintproject/twint.git')
+get_ipython().run_line_magic('cd', 'twint')
+get_ipython().system('pip3 install . -r requirements.txt')
 
-# In[10]:
+
+# ## Penjelasan Twint
+
+# Twint adalah alat pengikis Twitter canggih yang ditulis dengan Python yang memungkinkan untuk menggores Tweet dari profil Twitter tanpa menggunakan API Twitter.
+
+# 4.install Library Twint
+
+# In[3]:
+
+
+get_ipython().system('pip install twint')
+
+
+# 5.install aiohttp versi 3.7.0
+
+# In[4]:
+
+
+get_ipython().system('pip install aiohttp==3.7.0')
+
+
+# 6.melalukan Import Twint
+
+# 
+
+# In[6]:
+
+
+import twint
+
+
+# In[7]:
+
+
+get_ipython().system('pip install nest_asyncio')
+import nest_asyncio
+nest_asyncio.apply() 
+
+
+# 7.configurasi Twint
+
+# In[15]:
+
+
+c = twint.Config()
+c.Search = '#puanmaharani'
+c.Pandas = True
+c.Limit = 60
+c.Store_csv = True
+c.Custom["tweet"] = ["tweet"]
+c.Output = "dataPuan.csv"
+twint.run.Search(c)
+
+
+# ##Penjelasan Pandas
+
+# **Pandas adalah paket Python open source yang paling sering dipakai untuk menganalisis data serta membangun sebuah machine learning. Pandas dibuat berdasarkan satu package lain bernama Numpy**
+
+# 8.melakukan Import Pandas
+
+# In[16]:
 
 
 import pandas as pd
 
 
-# ## Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.
+# 9.Baca data excel dataPuan.xlsx yang telah dilabeli yang disimpan di Google Drive
 
-# 5.Untuk Crawling Data pertama yang saya lakukan adalah untuk mendapatkan Link,untuk Link nya saya Crawling 50 lebih
-
-# In[11]:
+# In[17]:
 
 
-class LinkSpider(scrapy.Spider):
-    name='link'
-    start_urls=[]
-    for i in range(1, 50+1):
-        start_urls.append(f'https://pta.trunojoyo.ac.id/c_search/byprod/10/{i}')
-    def parse(self, response):
-        count=0
-        link=[]
-        for jurnal in response.css('#content_journal > ul'):
-            count+=1
-            for j in range(1,6):
-                yield {
-                    'link': response.css(f'li:nth-child({j}) > div:nth-child(3) > a::attr(href)').get(),
-                }
+data = pd.read_excel('dataPuan.xlsx')
+data
 
 
-# 6.selanjutnya ingin mengetahui hasil dari Crawling yang berbentuk Json
+# ## Penjelasan NLTK
 
-# In[12]:
+# **NLTK adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.**
 
+# ##Penjelasan Sastrawi
 
-df = pd.read_json('jurnal.json')
-df
+# **Python Sastrawi adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”**
 
+# 10.Install Library nltk dan Sastrawi
 
-# 7.Setelah mendapatkan Data Link dari PTA.trunojoyo.ac.id lalu dicrawling lagi dari Link yang tadi,untuk mendapatkan Kumpulan Judul dan Abstraksi
-
-# In[13]:
-
-
-class Spider(scrapy.Spider):
-    name = 'detail'
-    data_csv = pd.read_json('jurnal.json').values
-    start_urls = [ link[0] for link in data_csv ]
-
-    def parse(self, response):
-        yield {
-            'Judul': response.css('#content_journal > ul > li > div:nth-child(2) > a::text').extract(),
-            'Abstraksi': response.css('#content_journal > ul > li > div:nth-child(4) > div:nth-child(2) > p::text').extract(),
-        }
-
-
-# 8.Untuk menampilkan data CSV
-
-# In[14]:
-
-
-df = pd.read_csv('result.csv')
-
-
-# ## **NLTK** adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.
-
-# ## **Python Sastrawi** adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”
-
-# 9.Install Library nltk dan Sastrawi
-
-# In[15]:
+# In[18]:
 
 
 get_ipython().system('pip install nltk')
 get_ipython().system('pip install Sastrawi')
 
 
-# ## **Pandas** adalah paket Python open source yang paling sering dipakai untuk menganalisis data serta membangun sebuah machine learning. Pandas dibuat berdasarkan satu package lain bernama Numpy
+# ##Penjelasan RE
 
-# ## **Re** module Python menyediakan seperangkat fungsi yang memungkinkan kita untuk mencari sebuah string untuk match (match).
+# **Re module Python menyediakan seperangkat fungsi yang memungkinkan kita untuk mencari sebuah string untuk match (match).**
 
-# 10.Lakukan Import beberapa Library seperti Pandas,re,nltk,string dan Sastrawi
+# 11.Lakukan Import beberapa Library seperti Pandas,re,nltk,string dan Sastrawi
 
-# In[24]:
+# In[19]:
 
 
 import pandas as pd
@@ -131,18 +142,9 @@ import string
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 
-# 11.Menampilkan data CSV dengan bantuan Library Pandas
-
-# In[17]:
-
-
-data = pd.read_csv('result.csv').dropna()
-data
-
-
 # 12.Selanjutnya membuat Function Remove Stopwords yang fungsinya adalah menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM
 
-# In[18]:
+# In[53]:
 
 
 def remove_stopwords(text):
@@ -158,7 +160,7 @@ def remove_stopwords(text):
 
 # 13.Steming merupakan proses mengubah kata dalam bahasa Indonesia ke akar katanya misalkan 'Mereka meniru-nirukannya' menjadi 'mereka tiru'
 
-# In[19]:
+# In[21]:
 
 
 def stemming(text):
@@ -203,7 +205,7 @@ def stemming(text):
 # 
 # 
 
-# In[26]:
+# In[22]:
 
 
 def preprocessing(text):
@@ -228,18 +230,24 @@ def preprocessing(text):
 
 # 15.Membuat Tabel dari hasil Preprocessing,disitu juga menambahkan nama column(Abstraksi) dan baris(kata)
 
-# In[21]:
+# In[51]:
+
+
+get_ipython().run_line_magic('cd', '../contents')
+
+
+# In[52]:
 
 
 tf = pd.DataFrame()
-for i,v in enumerate(data['Abstraksi']):
+for i,v in enumerate(data['tweet']):
     cols = ["Doc " + str(i+1)]    
     doc = pd.DataFrame.from_dict(nltk.FreqDist(preprocessing(v)), orient='index',columns=cols) 
     #doc.columns = [data['Judul'][i]]    
     tf = pd.concat([tf, doc], axis=1, sort=False)
 
 
-# In[22]:
+# In[54]:
 
 
 tf.index.name = 'Term'
@@ -248,11 +256,50 @@ tf = tf.fillna(0)
 tf
 
 
-# 16.Menampilkan nilai tabel berdasarkan hasil Asli tanpa pembulatan
+# ## Penjelasan Scikit-learn
 
-# In[25]:
+# Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.
+
+# 16.install scikit-learn
+
+# In[55]:
 
 
-tf[tf != 0] = 1 + np.log10(tf)
-tf
+get_ipython().system('pip install -U scikit-learn')
+
+
+# 17.mengumpulkan data untuk di Train
+
+# In[56]:
+
+
+train = tf.iloc[:,:len(data)]
+
+
+# In[65]:
+
+
+cols = train.columns
+df = pd.DataFrame(train[cols].gt(0).sum(axis=1), columns=['Document Frequency'])
+
+idf = np.log10(len(cols)/df)
+idf.columns = ['Inverse Document Frequency']
+idf = pd.concat([df, idf], axis=1)
+idf
+
+
+# 18.Mengurutkan suku kata berdasarkan jumlah suku kata yang paling banyak keluar 
+
+# In[70]:
+
+
+# from sklearn.model_selection import train_test_split
+# X_train,X_test,Y_train,Y_test=train_test_split(idf.drop(labels=['Document Frequency',],axis=1),
+#                                                idf['Document Frequency'],
+#                                                test_size=0.3,
+#                                                random_state=0)
+# from sklearn.feature_selection import mutual_info_classif
+# #mutual_info=mutual_info_classif(idf['Document Frequency'],idf['Inverse Document Frequency'])
+# X_test
+pd.DataFrame(idf['Document Frequency'].sort_values(ascending=False)).head(15)
 
