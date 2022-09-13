@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>CRAWLING DATA PTA TRUNOJOYO.AC.ID MENGGUNAKAN METODE VECTOR SPACE MODEL &#8212; My sample book</title>
+    <title>CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL &#8212; Web Mining</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -96,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Web Mining</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -115,9 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   <strong>
-    CRAWLING DATA PTA TRUNOJOYO.AC.ID MENGGUNAKAN METODE VECTOR SPACE MODEL
-   </strong>
+   CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL
   </a>
  </li>
 </ul>
@@ -327,40 +325,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scrapy-adalah-web-crawling-dan-web-scraping-framework-tingkat-tinggi-yang-cepat-digunakan-untuk-merayapi-situs-web-dan-mengekstrak-data-terstruktur-dari-halaman-mereka-ini-dapat-digunakan-untuk-berbagai-tujuan-mulai-dari-penambangan-data-hingga-pemantauan-dan-pengujian-otomatis">
-   Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.
+  <a class="reference internal nav-link" href="#penjelasan-twint">
+   Penjelasan Twint
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nltk-adalah-singkatan-dari-natural-language-tool-kit-yaitu-sebuah-library-yang-digunakan-untuk-membantu-kita-dalam-bekerja-dengan-teks-library-ini-memudahkan-kita-untuk-memproses-teks-seperti-melakukan-classification-tokenization-stemming-tagging-parsing-dan-semantic-reasoning">
-   <strong>
-    NLTK
-   </strong>
-   adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.
+  <a class="reference internal nav-link" href="#penjelasan-nltk">
+   Penjelasan NLTK
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-sastrawi-adalah-pengembangan-dari-proyek-php-sastrawi-python-sastrawi-merupakan-library-sederhana-yang-dapat-mengubah-kata-berimbuhan-bahasa-indonesia-menjadi-bentuk-dasarnya-sastrawi-juga-dapat-diinstal-melalui-pip">
-   <strong>
-    Python Sastrawi
-   </strong>
-   adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas-adalah-paket-python-open-source-yang-paling-sering-dipakai-untuk-menganalisis-data-serta-membangun-sebuah-machine-learning-pandas-dibuat-berdasarkan-satu-package-lain-bernama-numpy">
-   <strong>
-    Pandas
-   </strong>
-   adalah paket Python open source yang paling sering dipakai untuk menganalisis data serta membangun sebuah machine learning. Pandas dibuat berdasarkan satu package lain bernama Numpy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#re-module-python-menyediakan-seperangkat-fungsi-yang-memungkinkan-kita-untuk-mencari-sebuah-string-untuk-match-match">
-   <strong>
-    Re
-   </strong>
-   module Python menyediakan seperangkat fungsi yang memungkinkan kita untuk mencari sebuah string untuk match (match).
+  <a class="reference internal nav-link" href="#penjelasan-scikit-learn">
+   Penjelasan Scikit-learn
   </a>
  </li>
 </ul>
@@ -372,7 +348,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>CRAWLING DATA PTA TRUNOJOYO.AC.ID MENGGUNAKAN METODE VECTOR SPACE MODEL</h1>
+                <h1>CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -383,40 +359,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scrapy-adalah-web-crawling-dan-web-scraping-framework-tingkat-tinggi-yang-cepat-digunakan-untuk-merayapi-situs-web-dan-mengekstrak-data-terstruktur-dari-halaman-mereka-ini-dapat-digunakan-untuk-berbagai-tujuan-mulai-dari-penambangan-data-hingga-pemantauan-dan-pengujian-otomatis">
-   Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.
+  <a class="reference internal nav-link" href="#penjelasan-twint">
+   Penjelasan Twint
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nltk-adalah-singkatan-dari-natural-language-tool-kit-yaitu-sebuah-library-yang-digunakan-untuk-membantu-kita-dalam-bekerja-dengan-teks-library-ini-memudahkan-kita-untuk-memproses-teks-seperti-melakukan-classification-tokenization-stemming-tagging-parsing-dan-semantic-reasoning">
-   <strong>
-    NLTK
-   </strong>
-   adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.
+  <a class="reference internal nav-link" href="#penjelasan-nltk">
+   Penjelasan NLTK
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-sastrawi-adalah-pengembangan-dari-proyek-php-sastrawi-python-sastrawi-merupakan-library-sederhana-yang-dapat-mengubah-kata-berimbuhan-bahasa-indonesia-menjadi-bentuk-dasarnya-sastrawi-juga-dapat-diinstal-melalui-pip">
-   <strong>
-    Python Sastrawi
-   </strong>
-   adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas-adalah-paket-python-open-source-yang-paling-sering-dipakai-untuk-menganalisis-data-serta-membangun-sebuah-machine-learning-pandas-dibuat-berdasarkan-satu-package-lain-bernama-numpy">
-   <strong>
-    Pandas
-   </strong>
-   adalah paket Python open source yang paling sering dipakai untuk menganalisis data serta membangun sebuah machine learning. Pandas dibuat berdasarkan satu package lain bernama Numpy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#re-module-python-menyediakan-seperangkat-fungsi-yang-memungkinkan-kita-untuk-mencari-sebuah-string-untuk-match-match">
-   <strong>
-    Re
-   </strong>
-   module Python menyediakan seperangkat fungsi yang memungkinkan kita untuk mencari sebuah string untuk match (match).
+  <a class="reference internal nav-link" href="#penjelasan-scikit-learn">
+   Penjelasan Scikit-learn
   </a>
  </li>
 </ul>
@@ -429,8 +383,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="crawling-data-pta-trunojoyo-ac-id-menggunakan-metode-vector-space-model">
-<h1><strong>CRAWLING DATA PTA <a class="reference external" href="http://TRUNOJOYO.AC.ID">TRUNOJOYO.AC.ID</a> MENGGUNAKAN METODE VECTOR SPACE MODEL</strong><a class="headerlink" href="#crawling-data-pta-trunojoyo-ac-id-menggunakan-metode-vector-space-model" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="crawling-data-twitter-menggunakan-metode-vector-space-model">
+<h1>CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL<a class="headerlink" href="#crawling-data-twitter-menggunakan-metode-vector-space-model" title="Permalink to this headline">#</a></h1>
 <p>Untuk Tahap-Tahap sebagai berikut:</p>
 <p>1.Lakukan Connect Google colab dengan goole Drive sebagai penyimpanan</p>
 <div class="cell docutils container">
@@ -477,108 +431,326 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>2.Pindah Path ke /content/drive/MyDrive/webmining/webmining/content</p>
+<p>2.Pindah Path ke /content/drive/MyDrive/webmining/webmining</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/webmining/webmining/content
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/webmining/webmining/
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/webmining/webmining/content
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/webmining/webmining
 </pre></div>
 </div>
 </div>
 </div>
-<p>3.Selanjutnya Import Scrapy atau Install jika belum pernah Menginstall</p>
+<p>3.Clone Twint dari Github Twint Project</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">scrapy</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="o">!</span>pip install scrapy
-    <span class="kn">import</span> <span class="nn">scrapy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/twintproject/twint.git
+<span class="o">%</span><span class="k">cd</span> twint
+<span class="o">!</span>pip3 install . -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: destination path &#39;twint&#39; already exists and is not an empty directory.
+/content/drive/MyDrive/webmining/webmining/twint
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Processing /content/drive/MyDrive/webmining/webmining/twint
+<span class=" -Color -Color-Yellow">  DEPRECATION: A future pip version will change local packages to be built in-place without first copying to a temporary directory. We recommend you use --use-feature=in-tree-build to test your packages with this new behavior before it becomes the default.</span>
+<span class=" -Color -Color-Yellow">   pip 21.3 will remove support for this functionality. You can find discussion regarding this at https://github.com/pypa/pip/issues/7555.</span>
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 1)) (3.7.0)
+Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 2)) (3.0.0)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 3)) (4.6.3)
+Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 4)) (2.1.7)
+Collecting dataclasses
+  Downloading dataclasses-0.6-py3-none-any.whl (14 kB)
+Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 6)) (8.4.1)
+Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
+Requirement already satisfied: pandas&gt;=0.23.0 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 8)) (1.3.5)
+Collecting aiohttp_socks&lt;=0.4.1
+  Downloading aiohttp_socks-0.4.1-py3-none-any.whl (17 kB)
+Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 10)) (1.1.0)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 11)) (1.17.0)
+Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 12)) (0.1.11)
+Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 13)) (2.4.2)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2.8.2)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.21.6)
+Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2022.2.1)
+Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp_socks&lt;=0.4.1-&gt;-r requirements.txt (line 9)) (22.1.0)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.8.1)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (3.0.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (6.0.2)
+Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (3.0.4)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.15.0)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (2.10)
+Requirement already satisfied: pycares&gt;=4.0.0 in /usr/local/lib/python3.7/dist-packages (from aiodns-&gt;-r requirements.txt (line 2)) (4.2.2)
+Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (2.21)
+Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in /usr/local/lib/python3.7/dist-packages (from elasticsearch-&gt;-r requirements.txt (line 6)) (8.4.0)
+Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (1.26.12)
+Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.6.15)
+Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (1.52)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.28.1)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;-r requirements.txt (line 13)) (2.1.1)
+Building wheels for collected packages: twint
+  Building wheel for twint (setup.py) ... ?25l?25hdone
+  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=4e1e8b83fdffae6ca7d868a7d2ef0ceee0fb8ddeac5f19fd1be814428f9dd433
+  Stored in directory: /tmp/pip-ephem-wheel-cache-7k1b8g6w/wheels/88/61/06/bd5d6a887f43cd7ea07380c2bc1fb104f5cc0d03f92a3c50c4
+Successfully built twint
+Installing collected packages: dataclasses, aiohttp-socks, twint
+  Attempting uninstall: aiohttp-socks
+    Found existing installation: aiohttp-socks 0.7.1
+    Uninstalling aiohttp-socks-0.7.1:
+      Successfully uninstalled aiohttp-socks-0.7.1
+  Attempting uninstall: twint
+    Found existing installation: twint 2.1.20
+    Uninstalling twint-2.1.20:
+      Successfully uninstalled twint-2.1.20
+Successfully installed aiohttp-socks-0.4.1 dataclasses-0.6 twint-2.1.21
+</pre></div>
+</div>
+</div>
+</div>
+<section id="penjelasan-twint">
+<h2>Penjelasan Twint<a class="headerlink" href="#penjelasan-twint" title="Permalink to this headline">#</a></h2>
+<p>Twint adalah alat pengikis Twitter canggih yang ditulis dengan Python yang memungkinkan untuk menggores Tweet dari profil Twitter tanpa menggunakan API Twitter.</p>
+<p>4.install Library Twint</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install twint
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting scrapy
-  Downloading Scrapy-2.6.2-py2.py3-none-any.whl (264 kB)
-     |████████████████████████████████| 264 kB 5.1 MB/s 
-?25hCollecting tldextract
-  Downloading tldextract-3.3.1-py3-none-any.whl (93 kB)
-     |████████████████████████████████| 93 kB 1.7 MB/s 
-?25hCollecting zope.interface&gt;=4.1.3
-  Downloading zope.interface-5.4.0-cp37-cp37m-manylinux2010_x86_64.whl (251 kB)
-     |████████████████████████████████| 251 kB 49.8 MB/s 
-?25hCollecting PyDispatcher&gt;=2.0.5
-  Downloading PyDispatcher-2.0.6.tar.gz (38 kB)
-Collecting parsel&gt;=1.5.0
-  Downloading parsel-1.6.0-py2.py3-none-any.whl (13 kB)
-Collecting protego&gt;=0.1.15
-  Downloading Protego-0.2.1-py2.py3-none-any.whl (8.2 kB)
-Collecting cryptography&gt;=2.0
-  Downloading cryptography-37.0.4-cp36-abi3-manylinux_2_24_x86_64.whl (4.1 MB)
-     |████████████████████████████████| 4.1 MB 57.1 MB/s 
-?25hCollecting queuelib&gt;=1.4.2
-  Downloading queuelib-1.6.2-py2.py3-none-any.whl (13 kB)
-Collecting cssselect&gt;=0.9.1
-  Downloading cssselect-1.1.0-py2.py3-none-any.whl (16 kB)
-Collecting itemadapter&gt;=0.1.0
-  Downloading itemadapter-0.7.0-py3-none-any.whl (10 kB)
-Collecting w3lib&gt;=1.17.0
-  Downloading w3lib-2.0.1-py3-none-any.whl (20 kB)
-Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from scrapy) (57.4.0)
-Requirement already satisfied: lxml&gt;=3.5.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (4.9.1)
-Collecting Twisted&gt;=17.9.0
-  Downloading Twisted-22.4.0-py3-none-any.whl (3.1 MB)
-     |████████████████████████████████| 3.1 MB 34.0 MB/s 
-?25hCollecting itemloaders&gt;=1.0.1
-  Downloading itemloaders-1.0.6-py3-none-any.whl (11 kB)
-Collecting pyOpenSSL&gt;=16.2.0
-  Downloading pyOpenSSL-22.0.0-py2.py3-none-any.whl (55 kB)
-     |████████████████████████████████| 55 kB 3.6 MB/s 
-?25hCollecting service-identity&gt;=16.0.0
-  Downloading service_identity-21.1.0-py2.py3-none-any.whl (12 kB)
-Requirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.7/dist-packages (from cryptography&gt;=2.0-&gt;scrapy) (1.15.1)
-Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.0-&gt;scrapy) (2.21)
-Collecting jmespath&gt;=0.9.5
-  Downloading jmespath-1.0.1-py3-none-any.whl (20 kB)
-Requirement already satisfied: six&gt;=1.6.0 in /usr/local/lib/python3.7/dist-packages (from parsel&gt;=1.5.0-&gt;scrapy) (1.15.0)
-Requirement already satisfied: pyasn1 in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=16.0.0-&gt;scrapy) (0.4.8)
-Requirement already satisfied: pyasn1-modules in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=16.0.0-&gt;scrapy) (0.2.8)
-Requirement already satisfied: attrs&gt;=19.1.0 in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=16.0.0-&gt;scrapy) (22.1.0)
-Collecting incremental&gt;=21.3.0
-  Downloading incremental-21.3.0-py2.py3-none-any.whl (15 kB)
-Collecting hyperlink&gt;=17.1.1
-  Downloading hyperlink-21.0.0-py2.py3-none-any.whl (74 kB)
-     |████████████████████████████████| 74 kB 3.0 MB/s 
-?25hCollecting Automat&gt;=0.8.0
-  Downloading Automat-20.2.0-py2.py3-none-any.whl (31 kB)
-Requirement already satisfied: typing-extensions&gt;=3.6.5 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=17.9.0-&gt;scrapy) (4.1.1)
-Collecting constantly&gt;=15.1
-  Downloading constantly-15.1.0-py2.py3-none-any.whl (7.9 kB)
-Requirement already satisfied: idna&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from hyperlink&gt;=17.1.1-&gt;Twisted&gt;=17.9.0-&gt;scrapy) (2.10)
-Requirement already satisfied: filelock&gt;=3.0.8 in /usr/local/lib/python3.7/dist-packages (from tldextract-&gt;scrapy) (3.8.0)
-Requirement already satisfied: requests&gt;=2.1.0 in /usr/local/lib/python3.7/dist-packages (from tldextract-&gt;scrapy) (2.23.0)
-Collecting requests-file&gt;=1.4
-  Downloading requests_file-1.5.1-py2.py3-none-any.whl (3.7 kB)
-Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (1.24.3)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (2022.6.15)
-Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (3.0.4)
-Building wheels for collected packages: PyDispatcher
-  Building wheel for PyDispatcher (setup.py) ... ?25l?25hdone
-  Created wheel for PyDispatcher: filename=PyDispatcher-2.0.6-py3-none-any.whl size=11958 sha256=e1c1416b881f06385e188b476104a23f0788ffb0f89e9be53e18375ab8940fe4
-  Stored in directory: /root/.cache/pip/wheels/c9/d6/6a/de198d890277cde60ca3dbebe7ae592d3b381c7d9bb2455f4d
-Successfully built PyDispatcher
-Installing collected packages: w3lib, cssselect, zope.interface, requests-file, parsel, jmespath, itemadapter, incremental, hyperlink, cryptography, constantly, Automat, Twisted, tldextract, service-identity, queuelib, pyOpenSSL, PyDispatcher, protego, itemloaders, scrapy
-Successfully installed Automat-20.2.0 PyDispatcher-2.0.6 Twisted-22.4.0 constantly-15.1.0 cryptography-37.0.4 cssselect-1.1.0 hyperlink-21.0.0 incremental-21.3.0 itemadapter-0.7.0 itemloaders-1.0.6 jmespath-1.0.1 parsel-1.6.0 protego-0.2.1 pyOpenSSL-22.0.0 queuelib-1.6.2 requests-file-1.5.1 scrapy-2.6.2 service-identity-21.1.0 tldextract-3.3.1 w3lib-2.0.1 zope.interface-5.4.0
+Collecting twint
+  Downloading twint-2.1.20.tar.gz (31 kB)
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from twint) (3.8.1)
+Collecting aiodns
+  Downloading aiodns-3.0.0-py3-none-any.whl (5.0 kB)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from twint) (4.6.3)
+Collecting cchardet
+  Downloading cchardet-2.1.7-cp37-cp37m-manylinux2010_x86_64.whl (263 kB)
+     |████████████████████████████████| 263 kB 12.4 MB/s 
+?25hCollecting elasticsearch
+  Downloading elasticsearch-8.4.1-py3-none-any.whl (385 kB)
+     |████████████████████████████████| 385 kB 61.1 MB/s 
+?25hRequirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from twint) (1.7.1)
+Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from twint) (1.3.5)
+Collecting aiohttp_socks
+  Downloading aiohttp_socks-0.7.1-py3-none-any.whl (9.3 kB)
+Collecting schedule
+  Downloading schedule-1.1.0-py2.py3-none-any.whl (10 kB)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from twint) (1.17.0)
+Collecting fake-useragent
+  Downloading fake-useragent-0.1.11.tar.gz (13 kB)
+Collecting googletransx
+  Downloading googletransx-2.4.2.tar.gz (13 kB)
+Collecting pycares&gt;=4.0.0
+  Downloading pycares-4.2.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (288 kB)
+     |████████████████████████████████| 288 kB 50.0 MB/s 
+?25hRequirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (1.15.1)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (2.21)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.8.1)
+Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (2.1.1)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.3.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (6.0.2)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.1.1)
+Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.0.2)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.2.0)
+Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (0.13.0)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (22.1.0)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;twint) (2.10)
+Collecting python-socks[asyncio]&lt;3.0.0,&gt;=2.0.0
+  Downloading python_socks-2.0.3-py3-none-any.whl (49 kB)
+     |████████████████████████████████| 49 kB 6.8 MB/s 
+?25hCollecting elastic-transport&lt;9,&gt;=8
+  Downloading elastic_transport-8.4.0-py3-none-any.whl (59 kB)
+     |████████████████████████████████| 59 kB 7.8 MB/s 
+?25hRequirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (2022.6.15)
+Collecting urllib3&lt;2,&gt;=1.26.2
+  Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+     |████████████████████████████████| 140 kB 57.4 MB/s 
+?25hRequirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;twint) (1.52)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;twint) (2.23.0)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2.8.2)
+Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2022.2.1)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (1.21.6)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas-&gt;twint) (1.15.0)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;twint) (3.0.4)
+Collecting requests
+  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+     |████████████████████████████████| 62 kB 1.2 MB/s 
+?25hBuilding wheels for collected packages: twint, fake-useragent, googletransx
+  Building wheel for twint (setup.py) ... ?25l?25hdone
+  Created wheel for twint: filename=twint-2.1.20-py3-none-any.whl size=33929 sha256=58a1fce170c696cccd9bf05678082fef4435f4c94818e25ff81df1e3016b20b6
+  Stored in directory: /root/.cache/pip/wheels/44/fc/77/99887a36b5c265a87516158858697d1a0b8f32c4d4dbddbb24
+  Building wheel for fake-useragent (setup.py) ... ?25l?25hdone
+  Created wheel for fake-useragent: filename=fake_useragent-0.1.11-py3-none-any.whl size=13502 sha256=ec90ccee15510d42d49386c86541f629fc6bf941e58584cd42cedea4a1af59ed
+  Stored in directory: /root/.cache/pip/wheels/ed/f7/62/50ab6c9a0b5567267ab76a9daa9d06315704209b2c5d032031
+  Building wheel for googletransx (setup.py) ... ?25l?25hdone
+  Created wheel for googletransx: filename=googletransx-2.4.2-py3-none-any.whl size=15968 sha256=74fbfd0f8021d1921e654a00f9a60974f5db5a415ab27eea8fbea5073393eb7d
+  Stored in directory: /root/.cache/pip/wheels/66/d5/b1/31104b338f7fd45aa8f7d22587765db06773b13df48a89735f
+Successfully built twint fake-useragent googletransx
+Installing collected packages: urllib3, python-socks, requests, pycares, elastic-transport, schedule, googletransx, fake-useragent, elasticsearch, cchardet, aiohttp-socks, aiodns, twint
+  Attempting uninstall: urllib3
+    Found existing installation: urllib3 1.24.3
+    Uninstalling urllib3-1.24.3:
+      Successfully uninstalled urllib3-1.24.3
+  Attempting uninstall: requests
+    Found existing installation: requests 2.23.0
+    Uninstalling requests-2.23.0:
+      Successfully uninstalled requests-2.23.0
+Successfully installed aiodns-3.0.0 aiohttp-socks-0.7.1 cchardet-2.1.7 elastic-transport-8.4.0 elasticsearch-8.4.1 fake-useragent-0.1.11 googletransx-2.4.2 pycares-4.2.2 python-socks-2.0.3 requests-2.28.1 schedule-1.1.0 twint-2.1.20 urllib3-1.26.12
 </pre></div>
 </div>
 </div>
 </div>
-<p>4.Import Pandas yang nantinya digunakan untuk membaca file Json maupun CSV</p>
+<p>5.install aiohttp versi 3.7.0</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">aiohttp</span><span class="o">==</span><span class="m">3</span>.7.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting aiohttp==3.7.0
+  Downloading aiohttp-3.7.0-cp37-cp37m-manylinux2014_x86_64.whl (1.3 MB)
+     |████████████████████████████████| 1.3 MB 7.6 MB/s 
+?25hRequirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.4)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (22.1.0)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (1.8.1)
+Collecting async-timeout&lt;4.0,&gt;=3.0
+  Downloading async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (6.0.2)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (4.1.1)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (2.10)
+Installing collected packages: async-timeout, aiohttp
+  Attempting uninstall: async-timeout
+    Found existing installation: async-timeout 4.0.2
+    Uninstalling async-timeout-4.0.2:
+      Successfully uninstalled async-timeout-4.0.2
+  Attempting uninstall: aiohttp
+    Found existing installation: aiohttp 3.8.1
+    Uninstalling aiohttp-3.8.1:
+      Successfully uninstalled aiohttp-3.8.1
+Successfully installed aiohttp-3.7.0 async-timeout-3.0.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>6.melalukan Import Twint</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">twint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nest_asyncio
+<span class="kn">import</span> <span class="nn">nest_asyncio</span>
+<span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting nest_asyncio
+  Downloading nest_asyncio-1.5.5-py3-none-any.whl (5.2 kB)
+Installing collected packages: nest-asyncio
+Successfully installed nest-asyncio-1.5.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>7.configurasi Twint</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">twint</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Search</span> <span class="o">=</span> <span class="s1">&#39;#puanmaharani&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Pandas</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Limit</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Store_csv</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Custom</span><span class="p">[</span><span class="s2">&quot;tweet&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tweet&quot;</span><span class="p">]</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Output</span> <span class="o">=</span> <span class="s2">&quot;dataPuan.csv&quot;</span>
+<span class="n">twint</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Search</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1569729883777146882 2022-09-13 16:49:03 +0000 &lt;jpnncom&gt; Ketua Umum Kamaksi Joko Priyoski menilai aneh putusan MKD yang menghentikan laporan dugaan pelanggaran etik oleh Ketua DPR RI Puan Maharani. #PuanMaharani  https://t.co/fhqjExsVtL
+1569721896404660224 2022-09-13 16:17:18 +0000 &lt;majuumapaan&gt; Menurut gue sih, Indonesia bakalan maju kalau kaya gini❤️‍🔥 Keep spirit Bu Puan ❤️‍🔥💪  #puan #PuanMaharani #pdip #perjuangan #Indonesia  https://t.co/AzHPc9bGK1
+1569709495860994049 2022-09-13 15:28:02 +0000 &lt;jpnncom&gt; Ketua DPP PDIP Puan Maharani akan melanjutkan safari politik ke sejumlah partai. Bambang Pacul memastikan PDIP sudah berkomunikasi dengan PKB, PAN dan PKS. #PuanMaharani  https://t.co/cVCLnUnHdz
+1569709003235794946 2022-09-13 15:26:04 +0000 &lt;terkinidotid&gt; Soal Bocornya Data oleh Bjorka, Mahfud MD: Saya Tak Ambil Pusing: Menteri Koordinator Bidang Politik Hukum dan Keamanan Indonesia, Mahfud MD menjadi salah satu petinggi negara yang…  https://t.co/xI1kpbAp65 #News #PuanMaharani #luhutbinsarpanjaitan #MahfudMD #TitoKarnavian
+1569686929565941760 2022-09-13 13:58:22 +0000 &lt;Husni32863780&gt; Nemu TikTok tetangga. Cek Prestasi Puan di Kolom Komentar. #PuanMaharani #puan  https://t.co/pOvIqbpr3d
+1569675721634910210 2022-09-13 13:13:49 +0000 &lt;Lembayungpbr22&gt; #pbnu #pdip #NU #koru #koruptor #PDIPerjuangan #iknkemajuanindonesia  #puan #puanmaharani #megawati #pdipki
+1569674440224681986 2022-09-13 13:08:44 +0000 &lt;PuanCentre&gt; #PuanMaharani #puanmaharanicentre
+1569674380040601600 2022-09-13 13:08:29 +0000 &lt;tentang_puan&gt; Menkominfo Klaim Hacker Bjorka Hanya Miliki Data Umum: Bukan Data Spesifik dan Ter-Update #PuanMaharani  https://t.co/jkbdDE71yu  https://t.co/MvFZFM73X7
+1569662161391337473 2022-09-13 12:19:56 +0000 &lt;Leonigirls&gt; Pake tagar lagi #PuanMaharani biar apa? *nanya
+1569659982932746241 2022-09-13 12:11:17 +0000 &lt;tentang_puan&gt; Puan Dilaporkan ke MKD Gara-gara Rayakan Ultah saat Masyarakat Demo di DPR #PuanMaharani  https://t.co/1a86nr6pyh  https://t.co/cs856CYhkU
+1569657967586455554 2022-09-13 12:03:16 +0000 &lt;rizal_radjaku&gt; Sampai malam aksi penolakan kenaikan harga BBM di Patung Kuda, aksi ini bukan tanpa alasan #Viral #BBMNaikRakyatRevolusi #BBM_NaikJokowiTurun #PuanMaharani
+1569656540491317248 2022-09-13 11:57:36 +0000 &lt;MenujuIndJaya&gt; Berdasarkan survei LPMM, elektabilitas Menko Perekonmian Airlangga Hartarto selalu tertinggi.  Gimana menurut kalian?  #survei #elektabilitas #airlanggahartarto #prabowosubianto #andikaperkasa #ganjarpranowo #aniesbaswedan #puanmaharani #cakimin #muhaiminiskandar  https://t.co/A7Fj7IQ748
+1569648334293258240 2022-09-13 11:25:00 +0000 &lt;kompascom&gt; Sejumlah elemen buruh yang terdiri dari KASBI dan Gerakan Buruh Bersama Rakyat (Gebrak) menggelar aksi terkait kenaikan harga BBM bersubsidi di kawasan Patung Kuda, Monas, Jakarta Pusat, Selasa (13/9/2022). ^ #PuanMaharani #DemoBuruh #KetuaDPR #KASBI  https://t.co/wOZXGi3sR6
+1569644355069288449 2022-09-13 11:09:11 +0000 &lt;puanjawatimur&gt; #puanmaharani #puanpeduli #puanmelayani #puanuntuknegeri #relawanpuanmaharani #puansagetngayomi
+1569641845738864646 2022-09-13 10:59:13 +0000 &lt;tentang_puan&gt; Puan Dinilai Tak Peka terhadap Beban Masyarakat karena Rayakan Ulang Tahun saat Rapat Paripurna #PuanMaharani  https://t.co/P2YiAOlkU3  https://t.co/4qgjCRI5VC
+1569639379236429832 2022-09-13 10:49:25 +0000 &lt;fajaronline&gt; Survei Simulasi Voxpopuli Research Center, Pasangan Anies Baswedan-Puan Maharani Unggul  https://t.co/bpqxGGFLLl #AniesBaswedan #headline #PuanMaharani
+1569638532792332290 2022-09-13 10:46:03 +0000 &lt;jpnncom&gt; Ketua DPP PDIP Said Abdullah menyebut Puan berencana mengunjungi Ketum PKB Muhaimin Iskandar atau Gus Muhaimin pekan depan. #PuanMaharani  https://t.co/9r1MGSgo38
+1569638270467805187 2022-09-13 10:45:00 +0000 &lt;PUANnews&gt; #Pertemuan Muhaimin dan Puan Dijadwalkan Sabtu Pekan Depan -  https://t.co/wMuBRTjxPX  #PuanMaharani   https://t.co/ijGZ4BaGVJ
+1569638268328722432 2022-09-13 10:45:00 +0000 &lt;PUANnews&gt; #Laporan Kejutan Ultah Puan Maharani ke MKD Disetop, Pelapor: Agak Aneh -  https://t.co/3Mw8YESuGh  #PuanMaharani   https://t.co/ldl6gDegKp
+1569638266374164481 2022-09-13 10:44:59 +0000 &lt;PUANnews&gt; #Puan Maharani bakal Ketemu Cak Imin Minggu Depan, Bicara 4 Mata Bawa Pesan Megawati -  https://t.co/3Mw8YESuGh  #PuanMaharani   https://t.co/Z4sXgU3KrL
+1569638264998436865 2022-09-13 10:44:59 +0000 &lt;PUANnews&gt; #Korban Hacker Bjorka Bertambah Jadi 7 Orang, Puan Maharani, Anies Baswedan hingga Erick Thohir: Data Disebar! - Portal Bangka Belitung - Portal Bangka Belitung  #PuanMaharani   https://t.co/IeG43NBEYj
+1569634500824698880 2022-09-13 10:30:02 +0000 &lt;Genpi_Co&gt; Gerakan Buruh Bersama Rakyat atau Gebrak menilai Ketua DPR Puan Maharani tak peduli nasib rakyat. #PuanMaharani  https://t.co/NaHs9ofufu
+1569634021302501376 2022-09-13 10:28:07 +0000 &lt;gelpoldotcom&gt; Udah jelas yee, doi ga salah, cuma dikasih supress aja sama anggota DPR yang lain.  #puanmaharani #dpr #ultahpuan #demobbm #mkddpr #ketuadpr #politik #beritapolitik #gelitikpolitik #politikindonesia
+1569634005552869378 2022-09-13 10:28:03 +0000 &lt;gelpoldotcom&gt; Mahkamah Kehormatan Dewan (MKD) DPR RI memutuskan bahwa Ketua DPR RI Puan Maharani terbukti tidak melakukan pelanggaran kode etik. Sehingga, MKD akan melakukan rehabilitasi terhadap #PuanMaharani .
+1569623098198032385 2022-09-13 09:44:43 +0000 &lt;PUANnews&gt; #Puan Maharani Akan Bertemu Cak Imin, Sabtu 24 September 2022 -  https://t.co/TW01HQ36Wn  #PuanMaharani   https://t.co/nwO2TPrNVa
+1569623094402088960 2022-09-13 09:44:42 +0000 &lt;PUANnews&gt; #MKD DPR Sebut Puan Maharani Tidak Melanggar Etik saat Perayaan Ulang Tahun |  https://t.co/SrqyFNKDu6 -  https://t.co/jzLGAAT7Gh  #PuanMaharani   https://t.co/91xCVLkjko
+1569623092565053441 2022-09-13 09:44:42 +0000 &lt;PUANnews&gt; #Geram Data Pribadinya Dibocorkan Hacker Bjorka Bongkar, Puan Maharani Desak Pemerintah Audit Keamanan Siber - Herald Indonesia  #PuanMaharani   https://t.co/zFs53GIyz1
+1569620957450620930 2022-09-13 09:36:13 +0000 &lt;tentang_puan&gt; Rayakan Ultah saat Rapat Paripurna,Puan Maharani Dilaporkan ke MKD DPR RI Dianggap Langgar Kode Etik #PuanMaharani  https://t.co/IsRFCzq75B  https://t.co/CxtAl6mfS5
+1569604545868546048 2022-09-13 08:31:00 +0000 &lt;tribunkaltim&gt; Puan Maharani Dilaporkan ke MKD, Imbas Kejutan Ultah di Hari Demo BBM, Harusnya Sidang Itu Diskors   #demobbm #Puan #PuanMaharani #MKD   https://t.co/eThhAEot4K lewat @tribunkaltim
+1569602258081546241 2022-09-13 08:21:54 +0000 &lt;LOincMedia&gt; Puan Maharani Dilaporkan ke MKD Buntut Rayakan Ultah Saat Rakyat Demo BBM  #PuanMaharani  https://t.co/Mw66z6DjgC
+1569601122108846080 2022-09-13 08:17:23 +0000 &lt;AirlanggaUmkm&gt; Berdasarkan survei LPMM, elektabilitas Menko Perekonmian Airlangga Hartarto selalu tertinggi. @airlangga_hrt @golkar_id @Golkar2024  #survei #elektabilitas #airlanggahartarto #prabowosubianto  #andikaperkasa #ganjarpranowo #aniesbaswedan  #puanmaharani #muhaiminiskandar  https://t.co/kWZjkCswtD
+1569597326221803526 2022-09-13 08:02:18 +0000 &lt;puanjawatimur&gt; “Jadi kunjungan saya ke Uzbekistan merupakan napak tilas. Eratnya hubungan kedua negara dapat terlihat dari banyaknya masyarakat Uzbekistan yang mengenal Bung Karno,” jelasnya.  #puanmaharani #puanpeduli #puanmelayani #puanuntuknegeri #relawanpuanmaharani #puansagetngayomi
+1569592963814014979 2022-09-13 07:44:58 +0000 &lt;PUANnews&gt; #Pemerintah Ketar-ketir Hadapi Bjorka yang Retas Data Negara, Puan Maharani: Segera Audit - Sragen Update - Sragen Update  #PuanMaharani   https://t.co/eOpxNDj4AN
+1569592960915853313 2022-09-13 07:44:58 +0000 &lt;PUANnews&gt; #Dianggap Hacker Abal-Abal, Puan Maharani dan Erick Thohir Jadi Sasaran - Teras Gorontalo - Teras Gorontalo  #PuanMaharani   https://t.co/h2GdOYbZPV
+1569590685468364803 2022-09-13 07:35:55 +0000 &lt;tentang_puan&gt; Kejutan Ultah di Paripurna Bikin Puan Maharani di-MKD-kan #PuanMaharani  https://t.co/9kJ3paJbIR  https://t.co/AEce7eGyn6
+1569589949640462336 2022-09-13 07:33:00 +0000 &lt;newsmerahputih&gt; Ketua DPR RI, Puan Maharani meminta pemerintah untuk mengaudit keamanan siber di seluruh kementerian dan lembaga negara.   #merahputihcom #serangasiber #hacker #bjorka #PuanMaharani    https://t.co/zg1ze3bpdv
+1569562728410259456 2022-09-13 05:44:50 +0000 &lt;PUANnews&gt; #Bela Puan, Junimart Girsang: Tidak Ada Satu Kode Etik yang Dilanggar! - Monitor Indonesia  #PuanMaharani   https://t.co/QPF8Mvd3Tl
+1569562725885394945 2022-09-13 05:44:49 +0000 &lt;PUANnews&gt; #Data Pribadinya Diobok-obok Hacker Bjorka, Puan Maharani: Audit Keamanan Siber Wajib Dilakukan - MSN  #PuanMaharani   https://t.co/1nh3EPGhSH
+1569562724635484160 2022-09-13 05:44:49 +0000 &lt;PUANnews&gt; #Pasar Cik Puan dan Pasar Induk Kota Pekanbaru Akhirnya Miliki Sertifikat HPL - Tribun Pekanbaru  #PuanMaharani   https://t.co/h2VbeJyyd5
+1569559419750608896 2022-09-13 05:31:41 +0000 &lt;iNewsBondowoso&gt; Daftar Pejabat dan Aktivis Diserang Bjorka, Ada Puan Maharani dan Anies Baswedan Hingga Mahfud MD   #Bjorka #PuanMaharani #AniesBaswedan #MahfudMD   https://t.co/eRrEaB5HlF
+1569552738933153793 2022-09-13 05:05:08 +0000 &lt;puanjawatimur&gt; #puanmaharani #puanpeduli #puanmelayani #puanuntuknegeri #relawanpuanmaharani #puansagetngayomi
+1569548094563586052 2022-09-13 04:46:41 +0000 &lt;tentang_puan&gt; Junimart Girsang Sebut Perayaan Ulang Tahun Puan Maharani saat Paripurna Bersifat Spontanitas | 31left #PuanMaharani  https://t.co/8MyVb5LorE  https://t.co/kMXmHXDJ0A
+1569547947003760640 2022-09-13 04:46:06 +0000 &lt;TribunLombokcom&gt; Sejumlah pejabat yang datanya diduga disebar Bjorka memberikan komentar. Johnny G Plate menyebut data yang tersebar tidak terupdate dan masih umum. #bjorka #aniesbaswedan #ferdysambo #titokarnavian #puanmaharani #johnnygplate #mahfudmd #cakimin #luhut   https://t.co/P9l9YECQy0
+1569547472283832324 2022-09-13 04:44:12 +0000 &lt;PUANnews&gt; #Bjorka Permainkan Data Negara, Ini Komentar Puan Maharani - Poskota Lampung  #PuanMaharani   https://t.co/kwR7aJ1yJe
+1569547468110544896 2022-09-13 04:44:11 +0000 &lt;PUANnews&gt; #Serangan Bjorka ke Puan hingga Luhut Masuk Kategori Doxing, Apa Itu? -  https://t.co/Buc9KU81J1  #PuanMaharani   https://t.co/Lh7Zs3TjHk
+1569542458446614528 2022-09-13 04:24:17 +0000 &lt;TribunLombokcom&gt; Bjorka membocorkan data yang diduga milik sejumlah pejabat. Mulai dari Luhut Binsar Pandjaitan, Puan Maharani, Erick Thohir, hingga Tito Karnavian. #bjorka #aniesbaswedan #ferdysambo #titokarnavian #puanmaharani #johnnygplate #mahfudmd #cakimin #luhut   https://t.co/Q7L0QIBO6T
+1569532577475874819 2022-09-13 03:45:01 +0000 &lt;zona_raya&gt; Data Pribadi Bocor Diacak-acak Hacker Bjorka, Begini Sikap Puan Maharani: Sangat Merugikan #Bjorka #bjorkanism  #Jokowi #PuanMaharani #kamujahat @e100ss @SapawargaSby @puanmaharani_ri  https://t.co/uUvtXhDqnT
+1569532432080113664 2022-09-13 03:44:26 +0000 &lt;PUANnews&gt; #&#39;Disapa&#39; Bjorka, Puan Maharani Buka Suara Soal Kebocoran Data: Harusnya PSE Lakukan Pengamanan -  https://t.co/xYKxCrSc9X - Pikiran Rakyat  #PuanMaharani   https://t.co/Csz8vtlff6
+1569532429622198280 2022-09-13 03:44:26 +0000 &lt;PUANnews&gt; #Puan Maharani Minta Keamanan Siber Seluruh Kementerian-Lembaga Diaudit - RMOLJABAR  #PuanMaharani   https://t.co/7goTS7fhpZ
+1569532427541925889 2022-09-13 03:44:25 +0000 &lt;PUANnews&gt; #Melihat Lagi Perayaan Ulta Puan Saat Rakyat Demo Kenaikan BBM di DPR - 20Detik  #PuanMaharani   https://t.co/qqNkrYGe1A
+1569532425893543936 2022-09-13 03:44:25 +0000 &lt;PUANnews&gt; #Airlangga Disarankan Gandeng Khofifah untuk Lawan Puan - VIVA -  https://t.co/KQfLvpkQwV  #PuanMaharani   https://t.co/LWZ36JL2dV
+1569532423553142789 2022-09-13 03:44:24 +0000 &lt;PUANnews&gt; #KNPI Nilai Pelaporan Puan ke MKD Soal Perayaan Ulang Tahun Tidak... - telusur  #PuanMaharani   https://t.co/MmVS6VGi1R
+1569532372722544642 2022-09-13 03:44:12 +0000 &lt;lampungpost_&gt; Perayaan ultah Ketua DPR Puan Maharani di tengah rapat paripurna berbuntut panjang. Puan dilaporkan ke Mahkamah Kehormatan Dewan (MKD) karena momen perayaan tersebut.  #Puanmaharani #KetuaDPR #lampungpost   https://t.co/YncBL3euPP
+1569531678812667910 2022-09-13 03:41:27 +0000 &lt;kompascom&gt; Puan Dinilai Tak Peka terhadap Beban Masyarakat karena Rayakan Ulang Tahun saat Rapat Paripurna | #PuanMaharani  https://t.co/Y0Hb3dvR8S
+1569528161012154368 2022-09-13 03:27:28 +0000 &lt;faktualid_com&gt; Kasus Kebocoran Data, Puan Desak Pemerintah Segera Atasi Masalah Ini #Bjorka #hackerbjorka #PuanMaharani  https://t.co/72OIQsmCTq
+1569524904772632577 2022-09-13 03:14:32 +0000 &lt;tentang_puan&gt; Erick Thohir: Peretas Jangan Menjatuhkan, Lebih Baik Lindungi Negara #PuanMaharani  https://t.co/pLIhwqczoN  https://t.co/ya2BSNdyaq
+1569521186517962754 2022-09-13 02:59:45 +0000 &lt;faktaidn_&gt; Perusahaan Suami Puan Maharani Akan Ambil Alih Kepemilikan PT Krakatau Tirta Industri di Cilegon?  @_KRAKATAUSTEEL @krakatautirtaID #Cilegon #CilegonIntoleran #banten #PuanMaharani #krakatausteel    https://t.co/W1IWu9mlQO
+1569520088730189824 2022-09-13 02:55:24 +0000 &lt;Lembayungpbr22&gt; #pbnu #pdip #NU #koru #koruptor #PDIPerjuangan #iknkemajuanindonesia  #puan #puanmaharani #megawati #pdipki
+1569519978185109504 2022-09-13 02:54:57 +0000 &lt;Lembayungpbr22&gt; #pbnu #pdip #NU #koru #koruptor #PDIPerjuangan #iknkemajuanindonesia  #puan #puanmaharani #megawati #pdipki
+1569519897239236609 2022-09-13 02:54:38 +0000 &lt;Lembayungpbr22&gt; #pbnu #pdip #NU #koru #koruptor #PDIPerjuangan #iknkemajuanindonesia  #puan #puanmaharani #megawati #pdipki
+</pre></div>
+</div>
+</div>
+</div>
+<p>##Penjelasan Pandas</p>
+<p><strong>Pandas adalah paket Python open source yang paling sering dipakai untuk menganalisis data serta membangun sebuah machine learning. Pandas dibuat berdasarkan satu package lain bernama Numpy</strong></p>
+<p>8.melakukan Import Pandas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -586,40 +758,17 @@ Successfully installed Automat-20.2.0 PyDispatcher-2.0.6 Twisted-22.4.0 constant
 </div>
 </div>
 </div>
-<section id="scrapy-adalah-web-crawling-dan-web-scraping-framework-tingkat-tinggi-yang-cepat-digunakan-untuk-merayapi-situs-web-dan-mengekstrak-data-terstruktur-dari-halaman-mereka-ini-dapat-digunakan-untuk-berbagai-tujuan-mulai-dari-penambangan-data-hingga-pemantauan-dan-pengujian-otomatis">
-<h2>Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.<a class="headerlink" href="#scrapy-adalah-web-crawling-dan-web-scraping-framework-tingkat-tinggi-yang-cepat-digunakan-untuk-merayapi-situs-web-dan-mengekstrak-data-terstruktur-dari-halaman-mereka-ini-dapat-digunakan-untuk-berbagai-tujuan-mulai-dari-penambangan-data-hingga-pemantauan-dan-pengujian-otomatis" title="Permalink to this headline">#</a></h2>
-<p>5.Untuk Crawling Data pertama yang saya lakukan adalah untuk mendapatkan Link,untuk Link nya saya Crawling 50 lebih</p>
+<p>9.Baca data excel dataPuan.xlsx yang telah dilabeli yang disimpan di Google Drive</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinkSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;link&#39;</span>
-    <span class="n">start_urls</span><span class="o">=</span><span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">start_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://pta.trunojoyo.ac.id/c_search/byprod/10/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
-        <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-        <span class="n">link</span><span class="o">=</span><span class="p">[]</span>
-        <span class="k">for</span> <span class="n">jurnal</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;#content_journal &gt; ul&#39;</span><span class="p">):</span>
-            <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
-                <span class="k">yield</span> <span class="p">{</span>
-                    <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;li:nth-child(</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1">) &gt; div:nth-child(3) &gt; a::attr(href)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
-                <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>6.selanjutnya ingin mengetahui hasil dari Crawling yang berbentuk Json</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;jurnal.json&#39;</span><span class="p">)</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;dataPuan.xlsx&#39;</span><span class="p">)</span>
+<span class="n">data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5436c7f2-90e7-449a-af9a-38cf034e8325">
+  <div id="df-6f5ae1c3-543e-4b5c-be3d-2fa39bccb58a">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -639,59 +788,71 @@ Successfully installed Automat-20.2.0 PyDispatcher-2.0.6 Twisted-22.4.0 constant
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>link</th>
+      <th>tweet</th>
+      <th>label</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/070...</td>
+      <td>DPR Rayakan Ultah Puan Saat Demo BBM Naik, PDI...</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/070...</td>
+      <td>#PuanMaharani: @puanmaharani_ri: 'Pertemuan bi...</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/070...</td>
+      <td>@pawangin IIHHHH MAMPUS KU TAAGG LAHHH MAMPUSS...</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/080...</td>
+      <td>Rayakan Ulang Tahun di DPR saat Demo BBM, Puan...</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/070...</td>
+      <td>Buntut Ultah di Paripurna, Puan Maharani Dilap...</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/080...</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/060...</td>
+      <td>...</td>
     </tr>
     <tr>
       <th>72</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/070...</td>
+      <td>Dapet VT dari TikTok #bjorka beri salam kepada...</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th>73</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/090...</td>
+      <td>@emerson_yuntho @puanmaharani_ri @aniesbasweda...</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th>74</th>
-      <td>https://pta.trunojoyo.ac.id/welcome/detail/080...</td>
+      <td>@puanmaharani_ri HAHAHAHAHAHAHAHA WAJAH KONYOL</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Giliran Data Pribadi Puan Maharani Bocor, Hack...</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>@KotaNusantara xMenurut Puan Maharani, karya p...</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>75 rows × 1 columns</p>
+<p>77 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-5436c7f2-90e7-449a-af9a-38cf034e8325')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-6f5ae1c3-543e-4b5c-be3d-2fa39bccb58a')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -742,12 +903,12 @@ Successfully installed Automat-20.2.0 PyDispatcher-2.0.6 Twisted-22.4.0 constant
 
       <script>
         const buttonEl =
-          document.querySelector('#df-5436c7f2-90e7-449a-af9a-38cf034e8325 button.colab-df-convert');
+          document.querySelector('#df-6f5ae1c3-543e-4b5c-be3d-2fa39bccb58a button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-5436c7f2-90e7-449a-af9a-38cf034e8325');
+          const element = document.querySelector('#df-6f5ae1c3-543e-4b5c-be3d-2fa39bccb58a');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -768,38 +929,13 @@ Successfully installed Automat-20.2.0 PyDispatcher-2.0.6 Twisted-22.4.0 constant
   </div>
 </div></div>
 </div>
-<p>7.Setelah mendapatkan Data Link dari <a class="reference external" href="http://PTA.trunojoyo.ac.id">PTA.trunojoyo.ac.id</a> lalu dicrawling lagi dari Link yang tadi,untuk mendapatkan Kumpulan Judul dan Abstraksi</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;detail&#39;</span>
-    <span class="n">data_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;jurnal.json&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span> <span class="n">link</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">data_csv</span> <span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="p">{</span>
-            <span class="s1">&#39;Judul&#39;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;#content_journal &gt; ul &gt; li &gt; div:nth-child(2) &gt; a::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">(),</span>
-            <span class="s1">&#39;Abstraksi&#39;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;#content_journal &gt; ul &gt; li &gt; div:nth-child(4) &gt; div:nth-child(2) &gt; p::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">(),</span>
-        <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>8.Untuk menampilkan data CSV</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;result.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
-<section id="nltk-adalah-singkatan-dari-natural-language-tool-kit-yaitu-sebuah-library-yang-digunakan-untuk-membantu-kita-dalam-bekerja-dengan-teks-library-ini-memudahkan-kita-untuk-memproses-teks-seperti-melakukan-classification-tokenization-stemming-tagging-parsing-dan-semantic-reasoning">
-<h2><strong>NLTK</strong> adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.<a class="headerlink" href="#nltk-adalah-singkatan-dari-natural-language-tool-kit-yaitu-sebuah-library-yang-digunakan-untuk-membantu-kita-dalam-bekerja-dengan-teks-library-ini-memudahkan-kita-untuk-memproses-teks-seperti-melakukan-classification-tokenization-stemming-tagging-parsing-dan-semantic-reasoning" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="python-sastrawi-adalah-pengembangan-dari-proyek-php-sastrawi-python-sastrawi-merupakan-library-sederhana-yang-dapat-mengubah-kata-berimbuhan-bahasa-indonesia-menjadi-bentuk-dasarnya-sastrawi-juga-dapat-diinstal-melalui-pip">
-<h2><strong>Python Sastrawi</strong> adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”<a class="headerlink" href="#python-sastrawi-adalah-pengembangan-dari-proyek-php-sastrawi-python-sastrawi-merupakan-library-sederhana-yang-dapat-mengubah-kata-berimbuhan-bahasa-indonesia-menjadi-bentuk-dasarnya-sastrawi-juga-dapat-diinstal-melalui-pip" title="Permalink to this headline">#</a></h2>
-<p>9.Install Library nltk dan Sastrawi</p>
+<section id="penjelasan-nltk">
+<h2>Penjelasan NLTK<a class="headerlink" href="#penjelasan-nltk" title="Permalink to this headline">#</a></h2>
+<p><strong>NLTK adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.</strong></p>
+<p>##Penjelasan Sastrawi</p>
+<p><strong>Python Sastrawi adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”</strong></p>
+<p>10.Install Library nltk dan Sastrawi</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nltk
@@ -810,23 +946,23 @@ Successfully installed Automat-20.2.0 PyDispatcher-2.0.6 Twisted-22.4.0 constant
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: nltk in /usr/local/lib/python3.7/dist-packages (3.7)
-Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
 Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.1.0)
 Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
-Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.0)
+Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-packages (1.0.1)
+Collecting Sastrawi
+  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
+     |████████████████████████████████| 209 kB 8.5 MB/s 
+?25hInstalling collected packages: Sastrawi
+Successfully installed Sastrawi-1.0.1
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="pandas-adalah-paket-python-open-source-yang-paling-sering-dipakai-untuk-menganalisis-data-serta-membangun-sebuah-machine-learning-pandas-dibuat-berdasarkan-satu-package-lain-bernama-numpy">
-<h2><strong>Pandas</strong> adalah paket Python open source yang paling sering dipakai untuk menganalisis data serta membangun sebuah machine learning. Pandas dibuat berdasarkan satu package lain bernama Numpy<a class="headerlink" href="#pandas-adalah-paket-python-open-source-yang-paling-sering-dipakai-untuk-menganalisis-data-serta-membangun-sebuah-machine-learning-pandas-dibuat-berdasarkan-satu-package-lain-bernama-numpy" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="re-module-python-menyediakan-seperangkat-fungsi-yang-memungkinkan-kita-untuk-mencari-sebuah-string-untuk-match-match">
-<h2><strong>Re</strong> module Python menyediakan seperangkat fungsi yang memungkinkan kita untuk mencari sebuah string untuk match (match).<a class="headerlink" href="#re-module-python-menyediakan-seperangkat-fungsi-yang-memungkinkan-kita-untuk-mencari-sebuah-string-untuk-match-match" title="Permalink to this headline">#</a></h2>
-<p>10.Lakukan Import beberapa Library seperti Pandas,re,nltk,string dan Sastrawi</p>
+<p>##Penjelasan RE</p>
+<p><strong>Re module Python menyediakan seperangkat fungsi yang memungkinkan kita untuk mencari sebuah string untuk match (match).</strong></p>
+<p>11.Lakukan Import beberapa Library seperti Pandas,re,nltk,string dan Sastrawi</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -842,181 +978,10 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Package punkt is already up-to-date!
+[nltk_data]   Unzipping tokenizers/punkt.zip.
 </pre></div>
 </div>
 </div>
-</div>
-<p>11.Menampilkan data CSV dengan bantuan Library Pandas</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;result.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-5adf7f39-c5ec-4cd0-b057-ac65cbe2d68e">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Judul</th>
-      <th>Abstraksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>IMPLEMENTASI  ALGORITMA PRIM  DAN DEPTH FIRST ...</td>
-      <td>Teknologi mobile game beroperating system open...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI MENU DI...</td>
-      <td>Pelayanan makanan bagi pasien rawat inap di Ru...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>RANCANG BANGUN GAME PERAWATAN SAPI KARAPAN MEN...</td>
-      <td>Perkembangan game yang semakin pesat, memberik...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Perancangan Sistem Informasi Badan Kepegawaian...</td>
-      <td>Kantor Badan Kepegawaian kota Bangkalan adalah...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>APLIKASI METODE FUZZY ANALYTIC NETWORK PROCESS...</td>
-      <td>Perusahaan pemerintah maupun swasta mempunyai ...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>PENDETEKSIAN MINUTIAE PADA SIDIK JARI MENGGUNA...</td>
-      <td>PENDETEKSIAN MINUTIAE PADA SIDIK JARI\r\nMENGG...</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>EKSTRAKSI PENAMBAHAN STOPLIST DARI KATA UMUM D...</td>
-      <td>Dokumen teks bahasa Indonesia sangat melimpah ...</td>
-    </tr>
-    <tr>
-      <th>72</th>
-      <td>Analisa Pemilihan Alat Kontrasepsi Dengan Meng...</td>
-      <td>KB adalah singkatan dari Keluarga Berencana. M...</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>EKSTRAKSI FITUR PRINCIPAL COMPONENT ANALYSIS (...</td>
-      <td>Komunikasi merupakan hal yang sangat penting d...</td>
-    </tr>
-    <tr>
-      <th>74</th>
-      <td>Manajemen Workflow Layanan Akademik Berbasis B...</td>
-      <td>Layanan akademik merupakan usaha yang dilakuka...</td>
-    </tr>
-  </tbody>
-</table>
-<p>74 rows × 2 columns</p>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-5adf7f39-c5ec-4cd0-b057-ac65cbe2d68e')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-5adf7f39-c5ec-4cd0-b057-ac65cbe2d68e button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-5adf7f39-c5ec-4cd0-b057-ac65cbe2d68e');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-</div></div>
 </div>
 <p>12.Selanjutnya membuat Function Remove Stopwords yang fungsinya adalah menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM</p>
 <div class="cell docutils container">
@@ -1097,8 +1062,20 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
 <p>15.Membuat Tabel dari hasil Preprocessing,disitu juga menambahkan nama column(Abstraksi) dan baris(kata)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> ../contents
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/webmining/webmining/contents
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Abstraksi&#39;</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;tweet&#39;</span><span class="p">]):</span>
     <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Doc &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>    
     <span class="n">doc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span> 
     <span class="c1">#doc.columns = [data[&#39;Judul&#39;][i]]    </span>
@@ -1118,7 +1095,7 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-6586a9a8-b0c4-4a69-a7f6-6e71b2094906">
+  <div id="df-52dd1f27-cfad-48de-8fa5-9a34a60cb7a9">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1149,9 +1126,6 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
       <th>Doc 9</th>
       <th>Doc 10</th>
       <th>...</th>
-      <th>Doc 65</th>
-      <th>Doc 66</th>
-      <th>Doc 67</th>
       <th>Doc 68</th>
       <th>Doc 69</th>
       <th>Doc 70</th>
@@ -1159,6 +1133,9 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
       <th>Doc 72</th>
       <th>Doc 73</th>
       <th>Doc 74</th>
+      <th>Doc 75</th>
+      <th>Doc 76</th>
+      <th>Doc 77</th>
     </tr>
     <tr>
       <th>Term</th>
@@ -1187,18 +1164,91 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
   </thead>
   <tbody>
     <tr>
-      <th>teknologi</th>
+      <th>dpr</th>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>raya</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>ultah</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>puan</th>
       <td>2.0</td>
       <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1206,93 +1256,20 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>mobile</th>
-      <td>5.0</td>
+      <th>demo</th>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>game</th>
-      <td>5.0</td>
-      <td>0.0</td>
-      <td>10.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>beroperating</th>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>system</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1331,55 +1308,7 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
       <td>...</td>
     </tr>
     <tr>
-      <th>7711</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>bpms</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>runtime</th>
+      <th>nusantara</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1403,7 +1332,7 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
       <td>1.0</td>
     </tr>
     <tr>
-      <th>jembatan</th>
+      <th>sungguh</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1427,7 +1356,55 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
       <td>1.0</td>
     </tr>
     <tr>
-      <th>praktis</th>
+      <th>indah</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>kualitas</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>semangatnusantara</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1452,9 +1429,9 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
     </tr>
   </tbody>
 </table>
-<p>1818 rows × 74 columns</p>
+<p>490 rows × 77 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-6586a9a8-b0c4-4a69-a7f6-6e71b2094906')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-52dd1f27-cfad-48de-8fa5-9a34a60cb7a9')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1505,12 +1482,12 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
 
       <script>
         const buttonEl =
-          document.querySelector('#df-6586a9a8-b0c4-4a69-a7f6-6e71b2094906 button.colab-df-convert');
+          document.querySelector('#df-52dd1f27-cfad-48de-8fa5-9a34a60cb7a9 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-6586a9a8-b0c4-4a69-a7f6-6e71b2094906');
+          const element = document.querySelector('#df-52dd1f27-cfad-48de-8fa5-9a34a60cb7a9');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1531,17 +1508,51 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
   </div>
 </div></div>
 </div>
-<p>16.Menampilkan nilai tabel berdasarkan hasil Asli tanpa pembulatan</p>
+</section>
+<section id="penjelasan-scikit-learn">
+<h2>Penjelasan Scikit-learn<a class="headerlink" href="#penjelasan-scikit-learn" title="Permalink to this headline">#</a></h2>
+<p>Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.</p>
+<p>16.install scikit-learn</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="p">[</span><span class="n">tf</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">tf</span><span class="p">)</span>
-<span class="n">tf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U scikit-learn
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.7/dist-packages (1.0.2)
+Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.1.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
+Requirement already satisfied: scipy&gt;=1.1.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.7.3)
+Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>17.mengumpulkan data untuk di Train</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">])</span>
+
+<span class="n">idf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">)</span>
+<span class="n">idf</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Inverse Document Frequency&#39;</span><span class="p">]</span>
+<span class="n">idf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">idf</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">idf</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-388c51d3-b97c-4a61-919e-b9a0747621c1">
+  <div id="df-c7e22183-52bf-4c18-b898-209b66ec8533">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1561,323 +1572,76 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Doc 1</th>
-      <th>Doc 2</th>
-      <th>Doc 3</th>
-      <th>Doc 4</th>
-      <th>Doc 5</th>
-      <th>Doc 6</th>
-      <th>Doc 7</th>
-      <th>Doc 8</th>
-      <th>Doc 9</th>
-      <th>Doc 10</th>
-      <th>...</th>
-      <th>Doc 65</th>
-      <th>Doc 66</th>
-      <th>Doc 67</th>
-      <th>Doc 68</th>
-      <th>Doc 69</th>
-      <th>Doc 70</th>
-      <th>Doc 71</th>
-      <th>Doc 72</th>
-      <th>Doc 73</th>
-      <th>Doc 74</th>
+      <th>Document Frequency</th>
+      <th>Inverse Document Frequency</th>
     </tr>
     <tr>
       <th>Term</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>teknologi</th>
-      <td>1.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.30103</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.30103</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.000000</td>
+      <th>dpr</th>
+      <td>3</td>
+      <td>1.409369</td>
     </tr>
     <tr>
-      <th>mobile</th>
-      <td>1.69897</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>1.477121</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
+      <th>raya</th>
+      <td>6</td>
+      <td>1.108339</td>
     </tr>
     <tr>
-      <th>game</th>
-      <td>1.69897</td>
-      <td>0.0</td>
-      <td>2.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>1.60206</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
+      <th>ultah</th>
+      <td>6</td>
+      <td>1.108339</td>
     </tr>
     <tr>
-      <th>beroperating</th>
-      <td>1.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
+      <th>puan</th>
+      <td>26</td>
+      <td>0.471517</td>
     </tr>
     <tr>
-      <th>system</th>
-      <td>1.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>1.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
+      <th>demo</th>
+      <td>2</td>
+      <td>1.585461</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>7711</th>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000000</td>
+      <th>nusantara</th>
+      <td>1</td>
+      <td>1.886491</td>
     </tr>
     <tr>
-      <th>bpms</th>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.477121</td>
+      <th>sungguh</th>
+      <td>1</td>
+      <td>1.886491</td>
     </tr>
     <tr>
-      <th>runtime</th>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.000000</td>
+      <th>indah</th>
+      <td>1</td>
+      <td>1.886491</td>
     </tr>
     <tr>
-      <th>jembatan</th>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.000000</td>
+      <th>kualitas</th>
+      <td>1</td>
+      <td>1.886491</td>
     </tr>
     <tr>
-      <th>praktis</th>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.000000</td>
+      <th>semangatnusantara</th>
+      <td>1</td>
+      <td>1.886491</td>
     </tr>
   </tbody>
 </table>
-<p>1818 rows × 74 columns</p>
+<p>490 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-388c51d3-b97c-4a61-919e-b9a0747621c1')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c7e22183-52bf-4c18-b898-209b66ec8533')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1928,12 +1692,197 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
 
       <script>
         const buttonEl =
-          document.querySelector('#df-388c51d3-b97c-4a61-919e-b9a0747621c1 button.colab-df-convert');
+          document.querySelector('#df-c7e22183-52bf-4c18-b898-209b66ec8533 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-388c51d3-b97c-4a61-919e-b9a0747621c1');
+          const element = document.querySelector('#df-c7e22183-52bf-4c18-b898-209b66ec8533');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>18.Mengurutkan suku kata berdasarkan jumlah suku kata yang paling banyak keluar</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.model_selection import train_test_split</span>
+<span class="c1"># X_train,X_test,Y_train,Y_test=train_test_split(idf.drop(labels=[&#39;Document Frequency&#39;,],axis=1),</span>
+<span class="c1">#                                                idf[&#39;Document Frequency&#39;],</span>
+<span class="c1">#                                                test_size=0.3,</span>
+<span class="c1">#                                                random_state=0)</span>
+<span class="c1"># from sklearn.feature_selection import mutual_info_classif</span>
+<span class="c1"># #mutual_info=mutual_info_classif(idf[&#39;Document Frequency&#39;],idf[&#39;Inverse Document Frequency&#39;])</span>
+<span class="c1"># X_test</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">idf</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a6733a12-805a-4892-bd0d-f4b2f868af7c">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Document Frequency</th>
+    </tr>
+    <tr>
+      <th>Term</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>puanmaharaniri</th>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>puan</th>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>maharani</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>bjorkanism</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>narasinewsroom</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>bjorka</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>bjorxanism</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>puanmaharani</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>lapor</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>mkd</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>dprri</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>ultah</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>raya</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>paripurna</th>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a6733a12-805a-4892-bd0d-f4b2f868af7c')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-a6733a12-805a-4892-bd0d-f4b2f868af7c button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-a6733a12-805a-4892-bd0d-f4b2f868af7c');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1998,7 +1947,7 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By Muhammad Fahmi Ady Susilo<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
