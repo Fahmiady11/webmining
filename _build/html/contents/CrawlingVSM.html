@@ -1,0 +1,3722 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL &#8212; Web Mining</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Web Mining</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Fahmiady11/webmining/master?urlpath=tree/docs/contents/CrawlingVSM.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://drive.google.com/file/d/121AnsOe1r48Cz6rp853f7rlHsKxlvl-N/view?usp=sharing/github/Fahmiady11/webmining/blob/master/docs/contents/CrawlingVSM.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Fahmiady11/webmining/tree/master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Fahmiady11/webmining/tree/master/issues/new?title=Issue%20on%20page%20%2Fcontents/CrawlingVSM.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/contents/CrawlingVSM.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-twint">
+   Penjelasan Twint
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-pandas">
+   Penjelasan Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-nltk">
+   Penjelasan NLTK
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-sastrawi">
+   Penjelasan Sastrawi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-re">
+   Penjelasan RE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-scikit-learn">
+   Penjelasan Scikit-learn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-information-gain">
+   Penjelasan Information Gain
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-twint">
+   Penjelasan Twint
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-pandas">
+   Penjelasan Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-nltk">
+   Penjelasan NLTK
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-sastrawi">
+   Penjelasan Sastrawi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-re">
+   Penjelasan RE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-scikit-learn">
+   Penjelasan Scikit-learn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-information-gain">
+   Penjelasan Information Gain
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="crawling-data-twitter-menggunakan-metode-vector-space-model">
+<h1>CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL<a class="headerlink" href="#crawling-data-twitter-menggunakan-metode-vector-space-model" title="Permalink to this headline">#</a></h1>
+<p>Crawling Data adalah teknik pengumpulan data yang digunakan untuk mengindeks informasi pada halaman menggunakan URL (Uniform Resource Locator) dengan menyertakan API (Application Programming Interface) untuk melakukan penambangan dataset yang lebih besar.</p>
+<p>Data yang dapat kamu kumpulkan dapat berupa text, audio, video, dan gambar. Kamu dapat memulai dengan melakukan penambangan data pada API yang bersifat open source seperti yang disediakan oleh Twitter. Untuk melakukan crawling data di Twitter kamu dapat menggunakan library scrapy ataupun twint pada python.</p>
+<p>Untuk Tahap-Tahap sebagai berikut:</p>
+<p>Lakukan Connect Google colab dengan goole Drive sebagai penyimpanan</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">d5df0069828e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">timeout_ms</span><span class="o">=</span><span class="n">timeout_ms</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">105</span>       <span class="n">ephemeral</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> 
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">120</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> 
+<span class="g g-Whitespace">    </span><span class="mi">122</span>   <span class="n">mountpoint</span> <span class="o">=</span> <span class="n">_os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span>   <span class="n">request_id</span> <span class="o">=</span> <span class="n">send_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">97</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>       <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">if</span> <span class="p">(</span><span class="n">reply</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;colab_reply&#39;</span> <span class="ow">and</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pindah Path ke /content/drive/MyDrive/webmining/webmining</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/webmining/webmining/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/webmining/webmining
+</pre></div>
+</div>
+</div>
+</div>
+<p>Clone Twint dari Github Twint Project</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/twintproject/twint.git
+<span class="o">%</span><span class="k">cd</span> twint
+<span class="o">!</span>pip3 install . -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: destination path &#39;twint&#39; already exists and is not an empty directory.
+/content/drive/MyDrive/webmining/webmining/twint
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Processing /content/drive/MyDrive/webmining/webmining/twint
+<span class=" -Color -Color-Yellow">  DEPRECATION: A future pip version will change local packages to be built in-place without first copying to a temporary directory. We recommend you use --use-feature=in-tree-build to test your packages with this new behavior before it becomes the default.</span>
+<span class=" -Color -Color-Yellow">   pip 21.3 will remove support for this functionality. You can find discussion regarding this at https://github.com/pypa/pip/issues/7555.</span>
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 1)) (3.8.1)
+Collecting aiodns
+  Downloading aiodns-3.0.0-py3-none-any.whl (5.0 kB)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 3)) (4.6.3)
+Collecting cchardet
+  Downloading cchardet-2.1.7-cp37-cp37m-manylinux2010_x86_64.whl (263 kB)
+     |████████████████████████████████| 263 kB 8.1 MB/s 
+?25hCollecting dataclasses
+  Downloading dataclasses-0.6-py3-none-any.whl (14 kB)
+Collecting elasticsearch
+  Downloading elasticsearch-8.4.1-py3-none-any.whl (385 kB)
+     |████████████████████████████████| 385 kB 51.3 MB/s 
+?25hRequirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
+Requirement already satisfied: pandas&gt;=0.23.0 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 8)) (1.3.5)
+Collecting aiohttp_socks&lt;=0.4.1
+  Downloading aiohttp_socks-0.4.1-py3-none-any.whl (17 kB)
+Collecting schedule
+  Downloading schedule-1.1.0-py2.py3-none-any.whl (10 kB)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 11)) (1.17.0)
+Collecting fake-useragent
+  Downloading fake-useragent-0.1.11.tar.gz (13 kB)
+Collecting googletransx
+  Downloading googletransx-2.4.2.tar.gz (13 kB)
+Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2022.2.1)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.21.6)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2.8.2)
+Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp_socks&lt;=0.4.1-&gt;-r requirements.txt (line 9)) (22.1.0)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.8.1)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.3.1)
+Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.0.2)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.2.0)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (6.0.2)
+Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (0.13.0)
+Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (2.1.1)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.15.0)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (2.10)
+Collecting pycares&gt;=4.0.0
+  Downloading pycares-4.2.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (288 kB)
+     |████████████████████████████████| 288 kB 46.9 MB/s 
+?25hRequirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (2.21)
+Collecting elastic-transport&lt;9,&gt;=8
+  Downloading elastic_transport-8.4.0-py3-none-any.whl (59 kB)
+     |████████████████████████████████| 59 kB 7.7 MB/s 
+?25hRequirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.6.15)
+Collecting urllib3&lt;2,&gt;=1.26.2
+  Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+     |████████████████████████████████| 140 kB 76.2 MB/s 
+?25hRequirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (1.52)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.23.0)
+Collecting requests
+  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+     |████████████████████████████████| 62 kB 1.8 MB/s 
+?25hBuilding wheels for collected packages: twint, fake-useragent, googletransx
+  Building wheel for twint (setup.py) ... ?25l?25hdone
+  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=e846b16ebb0a7cac29db8d157b66cd3468e49c331757172ef986c023dd857e09
+  Stored in directory: /tmp/pip-ephem-wheel-cache-7fuxq43q/wheels/88/61/06/bd5d6a887f43cd7ea07380c2bc1fb104f5cc0d03f92a3c50c4
+  Building wheel for fake-useragent (setup.py) ... ?25l?25hdone
+  Created wheel for fake-useragent: filename=fake_useragent-0.1.11-py3-none-any.whl size=13502 sha256=72814b3804a3f4999885382dd4a86ae122f612eebeca89f94f6294c04cddadab
+  Stored in directory: /root/.cache/pip/wheels/ed/f7/62/50ab6c9a0b5567267ab76a9daa9d06315704209b2c5d032031
+  Building wheel for googletransx (setup.py) ... ?25l?25hdone
+  Created wheel for googletransx: filename=googletransx-2.4.2-py3-none-any.whl size=15968 sha256=0f42c8cbf36937bc3e5462b00e35a0ff32d5bee06cd1abcba504ff34c325b992
+  Stored in directory: /root/.cache/pip/wheels/66/d5/b1/31104b338f7fd45aa8f7d22587765db06773b13df48a89735f
+Successfully built twint fake-useragent googletransx
+Installing collected packages: urllib3, requests, pycares, elastic-transport, schedule, googletransx, fake-useragent, elasticsearch, dataclasses, cchardet, aiohttp-socks, aiodns, twint
+  Attempting uninstall: urllib3
+    Found existing installation: urllib3 1.24.3
+    Uninstalling urllib3-1.24.3:
+      Successfully uninstalled urllib3-1.24.3
+  Attempting uninstall: requests
+    Found existing installation: requests 2.23.0
+    Uninstalling requests-2.23.0:
+      Successfully uninstalled requests-2.23.0
+Successfully installed aiodns-3.0.0 aiohttp-socks-0.4.1 cchardet-2.1.7 dataclasses-0.6 elastic-transport-8.4.0 elasticsearch-8.4.1 fake-useragent-0.1.11 googletransx-2.4.2 pycares-4.2.2 requests-2.28.1 schedule-1.1.0 twint-2.1.21 urllib3-1.26.12
+</pre></div>
+</div>
+</div>
+</div>
+<section id="penjelasan-twint">
+<h2>Penjelasan Twint<a class="headerlink" href="#penjelasan-twint" title="Permalink to this headline">#</a></h2>
+<p>Twint adalah alat pengikis Twitter canggih yang ditulis dengan Python yang memungkinkan untuk menggores Tweet dari profil Twitter tanpa menggunakan API Twitter.</p>
+<p>install Library Twint</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install twint
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: twint in /usr/local/lib/python3.7/dist-packages (2.1.21)
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from twint) (3.8.1)
+Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from twint) (2.4.2)
+Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from twint) (1.7.1)
+Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from twint) (1.3.5)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.7/dist-packages (from twint) (0.6)
+Requirement already satisfied: aiohttp-socks in /usr/local/lib/python3.7/dist-packages (from twint) (0.4.1)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from twint) (4.6.3)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from twint) (1.17.0)
+Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from twint) (8.4.1)
+Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from twint) (1.1.0)
+Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from twint) (2.1.7)
+Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from twint) (3.0.0)
+Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from twint) (0.1.11)
+Requirement already satisfied: pycares&gt;=4.0.0 in /usr/local/lib/python3.7/dist-packages (from aiodns-&gt;twint) (4.2.2)
+Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (1.15.1)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (2.21)
+Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (0.13.0)
+Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.0.2)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (6.0.2)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.1.1)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.8.1)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.2.0)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.3.1)
+Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (2.1.1)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (22.1.0)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;twint) (2.10)
+Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in /usr/local/lib/python3.7/dist-packages (from elasticsearch-&gt;twint) (8.4.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (2022.6.15)
+Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (1.26.12)
+Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;twint) (1.52)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;twint) (2.28.1)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (1.21.6)
+Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2022.2.1)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas-&gt;twint) (1.15.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>install aiohttp versi 3.7.0</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">aiohttp</span><span class="o">==</span><span class="m">3</span>.7.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting aiohttp==3.7.0
+  Downloading aiohttp-3.7.0-cp37-cp37m-manylinux2014_x86_64.whl (1.3 MB)
+     |████████████████████████████████| 1.3 MB 8.9 MB/s 
+?25hRequirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (6.0.2)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (1.8.1)
+Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.4)
+Collecting async-timeout&lt;4.0,&gt;=3.0
+  Downloading async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (22.1.0)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (4.1.1)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (2.10)
+Installing collected packages: async-timeout, aiohttp
+  Attempting uninstall: async-timeout
+    Found existing installation: async-timeout 4.0.2
+    Uninstalling async-timeout-4.0.2:
+      Successfully uninstalled async-timeout-4.0.2
+  Attempting uninstall: aiohttp
+    Found existing installation: aiohttp 3.8.1
+    Uninstalling aiohttp-3.8.1:
+      Successfully uninstalled aiohttp-3.8.1
+Successfully installed aiohttp-3.7.0 async-timeout-3.0.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>melakukan Import Twint</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">twint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Install Nest Asyncio dan lakukan Import</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nest_asyncio
+<span class="kn">import</span> <span class="nn">nest_asyncio</span>
+<span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting nest_asyncio
+  Downloading nest_asyncio-1.5.5-py3-none-any.whl (5.2 kB)
+Installing collected packages: nest-asyncio
+Successfully installed nest-asyncio-1.5.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>configurasi Twint seperti halnya example di website library Twint</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">twint</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Search</span> <span class="o">=</span> <span class="s1">&#39;#ganjarpranowo&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Pandas</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Limit</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Store_csv</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Custom</span><span class="p">[</span><span class="s2">&quot;tweet&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tweet&quot;</span><span class="p">]</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Output</span> <span class="o">=</span> <span class="s2">&quot;dataGanjar.csv&quot;</span>
+<span class="n">twint</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Search</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1571508949538734084 2022-09-18 14:38:25 +0000 &lt;sahabatganjar&gt; Ganjar pun mengajak masyarakat berdoa bersama, untuk kekuatan menghadapi situasi yang tidak mudah.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/co0qiFKTGe
+1571508933193527298 2022-09-18 14:38:21 +0000 &lt;sahabatganjar&gt; Kerinduan Gubernur Jawa Tengah Ganjar Pranowo dengan suasana meriah dalam tiap gelaran tradisi Sebar Apem Yaa Qowiyyu, di Kompleks Makam Kiai Ageng Gribig, Jatinom, Klaten, akhirnya terobati.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/56PfrC6sLe
+1571508919062921216 2022-09-18 14:38:18 +0000 &lt;sahabatganjar&gt; Kerinduan Gubernur Jawa Tengah Ganjar Pranowo dengan suasana meriah dalam tiap gelaran tradisi Sebar Apem Yaa Qowiyyu, di Kompleks Makam Kiai Ageng Gribig, Jatinom, Klaten, akhirnya terobati.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/AF6Py5DF1Y
+1571501417315323905 2022-09-18 14:08:29 +0000 &lt;Rk_Sumenep&gt; Puan Beri Arahan ke Kader-Kepala Daerah di Jateng, Ganjar Tak Diundang  &quot;Ganjar Paggun E Atena Make Tanpa PDIP&quot;  #rumahkitajatim #rumahkitasumenep #ganjarpranowo #PDIPerjuangan  https://t.co/ZxKd1Zu7Yb
+1571500895795576832 2022-09-18 14:06:25 +0000 &lt;sahabatganjar&gt; Deflasi tak lepas dari sejumlah upaya yang dilakukan Gubernur Jawa Tengah Ganjar Pranowo, misalnya intervensi, operasi pasar hingga menggelontorkan bantuan untuk menjaga daya beli masyarakat.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/jF6wpuURfR
+1571500878003335169 2022-09-18 14:06:21 +0000 &lt;sahabatganjar&gt; Provinsi Jawa Tengah mengalami deflasi penurunan harga komoditas pangan dan nonpangan sebesar -0,39 persen pada bulan Agustus 2022 lalu. Jumlah tersebut melebihi besaran deflasi nasional yang tercatat sebesar -0,21 persen.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/qCs4x6GQCm
+1571500865445572611 2022-09-18 14:06:18 +0000 &lt;sahabatganjar&gt; Gubernur Jawa Tengah Ganjar Pranowo sukses menjaga harga berbagai jenis kebutuhan masyarakat Jateng. Hal itu terbukti dari laporan Badan Pusat Statistik Jateng yang menyebut bahwa Jateng mengalami deflasi pada bulan Agustus lalu.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/sM1W1UEZ44
+1571494699759972352 2022-09-18 13:41:48 +0000 &lt;Zaindamai&gt; #ganjarpranowo akan menaikkan suara parpol pengusung @PartaiGolkar @NasDem @psi_id #2024gantian
+1571492298239922176 2022-09-18 13:32:15 +0000 &lt;Edward4ntonius&gt; Apa sebenarnya salah Pak Ganjar? wong ya Pak Ganjar masih manut sama partai, masih menyatakan dirinya banteng. Kalau Pak Ganjar itu orang yang ngotot mau nyapres, bisa saja dia nggak manut sama partai, dan declare dari sekarang. Toh sudah banyak yang mau meminang.  #GanjarPranowo  https://t.co/j9MHC8dN4N
+1571489439343587332 2022-09-18 13:20:53 +0000 &lt;4_gp2024&gt; Gubernur Jawa Tengah Ganjar Pranowo mengatakan siap untuk mendampingi koperasi yang beranggotakan istri atau keluarga eks napiter.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/GdLuQeALFw
+1571486300045455363 2022-09-18 13:08:25 +0000 &lt;makganjarsumsel&gt; #makganjarberbagikebaikan #makganjarsumsel #makganjarutkpakganjar #ganjarforpresident2024 #ganjarpranowo  https://t.co/CU6lmIfaDp
+1571485069017239553 2022-09-18 13:03:31 +0000 &lt;sahabatganjar&gt; Turnamen PUBG Mobile Saga Esports di Kabupaten Lombok Timur, NTB udah selesai nih. Berikut 3 tim terkuat.  Juara 1 Nathan Squad, Juara 2 Lns New Era, dan Juara 3 Wet Squad  Nantikan Turnamen Saga Esports di Kota kamu!  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/DO6oygJTsH
+1571482532226682880 2022-09-18 12:53:27 +0000 &lt;aan_muba&gt; Apa sebenarnya salah Pak Ganjar? wong ya Pak Ganjar masih manut sama partai, masih menyatakan dirinya banteng. Kalau Pak Ganjar itu orang yang ngotot mau nyapres, bisa saja dia nggak manut sama partai, dan declare dari sekarang. Toh sudah banyak yang mau meminang.  #GanjarPranowo  https://t.co/621ZlTeeUv
+1571478160839151616 2022-09-18 12:36:04 +0000 &lt;beritajatimcom&gt; Santri Dukung Ganjar Jatim Gelar Doa Bersama untuk Negeri.  Surabaya ( https://t.co/ksziGGp1k3) – Konsolidasi dukungan untuk Ganjar Pranowo Presiden 2024 masih terus berlanjut hingga ke seluruh daerah di…  https://t.co/mq2dJ3f7MX #PolitikPemerintahan #ganjarpranowo #Pilpres2024
+1571477110002417665 2022-09-18 12:31:54 +0000 &lt;4_gp2024&gt; menetapkan regulasi pendukung percepatan penggunaan kendaraan listrik.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/PBCmGx7VSh
+1571476086936186882 2022-09-18 12:27:50 +0000 &lt;4_gp2024&gt; Batch 16 Turnamen PUBG Mobile Saga Esports digelar bersama milenial yang berada di Kabupaten Lombok Timur, NTB.  Yuk tonton melalui Facebook dan Youtube Sahabat Ganjar.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/biWw5EurvJ
+1571475629379563520 2022-09-18 12:26:01 +0000 &lt;4_gp2024&gt; Ia akan terus berkoordinasi dengan Tim Pengendali Inflasi Daerah untuk memantau kondisi pasar.  #SahabatGanjar #Ganjar #ganjarpranowo
+1571475561222131712 2022-09-18 12:25:45 +0000 &lt;4_gp2024&gt; Yuk Sahabat! Jangan lupa pantengin terus kegiatan Sahabat Ganjar dengan klik link di bio!  #GanjarPranowo #SahabatGanjar #SenamSehat #Deklarasi #KotaTasikmalaya
+1571475298314768385 2022-09-18 12:24:42 +0000 &lt;4_gp2024&gt; Menurutnya Ruwatan Bumi dapat membawa spirit kearifan lokal bagi masyarakat Indonesia  #SahabatGanjar #Ganjar #ganjarpranowo
+1571474751142625282 2022-09-18 12:22:31 +0000 &lt;4_gp2024&gt; Pemprov Jawa Tengah membantu puluhan warga terdampak Banjir Kalikeruh, Apa yang disampaikan Ganjar? Lihat video berikut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/ACUpTRhYwW
+1571474647757246464 2022-09-18 12:22:07 +0000 &lt;4_gp2024&gt; Warga Donosari mendapat bantuan dari Gubernur Jawa Tengah Ganjar Pranowo, merekapun langsung menggelar syukuran.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/Ij1ALA3J4A
+1571472875533783040 2022-09-18 12:15:04 +0000 &lt;4_gp2024&gt; Mau sehebat apapun kita, tetap ada hal2 yang tak bisa “segalanya”, tak bisa “semuanya”, tak bisa “selalu”, tak bisa “seterusnya”.  #GanjarPranowo #SahabatGanjar #Ganjar #Milenial #Limitation  https://t.co/9Uzb9l9E6p
+1571471857752371200 2022-09-18 12:11:02 +0000 &lt;sahabatganjar&gt; INEWS INEWS SORE Minggu, 18 September 2022 - 17:26 WIB  BANTU EMAK-EMAK DI TASIKMALAYA, SAHABAT GANJAR GELAR BAZAR SEMBAKO MURAH  Tasikmalaya - Jawa Barat  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/NTn0OfkHVk
+1571471033814884357 2022-09-18 12:07:45 +0000 &lt;4_gp2024&gt; Setelah hampir tiga tahun dihantam pandemi, puncak tradisi Yaa Qowiyyu kembali mempertemukan Ganjar dengan masyarakat Jatinom.   Ganjar pun mengajak masyarakat berdoa bersama, untuk kekuatan menghadapi situasi yang tidak mudah.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/FC54MD6uoL
+1571470579575975936 2022-09-18 12:05:57 +0000 &lt;4_gp2024&gt; Deflasi tak lepas dari sejumlah upaya yang dilakukan Gubernur Jawa Tengah Ganjar Pranowo, misalnya intervensi, operasi pasar hingga menggelontorkan bantuan untuk menjaga daya beli masyarakat.  #SahabatGanjar #GanjarPranowo #Ganjar
+1571468816269594624 2022-09-18 11:58:56 +0000 &lt;4_gp2024&gt; Ia berharap agar semakin banyak kerja sama yang terjalin antara Jawa Tengah dengan Australia.   #SahabatGanjar #Ganjar #ganjarpranowo
+1571468781805015040 2022-09-18 11:58:48 +0000 &lt;4_gp2024&gt; Tunggu ya, karena hanya beberapa saat lagi. Pantengin Youtube dan Facebook Sahabat Ganjar ya gengs !!!  #SahabatGanjar #SagaESports #GanjarPranowo #Ganjar
+1571468635952279552 2022-09-18 11:58:13 +0000 &lt;4_gp2024&gt; Bersama Badan Pemeriksa Keuangan (BPK), Ganjar Pranowo ingin mengoptimalkan penggunaan anggaran.  Ganjar mengatakan, Pemprov Jateng intens melakukan komunikasi denfan BPK Perwakilan Jawa Tengah.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/gs9OloZAFT
+1571467623061401600 2022-09-18 11:54:12 +0000 &lt;4_gp2024&gt; Kita bisa belajar memandang setiap hubungan pertemanan yang saya miliki sebagai satu-persatu hubungan yang personalized  #GanjarPranowo #SahabatGanjar #Ganjar #Milenial #PertemananSejati #Frienship  https://t.co/cdok3Q19ah
+1571466646157660160 2022-09-18 11:50:19 +0000 &lt;4_gp2024&gt; Nama Dokter Lie terkenal lewat aksinya membangun rumah sakit terapung menggunakan sebuah kapal sederhana.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/fj2GTR2LcC
+1571466542348640258 2022-09-18 11:49:54 +0000 &lt;SobatUno&gt; Optimis dengan jutaan kuliner khas daerah yang Indonesia milikin akan tercipta pula jutaan peluang usaha dan lapangan kerja.  #sandiagauno #sandiuno #temansandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar  https://t.co/gnjnyCWMEf
+1571466353248464898 2022-09-18 11:49:09 +0000 &lt;sahabatganjar&gt; 16 tim pemuda di Banyumas bertarung dengan sangat luar biasa dalam turnamen Mobile Legends by Saga E-Sports pada Sabtu 17 September 2022.  Kalian gak percaya? Langsung tonton aja video lengkapnya !!!  #SagaEsports #SahabatGanjar #GanjarPranowo  https://t.co/EVEpP6JaUf
+1571466022816976896 2022-09-18 11:47:50 +0000 &lt;4_gp2024&gt; Semangat peserta Lomba Kejuruan Siswa Sahabat Ganjar!!  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/c0rlXtTJoU
+1571465456556576770 2022-09-18 11:45:35 +0000 &lt;4_gp2024&gt; Semangat peserta Lomba Kejuruan Siswa Sahabat Ganjar!!  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/383mvl13HM
+1571457061048942594 2022-09-18 11:12:14 +0000 &lt;Desganjar&gt; aamiin paling serius dari warga Banjar untuk Calon Presiden Ganjar Pranowo😘  Innalillahi Natalie  Gudang Garam  #TerimakasihPakSBY #YoonA #birojomblo GrabFood #The_Golden_Hour_Day2 Minggu #Desganjar #ganjarpranowo  https://t.co/DhrwTYPgFI
+1571457001766658048 2022-09-18 11:12:00 +0000 &lt;sahabatganjarid&gt; Selamat akhir pekan😍  Dapatkan topi Sahabat Ganjar yang keren ini, kalian bisa beli melalui Shopee dan Tokopedia.  Jangan lupa check out yaa!!  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/1iXFgEcXaw
+1571456665266065409 2022-09-18 11:10:39 +0000 &lt;sahabatganjarid&gt; Turnamen PUBG Mobile Saga Esports di Kabupaten Lombok Timur, NTB udah selesai nih. Berikut 3 tim terkuat.  Juara 1 Nathan Squad, Juara 2 Lns New Era, dan Juara 3 Wet Squad  Selamat kepada para pemenang, nantikan Turnamen Saga Esports di Kota kamu!  #SahabatGanjar  #ganjarpranowo  https://t.co/B5CkAcwISA
+1571455915978805251 2022-09-18 11:07:41 +0000 &lt;ibukostreborn&gt; Tak peduli apapun kata2 motivasi yg paling membangkitkan semangatmu, realita bhw manusia py keterbatasan takkan bs dipatahkan hy dgn “kekuatan pikiran”.   #GanjarPranowo #SahabatGanjar  https://t.co/t50HBV4hQV
+1571455143622873088 2022-09-18 11:04:37 +0000 &lt;ibukostreborn&gt; Krinduan @ganjarpranowo dgn suasana mriah dlm tiap gelaran tradisi Sebar Apem Yaa Qowiyyu,di Makam Kiai Ageng Gribig,Jatinom, Klaten,akhirnya terobati.  Stlh hmpir 3 th dhntam pndemi, tradisi Yaa Qowiyyu kmbali mempertemukn Ganjar dgn masy Jatinom.  #SahabatGanjar #GanjarPranowo  https://t.co/7sxIRClTvz
+1571454138244005891 2022-09-18 11:00:37 +0000 &lt;ocongBoyy&gt; @wantahgdn__ @ganjarpranowo #GanjarTheNextJokowi #GanjarPranowo #SahabatGanjar
+1571454007687553024 2022-09-18 11:00:06 +0000 &lt;GanjaranApp&gt; Banyak hal yang dapat dilakukan untuk mendukung @ganjar_pranowo , salah satunya adalah dengan Srikandi Ganjar yang melakukan kampanye dengan cara &quot;Sharing and Running.   #ganjaranapp #jateng #GanjarKita #ganjarpranowo #Ganjaranapps #relawanganjar #relawanganjarpranowo  https://t.co/MSCDUrRRIV
+1571450139797229568 2022-09-18 10:44:44 +0000 &lt;ibukostreborn&gt; #ganjarpranowo sukses mnjaga harga berbagai jenis kbutuhan masy Jateng. Hal itu terbukti dr laporan BPS Jateng yg mnyebut bhw Jateng mngalami deflasi pd Agstus lalu.  Deflasi tak lepas dr intervensi, oprasi pasar hg mnggelontorkn bantuan utk mnjaga daya beli masy.  #SahabatGanjar  https://t.co/vJu7OMncjB
+1571445044649000960 2022-09-18 10:24:29 +0000 &lt;sahabatganjarid&gt; 16 tim pemuda di Banyumas bertarung dengan sangat luar biasa dalam turnamen Mobile Legends by Saga E-Sports pada Sabtu 17 September 2022.  Kalian gak percaya? Langsung tonton aja video lengkapnya !!!  #SagaEsports #SahabatGanjar #GanjarPranowo  https://t.co/iZwgpqj0HU
+1571442657653657600 2022-09-18 10:15:00 +0000 &lt;ganjar_pedia&gt; Provinsi Jawa Tengah mengalami deflasi penurunan harga komoditas pangan dan non pangan atau deflasi sebesar 0,39 persen pada bulan Agustus 2022 kemarin #ganjarpranowo #ganjarpedia  *Trending Twitter* Natalie Kebo #birojomblo Minggu Lenovo Tulus Utamakan Rakyat Miho #SBYbapakHoax  https://t.co/QzA7YQQpYO
+1571442070396764160 2022-09-18 10:12:40 +0000 &lt;sahabatganjarid&gt; Yo Kerjo... Yo Pejuang Rupiah.. Yo Mencintaimu Yo Mencintai pak Ganjar juga..  Terimakasih dukungannya untuk pak Ganjar jadi Presiden ya bapak ibu PKL di Ngawi...  #GanjarPranowo #SahabatGanjar #Ganjar #PKL #Ngawi  https://t.co/NTbaqU8nvy
+1571435108342824960 2022-09-18 09:45:00 +0000 &lt;GanjarKu_&gt; Ketua Dewan Pers Prof Dr Azyumardi Azra meninggal dunia setelah menjalani perawatan di rumah sakit di Selangor, Malaysia. Mendiang Azyumardi sempat mengalami gangguan kesehatan di pesawat yang ditumpanginya menuju Malaysia #ganjarpranowo #GanjarKu #uin #indonesia  https://t.co/UPHqwDf0eG
+1571434833368453123 2022-09-18 09:43:54 +0000 &lt;ganjar_pedia&gt; Ketua Dewan Pers Azyumardi Azra meninggal dunia pada Minggu (18/9/2022). Cendekiawan yang sempat menjadi Rektor UIN Jakarta ini tutup usia setelah mendapat serangan jantung di pesawat dalam perjalanan dari Jakarta menuju Malaysia #ganjarpranowo #ganjarpedia #uin #indonesia  https://t.co/rhsifEtthN
+1571434733061701632 2022-09-18 09:43:30 +0000 &lt;sahabatganjar&gt; Yo Kerjo... Yo Pejuang Rupiah.. Yo Mencintaimu Yo Mencintai pak Ganjar juga..  Terimakasih dukungannya untuk pak Ganjar jadi Presiden ya bapak ibu PKL di Ngawi...  #GanjarPranowo #SahabatGanjar #Ganjar #PKL #Ngawi  https://t.co/ZkvvpHf7jn
+1571431286652416000 2022-09-18 09:29:49 +0000 &lt;03__nakula&gt; Ganjar pun mengajak masyarakat berdoa bersama, untuk kekuatan menghadapi situasi yang tidak mudah.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/KAwZ5HnZgK
+1571431276703535104 2022-09-18 09:29:46 +0000 &lt;03__nakula&gt; Kerinduan Gubernur Jawa Tengah Ganjar Pranowo dengan suasana meriah dalam tiap gelaran tradisi Sebar Apem Yaa Qowiyyu, di Kompleks Makam Kiai Ageng Gribig, Jatinom, Klaten, setelah tiga tahun akhirnya terobati.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/3NtHqaOaE8
+1571429136480227328 2022-09-18 09:21:16 +0000 &lt;03__nakula&gt; Deflasi tak lepas dari sejumlah upaya yang dilakukan Gubernur Jawa Tengah Ganjar Pranowo, misalnya intervensi, operasi pasar hingga menggelontorkan bantuan untuk menjaga daya beli masyarakat.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/5XKn5RWmkU
+1571429123511447559 2022-09-18 09:21:13 +0000 &lt;03__nakula&gt; Provinsi Jawa Tengah mengalami deflasi penurunan harga komoditas pangan dan nonpangan sebesar -0,39 persen pada bulan Agustus 2022 lalu. Jumlah tersebut melebihi besaran deflasi nasional yang tercatat sebesar -0,21 persen. #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/dbYwhU73r1
+1571429105555615745 2022-09-18 09:21:09 +0000 &lt;03__nakula&gt; Gubernur Jawa Tengah Ganjar Pranowo sukses menjaga harga berbagai jenis kebutuhan masyarakat Jateng. Hal itu terbukti dari laporan Badan Pusat Statistik Jateng yang menyebut bahwa Jateng mengalami deflasi pada bulan Agustus lalu.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/CdjqKw56rN
+1571426526935257088 2022-09-18 09:10:54 +0000 &lt;sahabatganjar&gt; Batch 16 Turnamen PUBG Mobile Saga Esports digelar bersama milenial yang berada di Kabupaten Lombok Timur, NTB.  Yuk tonton melalui Facebook dan Youtube Sahabat Ganjar.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/cvvP2pdoSY
+1571423791560855552 2022-09-18 09:00:02 +0000 &lt;GanjaranApp&gt; Berikut ini adalah Tips Hidup Sehat Ala @ganjarpranowo , Cekidot guys jangan sampai terlewatkan.  #ganjaranapp #jateng #GanjarKita #ganjarpranowo #Ganjaranapps #relawanganjar #relawanganjarpranowo  https://t.co/HQwqeO4pDe
+1571415548927574016 2022-09-18 08:27:17 +0000 &lt;Aryprasetyo85&gt; Batch 16 Turnamen PUBG Mobile Saga Esports digelar bersama milenial yang berada di Kabupaten Lombok Timur, NTB.  Yuk tonton melalui Facebook dan Youtube Sahabat Ganjar.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/iwSnWbaNd8
+1571415401841717255 2022-09-18 08:26:41 +0000 &lt;sahabatganjar&gt; Kegiatan Senam Sehat tersebut juga dirangkaikan dengan deklarasi dukungan untuk Ganjar Pranowot. Setelah seluruh rangkaian acara selesai, Sahabat Ganjar juga membagikan doorprize untuk peserta yang hadir sebagai bentuk apresiasi.  #GanjarPranowo #SahabatGanjar #SenamSehat  https://t.co/gQyimSZ9fZ
+1571415378517184514 2022-09-18 08:26:36 +0000 &lt;sahabatganjar&gt; Kegiatan yang padat diberbagai daerah di Tanah Air, tak membuat Sahabat Ganjar lupa untuk terus menggelorakan pola hidup sehat. Kini Sahabat Ganjar mengadakan kegiatan Senam Sehat bersama Komunitas Senam di Kecamatan Cihideung, Kota Tasikmalaya.  #GanjarPranowo #SahabatGanjar  https://t.co/fIJDvR6xQh
+1571413269491109889 2022-09-18 08:18:13 +0000 &lt;sahabatganjarid&gt; Batch 16 Turnamen PUBG Mobile Saga Esports digelar bersama milenial yang berada di Kabupaten Lombok Timur, NTB.  Yuk tonton melalui Facebook dan Youtube Sahabat Ganjar.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/5VmkD8cShi
+1571410237013528579 2022-09-18 08:06:10 +0000 &lt;Aryprasetyo85&gt; Lomba Kejuruan Siswa Sahabat Ganjar Se- Sumatera Utara sudah selesai, Penasaran dengan para pemenangnya??  Juara 1  Smk It Marinah Al-Hidayah Juara 2 Smk Swasta Teladan Sumatera Utara 2 Juara 3 Smk Markus 2 Medan  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/sKomlB4ZrW
+1571410193635635200 2022-09-18 08:06:00 +0000 &lt;GanjarKu_&gt; Menurut @ganjarpranowo koperasi yang dibentuk juga ditujukan agar para istri eks napiter ini dapat diterima masyarakat dan tidak melakukan tindakan dan aktivitas yang merugikan #ganjarpranowo #GanjarKu  Natalie Kebo #birojomblo Minggu Lenovo Siang Tulus Utamakan Rakyat Miho  https://t.co/HHh4L94pJP
+1571409797458825217 2022-09-18 08:04:25 +0000 &lt;Aryprasetyo85&gt; Sahabat Ganjar mendapat sambutan hangat dari Komunitas Pelaku UMKM di Kec Cibeureum, Kota Tasikmalaya.  Tak heran jika Komunitas Pelaku UMKM Kota Tasikmalaya mendeklarasikan Ganjar Pranowo untuk dapat sukses pada tahun 2024 mendatang.   #GanjarPranowo #SahabatGanjar #Deklarasi  https://t.co/YzpFOarYHY
+1571409332071440384 2022-09-18 08:02:34 +0000 &lt;Aryprasetyo85&gt; Pendampingan itu diberikan agar usaha yang dirintis dapat menyejahterakan kehidupan eks napiter. Selain itu juga sebagai media deradikalisasi dan dapat diterima kembali di lingkungan masyarakat.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/AY5taW8JfY
+1571409243693260802 2022-09-18 08:02:13 +0000 &lt;Aryprasetyo85&gt; @ganjarpranowo mengatakan siap untuk mendampingi koperasi yang beranggotakan istri atau keluarga eks napiter. #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/PaOKoZxOGP
+1571408677260914695 2022-09-18 07:59:58 +0000 &lt;Aryprasetyo85&gt; Provinsi Jawa Tengah mengalami deflasi penurunan harga komoditas pangan dan nonpangan sebesar -0,39 persen pada bulan Agustus 2022 lalu. Jumlah tersebut melebihi besaran deflasi nasional yang tercatat sebesar -0,21 persen.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/hdXRxnlaIw
+1571408587804774400 2022-09-18 07:59:37 +0000 &lt;Aryprasetyo85&gt; @ganjarpranowo sukses menjaga harga berbagai jenis kebutuhan masyarakat Jateng. Hal itu terbukti dari laporan Badan Pusat Statistik Jateng yang menyebut bahwa Jateng mengalami deflasi pada bulan Agustus lalu. #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/MzIlIkRElo
+1571407993304150019 2022-09-18 07:57:15 +0000 &lt;Aryprasetyo85&gt; Setelah hampir tiga tahun dihantam pandemi, puncak tradisi Yaa Qowiyyu kembali mempertemukan Ganjar dengan masyarakat Jatinom.   @ganjarpranowo pun mengajak masyarakat berdoa bersama, untuk kekuatan menghadapi situasi yang tidak mudah.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/El1GsdrtAH
+1571407863343616000 2022-09-18 07:56:44 +0000 &lt;Aryprasetyo85&gt; Kerinduan Gubernur Jawa Tengah @ganjarpranowo dengan suasana meriah dalam tiap gelaran tradisi Sebar Apem Yaa Qowiyyu, di Kompleks Makam Kiai Ageng Gribig, Jatinom, Klaten, akhirnya terobati.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/GiheNGH5mR
+1571407029205606402 2022-09-18 07:53:25 +0000 &lt;Aryprasetyo85&gt; @ganjarpranowo hadir dalam acara Ruwatan Bumi yang digelar Kawasan Candi Borobudur.  Ganjar mengatakan Ruwatan Bumi menjadi momentum sekaligus mengenalkan tradisi dan budaya masyarakat Indonesia.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/ZFQwK8rzlz
+1571406470033575936 2022-09-18 07:51:12 +0000 &lt;sahabatganjar&gt; Warga Donosari mendapat bantuan dari Gubernur Jawa Tengah Ganjar Pranowo, merekapun langsung menggelar syukuran.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/DyuvvCInR3
+1571406454594359297 2022-09-18 07:51:08 +0000 &lt;Aryprasetyo85&gt; Selamat akhir pekan😍  Dapatkan topi Sahabat Ganjar yang keren ini, kalian bisa beli melalui Shopee dan Tokopedia.  Jangan lupa check out yaa!!  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/3sBGdEnmvm
+1571406075597029376 2022-09-18 07:49:38 +0000 &lt;Aryprasetyo85&gt; Hari ini ada Turnamen PUBGM di Kabupaten Lombok Timur, NTB.  Langsung tonton melalui Facebook dan Youtube Sahabat Ganjar.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/Iw04qC3mU8
+1571405935054303234 2022-09-18 07:49:04 +0000 &lt;Aryprasetyo85&gt; Warga Donosari mendapat bantuan dari Gubernur Jawa Tengah @ganjarpranowo, merekapun langsung menggelar syukuran.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/vru5DUP9a7
+1571405625124585472 2022-09-18 07:47:50 +0000 &lt;Aryprasetyo85&gt; Pemprov Jawa Tengah membantu puluhan warga terdampak Banjir Kalikeruh, Apa yang disampaikan @ganjarpranowo? Lihat video berikut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/6UUJiS6jol
+1571404496206704640 2022-09-18 07:43:21 +0000 &lt;Aryprasetyo85&gt; Tak peduli apapun kata2 motivasional yang paling membangkitkan semangatmu, realita bahwa manusia punya keterbatasan takkan bisa dipatahkan hanya dengan “kekuatan pikiran”  #GanjarPranowo #SahabatGanjar #Ganjar #Milenial #Limitation  https://t.co/beUtuCIrZb
+1571404034170552320 2022-09-18 07:41:31 +0000 &lt;Aryprasetyo85&gt; Kegiatan yang padat diberbagai daerah di Tanah Air, tak membuat Sahabat Ganjar lupa untuk terus menggelorakan pola hidup sehat. Kini Sahabat Ganjar mengadakan kegiatan Senam Sehat bersama Komunitas Senam di Kec Cihideung, Tasikmalaya.  #GanjarPranowo #SahabatGanjar #SenamSehat  https://t.co/ieLIkioH2y
+1571402990824882178 2022-09-18 07:37:22 +0000 &lt;sahabatganjarid&gt; Kegiatan yang padat diberbagai daerah di Tanah Air, tak membuat Sahabat Ganjar lupa untuk terus menggelorakan pola hidup sehat. Kini Sahabat Ganjar mengadakan kegiatan Senam Sehat bersama Komunitas Senam di Kec Cihideung, Tasikmalaya.  #GanjarPranowo #SahabatGanjar #SenamSehat  https://t.co/jmn6fENACS
+1571398489883701249 2022-09-18 07:19:29 +0000 &lt;kakekhalal2&gt; #LapakGanjar  #GanjarPranowo
+1571397393257746433 2022-09-18 07:15:08 +0000 &lt;sahabatganjar&gt; Pemprov Jawa Tengah membantu puluhan warga terdampak Banjir Kalikeruh, Apa yang disampaikan Ganjar? Lihat video berikut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/5VwUiw3MNT
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="penjelasan-pandas">
+<h2>Penjelasan Pandas<a class="headerlink" href="#penjelasan-pandas" title="Permalink to this headline">#</a></h2>
+<p><strong>Pandas adalah paket Python open source yang paling sering dipakai untuk menganalisis data serta membangun sebuah machine learning. Pandas dibuat berdasarkan satu package lain bernama Numpy</strong></p>
+<p>melakukan Import Pandas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Baca data excel dataGanjar.xlsx yang telah diberi label yang telah simpan di Google Drive</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;dataGanjar.xlsx&#39;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-d16fd7e2-e498-42cb-ac93-7d8a0b9ac6f6">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ia berharap agar semakin banyak kerja sama yan...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Duta Besar Australia untuk Indonesia Penny Wil...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Butuh jalan panjang memang, untuk menâ€™sejati...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kita bisa belajar memandang setiap hubungan pe...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Mas Ganjar bantu masyarakat kurang mampu nikma...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Mas Ganjar siap menjalankan instruksi Presiden...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Jawa Tengah tercatat sebagai provinsi dengan t...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Yayasan Dokter Peduli (doctorSHARE) menemui  @...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Cocok banget deh ah ðŸ‡²ðŸ‡¨ðŸ‘ðŸ‘   #airlan...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Mengambil tajuk â€œJumâ€™at Berkahâ€, Sahabat...</td>
+      <td>positif</td>
+    </tr>
+  </tbody>
+</table>
+<p>73 rows × 2 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-d16fd7e2-e498-42cb-ac93-7d8a0b9ac6f6')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-d16fd7e2-e498-42cb-ac93-7d8a0b9ac6f6 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-d16fd7e2-e498-42cb-ac93-7d8a0b9ac6f6');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="penjelasan-nltk">
+<h2>Penjelasan NLTK<a class="headerlink" href="#penjelasan-nltk" title="Permalink to this headline">#</a></h2>
+<p><strong>NLTK adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.</strong></p>
+</section>
+<section id="penjelasan-sastrawi">
+<h2>Penjelasan Sastrawi<a class="headerlink" href="#penjelasan-sastrawi" title="Permalink to this headline">#</a></h2>
+<p><strong>Python Sastrawi adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”</strong></p>
+<p>Install Library nltk dan Sastrawi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nltk
+<span class="o">!</span>pip install Sastrawi
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: nltk in /usr/local/lib/python3.7/dist-packages (3.7)
+Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
+Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.1.0)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
+Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting Sastrawi
+  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
+     |████████████████████████████████| 209 kB 8.6 MB/s 
+?25hInstalling collected packages: Sastrawi
+Successfully installed Sastrawi-1.0.1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="penjelasan-re">
+<h2>Penjelasan RE<a class="headerlink" href="#penjelasan-re" title="Permalink to this headline">#</a></h2>
+<p><strong>Re module Python menyediakan seperangkat fungsi yang memungkinkan kita untuk mencari sebuah string untuk match (match).</strong></p>
+<p>Lakukan Import beberapa Library seperti Pandas,re,nltk,string dan Sastrawi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Selanjutnya membuat Function Remove Stopwords yang fungsinya adalah menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_stopwords</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/webmining/webmining/contents/stopwords.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">stopwords</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">]</span>
+    
+    <span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">]</span>
+                     
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Steming merupakan proses mengubah kata dalam bahasa Indonesia ke akar katanya misalkan ‘Mereka meniru-nirukannya’ menjadi ‘mereka tiru’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stemming</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Selanjutnya tahap preprocessing,untuk tahap ini ada beberapa proses seperti:</p>
+<blockquote>
+<div><p>1.Mengubah Text menjadi huruf kecil</p>
+</div></blockquote>
+<blockquote>
+<div><p>2.Menghapus Kata non Ascii</p>
+</div></blockquote>
+<blockquote>
+<div><p>4.Menghapus Hastag,Link dan Mention</p>
+</div></blockquote>
+<blockquote>
+<div><p>5.Mengubah/menghilangkan tanda (misalkan garis miring menjadi spasi)</p>
+</div></blockquote>
+<blockquote>
+<div><p>6.Melakukan tokenization kata dan Penghapusan Kata yang tidak digunakan</p>
+</div></blockquote>
+<blockquote>
+<div><p>7.Memfilter kata dari tanda baca</p>
+</div></blockquote>
+<blockquote>
+<div><p>8.Mengubah kata dalam bahasa Indonesia ke akar katanya</p>
+</div></blockquote>
+<blockquote>
+<div><p>9.Menghapus String kosong</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1">#case folding</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="c1">#remove non ASCII (emoticon, chinese word, .etc)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t&#39;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">u&#39;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">f&#39;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">r&#39;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+    <span class="c1"># remove non ASCII (emoticon, chinese word, .etc)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="s1">&#39;replace&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+
+    <span class="c1"># remove mention, link, hashtag</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;([@#][A-Za-z0-9]+)|(\w+:\/\/\S+)&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+    <span class="c1">#replace weird characters</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;“&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;”&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+    <span class="c1">#tokenization and remove stopwords</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">remove_stopwords</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="c1">#remove punctuation    </span>
+    <span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>  
+
+    <span class="c1">#stemming</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">stemming</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="c1">#remove empty string</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Selanjutnya pindah Path ke Folder contents</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/webmining/webmining/contents
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/webmining/webmining/contents
+</pre></div>
+</div>
+</div>
+</div>
+<p>Simpan hasil dari preprocessing ke dalam bentuk CSV</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data[&#39;tweet&#39;].apply(preprocessing).to_csv(&#39;preprocessing.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
+<span class="n">dataTextPre</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/webmining/webmining/contents/preprocessing.csv&#39;</span><span class="p">)</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bag</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataTextPre</span><span class="p">[</span><span class="s1">&#39;tweet&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrik_vsm</span><span class="o">=</span><span class="n">bag</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="n">matrik_vsm</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(73, 398)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrik_vsm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataTF</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">matrik_vsm</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrik_vsm</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">)),</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
+<span class="n">dataTF</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a7348a27-45a3-4ed0-88c0-5d3d5366209a">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>1000</th>
+      <th>17</th>
+      <th>17092022</th>
+      <th>20</th>
+      <th>2022</th>
+      <th>2024</th>
+      <th>30</th>
+      <th>acara</th>
+      <th>ada</th>
+      <th>agenda</th>
+      <th>...</th>
+      <th>warga</th>
+      <th>wilayah</th>
+      <th>wiliam</th>
+      <th>ya</th>
+      <th>yaqowiyu</th>
+      <th>yayasan</th>
+      <th>yeah</th>
+      <th>yg</th>
+      <th>yogyakarta</th>
+      <th>zaman</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>73 rows × 398 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a7348a27-45a3-4ed0-88c0-5d3d5366209a')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-a7348a27-45a3-4ed0-88c0-5d3d5366209a button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-a7348a27-45a3-4ed0-88c0-5d3d5366209a');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/webmining/webmining/twint/dataGanjar.xlsx&#39;</span><span class="p">)</span>
+<span class="n">dj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dataTF</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">label</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-91eafe47-1ecf-448f-85e5-853b251ec5a2">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(index,)</th>
+      <th>(1000,)</th>
+      <th>(17,)</th>
+      <th>(17092022,)</th>
+      <th>(20,)</th>
+      <th>(2022,)</th>
+      <th>(2024,)</th>
+      <th>(30,)</th>
+      <th>(acara,)</th>
+      <th>(ada,)</th>
+      <th>...</th>
+      <th>(wilayah,)</th>
+      <th>(wiliam,)</th>
+      <th>(ya,)</th>
+      <th>(yaqowiyu,)</th>
+      <th>(yayasan,)</th>
+      <th>(yeah,)</th>
+      <th>(yg,)</th>
+      <th>(yogyakarta,)</th>
+      <th>(zaman,)</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>69</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>70</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>71</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>72</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>73</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>positif</td>
+    </tr>
+  </tbody>
+</table>
+<p>73 rows × 400 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-91eafe47-1ecf-448f-85e5-853b251ec5a2')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-91eafe47-1ecf-448f-85e5-853b251ec5a2 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-91eafe47-1ecf-448f-85e5-853b251ec5a2');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dj</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;positif&#39;, &#39;netral&#39;, &#39;negatif&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dj</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 73 entries, 0 to 72
+Columns: 400 entries, (&#39;index&#39;,) to label
+dtypes: int64(399), object(1)
+memory usage: 228.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="penjelasan-scikit-learn">
+<h2>Penjelasan Scikit-learn<a class="headerlink" href="#penjelasan-scikit-learn" title="Permalink to this headline">#</a></h2>
+<p>Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.</p>
+<p>install scikit-learn</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U scikit-learn
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.7/dist-packages (1.0.2)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
+Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
+Requirement already satisfied: scipy&gt;=1.1.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.7.3)
+Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.1.0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="penjelasan-information-gain">
+<h2>Penjelasan Information Gain<a class="headerlink" href="#penjelasan-information-gain" title="Permalink to this headline">#</a></h2>
+<p>Information Gain merupakan teknik seleksi fitur yang memakai metode scoring untuk nominal
+ataupun pembobotan atribut kontinue yang didiskretkan menggunakan maksimal entropy. Suatu entropy
+digunakan untuk mendefinisikan nilai Information Gain. Entropy menggambarkan banyaknya informasi
+yang dibutuhkan untuk mengkodekan suatu kelas. Information Gain (IG) dari suatu term diukur
+dengan menghitung jumlah bit informasi yang diambil dari prediksi kategori dengan ada atau tidaknya
+term dalam suatu dokumen.</p>
+<p>$$
+Entropy \ (S) \equiv \sum ^{c}<em>{i}P</em>{i}\log <em>{2}p</em>{i}
+$$</p>
+<p>c : jumlah nilai yang ada pada atribut target (jumlah kelas klasifikasi).</p>
+<p>Pi : porsi sampel untuk kelas i.</p>
+<p>$$
+Gain \ (S,A) \equiv Entropy(S) - \sum <em>{\nu \varepsilon \ values } \dfrac{\left| S</em>{i}\right| }{\left| S\right|} Entropy(S_{v})
+$$</p>
+<p>A : atribut</p>
+<p>V : menyatakan suatu nilai yang mungkin untuk atribut A</p>
+<p>Values (A) : himpunan nilai-nilai yang mungkin untuk atribut A</p>
+<p>|Sv| : jumlah Sampel untuk nilai v</p>
+<p>|S| : jumlah seluruh sample data Entropy</p>
+<p>(Sv) : entropy untuk sampel sampel yang memiliki nilai v</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">dj</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-edfc89ef-5750-48b2-a810-4de4dbc515da">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(index,)</th>
+      <th>(1000,)</th>
+      <th>(17,)</th>
+      <th>(17092022,)</th>
+      <th>(20,)</th>
+      <th>(2022,)</th>
+      <th>(2024,)</th>
+      <th>(30,)</th>
+      <th>(acara,)</th>
+      <th>(ada,)</th>
+      <th>...</th>
+      <th>(warga,)</th>
+      <th>(wilayah,)</th>
+      <th>(wiliam,)</th>
+      <th>(ya,)</th>
+      <th>(yaqowiyu,)</th>
+      <th>(yayasan,)</th>
+      <th>(yeah,)</th>
+      <th>(yg,)</th>
+      <th>(yogyakarta,)</th>
+      <th>(zaman,)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>66</th>
+      <td>67</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>55</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>64</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>73</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>46</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>31</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>60</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>32</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>62</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>52</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>63</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>33</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>42</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>58</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>36</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>69</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>38</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>47</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>40</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>39</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>59</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>37</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>70</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>68</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>65</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>48</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>45</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>51 rows × 399 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-edfc89ef-5750-48b2-a810-4de4dbc515da')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-edfc89ef-5750-48b2-a810-4de4dbc515da button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-edfc89ef-5750-48b2-a810-4de4dbc515da');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
+<span class="n">mutual_info</span> <span class="o">=</span> <span class="n">mutual_info_classif</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">mutual_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.03392478, 0.        , 0.01466389, 0.08536412,
+       0.01576807, 0.18277143, 0.00556571, 0.        , 0.        ,
+       0.03586766, 0.00574447, 0.01212519, 0.03002352, 0.        ,
+       0.05824422, 0.        , 0.        , 0.        , 0.01727323,
+       0.01236165, 0.12317363, 0.        , 0.13282787, 0.        ,
+       0.02181052, 0.        , 0.        , 0.01764686, 0.        ,
+       0.00349494, 0.03939101, 0.10644899, 0.1143063 , 0.19059104,
+       0.01784138, 0.00655042, 0.        , 0.        , 0.        ,
+       0.10952848, 0.        , 0.        , 0.00141829, 0.11239239,
+       0.        , 0.        , 0.        , 0.05477444, 0.0388745 ,
+       0.00442427, 0.12217936, 0.        , 0.        , 0.01677118,
+       0.        , 0.0080094 , 0.02675628, 0.        , 0.        ,
+       0.13090028, 0.02971385, 0.        , 0.11963984, 0.        ,
+       0.02221366, 0.        , 0.0754047 , 0.        , 0.        ,
+       0.        , 0.01454597, 0.01044071, 0.        , 0.10590957,
+       0.        , 0.        , 0.        , 0.        , 0.06506178,
+       0.        , 0.        , 0.04639733, 0.        , 0.02542195,
+       0.12496991, 0.04995858, 0.        , 0.        , 0.        ,
+       0.0488356 , 0.03532077, 0.01579601, 0.00123002, 0.        ,
+       0.02275521, 0.05967615, 0.        , 0.18308006, 0.        ,
+       0.        , 0.02224171, 0.        , 0.        , 0.01642189,
+       0.13463053, 0.03031127, 0.00573117, 0.        , 0.10129733,
+       0.01260611, 0.06104042, 0.02164528, 0.03014746, 0.02513215,
+       0.03101262, 0.03167154, 0.39083296, 0.        , 0.00990327,
+       0.        , 0.01138106, 0.        , 0.0705691 , 0.        ,
+       0.        , 0.01561813, 0.        , 0.        , 0.00679237,
+       0.02482323, 0.15046674, 0.00194633, 0.        , 0.        ,
+       0.0823571 , 0.        , 0.        , 0.02153966, 0.        ,
+       0.        , 0.        , 0.04648923, 0.        , 0.        ,
+       0.0765359 , 0.        , 0.01275178, 0.        , 0.10394964,
+       0.04702469, 0.        , 0.        , 0.        , 0.        ,
+       0.        , 0.09256129, 0.14982816, 0.07208077, 0.06687056,
+       0.08558941, 0.15327389, 0.07919908, 0.05451769, 0.04759001,
+       0.10414327, 0.0147594 , 0.09282377, 0.04122554, 0.        ,
+       0.05815826, 0.        , 0.        , 0.        , 0.00638549,
+       0.        , 0.        , 0.04224326, 0.        , 0.04733514,
+       0.        , 0.        , 0.        , 0.00380087, 0.        ,
+       0.06514707, 0.        , 0.03585239, 0.0388848 , 0.        ,
+       0.00280078, 0.12309305, 0.        , 0.0132811 , 0.04510083,
+       0.07017964, 0.00819058, 0.04817808, 0.02731635, 0.        ,
+       0.        , 0.06514979, 0.04508889, 0.        , 0.        ,
+       0.02833755, 0.        , 0.        , 0.05685727, 0.        ,
+       0.        , 0.        , 0.        , 0.03502887, 0.        ,
+       0.00056796, 0.02354197, 0.        , 0.05180399, 0.        ,
+       0.01705728, 0.01924064, 0.0064796 , 0.0090992 , 0.09254481,
+       0.0299303 , 0.        , 0.        , 0.00078294, 0.01068786,
+       0.        , 0.01277561, 0.        , 0.11978451, 0.        ,
+       0.        , 0.04495198, 0.09115815, 0.14476499, 0.01581871,
+       0.05513534, 0.        , 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.0160129 , 0.02904331,
+       0.02467458, 0.        , 0.13282822, 0.        , 0.        ,
+       0.04388865, 0.05714771, 0.0238609 , 0.        , 0.        ,
+       0.01635942, 0.        , 0.        , 0.03939245, 0.18136459,
+       0.01515075, 0.01547291, 0.        , 0.        , 0.        ,
+       0.10481464, 0.10595611, 0.03675906, 0.        , 0.        ,
+       0.        , 0.0065447 , 0.00475127, 0.        , 0.05279317,
+       0.07892947, 0.02796802, 0.0184561 , 0.02636182, 0.        ,
+       0.10861511, 0.        , 0.01768195, 0.09720262, 0.        ,
+       0.0890113 , 0.1253378 , 0.        , 0.05216992, 0.20927838,
+       0.        , 0.01505081, 0.        , 0.        , 0.04574885,
+       0.        , 0.        , 0.07648085, 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.        , 0.        ,
+       0.0979248 , 0.        , 0.        , 0.01017002, 0.        ,
+       0.11203704, 0.08268988, 0.00227579, 0.        , 0.        ,
+       0.        , 0.        , 0.00754147, 0.00084405, 0.        ,
+       0.10204136, 0.        , 0.        , 0.        , 0.11112459,
+       0.        , 0.0313346 , 0.        , 0.00745782, 0.03078859,
+       0.        , 0.02806898, 0.01467029, 0.        , 0.07355945,
+       0.        , 0.03728012, 0.        , 0.06372694, 0.12257423,
+       0.        , 0.        , 0.01698075, 0.07024982, 0.        ,
+       0.03287055, 0.        , 0.15212823, 0.01321551, 0.        ,
+       0.        , 0.00720274, 0.        , 0.10419204, 0.        ,
+       0.01515368, 0.        , 0.        , 0.03547609, 0.        ,
+       0.16714793, 0.        , 0.        , 0.07462699, 0.        ,
+       0.09454772, 0.        , 0.06615769, 0.01696393, 0.        ,
+       0.        , 0.08314503, 0.08317634, 0.00549221, 0.03854445,
+       0.07022538, 0.04814496, 0.00617404, 0.09155658, 0.01025999,
+       0.        , 0.03691215, 0.05823503, 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mutual_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">mutual_info</span><span class="p">)</span>
+<span class="n">mutual_info</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">mutual_info</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(ganjar,)        0.390833
+(sambut,)        0.209278
+(away,)          0.190591
+(dpw,)           0.183080
+(2024,)          0.182771
+                   ...   
+(laksana,)       0.000000
+(lanjut,)        0.000000
+(lapang,)        0.000000
+(legendaris,)    0.000000
+(zaman,)         0.000000
+Length: 399, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mutual_info</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f41dccafc10&gt;
+</pre></div>
+</div>
+<img alt="../_images/CrawlingVSM_68_1.png" src="../_images/CrawlingVSM_68_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_five_cols</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">mutual_info_classif</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sel_five_cols</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">sel_five_cols</span><span class="o">.</span><span class="n">get_support</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:1692: FutureWarning: Feature names only support names that are all strings. Got feature names with dtypes: [&#39;tuple&#39;]. An error will be raised in 1.2.
+  FutureWarning,
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([      (&#39;agenda&#39;,),       (&#39;akibat&#39;,),        (&#39;apung&#39;,),
+           (&#39;asuransi&#39;,),    (&#39;australia&#39;,),       (&#39;bareng&#39;,),
+              (&#39;bazar&#39;,),         (&#39;boro&#39;,),        (&#39;catat&#39;,),
+              (&#39;cinta&#39;,),      (&#39;cirebon&#39;,),          (&#39;deh&#39;,),
+              (&#39;drama&#39;,),         (&#39;duta&#39;,),          (&#39;gak&#39;,),
+             (&#39;ganjar&#39;,),        (&#39;gedeh&#39;,),     (&#39;gubernur&#39;,),
+                (&#39;gwe&#39;,),        (&#39;hadap&#39;,),       (&#39;hangat&#39;,),
+           (&#39;hartarto&#39;,),        (&#39;heran&#39;,),      (&#39;hidayah&#39;,),
+              (&#39;hotel&#39;,),         (&#39;huni&#39;,),           (&#39;id&#39;,),
+          (&#39;indonesia&#39;,),         (&#39;jasa&#39;,),          (&#39;jum&#39;,),
+                (&#39;kab&#39;,),       (&#39;kamera&#39;,),        (&#39;kapal&#39;,),
+              (&#39;kartu&#39;,),    (&#39;kecbekasi&#39;,),        (&#39;kenal&#39;,),
+              (&#39;kerja&#39;,),        (&#39;kesel&#39;,),           (&#39;ko&#39;,),
+         (&#39;komunikasi&#39;,),         (&#39;kota&#39;,),     (&#39;langsung&#39;,),
+              (&#39;layak&#39;,),       (&#39;lempar&#39;,),        (&#39;lilin&#39;,),
+            (&#39;listrik&#39;,),         (&#39;mana&#39;,),       (&#39;markus&#39;,),
+         (&#39;masyarakat&#39;,),        (&#39;medan&#39;,),        (&#39;milik&#39;,),
+              (&#39;momen&#39;,),          (&#39;mus&#39;,),         (&#39;nama&#39;,),
+             (&#39;nonton&#39;,),      (&#39;optimal&#39;,),      (&#39;optimis&#39;,),
+         (&#39;padjajaran&#39;,),        (&#39;panen&#39;,),          (&#39;pdb&#39;,),
+             (&#39;peduli&#39;,),      (&#39;peluang&#39;,), (&#39;personalized&#39;,),
+            (&#39;praktik&#39;,),      (&#39;pranowo&#39;,),     (&#39;presiden&#39;,),
+         (&#39;purwakarta&#39;,),        (&#39;ramai&#39;,),        (&#39;rawan&#39;,),
+             (&#39;rendah&#39;,),          (&#39;rss&#39;,),        (&#39;rutin&#39;,),
+            (&#39;sahabat&#39;,),       (&#39;sambut&#39;,),       (&#39;sampah&#39;,),
+          (&#39;sejahtera&#39;,),        (&#39;sepak&#39;,),    (&#39;september&#39;,),
+             (&#39;sidrap&#39;,),  (&#39;silaturahmi&#39;,),        (&#39;siswa&#39;,),
+                (&#39;sri&#39;,),         (&#39;suka&#39;,),       (&#39;sukses&#39;,),
+           (&#39;sumatera&#39;,),       (&#39;sungai&#39;,),        (&#39;tajuk&#39;,),
+               (&#39;tani&#39;,),  (&#39;tasikmalaya&#39;,),      (&#39;teladan&#39;,),
+               (&#39;temu&#39;,),  (&#39;terimakasih&#39;,),          (&#39;tim&#39;,),
+              (&#39;tokoh&#39;,),         (&#39;typa&#39;,),         (&#39;udah&#39;,),
+              (&#39;usaha&#39;,),        (&#39;utara&#39;,),        (&#39;video&#39;,),
+                 (&#39;ya&#39;,)],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Muhammad Fahmi Ady Susilo<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
