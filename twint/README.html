@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>TWINT - Twitter Intelligence Tool &#8212; Web Mining</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -500,7 +501,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="twint-twitter-intelligence-tool">
+  <section class="tex2jax_ignore mathjax_ignore" id="twint-twitter-intelligence-tool">
 <h1>TWINT - Twitter Intelligence Tool<a class="headerlink" href="#twint-twitter-intelligence-tool" title="Permalink to this headline">#</a></h1>
 <p><img alt="2" src="https://i.imgur.com/iaH3s7z.png" />
 <img alt="3" src="https://i.imgur.com/hVeCrqL.png" /></p>
@@ -511,7 +512,7 @@ title="Print to PDF"
 <p>Twint is an advanced Twitter scraping tool written in Python that allows for scraping Tweets from Twitter profiles <strong>without</strong> using Twitter’s API.</p>
 <p>Twint utilizes Twitter’s search operators to let you scrape Tweets from specific users, scrape Tweets relating to certain topics, hashtags &amp; trends, or sort out <em>sensitive</em> information from Tweets like e-mail and phone numbers. I find this very useful, and you can get really creative with it too.</p>
 <p>Twint also makes special queries to Twitter allowing you to also scrape a Twitter user’s followers, Tweets a user has liked, and who they follow <strong>without</strong> any authentication, API, Selenium, or browser emulation.</p>
-<div class="section" id="tl-dr-benefits">
+<section id="tl-dr-benefits">
 <h2>tl;dr Benefits<a class="headerlink" href="#tl-dr-benefits" title="Permalink to this headline">#</a></h2>
 <p>Some of the benefits of using Twint vs Twitter API:</p>
 <ul class="simple">
@@ -520,12 +521,12 @@ title="Print to PDF"
 <li><p>Can be used anonymously and without Twitter sign up;</p></li>
 <li><p><strong>No rate limitations</strong>.</p></li>
 </ul>
-</div>
-<div class="section" id="limits-imposed-by-twitter">
+</section>
+<section id="limits-imposed-by-twitter">
 <h2>Limits imposed by Twitter<a class="headerlink" href="#limits-imposed-by-twitter" title="Permalink to this headline">#</a></h2>
 <p>Twitter limits scrolls while browsing the user timeline. This means that with <code class="docutils literal notranslate"><span class="pre">.Profile</span></code> or with <code class="docutils literal notranslate"><span class="pre">.Favorites</span></code> you will be able to get ~3200 tweets.</p>
-</div>
-<div class="section" id="requirements">
+</section>
+<section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Python 3.6;</p></li>
@@ -543,8 +544,8 @@ title="Print to PDF"
 <li><p>fake-useragent;</p></li>
 <li><p>py-googletransx.</p></li>
 </ul>
-</div>
-<div class="section" id="installing">
+</section>
+<section id="installing">
 <h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">#</a></h2>
 <p><strong>Git:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/twintproject/twint.git
@@ -564,13 +565,13 @@ pip3 install . -r requirements.txt
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv install git+https://github.com/twintproject/twint.git#egg<span class="o">=</span>twint
 </pre></div>
 </div>
-<div class="section" id="march-2-2021-update">
+<section id="march-2-2021-update">
 <h3>March 2, 2021 Update<a class="headerlink" href="#march-2-2021-update" title="Permalink to this headline">#</a></h3>
 <p><strong>Added</strong>: Dockerfile</p>
 <p>Noticed a lot of people are having issues installing (including me). Please use the Dockerfile temporarily while I look into them.</p>
-</div>
-</div>
-<div class="section" id="cli-basic-examples-and-combos">
+</section>
+</section>
+<section id="cli-basic-examples-and-combos">
 <h2>CLI Basic Examples and Combos<a class="headerlink" href="#cli-basic-examples-and-combos" title="Permalink to this headline">#</a></h2>
 <p>A few simple examples to help you understand the basics:</p>
 <ul class="simple">
@@ -597,8 +598,8 @@ pip3 install . -r requirements.txt
 <li><p><code class="docutils literal notranslate"><span class="pre">twint</span> <span class="pre">-u</span> <span class="pre">username</span> <span class="pre">--resume</span> <span class="pre">resume_file.txt</span></code> - Resume a search starting from the last saved scroll-id.</p></li>
 </ul>
 <p>More detail about the commands and options are located in the <a class="reference external" href="https://github.com/twintproject/twint/wiki/Commands">wiki</a></p>
-</div>
-<div class="section" id="module-example">
+</section>
+<section id="module-example">
 <h2>Module Example<a class="headerlink" href="#module-example" title="Permalink to this headline">#</a></h2>
 <p>Twint can now be used as a module and supports custom formatting. <strong>More details are located in the <a class="reference external" href="https://github.com/twintproject/twint/wiki/Module">wiki</a></strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">twint</span>
@@ -630,8 +631,8 @@ pip3 install . -r requirements.txt
 <span class="n">twint</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Search</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="storing-options">
+</section>
+<section id="storing-options">
 <h2>Storing Options<a class="headerlink" href="#storing-options" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Write to file;</p></li>
@@ -640,28 +641,28 @@ pip3 install . -r requirements.txt
 <li><p>SQLite;</p></li>
 <li><p>Elasticsearch.</p></li>
 </ul>
-</div>
-<div class="section" id="elasticsearch-setup">
+</section>
+<section id="elasticsearch-setup">
 <h2>Elasticsearch Setup<a class="headerlink" href="#elasticsearch-setup" title="Permalink to this headline">#</a></h2>
 <p>Details on setting up Elasticsearch with Twint is located in the <a class="reference external" href="https://github.com/twintproject/twint/wiki/Elasticsearch">wiki</a>.</p>
-</div>
-<div class="section" id="graph-visualization">
+</section>
+<section id="graph-visualization">
 <h2>Graph Visualization<a class="headerlink" href="#graph-visualization" title="Permalink to this headline">#</a></h2>
 <p><img alt="graph" src="https://i.imgur.com/EEJqB8n.png" /></p>
 <p><a class="reference external" href="https://github.com/twintproject/twint/wiki/Graph">Graph</a> details are also located in the <a class="reference external" href="https://github.com/twintproject/twint/wiki/Graph">wiki</a>.</p>
 <p>We are developing a Twint Desktop App.</p>
 <p><img alt="4" src="https://i.imgur.com/DzcfIgL.png" /></p>
-</div>
-<div class="section" id="faq">
+</section>
+<section id="faq">
 <h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p>I tried scraping tweets from a user, I know that they exist but I’m not getting them</p>
 </div></blockquote>
 <p>Twitter can shadow-ban accounts, which means that their tweets will not be available via search. To solve this, pass <code class="docutils literal notranslate"><span class="pre">--profile-full</span></code> if you are using Twint via CLI or, if are using Twint as module, add <code class="docutils literal notranslate"><span class="pre">config.Profile_full</span> <span class="pre">=</span> <span class="pre">True</span></code>. Please note that this process will be quite slow.</p>
-</div>
-<div class="section" id="more-examples">
+</section>
+<section id="more-examples">
 <h2>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this headline">#</a></h2>
-<div class="section" id="followers-following">
+<section id="followers-following">
 <h3>Followers/Following<a class="headerlink" href="#followers-following" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>To get only follower usernames/following usernames</p>
@@ -673,8 +674,8 @@ pip3 install . -r requirements.txt
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">twint</span> <span class="pre">-u</span> <span class="pre">username</span> <span class="pre">--followers</span> <span class="pre">--user-full</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">twint</span> <span class="pre">-u</span> <span class="pre">username</span> <span class="pre">--following</span> <span class="pre">--user-full</span></code></p>
-</div>
-<div class="section" id="userlist">
+</section>
+<section id="userlist">
 <h3>userlist<a class="headerlink" href="#userlist" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>To get only user info of user</p>
@@ -684,8 +685,8 @@ pip3 install . -r requirements.txt
 <div><p>To get user info of users from a userlist</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">twint</span> <span class="pre">--userlist</span> <span class="pre">inputlist</span> <span class="pre">--user-full</span></code></p>
-</div>
-<div class="section" id="tweet-translation-experimental">
+</section>
+<section id="tweet-translation-experimental">
 <h3>tweet translation (experimental)<a class="headerlink" href="#tweet-translation-experimental" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>To get 100 english tweets and translate them to italian</p>
@@ -709,9 +710,9 @@ pip3 install . -r requirements.txt
 <ul class="simple">
 <li><p><a class="reference external" href="https://cloud.google.com/translate/quotas">Google translate has some quotas</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="featured-blog-posts">
+</section>
+</section>
+<section id="featured-blog-posts">
 <h2>Featured Blog Posts:<a class="headerlink" href="#featured-blog-posts" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pielco11.ovh/posts/twint-osint/">How to use Twint as an OSINT tool</a></p></li>
@@ -719,12 +720,12 @@ pip3 install . -r requirements.txt
 <li><p><a class="reference external" href="https://towardsdatascience.com/analyzing-tweets-with-nlp-in-minutes-with-spark-optimus-and-twint-a0c96084995f">Analyzing Tweets with NLP in minutes with Spark, Optimus and Twint</a></p></li>
 <li><p><a class="reference external" href="https://markhneedham.com/blog/2019/05/29/loading-tweets-twint-kafka-neo4j/">Loading tweets into Kafka and Neo4j</a></p></li>
 </ul>
-</div>
-<div class="section" id="contact">
+</section>
+<section id="contact">
 <h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">#</a></h2>
 <p>If you have any question, want to join in discussions, or need extra help, you are welcome to join our Twint focused channel at <a class="reference external" href="https://osint.team">OSINT team</a></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
