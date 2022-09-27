@@ -20,7 +20,7 @@ drive.mount('/content/drive')
 
 # Pindah Path ke /content/drive/MyDrive/webmining/webmining
 
-# In[ ]:
+# In[2]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/')
@@ -28,7 +28,7 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/'
 
 # Clone Twint dari Github Twint Project
 
-# In[ ]:
+# In[3]:
 
 
 get_ipython().system('git clone --depth=1 https://github.com/twintproject/twint.git')
@@ -42,7 +42,7 @@ get_ipython().system('pip3 install . -r requirements.txt')
 
 # install Library Twint
 
-# In[ ]:
+# In[4]:
 
 
 get_ipython().system('pip install twint')
@@ -50,7 +50,7 @@ get_ipython().system('pip install twint')
 
 # install aiohttp versi 3.7.0
 
-# In[ ]:
+# In[5]:
 
 
 get_ipython().system('pip install aiohttp==3.7.0')
@@ -60,7 +60,7 @@ get_ipython().system('pip install aiohttp==3.7.0')
 
 # 
 
-# In[ ]:
+# In[6]:
 
 
 import twint
@@ -68,7 +68,7 @@ import twint
 
 # Install Nest Asyncio dan lakukan Import
 
-# In[ ]:
+# In[7]:
 
 
 get_ipython().system('pip install nest_asyncio')
@@ -78,7 +78,7 @@ nest_asyncio.apply()
 
 # configurasi Twint seperti halnya example di website library Twint
 
-# In[ ]:
+# In[8]:
 
 
 c = twint.Config()
@@ -97,7 +97,7 @@ twint.run.Search(c)
 
 # melakukan Import Pandas
 
-# In[ ]:
+# In[9]:
 
 
 import pandas as pd
@@ -105,7 +105,7 @@ import pandas as pd
 
 # Baca data excel dataGanjar.xlsx yang telah diberi label yang telah simpan di Google Drive
 
-# In[ ]:
+# In[10]:
 
 
 data = pd.read_excel('dataGanjar.xlsx')
@@ -122,7 +122,7 @@ data
 
 # Install Library nltk dan Sastrawi
 
-# In[ ]:
+# In[11]:
 
 
 get_ipython().system('pip install nltk')
@@ -135,7 +135,7 @@ get_ipython().system('pip install Sastrawi')
 
 # Lakukan Import beberapa Library seperti Pandas,re,nltk,string dan Sastrawi
 
-# In[ ]:
+# In[12]:
 
 
 import pandas as pd
@@ -150,7 +150,7 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 # Selanjutnya membuat Function Remove Stopwords yang fungsinya adalah menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM
 
-# In[ ]:
+# In[13]:
 
 
 def remove_stopwords(text):
@@ -166,7 +166,7 @@ def remove_stopwords(text):
 
 # Steming merupakan proses mengubah kata dalam bahasa Indonesia ke akar katanya misalkan 'Mereka meniru-nirukannya' menjadi 'mereka tiru'
 
-# In[ ]:
+# In[14]:
 
 
 def stemming(text):
@@ -211,7 +211,7 @@ def stemming(text):
 # 
 # 
 
-# In[ ]:
+# In[15]:
 
 
 def preprocessing(text):
@@ -248,7 +248,7 @@ def preprocessing(text):
 
 # Selanjutnya pindah Path ke Folder contents
 
-# In[ ]:
+# In[16]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/contents')
@@ -256,13 +256,15 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/c
 
 # Simpan hasil dari preprocessing ke dalam bentuk CSV
 
-# In[ ]:
+# In[17]:
 
 
 # data['tweet'].apply(preprocessing).to_csv('preprocessing.csv')
 
 
-# In[ ]:
+# berikutnya jadikan data menjadi bentuk Matrik numerik
+
+# In[18]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
@@ -271,33 +273,37 @@ vectorizer = CountVectorizer(min_df=1)
 bag = vectorizer.fit_transform(dataTextPre['tweet'])
 
 
-# In[ ]:
+# In[19]:
 
 
 matrik_vsm=bag.toarray()
 matrik_vsm.shape
 
 
-# In[ ]:
+# In[20]:
 
 
 matrik_vsm[0]
 
 
-# In[ ]:
+# In[21]:
 
 
 a=vectorizer.get_feature_names()
 
 
-# In[ ]:
+# selanjutnya data Matrik dikasih nama column sesuai Fitur
+
+# In[22]:
 
 
 dataTF =pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
 dataTF
 
 
-# In[ ]:
+# lalu data fitur ditambahkan dengan label positif,netral dan negatif
+
+# In[23]:
 
 
 label = pd.read_excel('/content/drive/MyDrive/webmining/webmining/twint/dataGanjar.xlsx')
@@ -305,13 +311,13 @@ dj = pd.concat([dataTF.reset_index(), label["label"]], axis=1)
 dj
 
 
-# In[ ]:
+# In[24]:
 
 
 dj['label'].unique()
 
 
-# In[ ]:
+# In[25]:
 
 
 dj.info()
@@ -323,7 +329,7 @@ dj.info()
 
 # install scikit-learn
 
-# In[ ]:
+# In[26]:
 
 
 get_ipython().system('pip install -U scikit-learn')
@@ -365,7 +371,7 @@ get_ipython().system('pip install -U scikit-learn')
 # (Sv) : entropy untuk sampel sampel yang memiliki nilai v
 # 
 
-# In[ ]:
+# In[27]:
 
 
 from sklearn.model_selection import train_test_split
@@ -375,13 +381,7 @@ X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1)
     random_state=0)
 
 
-# In[ ]:
-
-
-X_train
-
-
-# In[ ]:
+# In[28]:
 
 
 from sklearn.feature_selection import mutual_info_classif
@@ -389,7 +389,9 @@ mutual_info = mutual_info_classif(X_train, y_train)
 mutual_info
 
 
-# In[ ]:
+# merangking fitur sesuai dengan fitur yang paling banyak keluar
+
+# In[29]:
 
 
 mutual_info = pd.Series(mutual_info)
@@ -397,22 +399,83 @@ mutual_info.index = X_train.columns
 mutual_info.sort_values(ascending=False)
 
 
-# In[ ]:
+# menvisualkan data dengan grafik bar dengan urutan paling besar ke rendah
+
+# In[30]:
 
 
 mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
 
 
-# In[ ]:
+# In[31]:
 
 
 from sklearn.feature_selection import SelectKBest
 
 
-# In[ ]:
+# In[32]:
 
 
 sel_five_cols = SelectKBest(mutual_info_classif, k=100)
 sel_five_cols.fit(X_train, y_train)
 X_train.columns[sel_five_cols.get_support()]
+
+
+# In[33]:
+
+
+X_train=X_train.values
+y_train=y_train.values
+X_test=X_test.values
+y_test=y_test.values
+
+
+# ## Penjelasan Naive Bayes
+
+# Naive Bayes adalah algoritma machine learning yang digunakan untuk keperluan klasifikasi atau pengelompokan suatu data. Algoritma ini didasarkan pada teorema probabilitas yang dikenalkan oleh ilmuwan Inggris Thomas Bayes. Naive Bayes berfungsi memprediksi probabilitas di masa depan berdasarkan pengalaman sebelumnya, sehingga dapat digunakan untuk pengambilan keputusan.
+
+# In[34]:
+
+
+# from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+# from sklearn.pipeline import make_pipeline
+# from sklearn.preprocessing import StandardScaler
+gauss = GaussianNB()
+gauss.fit(X_train, y_train)
+Y_pred = gauss.predict(X_test) 
+Y_pred
+
+
+# In[39]:
+
+
+from sklearn.metrics import make_scorer, accuracy_score,precision_score
+testing = gauss.predict(X_test) 
+accuracy_gauss=round(accuracy_score(y_test,testing)* 100, 2)
+accuracy_gauss
+
+
+# ## Penjelasan Matplotib
+
+# Matplotlib adalah library Python yang fokus pada visualisasi data seperti membuat plot grafik. Matplotlib pertama kali diciptakan oleh John D. Hunter dan sekarang telah dikelola oleh tim developer yang besar. Awalnya matplotlib dirancang untuk menghasilkan plot grafik yang sesuai pada publikasi jurnal atau artikel ilmiah. Matplotlib dapat digunakan dalam skrip Python, Python dan IPython shell, server aplikasi web, dan beberapa toolkit graphical user interface (GUI) lainnya.
+
+# In[36]:
+
+
+import matplotlib.pyplot as plt
+from sklearn import metrics
+
+
+# ## Penjelasan Confusion Matrix
+
+# Confusion matrix juga sering disebut error matrix. Pada dasarnya confusion matrix memberikan informasi perbandingan hasil klasifikasi yang dilakukan oleh sistem (model) dengan hasil klasifikasi sebenarnya. Confusion matrix berbentuk tabel matriks yang menggambarkan kinerja model klasifikasi pada serangkaian data uji yang nilai sebenarnya diketahui.
+
+# In[37]:
+
+
+conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=Y_pred)
+cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = conf_matrix, display_labels = ['negatif', 'netral','positif'])
+cm_display.plot()
+plt.show()
 
