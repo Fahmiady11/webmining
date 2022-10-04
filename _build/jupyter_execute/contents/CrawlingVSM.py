@@ -259,7 +259,7 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/c
 # In[17]:
 
 
-# data['tweet'].apply(preprocessing).to_csv('preprocessing.csv')
+#data['tweet'].apply(preprocessing).to_excel('preprocessing.xlsx')
 
 
 # berikutnya jadikan data menjadi bentuk Matrik numerik
@@ -268,9 +268,10 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/c
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
-dataTextPre = pd.read_csv('/content/drive/MyDrive/webmining/webmining/contents/preprocessing.csv')
+dataTextPre = pd.read_excel('/content/drive/MyDrive/webmining/webmining/contents/preprocessing.xlsx')
 vectorizer = CountVectorizer(min_df=1)
 bag = vectorizer.fit_transform(dataTextPre['tweet'])
+dataTextPre
 
 
 # In[19]:
@@ -447,7 +448,7 @@ Y_pred = gauss.predict(X_test)
 Y_pred
 
 
-# In[39]:
+# In[35]:
 
 
 from sklearn.metrics import make_scorer, accuracy_score,precision_score
@@ -478,4 +479,44 @@ conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=Y_pred)
 cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = conf_matrix, display_labels = ['negatif', 'netral','positif'])
 cm_display.plot()
 plt.show()
+
+
+# In[38]:
+
+
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA, TruncatedSVD
+
+
+# ## Penjelasan K-Means
+
+# K-Means Clustering merupakan algoritma yang efektif untuk menentukan cluster dalam sekumpulan data, di mana pada algortima tersebut dilakukan analisis kelompok yang mengacu pada pemartisian N objek ke dalam K kelompok (Cluster) berdasarkan nilai rata-rata (means) terdekat. Adapun persamaan yang sering digunakan dalam pemecahan masalah dalam menentukan jarak terdekat adalah persamaan Euclidean berikut :
+
+# 
+# $$
+# d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}
+# $$
+# 
+# 
+# d = jarak obyek
+# 
+# p = data 
+# 
+# q = centroid
+
+# In[59]:
+
+
+"""Train the Kmeans with the best n of clusters"""
+modelKm = KMeans(n_clusters=3, random_state=12)
+modelKm.fit(dataTF.values)
+prediksi = modelKm.predict(dataTF.values)
+
+"""Dimensionality reduction used to plot in 2d representation"""
+pc=TruncatedSVD(n_components=2)
+X_new=pc.fit_transform(dataTF.values)
+centroids=pc.transform(modelKm.cluster_centers_)
+print(centroids)
+plt.scatter(X_new[:,0],X_new[:,1],c=prediksi, cmap='viridis')
+plt.scatter(centroids[:,0] , centroids[:,1] , s = 50, color = 'red')
 

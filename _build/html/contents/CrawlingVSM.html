@@ -392,6 +392,11 @@ title="Print to PDF"
    Penjelasan Confusion Matrix
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-k-means">
+   Penjelasan K-Means
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -459,6 +464,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#penjelasan-confusion-matrix">
    Penjelasan Confusion Matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-k-means">
+   Penjelasan K-Means
   </a>
  </li>
 </ul>
@@ -561,7 +571,7 @@ Collecting cchardet
   Downloading dataclasses-0.6-py3-none-any.whl (14 kB)
 Collecting elasticsearch
   Downloading elasticsearch-8.4.2-py3-none-any.whl (384 kB)
-     |████████████████████████████████| 384 kB 57.9 MB/s 
+     |████████████████████████████████| 384 kB 68.7 MB/s 
 ?25hRequirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
 Requirement already satisfied: pandas&gt;=0.23.0 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 8)) (1.3.5)
 Collecting aiohttp_socks&lt;=0.4.1
@@ -577,43 +587,42 @@ Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/pytho
 Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.21.6)
 Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2022.2.1)
 Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp_socks&lt;=0.4.1-&gt;-r requirements.txt (line 9)) (22.1.0)
-Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.3.1)
-Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.2.0)
-Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.8.1)
-Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
-Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (6.0.2)
 Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.0.2)
 Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (0.13.0)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.8.1)
 Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (2.1.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (6.0.2)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.2.0)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.3.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.15.0)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (2.10)
 Collecting pycares&gt;=4.0.0
   Downloading pycares-4.2.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (288 kB)
-     |████████████████████████████████| 288 kB 64.6 MB/s 
+     |████████████████████████████████| 288 kB 24.2 MB/s 
 ?25hRequirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (2.21)
 Collecting elastic-transport&lt;9,&gt;=8
   Downloading elastic_transport-8.4.0-py3-none-any.whl (59 kB)
-     |████████████████████████████████| 59 kB 6.1 MB/s 
-?25hRequirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.6.15)
-Collecting urllib3&lt;2,&gt;=1.26.2
+     |████████████████████████████████| 59 kB 6.8 MB/s 
+?25hCollecting urllib3&lt;2,&gt;=1.26.2
   Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
-     |████████████████████████████████| 140 kB 74.3 MB/s 
-?25hRequirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (1.52)
+     |████████████████████████████████| 140 kB 60.6 MB/s 
+?25hRequirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.6.15)
+Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (1.52)
 Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.23.0)
-Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;-r requirements.txt (line 13)) (3.0.4)
 Collecting requests
   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
-     |████████████████████████████████| 62 kB 1.3 MB/s 
+     |████████████████████████████████| 62 kB 1.4 MB/s 
 ?25hBuilding wheels for collected packages: twint, fake-useragent, googletransx
   Building wheel for twint (setup.py) ... ?25l?25hdone
-  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=3a6318d87cee93283429b4c7e14fbfa1423346d0252eaaae4c982f342df69785
-  Stored in directory: /tmp/pip-ephem-wheel-cache-o4uz2gdn/wheels/88/61/06/bd5d6a887f43cd7ea07380c2bc1fb104f5cc0d03f92a3c50c4
+  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=01e6fabef52d319797c3661b4c59c6a6fc40979e849cdb9104e96a9762576100
+  Stored in directory: /tmp/pip-ephem-wheel-cache-rn14vam5/wheels/88/61/06/bd5d6a887f43cd7ea07380c2bc1fb104f5cc0d03f92a3c50c4
   Building wheel for fake-useragent (setup.py) ... ?25l?25hdone
-  Created wheel for fake-useragent: filename=fake_useragent-0.1.11-py3-none-any.whl size=13502 sha256=0179cadcdad1a43f7633d725ceef7e6b8805d31c5954bb11b8e454bea853a913
+  Created wheel for fake-useragent: filename=fake_useragent-0.1.11-py3-none-any.whl size=13502 sha256=0c262bcc3c880d1af6bacc1823f6d74fd00257d151668dc2f04a9d1d571ffbf9
   Stored in directory: /root/.cache/pip/wheels/ed/f7/62/50ab6c9a0b5567267ab76a9daa9d06315704209b2c5d032031
   Building wheel for googletransx (setup.py) ... ?25l?25hdone
-  Created wheel for googletransx: filename=googletransx-2.4.2-py3-none-any.whl size=15968 sha256=cd41d9f0279ab780cb959f40e4a2b74c560e7141925ef46926f359a464db0420
+  Created wheel for googletransx: filename=googletransx-2.4.2-py3-none-any.whl size=15968 sha256=c0e714b837314987ac2aa88b025853dd4fb40cd81e55f2dc55524507997e0874
   Stored in directory: /root/.cache/pip/wheels/66/d5/b1/31104b338f7fd45aa8f7d22587765db06773b13df48a89735f
 Successfully built twint fake-useragent googletransx
 Installing collected packages: urllib3, requests, pycares, elastic-transport, schedule, googletransx, fake-useragent, elasticsearch, dataclasses, cchardet, aiohttp-socks, aiodns, twint
@@ -644,39 +653,39 @@ Successfully installed aiodns-3.0.0 aiohttp-socks-0.4.1 cchardet-2.1.7 dataclass
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: twint in /usr/local/lib/python3.7/dist-packages (2.1.21)
 Requirement already satisfied: dataclasses in /usr/local/lib/python3.7/dist-packages (from twint) (0.6)
-Requirement already satisfied: aiohttp-socks in /usr/local/lib/python3.7/dist-packages (from twint) (0.4.1)
 Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from twint) (1.1.0)
-Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from twint) (8.4.2)
-Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from twint) (1.17.0)
 Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from twint) (3.8.1)
-Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from twint) (3.0.0)
+Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from twint) (8.4.2)
 Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from twint) (0.1.11)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from twint) (1.17.0)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from twint) (4.6.3)
+Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from twint) (2.1.7)
+Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from twint) (3.0.0)
+Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from twint) (1.3.5)
+Requirement already satisfied: aiohttp-socks in /usr/local/lib/python3.7/dist-packages (from twint) (0.4.1)
 Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from twint) (1.7.1)
 Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from twint) (2.4.2)
-Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from twint) (2.1.7)
-Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from twint) (4.6.3)
-Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from twint) (1.3.5)
 Requirement already satisfied: pycares&gt;=4.0.0 in /usr/local/lib/python3.7/dist-packages (from aiodns-&gt;twint) (4.2.2)
 Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (1.15.1)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (2.21)
-Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (22.1.0)
-Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.0.2)
-Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.8.1)
-Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.1.1)
 Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.3.1)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.1.1)
+Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (0.13.0)
 Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.2.0)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.8.1)
 Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (2.1.1)
 Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (6.0.2)
-Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (0.13.0)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (22.1.0)
+Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.0.2)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;twint) (2.10)
 Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in /usr/local/lib/python3.7/dist-packages (from elasticsearch-&gt;twint) (8.4.0)
 Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (2022.6.15)
 Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (1.26.12)
 Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;twint) (1.52)
 Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;twint) (2.28.1)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (1.21.6)
 Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2.8.2)
 Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2022.2.1)
-Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (1.21.6)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas-&gt;twint) (1.15.0)
 </pre></div>
 </div>
@@ -693,15 +702,15 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-pack
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting aiohttp==3.7.0
   Downloading aiohttp-3.7.0-cp37-cp37m-manylinux2014_x86_64.whl (1.3 MB)
-     |████████████████████████████████| 1.3 MB 5.3 MB/s 
-?25hRequirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (6.0.2)
-Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (22.1.0)
-Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (1.8.1)
-Collecting async-timeout&lt;4.0,&gt;=3.0
+     |████████████████████████████████| 1.3 MB 5.2 MB/s 
+?25hCollecting async-timeout&lt;4.0,&gt;=3.0
   Downloading async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (22.1.0)
 Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.4)
-Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (4.1.1)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (1.8.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (6.0.2)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (2.10)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (4.1.1)
 Installing collected packages: async-timeout, aiohttp
   Attempting uninstall: async-timeout
     Found existing installation: async-timeout 4.0.2
@@ -736,9 +745,9 @@ Successfully installed aiohttp-3.7.0 async-timeout-3.0.1
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting nest_asyncio
-  Downloading nest_asyncio-1.5.5-py3-none-any.whl (5.2 kB)
+  Downloading nest_asyncio-1.5.6-py3-none-any.whl (5.2 kB)
 Installing collected packages: nest-asyncio
-Successfully installed nest-asyncio-1.5.5
+Successfully installed nest-asyncio-1.5.6
 </pre></div>
 </div>
 </div>
@@ -758,84 +767,66 @@ Successfully installed nest-asyncio-1.5.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1574746583635460096 2022-09-27 13:03:37 +0000 &lt;jpnncom&gt; #BeritaJateng  OTT KPK Marak di Jawa Tengah, Ganjar Bereaksi @ganjarpranowo  #ganjarpranowo #ottkpksemarang  https://t.co/OlAmQeNMaN
-1574741978469670912 2022-09-27 12:45:19 +0000 &lt;sahabatganjar&gt; Kenapa harus saya?  Hidup bisa nggak mudah dijalani, tapi kita ini manusia2 kuat lho, sahabat. Kamu bisa memenangi semua ini!  #SahabatGanjar #GanjarPranowo #Ganjar #Milenial  https://t.co/OzuC8oXgYS
-1574739598408056833 2022-09-27 12:35:52 +0000 &lt;OMG_banten&gt; OMG Tangsel berbagi kebaikan bersama, sudahkah kalian berbagi hariini? 😍😍 #GanjarPranowo #ganjar #ganjarforpresident2024 #viral #banteninfo #tangsel  https://t.co/Z28aCvR8H9
-1574732247068024833 2022-09-27 12:06:39 +0000 &lt;heraldindo&gt; Gubernur Jawa Tengah Ganjar Pranowo bertekad mencegah tindakan korupsi di kalangan pejabat. #ganjarpranowo #jateng #korupsi  https://t.co/BzOQqvNgrE
-1574727586722492416 2022-09-27 11:48:08 +0000 &lt;03__nakula&gt; Ganjar yang berolahraga pagi berkeliling ke tempat-tempat bersejarah, sambil menyapa warga setempat. Di antaranya Menara Mensu, rumah adat serta Museum Nias, di Gunung Sitoli.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/Fu9laqdVie
-1574727580347166720 2022-09-27 11:48:06 +0000 &lt;03__nakula&gt; Ada cerita menarik saat Gubernur Jawa Tengah, Ganjar Pranowo, berkunjung ke Pulau Nias, Sumatera Utara.   Dia diberi hadiah alat musik Tutuhao, dan sebuah buku yang mengulas tentang Pulau Nias.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/kJKRzn5lRO
-1574727296975794176 2022-09-27 11:46:59 +0000 &lt;03__nakula&gt; Sebanyak 7.809 kepala desa di Jawa Tengah diberi edukasi tentang pencegahan korupsi oleh KPK RI.   Hal itu dilakukan sebagai upaya pencegahan, mengingat berdasar catatan KPK RI, ada 686 kades se-Indonesia terjerembab kasus korupsi dana desa.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/DMX1uVm9lh
-1574723657942716416 2022-09-27 11:32:31 +0000 &lt;srikandiganjar_&gt; Aksi nyata Millenial Srikandi Ganjar Sulawesi Selatan berbagi hijab untuk para Millenial yang ada di kabupaten Enrekang.  #ganjarpranowo #ganjar  #ganjarpresiden2024 #gardaperempuanilenial #srikandiganjarsulsel #ganjarpranowomenang  https://t.co/avjXY33i89
-1574723041401393154 2022-09-27 11:30:04 +0000 &lt;jpnncom&gt; Ganjar titip pengawasan kepada anggota dewan terkait potensi korupsi APBD yang tinggi. #ganjarpranowo  https://t.co/HtpkhJ6iRI
-1574715476239798273 2022-09-27 11:00:00 +0000 &lt;GanjaranApp&gt; Menjadi inspirator bagi banyak orang termasuk para relawan tentang melestarikan budaya, menjadi nilai positif yang tidak dimiliki pemimpin lainya. sosok yg terus bergerak untuk perubhan.  #ganjaranapp #GanjarKita #ganjarpranowo #Ganjaranapps #relawanganjar #relawanganjarpranowo  https://t.co/b9a4ajTE04
-1574714135605960704 2022-09-27 10:54:41 +0000 &lt;sahabatganjarid&gt; Yakin gak mau beli Kemeja Hitam dari Sahabat Ganjar?? Tersedia  beberapa ukuran loh.  Langsung cek Shopee dan Tokopedia kamu dan jangan lupa beli yaa.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/2pjuCgASP6
-1574713793094950913 2022-09-27 10:53:19 +0000 &lt;sahabatganjarid&gt; Untuk ikutan Lomba Tiktok Ganjar Pranowo Festival #3 gampang banget loh, kalian tinggal Mix &amp;amp; Match outfit kamu menggunakan batik. Yuk ikutan😍  #GanjarPranowoFestival #GPFest3 #GPFestLampung #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/zJLX7vMdqq
-1574712395217645568 2022-09-27 10:47:46 +0000 &lt;Metro_TV&gt; Wah, gimana nih rasanya kalian kalau ternyata seangkot sama @aniesbaswedan dan @ganjarpranowo ? Senang atau malah keringat dingin deg-degan?😂  #AniesBaswedan #GanjarPranowo  https://t.co/VGQqDxPNrd
-1574710983116787713 2022-09-27 10:42:09 +0000 &lt;makganjarjbdtb&gt; Berbagi Kebaikan di @cilandak dan di @pinangranti #berbagi #makganjar #GanjarPranowo #ganjarforpresiden2024  https://t.co/7xxwrGbDKH
-1574707513089482752 2022-09-27 10:28:22 +0000 &lt;Ojo_Dum3h&gt; 📣 QUOTES SAGA   KENAPA HARUS SAYA??   Hidup bisa nggak mudah dijalani, tapi kita ini manusia2 kuat lho, sahabat. Kamu bisa memenangi semua ini!  #SahabatGanjar #GanjarPranowo #Ganjar #Milenial  https://t.co/wq8TBFXUZC
-1574707089695735809 2022-09-27 10:26:41 +0000 &lt;SobatUno&gt; emang Tatapan Mas Menteri bikin grogi 😂  #sandiagauno #sandiuno #temansandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo #presidenjokowi #kaesangpangarep #irianajokowi  https://t.co/Jfy8va5FOa
-1574704369429540864 2022-09-27 10:15:52 +0000 &lt;matakepri_&gt; 3 capres indonesia sampai ke surat kabar negeri matahari terbit  #matakepri  #berita #ganjarpranowo  #prabowo  #aniesbaswedan  #jepang  #koran  #indonesia  #beritaterkini  #beritaviral  https://t.co/d1rWSQxNQh
-1574693873476984832 2022-09-27 09:34:10 +0000 &lt;jijindut&gt; Jawara tiktokk buruan ikutan..  Khusus nya warga Lampung nih..  Kuyyyss...  S dan K berlaku 😁  #SahabatGanjar  #GanjarPranowo  https://t.co/gzgQrD0CWn
-1574693099955027968 2022-09-27 09:31:06 +0000 &lt;makganjarjbdtb&gt; Berbagi Kebaikan di @tamansari dan di @tomang #berbagi #makganjar #makganjarjabodetabek #GanjarPranowo #GanjarKita #ganjarpranowoforpresiden2024  https://t.co/jPYUp2WILA
-1574689663482142720 2022-09-27 09:17:26 +0000 &lt;GanjaranApp&gt; JAS MERAH = Jangan Sejali-kali, Melupakan Sejarah.  ucapan bapak proklamator menjadi semoboyan yang terus hidup di hati Ganjar Pranowo.  #jasmerah #ganjaranapp #GanjarKita #ganjarpranowo #Ganjaranapps #relawanganjar #relawanganjarpranowo  https://t.co/652llKGWPA
-1574688829499666432 2022-09-27 09:14:07 +0000 &lt;kesittt&gt; Untuk ikutan Lomba Tiktok Ganjar Pranowo Festival #3 gampang banget loh, kalian tinggal Mix &amp;amp; Match outfit kamu menggunakan batik. Yuk ikutan😍  #GanjarPranowoFestival #GPFest3 #GPFestLampung #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/tcg7iFhfAe
-1574687010597777414 2022-09-27 09:06:54 +0000 &lt;sahabatganjar&gt; Untuk ikutan Lomba Tiktok Ganjar Pranowo Festival #3 Lampung gampang banget loh, kalian tinggal Mix &amp;amp; Match outfit kamu menggunakan batik. Yuk ikutan😍  #GanjarPranowoFestival #GPFest3 #GPFestLampung #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/FkrggbmFDh
-1574682780243726336 2022-09-27 08:50:05 +0000 &lt;jpnncom&gt; Ganjar Pranowo merespons maraknya aksi OTT KPK di Jawa Tengah. Langkahnya patut dipresiasi. #ganjarpranowo  https://t.co/OlAmQeNMaN
-1574681687694270465 2022-09-27 08:45:45 +0000 &lt;sahabatganjar&gt; Hal tersebut terjadi saat Ganjar mengikuti gelaran Bank Jateng Friendship Run Borobudur Marathon 2022 di Istana Maimun, Kota Medan, Sumatera Utara  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/eKvCvmgNT0
-1574681668325023745 2022-09-27 08:45:40 +0000 &lt;sahabatganjar&gt; Bahkan, seorang warga tiba-tiba mengalungkan kain ulos kepadanya saat tiba di gerbang Istana Maimun.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/st674h8ELV
-1574681652508229633 2022-09-27 08:45:36 +0000 &lt;sahabatganjar&gt; Gubernur Jateng Ganjar Pranowo disambut antusias ratusan warga di Kota Medan, Sumatera Utara (Sumut).   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/SGFBdKdNPC
-1574681048889589760 2022-09-27 08:43:12 +0000 &lt;antarajateng&gt; Mahasiswa ikut awasi penyaluran bansos di Jateng. #GanjarPranowo #JatengGayeng #bansos  https://t.co/djMgMIIpWi
-1574679794549399553 2022-09-27 08:38:13 +0000 &lt;Urrangawak&gt; Kita tunggu nih, OOTD FASHIONABLE dari kalian.  See you guys !!! #GanjarPranowoFestival #GPFest3 #GPFestLampung #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/9UU77Io84o
-1574678515664171008 2022-09-27 08:33:08 +0000 &lt;Urrangawak&gt; Ganjar Pranowo menyampaikan rancangan perubahan APBD tahun anggaran 2022, diprioritaskan untuk bantuan sosial. Pemberian bantuan tambahan 2022 akan terdistribusi kepada 21 kabupaten/ kota.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/b6cQPi8YsH
-1574671080715087873 2022-09-27 08:03:36 +0000 &lt;Desganjar&gt; Kenpa sih penari ini dukung Ganjar Pranowo? hmm🤔  #Desganjar #ganjarpranowo #SUGA #PARKCHANYEOL #aespaxgivenchy #Chatamara MIN YOONGI #GLITCHNotGlitching #JeonYeoBeen #NANA #전여빈 #글리치 #나나 #GLITCHKDrama  https://t.co/QDfCEZyaoZ
-1574668549221941248 2022-09-27 07:53:32 +0000 &lt;Aryprasetyo85&gt; Gubernur Jateng @ganjarpranowo memprioritaskan rancangan perbuahan APBD 2022 untuk bantuan sosial.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/tnjKOs0A4P
-1574668051827793920 2022-09-27 07:51:34 +0000 &lt;Aryprasetyo85&gt; Pemprov Jateng sudah mencoba menggandeng eksnapiter, untuk bercerita mengenai bahaya radikalisme dan terorisme melalui program Gubernur Mengajar.   #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/v6hXWMRw6V
-1574665380110684160 2022-09-27 07:40:57 +0000 &lt;Aryprasetyo85&gt; @ganjarpranowo mengapresiasi prgoram &#39;Tuku Lemah Oleh Umah&#39; untuk bantuan Korban Banjir Brebes, Jawa Tengah.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/NtfkLSAA2g
-1574662875331039232 2022-09-27 07:30:59 +0000 &lt;sahabatganjar&gt; Selain pencegahan deradikalisasi eksnapiter, langkah itu juga mampu memberikan pemahaman yang menyeluruh, tentang bahaya radikalisme kepada anak-anak sekolah.  #sahabatganjar #ganjarpranowo #Ganjar
-1574662867743567873 2022-09-27 07:30:58 +0000 &lt;sahabatganjar&gt; Ganjar Pranowo sangat mendukung Program Densus 88 Antiteror untuk masuk ke sekolah-sekolah dengan melibatkan eksnapiter,   #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/XfrdO4ZkBP
-1574661745854988289 2022-09-27 07:26:30 +0000 &lt;cakranewsonline&gt; LSI Rilis Survei Elektabilitas Prabowo Teratas Dibayang-bayangi Ganjar dan Anies  https://t.co/ue0HeGfHbk #capresmumpuni #prabowopresiden2024 #AniesBaswedan #AniesPresiden2024 #GanjarPranowo #GanjarKita #ganjarpresiden2024
-1574658826573258753 2022-09-27 07:14:54 +0000 &lt;milodingin04&gt; [LOMBA TIKTOK GANJAR PRANOWO FESTIVAL #3]  Abadikan OOTD kalian saat menonton konser dengan Tema &quot;Mix &amp;amp; Match Batik&quot; melalui TikTok kalian.  #GanjarPranowoFestival #GPFest3 #GPFestLampung #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/IP3TvX05U0
-1574657053959806976 2022-09-27 07:07:52 +0000 &lt;makganjarbanten&gt; Mak ganjar berbagi di cimarga banten.   #makganjarbanten  #makganjar  #ganjarpranowo  https://t.co/U6PCmWG0MF
-1574656604414189570 2022-09-27 07:06:04 +0000 &lt;jpnncom&gt; Ganjar memberikan kesempatan kepada mahasiswa dan masyarakat yang ingin turut berkontribusi dalam penyaluran BLT BBM kepada masyarakat. #GanjarPranowo  https://t.co/WgIdYQUq8I
-1574656128171921408 2022-09-27 07:04:11 +0000 &lt;sahabatganjarid&gt; Ganjar Pranowo menyampaikan rancangan perubahan APBD tahun anggaran 2022, diprioritaskan untuk bantuan sosial.  Ganjar menjelaskan tiga prioritas perubahan APBD.   #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/T64gwkXyM7
-1574655435311026176 2022-09-27 07:01:26 +0000 &lt;sahabatganjar&gt; Gubernur Jateng Ganjar Pranowo memprioritaskan rancangan perbuahan APBD 2022 untuk bantuan sosial.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/zaLhikDgo0
-1574655082565537793 2022-09-27 07:00:02 +0000 &lt;GanjaranApp&gt; KURASI PRODUK JUALAN   #GanjaranApps #GanjaranApp #GanjarPranowo  https://t.co/shAmALIjyJ
-1574653997470076928 2022-09-27 06:55:43 +0000 &lt;SobatUno&gt; Langkah-langkah pencegahan, mengedukasi masyarakat dan meningkatkan pengawasan keamanan tempat wisata.  #sandiagauno #sandiuno #temansandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo  https://t.co/GX8v4mA9hb
-1574653894009167879 2022-09-27 06:55:18 +0000 &lt;SobatUno&gt; Oktober ini Indonesia siap sambut Presidensi G20 !  #sandiagauno #sandiuno #temansandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo #presidenjokowi #kaesangpangarep #irianajokowi  https://t.co/PskmXHyjAf
-1574651313132310528 2022-09-27 06:45:03 +0000 &lt;sahabatganjar&gt; Ganjar Pranowo mengapresiasi prgoram &#39;Tuku Lemah Oleh Umah&#39; untuk bantuan Korban Banjir Brebes, Jawa Tengah.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/PrKr6VMKJR
-1574649801077297152 2022-09-27 06:39:02 +0000 &lt;Aryprasetyo85&gt; Hal tersebut terjadi saat Ganjar mengikuti gelaran Bank Jateng Friendship Run Borobudur Marathon 2022 di Istana Maimun, Kota Medan, Sumatera Utara  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/lr4CDgTFrF
-1574649578510766080 2022-09-27 06:38:09 +0000 &lt;Aryprasetyo85&gt; Gubernur Jateng @ganjarpranowo disambut antusias ratusan warga di Kota Medan, Sumatera Utara (Sumut).   Bahkan, seorang warga tiba-tiba mengalungkan kain ulos kepadanya saat tiba di gerbang Istana Maimun. #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/PSJUybZ4Tw
-1574649455520858112 2022-09-27 06:37:40 +0000 &lt;SiahaanMike&gt; Kita tunggu nih, OOTD FASHIONABLE dari kalian.  See you guys !!!  #GanjarPranowoFestival #GPFest3 #GPFestLampung #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/3oqg2S6rwu
-1574648655524823040 2022-09-27 06:34:29 +0000 &lt;Aryprasetyo85&gt; Kenapa harus saya?  Hidup bisa nggak mudah dijalani, tapi kita ini manusia2 kuat lho, sahabat. Kamu bisa memenangi semua ini!  #SahabatGanjar #GanjarPranowo #Ganjar #Milenial  https://t.co/p1tzcgRhYl
-1574647346247663616 2022-09-27 06:29:17 +0000 &lt;Aryprasetyo85&gt; sebanyak 686 kades se-Indonesia terjerembab dalam kasus korupsi dana desa.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/lmDcnEB43q
-1574647123169378304 2022-09-27 06:28:24 +0000 &lt;Aryprasetyo85&gt; Sebanyak 7.809 kepala desa di Jawa Tengah diberi edukasi tentang pencegahan korupsi oleh KPK RI.   Hal itu dilakukan sebagai upaya pencegahan rasuah, mengingat berdasarkan catatan KPK RI, #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/cyib9Srq7b
-1574647035487481861 2022-09-27 06:28:03 +0000 &lt;Urrangawak&gt; Hal tersebut terjadi saat Ganjar mengikuti gelaran Bank Jateng Friendship Run Borobudur Marathon 2022 di Istana Maimun, Kota Medan, Sumatera Utara  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/VCI4Un2igD
-1574646299307098113 2022-09-27 06:25:07 +0000 &lt;Dnok_Ayu&gt; Yo gini... 👍 Namanya kerja kerja kerja..  Mempersiapkan benar2 dampak dr kenaikan BBM..  Tanggap &amp;amp; gerak cepat Pak Gub Jateng #GanjarPranowo dg memprioritaskan rancangan perbuahan APBD 2022 u/ bantuan sosial itu harusnya jg dilakukan gubernur daerah lain.  Ya ga #sahabatganjar..  https://t.co/zMsWgZkFbW
-1574645275981131781 2022-09-27 06:21:03 +0000 &lt;wahananewsdotco&gt; Ganjar Ditantang Mundur dari PDIP Untuk Pilpres 2024, Zulfan: Kalau Enggak Berani ya Mutlak Harus Anies  https://t.co/lfFfw65HNj #GanjarPranowo #AniesBaswedan #PartaiNasdem #Pilpres2024
-1574643897082339328 2022-09-27 06:15:35 +0000 &lt;sahabatganjarid&gt; Kenapa harus saya?  Hidup bisa nggak mudah dijalani, tapi kita ini manusia2 kuat lho, sahabat. Kamu bisa memenangi semua ini!  #SahabatGanjar #GanjarPranowo #Ganjar #Milenial  https://t.co/BDvUYrdY6h
-1574643338350800896 2022-09-27 06:13:21 +0000 &lt;03__nakula&gt; Hal tersebut terjadi saat Ganjar mengikuti gelaran Bank Jateng Friendship Run Borobudur Marathon 2022 di Istana Maimun, Kota Medan, Sumatera Utara.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/ViFjqxMzqb
-1574643332294144010 2022-09-27 06:13:20 +0000 &lt;03__nakula&gt; Gubernur Jateng Ganjar Pranowo disambut antusias ratusan warga di Kota Medan, Sumatera Utara (Sumut).   Bahkan, seorang warga tiba-tiba mengalungkan kain ulos kepadanya saat tiba di gerbang Istana Maimun.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/QKRwgOI2mx
-1574641751528075264 2022-09-27 06:07:03 +0000 &lt;MakGanjar&gt; Keren!!  Jaksel sambut antusias program dari Mak Ganjar ni guys🥰🥰 Selalu kompak ya semua, Salam dari Mak Ganjar #makganjar #ganjarpranowo #ganjar #sahabatganjar #ganjarpresiden2024 #ganjarforpresiden2024 #makganjaruntukpakganjar #YetToComeInBUSAN #Bjorka  https://t.co/iupC7MQjh7
-1574638682379677697 2022-09-27 05:54:51 +0000 &lt;sahabatganjarid&gt; Hal tersebut terjadi saat Ganjar mengikuti gelaran Bank Jateng Friendship Run Borobudur Marathon 2022 di Istana Maimun, Kota Medan, Sumatera Utara  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/7KY0ibk2Ws
-1574638669847093248 2022-09-27 05:54:48 +0000 &lt;sahabatganjarid&gt; Gubernur Jateng Ganjar Pranowo disambut antusias ratusan warga di Kota Medan, Sumatera Utara (Sumut).   Bahkan, seorang warga tiba-tiba mengalungkan kain ulos kepadanya saat tiba di gerbang Istana Maimun.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/69irHnbyta
-1574638011119124480 2022-09-27 05:52:11 +0000 &lt;sahabatganjarid&gt; Yakin gak mau beli Kemeja Hitam dari Sahabat Ganjar?? Tersedia  beberapa ukuran loh.  Langsung cek Shopee dan Tokopedia kamu dan jangan lupa beli yaa.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/Puesfobxk7
-1574637961798332416 2022-09-27 05:52:00 +0000 &lt;innindonesia&gt; NasDem Bakal Pinang Anies untuk Capres 2024, Bila Ganjar Tak Berani Keluar PDIP?  Baca selengkapnya 👇  https://t.co/BJwMuIxcot  #nasdem #AniesBaswedan #ganjarpranowo
-1574635341264211968 2022-09-27 05:41:35 +0000 &lt;ganjar_pedia&gt; keindahannya bagus kayanya problemnya sama kaya yang lain di daerah remote area yaitu penerbangan yang tidak bisa intens #ganjarpranowo #ganjarpedia   *Trending Twitter* NPWP Rp 1 #jokowimendunia Dufan Herry Selasa Maguire #JegalDoktrinKomunisme  https://t.co/s95iMaIhb5
-1574626097785819136 2022-09-27 05:04:51 +0000 &lt;GP_Lombok&gt; SAHABAT GANJAR – Gubernur Jawa Tengah @ganjarpranowo melakukan kunjungan ke Pulau Nias, Sumatera Utara, Ganjar diberi hadiah alat musik tutuhao dan buku yang mengulas tentang Pulau Nias.  #SahabatGanjar #GanjarPranowo  https://t.co/Cohu93zyri
-1574624876345925632 2022-09-27 05:00:00 +0000 &lt;GanjaranApp&gt; &quot;Pemuda Indonesia harus jauh lebih berani dan kreatif. Itu pilihannya kalau mau menang menghadapi persaingan global&quot; - Ganjar Pranowo  #Qoute #QouteGanjarPranowo #ganjaranapp #GanjaranApps #GanjarKita #GanjarPranowo  https://t.co/ZEY6ChwErt
-1574624798965002241 2022-09-27 04:59:41 +0000 &lt;GP_Lombok&gt; Relawan Sahabat Ganjar menggandeng Komunitas Senam untuk sama-sama menggelorakan pola hidup sehat di Kecamatan Cigasong, Kabupaten Majalengka, Jawa Barat, pada Minggu (25/9). #SahabatGanjar #GanjarPranowo   https://t.co/op4Dnz67NO
-1574624384396177408 2022-09-27 04:58:03 +0000 &lt;ciantra_chintra&gt; Kalian jahap. 😂😂 Pengertian dikit napa sih? Mungkin beliaunya lg lelah.🤭Sabar ya mbak @puanmaharani_ri klo pengen nyapres hrs tiru kesabaran pak @jokowi &amp;amp; pak @ganjarpranowo 👍👍🇮🇩🇮🇩 Duh. Semoga deh pak #GanjarKita #GanjarPranowo jd Presiden di th 2024 nanti. Amin.🙏
-1574624268721086464 2022-09-27 04:57:35 +0000 &lt;GP_Lombok&gt; 📣 QUOTES SAGA  KENAPA HARUS SAYA??   Hidup bisa nggak mudah dijalani, tapi kita ini manusia2 kuat lho, sahabat. Kamu bisa memenangi semua ini!  #SahabatGanjar #GanjarPranowo #Ganjar #Milenial #GPFestivalLampung  https://t.co/jHzlu70vN7
-1574622566982963207 2022-09-27 04:50:49 +0000 &lt;sahabatganjarid&gt; Ganjar Pranowo mengapresiasi prgoram &#39;Tuku Lemah Oleh Umah&#39; untuk bantuan Korban Banjir Brebes, Jawa Tengah.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/w1PBDPipMO
-1574621679640203265 2022-09-27 04:47:18 +0000 &lt;sahabatganjarid&gt; Gubernur Jateng Ganjar Pranowo memprioritaskan rancangan perbuahan APBD 2022 untuk bantuan sosial.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/1dTGet7066
-1574621099131777024 2022-09-27 04:44:59 +0000 &lt;sahabatganjar&gt; Hal itu dilakukan sebagai upaya pencegahan rasuah, mengingat berdasarkan catatan KPK RI, sebanyak 686 kades se-Indonesia terjerembab dalam kasus korupsi dana desa.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/8Wj0VDRc8W
-1574621066873274368 2022-09-27 04:44:52 +0000 &lt;sahabatganjar&gt; Sebanyak 7.809 kepala desa di Jawa Tengah diberi edukasi tentang pencegahan korupsi oleh KPK RI.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/EdaAHG1f9D
-1574620275995353088 2022-09-27 04:41:43 +0000 &lt;sahabatganjarid&gt; Hal itu dilakukan sebagai upaya pencegahan rasuah, mengingat berdasarkan catatan KPK RI, sebanyak 686 kades se-Indonesia terjerembab dalam kasus korupsi dana desa.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/Ou90RpJeRx
-1574620264154832899 2022-09-27 04:41:40 +0000 &lt;sahabatganjarid&gt; Sebanyak 7.809 kepala desa di Jawa Tengah diberi edukasi tentang pencegahan korupsi oleh KPK RI.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/OWvi29KsHz
-1574616922968436736 2022-09-27 04:28:24 +0000 &lt;polsight&gt; &quot;Zulfan Lindan bicara soal kepentingan negara besar di Pilpres 2024 Indonesia. Menurutnya, ada capres yang figurnya akan menguntungkan AS dan ada yang akan menguntungkan China dan Rusia.&quot; . . . #anisbaswedan #prabowo #ganjarpranowo #pilpres2024 #survei #nasdem  https://t.co/Vy71ERDuBn
-1574614190567792640 2022-09-27 04:17:32 +0000 &lt;mtbfmsurabaya&gt; Mulai dari kuliner, kriya hingga fashion. Sementara itu, Pangeran Watanida seorang peserta lari mengaku bahwa ini adalah pengalaman yang tak terlupakan. Bahkan, ia sendiri mengenakan kostum adat Arab untuk ikut lari.  #bankjatengfriendshiprun #jateng #ganjar  #ganjarpranowo
-1574609976634802177 2022-09-27 04:00:47 +0000 &lt;Politik_HariIni&gt; Saling senggol antara koalisi Parpol nampaknnya sudah dimulai.  .  .  #phi #politikhariini #politikindonesia #viral #nasdem #ppp #pks #pan #golkar #ganjarpranowo #pdip  https://t.co/3wfOncFawg
-1574607358726021120 2022-09-27 03:50:23 +0000 &lt;sahabatganjar&gt; Ganjar yang berolahraga pagi berkeliling ke tempat-tempat bersejarah, sambil menyapa warga setempat. Di antaranya Menara Mensu, rumah adat serta Museum Nias, di Gunung Sitoli.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/C1RuZWmqXR
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1577158169842700288 2022-10-04 04:46:24 +0000 &lt;03__nakula&gt; Tragedi kerusuhan suporter di Stadion Kanjuruhan menjadi duka mendalam bagi dunia persepakbolaan Indonesia.  Gubernur Jawa Tengah Ganjar Pranowo pun menyampaikan duka cita dan berdoa untuk semua korban, terutama korban meninggal dunia.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/1ISBb2yG97
+1577157361571336192 2022-10-04 04:43:11 +0000 &lt;sonny_a_sokon&gt; Pemilu belum mulai... Dimulai ketika @PDI_Perjuangan umumkan @ganjarpranowo sebagai calon. Semua peta akan berubah, semua mulai bracing for big impact, semua koalisi saling nego keras. Ramalan kuat: hanya 2 calon  #NasdemBersamaAnies #GanjarPranowo #ganjarist #Pilpres2024
+1577156768353746944 2022-10-04 04:40:50 +0000 &lt;pikiran_rakyat&gt; PSI Usung Ganjar Pranowo Jadi Capres 2024, Grace Natalie: dari Hasil Rumbuk Rakyat #PSI #GanjarPranowo #Capres2024  Selengkapnya:  https://t.co/999vjkzats via @YouTube
+1577155161281044480 2022-10-04 04:34:27 +0000 &lt;Lembayungpbr22&gt; #pbnu #pdip #NU #koruptor #PDIPerjuangan #gpansor #puan #puanmaharani #megawati #indonesia   #GanjarPranowo #pdip #ikn
+1577151800091717632 2022-10-04 04:21:05 +0000 &lt;Jiung1973&gt; Prabowo,Puan,Anies, Ganjar atau siapapun yang layak maju di 2024, janganlah saling menjatuhkan, adu gagasan dan pencapaian saja demi warisan kebaikan untuk anak cucu kita #AniesBaswedan #GanjarPranowo #prabowo #PuanMaharani
+1577150780645048320 2022-10-04 04:17:02 +0000 &lt;Jarikmerahputih&gt; Pak Gubernur Jawa Tengah (Jateng) Ganjar Pranowo dan Pak Menteri BUMN RI Erick Thohir menjadi pemimpin pilihan masyarakat saat ini.  #ganjarpranowo #erickthohir #merahputih #pilpres2024 #relawanjarik  https://t.co/VPr3gzKoPc
+1577149099752624129 2022-10-04 04:10:22 +0000 &lt;KabarS4habat&gt; Klik untuk lihat kontennya👇🏼👇🏼👇🏼  https://t.co/4AOPG6Mxxb  #GanjarPranowo #ganjarpranowo2024 #GanjaranApp @ganjarpranowo #info  https://t.co/TEPJHlM2By
+1577147514306039808 2022-10-04 04:04:04 +0000 &lt;jpnncom&gt; Ganjar Pranowo merupakan opsi yang tepat untuk maju dalam Pilpres 2024, melawan Prabowo Subianto dan Anies Baswedan. #GanjarPranowo  https://t.co/SjEVjqC0Lg
+1577145559382491137 2022-10-04 03:56:17 +0000 &lt;tribunkaltim&gt; Respon Ridwan Kamil dan Ganjar Pranowo terkait Anies Baswedan yang Diusung sebagai Capres Nasdem   #Anies #AniesBaswedan #Ganjar #GanjarPranowo #RidwanKamil #KangEmil #capres #Nasdem #Pilpres2024   https://t.co/dWXqudZLsS lewat @tribunkaltim
+1577145108361015297 2022-10-04 03:54:30 +0000 &lt;sahabatganjar&gt; Gubenur Jawa Tengah Ganjar Pranowo mengenang K.H. Dian Nafi, apa yang disampaikan oleh Ganjar? Simak video berikut.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/1pAiwp4oZt
+1577142819944165376 2022-10-04 03:45:24 +0000 &lt;VideoTRIBUN&gt; Seusai Nasdem Usung Anies, PSI Deklarasikan Ganjar Pranowo &amp;amp; Yenny Wahid Jadi Capres-Cawapres 2024  #PSI #capres #GanjarPranowo #YennyWahid #pilpres2024 #BeritaTerkini   Selengkapnya&amp;gt;  https://t.co/y6PT0yZYWf  https://t.co/q2TTWHg1CV
+1577139371496833025 2022-10-04 03:31:42 +0000 &lt;KoncoErick&gt; Nah iki Pak Menteri BUMN RI Erick Thohir cawapres sing cocok disandingke karo sopo ae. Dipasangke karo Pak Ganjar Pranowo yo iso, karo Pak Prabowo Subianto yo iso. Sing penting Pak Erick Thohir maju Pilpres 2024, Indonesia bakal aman rek.   #ganjarpranowo #prabowo #erickthohir  https://t.co/TebpqZN28u
+1577138037263601664 2022-10-04 03:26:24 +0000 &lt;DewiOzza&gt; Produsen pipa asal Belanda, Wavin, membangun pabrik di Batang  #GanjarPranowo menyebut berdirinya pabrik pipa asal Belanda di Kawasan Industri Terpadu Batang (KITB) sbg bentuk kepercayaan investor berinvestasi di Indonesia, khususnya di Jawa Tengah.   https://t.co/NcOidGFqmJ
+1577138018796072960 2022-10-04 03:26:20 +0000 &lt;DewiOzza&gt; Elektabilitas #GanjarPranowo Tinggi di Sejumlah Lembaga Survei, KGN Optimistis Ketum @PDI_Perjuangan Akan Pilih Jadi Capres 2024   https://t.co/W55bZfFTv3
+1577137801383927808 2022-10-04 03:25:28 +0000 &lt;sahabatganjarid&gt; Kerjasama kedua belah pihak berorientasi pada upaya peningkatan kesejahteraan masyarakat, khususnya di wilayah Sulawesi Barat.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/Q2J3gUtESx
+1577137764310470656 2022-10-04 03:25:19 +0000 &lt;sahabatganjarid&gt; Pemerintah Provinsi (Pemprov) Sulawesi Barat menandatangani Memorandum of Understanding (MoU), dengan Pemprov Jawa Tengah  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/tHKtp4gST2
+1577137520319479808 2022-10-04 03:24:21 +0000 &lt;jpnncom&gt; #BeritaJabar Masyarakat Pangandaran Nobatkan Ganjar Pranowo Sebagai Bapak Pariwisata @ganjarpranowo  #ganjarmudapadjajaran #ganjarpranowo #bapakpariwisata   https://t.co/UidE1aoVI1
+1577136296287313921 2022-10-04 03:19:29 +0000 &lt;sahabatganjarid&gt; Beliau mengajarkan dan menanamkan kepada para mahasiswa karakter yang kuat sesuai dengan pemahaman agama Islam.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/y9OfrXlIPY
+1577135320830615554 2022-10-04 03:15:36 +0000 &lt;insideindo_id&gt; Ganjar Pranowo angkat suara setelah Partai NasDem resmi mengusung Anies Baswedan sebagai Capres 2024.   Baca berita selengkapnya hanya di  https://t.co/NuJENM2ro9  #ganjarpranowo #pilpres2024 #aniesbaswedan #caprescawapres2024 #capres2024 #presiden2024 #FYP  https://t.co/LJXuMupo5o
+1577133546837512193 2022-10-04 03:08:33 +0000 &lt;terkinidotid&gt; Terbukti Dorong Kemandirian Ekonomi, Emak-Emak di Bone Dukung Ganjar Jadi Presiden: Relawan Mak Ganjar Sulawesi Selatan bersama 500 emak-emak Kabupaten Bone berkumpul dan menyuarakan aspirasi &#39;Ganjar Presiden 2024&#39; di Desa…  https://t.co/slAvjRWBL8 #Bone #GanjarPranowo #Ganjar
+1577130318569476096 2022-10-04 02:55:44 +0000 &lt;sahabatganjar&gt; Saat perayaan hari batik nasional, Ganjar Pranowo menggelar pameran 1000 motif batik dari kuno hingga kekinian.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/BaQoPFsFC7
+1577127187961896960 2022-10-04 02:43:17 +0000 &lt;jalanmerdeka3&gt; Duh, ketahuan lagi pacaran sama Pak Ganjar 🤭😄😍❤🇮🇩 #Ganjar #GanjarPranowo #GanjarRI1 #GanjarKita #GanjarTheNextJokowi #ganjarpranowo2024  https://t.co/2NRVReV0dt
+1577126079621656578 2022-10-04 02:38:53 +0000 &lt;sahabatganjar&gt; Ganjar menerbitkan surat edaran berisi instruksi bagi kepala daerah di seluruh Jateng agar menggunakan aspal Buton sebagai implementasi peningkatan penggunaan produk dalam negeri (P3DN).  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/YfW4IfpCuW
+1577125591362416640 2022-10-04 02:36:57 +0000 &lt;fajaronline&gt; Deklarasikan Ganjar Capres 2024 Usai Cibir Nasdem, Kader Demokrat: Masih Percaya PSI?  https://t.co/KoUw3HHwRq #AniesBaswedan #GanjarPranowo #GiringGanesha #NasDem
+1577121540457758721 2022-10-04 02:20:51 +0000 &lt;fajaronline&gt; Giring Bilang Tak Mau Bahas Politik Dulu, PSI Malah Deklarasikan Ganjar, Loyalis Anies: Perilaku Pecundang  https://t.co/xkdio5DW65 #AniesBaswedan #GanjarPranowo #GeiszChalifah #GiringGanesha
+1577121251189219329 2022-10-04 02:19:42 +0000 &lt;Arigato_98&gt; #GanjarPranowo #tgb #PDIPerjuangan #perindo #adp2022 @ganjarpranowo @TGBMZainulMajdi @_ekokuntadhi @Hary_Tanoe  https://t.co/NwGf4opn5L
+1577114443959308288 2022-10-04 01:52:39 +0000 &lt;PSI_Bali&gt; #GanjarPranowo #YennyWahid   &quot;Kombinasi Ganjar-Yenny Wahid kami anggap terbaik untuk melanjutkan kepemimpinan nasional. Inilah pasangan calon untuk capres-cawapres untuk mewujudkan Indonesia sebagai negeri yang adil dan toleran&quot; sebut Wakil Ketua Dewan Pembina PSI Sis @grace_nat  https://t.co/C4wNbzyM8q
+1577111803448164353 2022-10-04 01:42:09 +0000 &lt;geboeja_&gt; #GANJARPRANOWO  capres 2024
+1577109554420408321 2022-10-04 01:33:13 +0000 &lt;von_edison&gt; Di tengah duka yg mendalam #panjuruhan bahkan duka nasional dan internasional, justru PSI sibuk deklarasi  agar #ganjarpranowo  MAJU CAPRES 2024.  SITU WARAS ?  https://t.co/q3q8Z3AESb
+1577109433070387200 2022-10-04 01:32:44 +0000 &lt;Lembayungpbr22&gt; #pbnu #pdip #NU #koruptor #PDIPerjuangan #gpansor #puan #puanmaharani #megawati #indonesia   #GanjarPranowo #pdip #ikn
+1577098894517075969 2022-10-04 00:50:52 +0000 &lt;SobatUno&gt; Kita harapkan apapun yang bisa kita kolaborasikan, contohnya di bidang Ekraf.  #sandiuno #SobatSandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo #presidenjokowi #kaesangpangarep  https://t.co/EmOhwTLFZY
+1577098571962519552 2022-10-04 00:49:35 +0000 &lt;SobatUno&gt; Banyak FIlm Indonesia yang mengisahkan keunggulan Pariwisata dan Ekonomi Kreatif Tanah Air.  #sandiuno #SobatSandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo #presidenjokowi  https://t.co/vHGg0WGLd7
+1577096325602025472 2022-10-04 00:40:39 +0000 &lt;GP_Lombok&gt; Ada backing vocalnya 😂🤭  #GanjarPranowo #SahabatGanjar  https://t.co/CGPwRwokIe
+1577095621466808320 2022-10-04 00:37:51 +0000 &lt;ds_martakusumah&gt; @tjhinfar Ketika jabatan adalah suatu pekerjaan yg harus dipertanggungjawabkan, maka itu adalah amanah yg wajib dijalankan dgn sebaik²nya. Dan ketika jabatan diserahkan pada orang yg tidak tepat, maka kehancuran sdh menunggu didepan mata. 😊☕🙏  #TemanGanjar #GanjarPranowo #TegarSukabumi
+1577089885495734273 2022-10-04 00:15:04 +0000 &lt;Kanjeng2022&gt; Pilpres 2024 selesai kalau ini mah...  #GanjarPranowo
+1577085651094118400 2022-10-03 23:58:14 +0000 &lt;fajaronline&gt; Terbukti Dorong Kemandirian Ekonomi, Ganjar Raih Dukungan Emak-Emak Kabupaten Bone Jadi Presiden  https://t.co/XDK7kQpCsN #GanjarPranowo #Pilpres2024 #RelawanEmak-emak
+1577082172636532736 2022-10-03 23:44:25 +0000 &lt;Ismail34599891&gt; @detikcom @Giring_Ganesha lucu gak ni mas giring,,,, anda gak tahu ya kalau psi juga deklarasi,,, #GanjarPranowo
+1577078908788219904 2022-10-03 23:31:27 +0000 &lt;RizkiR4madani&gt; Anies Baswedan Dideklarasikan Sebagai Capres 2024, Ini Komentar @ganjarpranowo . Ini Lah Yg Membuat, Aye Ingin Slalu Mendukung Beliau Gubernur Jawa Tengah #GanjarPranowo Menjadi Presiden 🇮🇩 Periode 2024-2029. Gimane Sobat Tweps? Yg Cihuyy☕☕   https://t.co/SnsDg25sGO
+1577051023847268352 2022-10-03 21:40:38 +0000 &lt;lawjusticeco&gt; PSI Deklarasikan Ganjar Pranowo Capres di Pilpres 2024  https://t.co/cNGjmZdGF8 #psi #GanjarPranowo #jokowi #PDIPerjuangan  https://t.co/CuRSUFc1SF
+1577041402722418690 2022-10-03 21:02:25 +0000 &lt;inisiatifganjar&gt; Gubernur Jawa Tengah Ganjar Pranowo mendampingi Presiden Joko Widodo (Jokowi) dalam groundbreaking pabrik Wavin di Grand Batang City atau Kawasan Industri Terpadu Batang (KITB), Senin (3/10/2022).  #ganjarpranowo #ganjar #ganjar_pranowo #jawatengah #jawatengahhits #indonesia  https://t.co/AmfaF33xal
+1577028977528832002 2022-10-03 20:13:02 +0000 &lt;jpnncom&gt; Ganjar dinilai sebagai pemimpin yang aktif mendorong peran strategis perempuan sebagai pelaku sekaligus penggerak ekonomi kreatif dan inovatif. #GanjarPranowo  https://t.co/jyhyrV2ATv
+1577003110840827904 2022-10-03 18:30:15 +0000 &lt;FitriNatali1&gt; Kocak betul si Giring ini, mksud hati nyindir NasDem deklarasikan Anies Baswedan eh ternyata PSI yg ndak punya kursi ikutan Deklarasi Ganjar.  Ketum koq ndak tau agenda partainya sih ring giring parah loh #giring #giringganesha #psi #ganjar #ganjarpranowo  #NasdemBersamaAnies  https://t.co/OSyeKjnjZn
+1577002883203010561 2022-10-03 18:29:21 +0000 &lt;JSodakain&gt; @imanlagi Anis Bakal menang kalau lawannya mbak puan. Tapiii kalo lawannya adalah Ganjar sorry to say kalau Ganjar yg bakal menang. #GanjarPranowo #GanjarTheNextJokowi
+1576997665577242624 2022-10-03 18:08:37 +0000 &lt;siregaryaakub&gt; @MndJaya @Metro_TV Ngapain juga nyisipkan tagar #KanjuruhanBerdukaCita di narasi politik,apa kalian dan kelompokmu sdh tak berempati dengan ratusan nyawa yg melayang? Jijik aku dengan cara berpikirmu. Makan itu #GanjarPranowo mu!!!
+1576996073641775104 2022-10-03 18:02:17 +0000 &lt;01Negeriku&gt; @Miduk17 bersama selalu dengan Pakde #GanjarPranowo
+1576992906795134977 2022-10-03 17:49:42 +0000 &lt;01Negeriku&gt; @Damai_Itu_Indah @psi_id @psi_id bersama #GanjarPranowo   #SelamatTinggalNasdem  #SelamatTinggalNasdem  #SelamatTinggalNasdem
+1576976136898478080 2022-10-03 16:43:04 +0000 &lt;jpnncom&gt; Gubernur Ganjar Pranowo ingin agar generasi muda terutama yag kurang mampu tetap mendapat hak yang sama dalam mengenyam pendidikan melalui SMKN Jateng. #GanjarPranowo  https://t.co/rO2Me3vV2J
+1576974634091565059 2022-10-03 16:37:06 +0000 &lt;Nien1708&gt; Tragedi supporter di Malang, diharapkan jadi evaluasi besar pada dunia persepakbolaan Indonesia.   Penyelenggara, suporter &amp;amp; petugas keamanan.  Ganjar minta agar para suporter mengadakan kongres untuk mencegah hal tersebut terulang kembali.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/VBPYWIDWK2
+1576974192263581700 2022-10-03 16:35:20 +0000 &lt;tahucampur58&gt; @ElinaDio menurut saya langkah nasdem &quot;cerdas&quot; utk mematikan ! #GanjarPranowo tetap akan next jokowi
+1576973388933136384 2022-10-03 16:32:09 +0000 &lt;Nien1708&gt; Ada yang suka memendam masalah berlarut-larut????   Yuk kita kenali ciri-ciri dari asertif.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/EwJTJfIVH2
+1576973058010533908 2022-10-03 16:30:50 +0000 &lt;Nien1708&gt; Pagi yang cerah enaknya senam sehat nih kayak di Kota Serang, Banten.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/wKC91JIRZ8
+1576972872550993935 2022-10-03 16:30:06 +0000 &lt;ArdiKuncoro_&gt; Santai Saja Bu Mega pasti tau dan melihat reaksi masyarakat (Rakyat)  #GanjarPranowo
+1576972367074844672 2022-10-03 16:28:05 +0000 &lt;mudha_satriya&gt; Loyalis Puan bikin Dewan Kolonel, Relawan Ganjar bikin Dewan KOPRAL &amp;gt;&amp;gt;&amp;gt;&amp;gt;  https://t.co/4X0y2QcM1m #GPMania #ganjarpranowo #GanjarPresiden2024 #DewanKopral
+1576971592898203651 2022-10-03 16:25:01 +0000 &lt;mudha_satriya&gt; Jika Para Elite bisa membentuk &quot; Dewan Kolonel &quot; maka KITA rakyat kecil akan membentuk DEWAN KOPRAL !!!! &amp;gt;&amp;gt;&amp;gt;&amp;gt;  https://t.co/WkDY3w8oyx . . . #GPMania #GanjarPranowo #GanjarPresiden2024 Cc @Rizmaya
+1576961286935412736 2022-10-03 15:44:03 +0000 &lt;jpnncom&gt; Gubernur Jateng Ganjar Pranowo menyambut baik kedatangan Pj Gubernur Sulbar beserta jajarannya. #GanjarPranowo  https://t.co/SfhM8AKbpC
+1576960285814181888 2022-10-03 15:40:05 +0000 &lt;jpnncom&gt; Ganjar Pranowo dinobatkan sebagai Bapak Pariwisata Indonesia oleh masyarakat Pangandaran dalam Festival &#39;Pariwisata Pulih, Indonesia Bangkit&#39; #ganjarpranowo  https://t.co/UidE1aH4W9
+1576959891729977349 2022-10-03 15:38:31 +0000 &lt;InfoSeriyes&gt; #GanjarPranowo lahhh
+1576959497028763650 2022-10-03 15:36:57 +0000 &lt;MndJaya&gt; #GanjarPranowo #KanjuruhanBerdukaCita lawan #BapakPolitikIdentitas usungan Nasdem @Metro_TV
+1576959246809567232 2022-10-03 15:35:57 +0000 &lt;Ardi22319234&gt; #GanjarPranowo #GanjarTheNextJokowi  #2024TenggelamkanNasdem #2024GanjarRI1 #GanjarPresidenRI2024 #TOLAKANIES #Tolakpolitikidentitas 2024 Mari Kita Pilih Pemimpin Merakyat ,, Bukan Pemimpin ambisius ayat dan mayat #Menolaklupa #Pilgub2017  https://t.co/64UPsb2X4C
+1576954770954551296 2022-10-03 15:18:10 +0000 &lt;sahabatganjar&gt; Pagi yang cerah enaknya senam sehat nih kayak di Kota Serang, Banten.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/Y6C82XyICe
 </pre></div>
 </div>
 </div>
@@ -862,7 +853,7 @@ Successfully installed nest-asyncio-1.5.5
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-991af805-00b1-4366-b5fb-2f22bf81f166">
+  <div id="df-9d23355c-5c66-4f4e-a65d-6172eabd5790">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -946,7 +937,7 @@ Successfully installed nest-asyncio-1.5.5
 </table>
 <p>73 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-991af805-00b1-4366-b5fb-2f22bf81f166')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-9d23355c-5c66-4f4e-a65d-6172eabd5790')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -997,12 +988,12 @@ Successfully installed nest-asyncio-1.5.5
 
       <script>
         const buttonEl =
-          document.querySelector('#df-991af805-00b1-4366-b5fb-2f22bf81f166 button.colab-df-convert');
+          document.querySelector('#df-9d23355c-5c66-4f4e-a65d-6172eabd5790 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-991af805-00b1-4366-b5fb-2f22bf81f166');
+          const element = document.querySelector('#df-9d23355c-5c66-4f4e-a65d-6172eabd5790');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1042,14 +1033,14 @@ Successfully installed nest-asyncio-1.5.5
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: nltk in /usr/local/lib/python3.7/dist-packages (3.7)
+Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.1.0)
 Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
 Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
 Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
-Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.1.0)
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting Sastrawi
   Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
-     |████████████████████████████████| 209 kB 6.1 MB/s 
+     |████████████████████████████████| 209 kB 5.1 MB/s 
 ?25hInstalling collected packages: Sastrawi
 Successfully installed Sastrawi-1.0.1
 </pre></div>
@@ -1188,7 +1179,7 @@ Successfully installed Sastrawi-1.0.1
 <p>Simpan hasil dari preprocessing ke dalam bentuk CSV</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data[&#39;tweet&#39;].apply(preprocessing).to_csv(&#39;preprocessing.csv&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data[&#39;tweet&#39;].apply(preprocessing).to_excel(&#39;preprocessing.xlsx&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -1197,12 +1188,187 @@ Successfully installed Sastrawi-1.0.1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
-<span class="n">dataTextPre</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/webmining/webmining/contents/preprocessing.csv&#39;</span><span class="p">)</span>
+<span class="n">dataTextPre</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/webmining/webmining/contents/preprocessing.xlsx&#39;</span><span class="p">)</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">bag</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataTextPre</span><span class="p">[</span><span class="s1">&#39;tweet&#39;</span><span class="p">])</span>
+<span class="n">dataTextPre</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-1b817ba6-3109-4d28-9dc9-3faa4b00b221">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>tweet</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>['harap', 'kerja', 'jalin', 'jawa', 'australia']</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>['duta', 'australia', 'indonesia', 'penny', 'w...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>['butuh', 'jalan', 'men', 'sejati', 'teman', '...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>['ajar', 'pandang', 'hubung', 'teman', 'milik'...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>['mas', 'ganjar', 'bantu', 'masyarakat', 'nikm...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>68</td>
+      <td>['mas', 'ganjar', 'jalan', 'instruksi', 'presi...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>69</td>
+      <td>['jawa', 'catat', 'provinsi', 'tingkat', 'infl...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>70</td>
+      <td>['yayasan', 'dokter', 'peduli', 'doctorshare',...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>71</td>
+      <td>['cocok', 'banget', 'deh', 'ah', 'typa', 'girl']</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>72</td>
+      <td>['ambil', 'tajuk', 'jum', 'at', 'berkah', 'sah...</td>
+      <td>positif</td>
+    </tr>
+  </tbody>
+</table>
+<p>73 rows × 3 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-1b817ba6-3109-4d28-9dc9-3faa4b00b221')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-1b817ba6-3109-4d28-9dc9-3faa4b00b221 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-1b817ba6-3109-4d28-9dc9-3faa4b00b221');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1270,7 +1436,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-cc599fd2-963b-4c2e-bb50-49a502429c78">
+  <div id="df-91f2aebe-473e-4825-8df4-3597040bfcf5">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1582,7 +1748,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>73 rows × 398 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-cc599fd2-963b-4c2e-bb50-49a502429c78')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-91f2aebe-473e-4825-8df4-3597040bfcf5')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1633,12 +1799,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-cc599fd2-963b-4c2e-bb50-49a502429c78 button.colab-df-convert');
+          document.querySelector('#df-91f2aebe-473e-4825-8df4-3597040bfcf5 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-cc599fd2-963b-4c2e-bb50-49a502429c78');
+          const element = document.querySelector('#df-91f2aebe-473e-4825-8df4-3597040bfcf5');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1670,7 +1836,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5ab5b247-2ff8-4639-92b6-df4ae94a7a58">
+  <div id="df-c9666548-20f5-4ab1-a976-b55f1e503e7f">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1982,7 +2148,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>73 rows × 400 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-5ab5b247-2ff8-4639-92b6-df4ae94a7a58')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c9666548-20f5-4ab1-a976-b55f1e503e7f')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -2033,12 +2199,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-5ab5b247-2ff8-4639-92b6-df4ae94a7a58 button.colab-df-convert');
+          document.querySelector('#df-c9666548-20f5-4ab1-a976-b55f1e503e7f button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-5ab5b247-2ff8-4639-92b6-df4ae94a7a58');
+          const element = document.querySelector('#df-c9666548-20f5-4ab1-a976-b55f1e503e7f');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2101,10 +2267,10 @@ memory usage: 228.2+ KB
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: scikit-learn in /usr/local/lib/python3.7/dist-packages (1.0.2)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
-Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.1.0)
 Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
 Requirement already satisfied: scipy&gt;=1.1.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.7.3)
+Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.1.0)
 </pre></div>
 </div>
 </div>
@@ -2152,86 +2318,106 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.        , 0.        , 0.10699329, 0.        ,
-       0.        , 0.05397771, 0.0444145 , 0.02615371, 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.05159787,
-       0.        , 0.04582843, 0.        , 0.        , 0.        ,
-       0.01026189, 0.15604186, 0.        , 0.03144962, 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.05467761, 0.        , 0.        , 0.10016915,
-       0.        , 0.        , 0.00105598, 0.00816594, 0.03819997,
-       0.        , 0.02007557, 0.04608435, 0.        , 0.        ,
-       0.        , 0.13812123, 0.00543187, 0.        , 0.17886524,
-       0.01014068, 0.        , 0.        , 0.        , 0.03085901,
-       0.        , 0.        , 0.09102336, 0.15018863, 0.        ,
-       0.02087798, 0.        , 0.        , 0.        , 0.        ,
-       0.01418134, 0.01445996, 0.        , 0.        , 0.        ,
-       0.08191972, 0.02372556, 0.        , 0.        , 0.11036868,
-       0.00166107, 0.        , 0.        , 0.        , 0.06038299,
-       0.        , 0.00852478, 0.        , 0.        , 0.        ,
-       0.00579034, 0.        , 0.        , 0.        , 0.        ,
-       0.00249724, 0.        , 0.        , 0.01218399, 0.0149051 ,
-       0.        , 0.06474355, 0.05025836, 0.03542989, 0.07446667,
-       0.09160811, 0.        , 0.00135446, 0.        , 0.08080265,
-       0.        , 0.        , 0.08226974, 0.07618203, 0.04599128,
-       0.        , 0.        , 0.34669224, 0.01036021, 0.01926322,
-       0.00228017, 0.02646927, 0.1086432 , 0.11182155, 0.00985038,
-       0.        , 0.        , 0.        , 0.05360972, 0.        ,
-       0.        , 0.04903676, 0.02985038, 0.07762802, 0.        ,
-       0.02024648, 0.04537118, 0.21364094, 0.01804817, 0.09773965,
-       0.        , 0.        , 0.01370246, 0.        , 0.        ,
-       0.02449265, 0.0685374 , 0.13622103, 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.02732236, 0.        , 0.        ,
-       0.07057407, 0.        , 0.03163839, 0.0043158 , 0.        ,
-       0.04464112, 0.10641787, 0.        , 0.        , 0.06071922,
-       0.11937256, 0.00532351, 0.01148757, 0.04833514, 0.        ,
-       0.        , 0.        , 0.        , 0.03130893, 0.        ,
-       0.02712008, 0.        , 0.        , 0.05597032, 0.        ,
-       0.06250224, 0.        , 0.        , 0.        , 0.15844295,
-       0.00883353, 0.        , 0.        , 0.        , 0.        ,
-       0.02710832, 0.        , 0.        , 0.09104225, 0.        ,
-       0.        , 0.        , 0.05930185, 0.07233046, 0.04867341,
-       0.        , 0.0323424 , 0.        , 0.        , 0.1352906 ,
-       0.        , 0.00791163, 0.        , 0.14561339, 0.        ,
-       0.11082141, 0.00417215, 0.04586974, 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.00722446,
-       0.        , 0.05207199, 0.0350883 , 0.        , 0.        ,
-       0.01452922, 0.        , 0.03464494, 0.        , 0.04160999,
-       0.        , 0.04445113, 0.01082481, 0.03310666, 0.        ,
-       0.03173476, 0.        , 0.00995665, 0.        , 0.13149823,
-       0.02467824, 0.02543854, 0.08540369, 0.        , 0.        ,
-       0.03074673, 0.07266654, 0.        , 0.04051983, 0.11341565,
-       0.00358173, 0.        , 0.        , 0.        , 0.        ,
-       0.01806841, 0.        , 0.03305261, 0.        , 0.        ,
-       0.04152475, 0.032597  , 0.        , 0.01802705, 0.06044107,
-       0.        , 0.02205287, 0.01520812, 0.        , 0.        ,
-       0.        , 0.0957606 , 0.02156029, 0.        , 0.03014994,
-       0.        , 0.02200108, 0.03675596, 0.        , 0.01122721,
-       0.04230735, 0.        , 0.        , 0.11732465, 0.02494062,
-       0.        , 0.05401185, 0.07680446, 0.        , 0.02474744,
-       0.14704211, 0.        , 0.07592504, 0.00132916, 0.08275621,
-       0.00472212, 0.        , 0.        , 0.01162434, 0.02697396,
-       0.09977747, 0.08197738, 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.01529871, 0.06540939, 0.        ,
-       0.03493461, 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.01386782, 0.02801218, 0.10419102, 0.06470026,
-       0.        , 0.        , 0.        , 0.01317124, 0.0464987 ,
-       0.10830204, 0.        , 0.0657867 , 0.        , 0.03114596,
-       0.        , 0.        , 0.        , 0.        , 0.08668531,
-       0.        , 0.        , 0.01754579, 0.        , 0.13281029,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.03966561,
-       0.        , 0.        , 0.        , 0.00257676, 0.        ,
-       0.        , 0.19734556, 0.        , 0.        , 0.        ,
-       0.        , 0.08000245, 0.        , 0.08224952, 0.01037624,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.13857798, 0.        , 0.01993614, 0.13274589, 0.01029816,
-       0.00882923, 0.01447749, 0.0037851 , 0.04451209, 0.        ,
-       0.        , 0.        , 0.        , 0.03145606, 0.03097604,
-       0.        , 0.        , 0.        , 0.        , 0.07275586,
-       0.00922774, 0.16154596, 0.09129067, 0.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000000e+00, 2.84604011e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 5.17902441e-02, 0.00000000e+00, 0.00000000e+00,
+       1.77270249e-02, 1.03918050e-01, 0.00000000e+00, 0.00000000e+00,
+       4.39585356e-02, 0.00000000e+00, 4.26304105e-02, 0.00000000e+00,
+       1.12099037e-02, 0.00000000e+00, 0.00000000e+00, 2.51185590e-03,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 1.60582648e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 9.62553129e-02, 7.88902081e-02, 5.36709405e-02,
+       1.01283857e-01, 8.01676888e-02, 0.00000000e+00, 5.49635981e-02,
+       3.09403718e-03, 0.00000000e+00, 2.08958956e-02, 0.00000000e+00,
+       7.59963761e-02, 6.41115360e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.24812159e-01, 0.00000000e+00, 0.00000000e+00,
+       1.17132494e-01, 0.00000000e+00, 0.00000000e+00, 1.49218900e-02,
+       5.47215955e-02, 3.14093473e-02, 0.00000000e+00, 0.00000000e+00,
+       1.11640464e-01, 4.01680450e-02, 0.00000000e+00, 7.82808713e-03,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 8.45713142e-02, 3.11636427e-02, 1.79769424e-02,
+       1.54038597e-01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 3.66745815e-03, 0.00000000e+00,
+       0.00000000e+00, 5.51656403e-02, 1.53549983e-01, 6.01740699e-02,
+       1.08221861e-01, 0.00000000e+00, 6.36324347e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 4.70459527e-02, 2.45766866e-04,
+       0.00000000e+00, 2.58575654e-02, 0.00000000e+00, 0.00000000e+00,
+       2.13290306e-02, 8.85375949e-02, 4.50020727e-02, 1.46220627e-01,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 3.21296215e-02, 0.00000000e+00,
+       0.00000000e+00, 5.99875714e-02, 0.00000000e+00, 6.92935784e-02,
+       0.00000000e+00, 4.10456362e-01, 0.00000000e+00, 0.00000000e+00,
+       7.45371910e-02, 0.00000000e+00, 1.38372781e-01, 2.63756283e-02,
+       0.00000000e+00, 2.16997406e-02, 2.17128891e-02, 8.17366173e-03,
+       2.23834463e-02, 4.04643558e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.21946064e-02, 0.00000000e+00, 0.00000000e+00,
+       1.26650237e-01, 1.40845889e-02, 3.57341347e-02, 0.00000000e+00,
+       0.00000000e+00, 4.78668125e-03, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 6.88653471e-03, 3.38683452e-02, 0.00000000e+00,
+       0.00000000e+00, 2.93960284e-02, 0.00000000e+00, 0.00000000e+00,
+       1.15223650e-01, 7.27655129e-02, 6.99499653e-02, 3.33099227e-02,
+       0.00000000e+00, 6.53198832e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.38348092e-01, 0.00000000e+00, 0.00000000e+00,
+       2.27039731e-02, 1.86889442e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       9.14922724e-03, 0.00000000e+00, 0.00000000e+00, 2.06910039e-02,
+       7.93130029e-03, 0.00000000e+00, 9.10727503e-02, 3.21500743e-02,
+       0.00000000e+00, 7.02026004e-03, 0.00000000e+00, 0.00000000e+00,
+       2.44985294e-02, 1.65343251e-01, 2.58163292e-02, 5.09616088e-02,
+       0.00000000e+00, 1.53884507e-04, 6.57786070e-03, 7.56192565e-03,
+       2.11710422e-02, 0.00000000e+00, 1.55818469e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 3.09134412e-02, 2.94582755e-02,
+       2.20053159e-02, 5.93333845e-04, 5.93605083e-02, 0.00000000e+00,
+       0.00000000e+00, 5.78219652e-02, 0.00000000e+00, 1.26397070e-01,
+       0.00000000e+00, 0.00000000e+00, 1.06317157e-02, 2.02839531e-02,
+       0.00000000e+00, 6.17499238e-02, 0.00000000e+00, 0.00000000e+00,
+       3.53708659e-03, 0.00000000e+00, 0.00000000e+00, 6.17469237e-03,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 3.35526988e-02, 0.00000000e+00,
+       5.38796139e-02, 2.05018916e-02, 1.01458885e-02, 0.00000000e+00,
+       0.00000000e+00, 6.66148989e-02, 1.09268980e-01, 3.81131495e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       6.31974666e-02, 0.00000000e+00, 9.06011671e-02, 1.48784446e-01,
+       1.66978877e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 1.96588621e-02, 0.00000000e+00,
+       0.00000000e+00, 3.32808261e-02, 2.81257278e-02, 0.00000000e+00,
+       0.00000000e+00, 2.17326181e-01, 2.97131485e-02, 0.00000000e+00,
+       9.38689113e-02, 6.54823346e-03, 1.05465280e-02, 0.00000000e+00,
+       2.15009006e-02, 1.13285806e-01, 6.68731130e-02, 0.00000000e+00,
+       6.66023950e-02, 3.59183671e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 7.96104926e-02, 6.87758020e-03,
+       3.55545405e-02, 2.79438233e-02, 0.00000000e+00, 1.20633767e-01,
+       0.00000000e+00, 1.33873888e-01, 0.00000000e+00, 7.41925989e-02,
+       0.00000000e+00, 6.45246545e-02, 0.00000000e+00, 0.00000000e+00,
+       7.29736925e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.70055614e-02, 1.86632055e-02, 7.43867051e-02,
+       3.38508818e-02, 0.00000000e+00, 0.00000000e+00, 2.46562692e-02,
+       0.00000000e+00, 4.38127583e-02, 8.28502207e-02, 3.10538477e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       6.27665794e-02, 6.36742072e-02, 0.00000000e+00, 5.00132944e-02,
+       0.00000000e+00, 0.00000000e+00, 1.30362949e-03, 0.00000000e+00,
+       1.88172121e-02, 2.64989255e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 2.51388689e-02, 2.79404790e-02,
+       5.17328419e-02, 0.00000000e+00, 2.61935956e-02, 2.19647886e-02,
+       3.55357512e-02, 0.00000000e+00, 6.76056149e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       6.62877042e-02, 0.00000000e+00, 0.00000000e+00, 8.56572508e-02,
+       3.10962637e-02, 2.02153398e-02, 0.00000000e+00, 6.28528237e-03,
+       2.45569596e-02, 0.00000000e+00, 4.81962833e-02, 4.13266935e-02,
+       0.00000000e+00, 0.00000000e+00, 3.00008450e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 9.73508334e-03, 0.00000000e+00,
+       0.00000000e+00, 2.88440749e-02, 0.00000000e+00, 4.66830442e-02,
+       1.74917058e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       2.39887994e-02, 1.05605607e-01, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.73506309e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 2.62008100e-03, 4.95165701e-02, 1.71748114e-02,
+       0.00000000e+00, 0.00000000e+00, 2.18801782e-02, 2.71858939e-02,
+       0.00000000e+00, 0.00000000e+00, 4.94747901e-02])
 </pre></div>
 </div>
 </div>
@@ -2246,17 +2432,17 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(ganjar,)     0.346692
-(hallo,)      0.213641
-(terima,)     0.197346
-(berkah,)     0.178865
-(yg,)         0.161546
-                ...   
-(kenal,)      0.000000
-(kendara,)    0.000000
-(kendari,)    0.000000
-(kerap,)      0.000000
-(zaman,)      0.000000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(ganjar,)         0.410456
+(pranowo,)        0.217326
+(komunitas,)      0.165343
+(daerah,)         0.154039
+(deklarasi,)      0.153550
+                    ...   
+(ekokuntadhi,)    0.000000
+(eko,)            0.000000
+(padi,)           0.000000
+(padjajaran,)     0.000000
+(index,)          0.000000
 Length: 399, dtype: float64
 </pre></div>
 </div>
@@ -2270,7 +2456,7 @@ Length: 399, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fe2029962d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fa2911d24d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/CrawlingVSM_72_1.png" src="../_images/CrawlingVSM_72_1.png" />
@@ -2296,40 +2482,31 @@ Length: 399, dtype: float64
   FutureWarning,
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([        (&#39;2022&#39;,),         (&#39;2024&#39;,),           (&#39;30&#39;,),
-                (&#39;ada&#39;,),    (&#39;airlangga&#39;,),           (&#39;al&#39;,),
-               (&#39;alam&#39;,),         (&#39;arif&#39;,),          (&#39;asa&#39;,),
-               (&#39;away&#39;,),          (&#39;ayu&#39;,),       (&#39;bangun&#39;,),
-              (&#39;bazar&#39;,),       (&#39;bidang&#39;,),         (&#39;boro&#39;,),
-              (&#39;catat&#39;,),        (&#39;check&#39;,),        (&#39;cipta&#39;,),
-               (&#39;dana&#39;,),        (&#39;dapet&#39;,),       (&#39;dokter&#39;,),
-                 (&#39;dr&#39;,),       (&#39;ganjar&#39;,),         (&#39;gaya&#39;,),
-              (&#39;gelas&#39;,),       (&#39;gimana&#39;,),        (&#39;hadir&#39;,),
-              (&#39;hallo&#39;,),        (&#39;hotel&#39;,),           (&#39;id&#39;,),
-         (&#39;insyaallah&#39;,),         (&#39;jawa&#39;,),        (&#39;juang&#39;,),
-               (&#39;juri&#39;,),         (&#39;juta&#39;,),       (&#39;kamera&#39;,),
-              (&#39;kapal&#39;,),    (&#39;kecbekasi&#39;,),        (&#39;kenal&#39;,),
-            (&#39;kendari&#39;,),        (&#39;kesan&#39;,),        (&#39;klaim&#39;,),
-               (&#39;kota&#39;,),      (&#39;kuntadi&#39;,),      (&#39;laksana&#39;,),
-               (&#39;laku&#39;,),       (&#39;lapang&#39;,),      (&#39;listrik&#39;,),
-               (&#39;lupa&#39;,),        (&#39;makan&#39;,),      (&#39;marinah&#39;,),
-           (&#39;material&#39;,),       (&#39;menang&#39;,),  (&#39;menganggumi&#39;,),
-              (&#39;menko&#39;,),      (&#39;militan&#39;,),        (&#39;momen&#39;,),
-            (&#39;nelayan&#39;,),       (&#39;nikmat&#39;,),   (&#39;padjajaran&#39;,),
-             (&#39;pangan&#39;,),       (&#39;peduli&#39;,),        (&#39;penny&#39;,),
-            (&#39;percaya&#39;,),    (&#39;perempuan&#39;,),     (&#39;perintah&#39;,),
-            (&#39;potensi&#39;,),      (&#39;pranowo&#39;,),     (&#39;presiden&#39;,),
-               (&#39;puri&#39;,),        (&#39;ratus&#39;,),       (&#39;rendah&#39;,),
-       (&#39;rismawidiono&#39;,),         (&#39;rp35&#39;,),        (&#39;rumah&#39;,),
-               (&#39;saba&#39;,),        (&#39;sabar&#39;,),      (&#39;sahabat&#39;,),
-             (&#39;sambut&#39;,),          (&#39;sdg&#39;,),       (&#39;sempat&#39;,),
-               (&#39;seru&#39;,),   (&#39;siswasiswi&#39;,),       (&#39;sukses&#39;,),
-           (&#39;sulawesi&#39;,),        (&#39;sumut&#39;,),       (&#39;syukur&#39;,),
-             (&#39;tampil&#39;,),         (&#39;tara&#39;,),       (&#39;tegang&#39;,),
-              (&#39;teman&#39;,),      (&#39;terjang&#39;,),        (&#39;tugas&#39;,),
-           (&#39;ufotable&#39;,),        (&#39;usaha&#39;,),       (&#39;wiliam&#39;,),
-            (&#39;yayasan&#39;,),         (&#39;yeah&#39;,),           (&#39;yg&#39;,),
-              (&#39;zaman&#39;,)],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([       (&#39;1000&#39;,),          (&#39;ah&#39;,),   (&#39;airlangga&#39;,),        (&#39;apem&#39;,),
+              (&#39;away&#39;,),       (&#39;bahan&#39;,),      (&#39;banget&#39;,),      (&#39;banjar&#39;,),
+            (&#39;bidang&#39;,),       (&#39;bogor&#39;,),          (&#39;bu&#39;,),     (&#39;cirebon&#39;,),
+            (&#39;daerah&#39;,),          (&#39;dg&#39;,),         (&#39;doa&#39;,),   (&#39;doorprize&#39;,),
+                (&#39;dr&#39;,),       (&#39;drama&#39;,),         (&#39;eko&#39;,),   (&#39;emosional&#39;,),
+             (&#39;essay&#39;,),        (&#39;film&#39;,),       (&#39;forum&#39;,),         (&#39;gak&#39;,),
+            (&#39;ganjar&#39;,),       (&#39;gedeh&#39;,),       (&#39;gelas&#39;,),      (&#39;gelora&#39;,),
+              (&#39;giat&#39;,),      (&#39;gimana&#39;,),        (&#39;girl&#39;,),       (&#39;hallo&#39;,),
+            (&#39;hubung&#39;,),   (&#39;indonesia&#39;,),          (&#39;it&#39;,),        (&#39;jasa&#39;,),
+            (&#39;jateng&#39;,),      (&#39;jibaku&#39;,),      (&#39;jokowi&#39;,),       (&#39;juara&#39;,),
+             (&#39;kapal&#39;,),       (&#39;kartu&#39;,),       (&#39;kerja&#39;,),       (&#39;kesan&#39;,),
+              (&#39;khas&#39;,),      (&#39;kurang&#39;,),        (&#39;kyai&#39;,),        (&#39;laku&#39;,),
+            (&#39;lanjut&#39;,),      (&#39;lapang&#39;,),      (&#39;lempar&#39;,),       (&#39;lomba&#39;,),
+              (&#39;lupa&#39;,),        (&#39;maju&#39;,),     (&#39;marinah&#39;,),         (&#39;mas&#39;,),
+            (&#39;medsos&#39;,),         (&#39;men&#39;,), (&#39;menganggumi&#39;,),       (&#39;murah&#39;,),
+               (&#39;mus&#39;,),     (&#39;nelayan&#39;,),      (&#39;nikmat&#39;,),        (&#39;padi&#39;,),
+             (&#39;panen&#39;,),      (&#39;pangan&#39;,),         (&#39;pdb&#39;,),     (&#39;pranowo&#39;,),
+        (&#39;presentasi&#39;,),       (&#39;ramai&#39;,),      (&#39;rangka&#39;,),   (&#39;realisasi&#39;,),
+            (&#39;rendah&#39;,),         (&#39;rss&#39;,),       (&#39;rumah&#39;,),       (&#39;rutin&#39;,),
+             (&#39;salur&#39;,),      (&#39;sambut&#39;,),      (&#39;santri&#39;,),        (&#39;satu&#39;,),
+         (&#39;sejahtera&#39;,),     (&#39;selatan&#39;,),    (&#39;semarang&#39;,),     (&#39;senayan&#39;,),
+            (&#39;sesuai&#39;,),      (&#39;shopee&#39;,), (&#39;silaturahmi&#39;,),       (&#39;suara&#39;,),
+            (&#39;sukses&#39;,),    (&#39;sulawesi&#39;,),      (&#39;sungai&#39;,),      (&#39;syukur&#39;,),
+           (&#39;tanggal&#39;,),        (&#39;tara&#39;,),       (&#39;tarik&#39;,), (&#39;tasikmalaya&#39;,),
+          (&#39;trending&#39;,),        (&#39;typa&#39;,),          (&#39;ya&#39;,),    (&#39;yaqowiyu&#39;,)],
       dtype=&#39;object&#39;)
 </pre></div>
 </div>
@@ -2413,6 +2590,53 @@ Length: 399, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/CrawlingVSM_85_0.png" src="../_images/CrawlingVSM_85_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span><span class="p">,</span> <span class="n">TruncatedSVD</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="penjelasan-k-means">
+<h2>Penjelasan K-Means<a class="headerlink" href="#penjelasan-k-means" title="Permalink to this headline">#</a></h2>
+<p>K-Means Clustering merupakan algoritma yang efektif untuk menentukan cluster dalam sekumpulan data, di mana pada algortima tersebut dilakukan analisis kelompok yang mengacu pada pemartisian N objek ke dalam K kelompok (Cluster) berdasarkan nilai rata-rata (means) terdekat. Adapun persamaan yang sering digunakan dalam pemecahan masalah dalam menentukan jarak terdekat adalah persamaan Euclidean berikut :</p>
+<p>$$
+d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}
+$$</p>
+<p>d = jarak obyek</p>
+<p>p = data</p>
+<p>q = centroid</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Train the Kmeans with the best n of clusters&quot;&quot;&quot;</span>
+<span class="n">modelKm</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">modelKm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">prediksi</span> <span class="o">=</span> <span class="n">modelKm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Dimensionality reduction used to plot in 2d representation&quot;&quot;&quot;</span>
+<span class="n">pc</span><span class="o">=</span><span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_new</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">centroids</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">modelKm</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_new</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">X_new</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">prediksi</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">centroids</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="n">centroids</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.82414771  0.32502974]
+ [ 2.93246918 -0.25487717]
+ [ 4.43672943 -1.57711502]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fa289f1d450&gt;
+</pre></div>
+</div>
+<img alt="../_images/CrawlingVSM_90_2.png" src="../_images/CrawlingVSM_90_2.png" />
 </div>
 </div>
 </section>
