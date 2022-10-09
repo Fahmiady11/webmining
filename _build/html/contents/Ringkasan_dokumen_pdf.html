@@ -1,0 +1,1064 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Web Mining</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Web Mining</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="CrawlingVSM.html">
+   CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Fahmiady11/webmining/master?urlpath=tree/docs/contents/Ringkasan_dokumen_pdf.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/drive/121AnsOe1r48Cz6rp853f7rlHsKxlvl-N#scrollTo=iF6JbxjjKC0s/github/Fahmiady11/webmining/blob/master/docs/contents/Ringkasan_dokumen_pdf.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Fahmiady11/webmining/tree/master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Fahmiady11/webmining/tree/master/issues/new?title=Issue%20on%20page%20%2Fcontents/Ringkasan_dokumen_pdf.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/contents/Ringkasan_dokumen_pdf.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/webmining
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/webmining
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install PyPDF2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PyPDF2
+  Downloading PyPDF2-2.11.1-py3-none-any.whl (220 kB)
+?25l
+     |█▌                              | 10 kB 19.5 MB/s eta 0:00:01
+     |███                             | 20 kB 6.6 MB/s eta 0:00:01
+     |████▌                           | 30 kB 9.1 MB/s eta 0:00:01
+     |██████                          | 40 kB 4.3 MB/s eta 0:00:01
+     |███████▍                        | 51 kB 4.4 MB/s eta 0:00:01
+     |█████████                       | 61 kB 5.1 MB/s eta 0:00:01
+     |██████████▍                     | 71 kB 5.3 MB/s eta 0:00:01
+     |████████████                    | 81 kB 5.4 MB/s eta 0:00:01
+     |█████████████▍                  | 92 kB 6.0 MB/s eta 0:00:01
+     |██████████████▉                 | 102 kB 5.1 MB/s eta 0:00:01
+     |████████████████▍               | 112 kB 5.1 MB/s eta 0:00:01
+     |█████████████████▉              | 122 kB 5.1 MB/s eta 0:00:01
+     |███████████████████▎            | 133 kB 5.1 MB/s eta 0:00:01
+     |████████████████████▉           | 143 kB 5.1 MB/s eta 0:00:01
+     |██████████████████████▎         | 153 kB 5.1 MB/s eta 0:00:01
+     |███████████████████████▉        | 163 kB 5.1 MB/s eta 0:00:01
+     |█████████████████████████▎      | 174 kB 5.1 MB/s eta 0:00:01
+     |██████████████████████████▊     | 184 kB 5.1 MB/s eta 0:00:01
+     |████████████████████████████▎   | 194 kB 5.1 MB/s eta 0:00:01
+     |█████████████████████████████▊  | 204 kB 5.1 MB/s eta 0:00:01
+     |███████████████████████████████▎| 215 kB 5.1 MB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████████████| 220 kB 5.1 MB/s 
+?25hRequirement already satisfied: typing-extensions&gt;=3.10.0.0 in /usr/local/lib/python3.7/dist-packages (from PyPDF2) (4.1.1)
+Installing collected packages: PyPDF2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed PyPDF2-2.11.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install docx2txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting docx2txt
+  Downloading docx2txt-0.8.tar.gz (2.8 kB)
+Building wheels for collected packages: docx2txt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for docx2txt (setup.py) ... ?25l?25hdone
+  Created wheel for docx2txt: filename=docx2txt-0.8-py3-none-any.whl size=3980 sha256=64be1e7a26cfd6afeac8ee4476b1426901a73fd291b01e6b7d3acb472c5ce403
+  Stored in directory: /root/.cache/pip/wheels/b7/20/b2/473e3aea9a0c0d3e7b2f7bd81d06d0794fec12752733d1f3a8
+Successfully built docx2txt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: docx2txt
+Successfully installed docx2txt-0.8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">PyPDF2</span>
+<span class="kn">import</span> <span class="nn">docx2txt</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Masukkan nama file: &#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Anda telah memanggil dokument  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">StdinNotImplementedError</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">fb24660ec8d1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Masukkan nama file: &#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Anda telah memanggil dokument  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">858</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdfFileObj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdfReader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfFileObj</span><span class="p">)</span>
+<span class="n">pageObj</span> <span class="o">=</span> <span class="n">pdfReader</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">pageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.tokenize.punkt</span> <span class="kn">import</span> <span class="n">PunktSentenceTokenizer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;With the present explosion of data circulating the digital space, which is mostly non -structured textual \ndata, there is a need to develop automatic text summarization tools that allow people to get insights \nfrom them easily. Currently, we enjoy quick acces s to enormous amounts of information. However, \nmost of this information is redundant, insignificant, and may not convey the intended meaning. For \nexample, if you are looking for specific information from an online news article, you may have to dig \nthrough its content and spend a lot of time weeding out the unnecessary stuff before getting the \ninformation you want. Therefore, using automatic text summarizers capable of extracting useful \ninformation that leaves out inessential and insignificant data is becomi ng vital. Implementing \nsummarization can enhance the readability of documents, reduce the time spent in researching for \ninformation, and allow for more information to be fitted in a particular area  &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
+    <span class="c1"># Kita memecahnya menggunakan  PunktSentenceTokenizer</span>
+    <span class="c1"># </span>
+    <span class="n">doc_tokenizer</span> <span class="o">=</span> <span class="n">PunktSentenceTokenizer</span><span class="p">()</span>
+    
+    <span class="c1"># metode tokenize() memanggil dokument kita</span>
+    <span class="c1"># sebagai input dan menghasilkan daftar kalimat dalam dokumen</span>
+    
+    <span class="c1"># sentences_list adalah daftar masing masing kalimat dari dokumen yang ada.</span>
+    <span class="n">sentences_list</span> <span class="o">=</span> <span class="n">doc_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sentences_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences_list</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sentences_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------
+With the present explosion of data circulating the digital space, which is mostly non -structured textual 
+data, there is a need to develop automatic text summarization tools that allow people to get insights 
+from them easily.
+------
+Currently, we enjoy quick acces s to enormous amounts of information.
+------
+However, 
+most of this information is redundant, insignificant, and may not convey the intended meaning.
+------
+For 
+example, if you are looking for specific information from an online news article, you may have to dig 
+through its content and spend a lot of time weeding out the unnecessary stuff before getting the 
+information you want.
+------
+Therefore, using automatic text summarizers capable of extracting useful 
+information that leaves out inessential and insignificant data is becomi ng vital.
+------
+Implementing 
+summarization can enhance the readability of documents, reduce the time spent in researching for 
+information, and allow for more information to be fitted in a particular area
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Banyaknya kosa kata = &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">((</span><span class="n">cv</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya kosa kata =  101
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Banyaknya kalimat = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya kalimat =  6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">cv_matrix</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Banyaknya kosa kata = &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">((</span><span class="n">cv</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya kosa kata =  101
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;kosa kata = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kosa kata =  [&#39;acces&#39; &#39;allow&#39; &#39;amounts&#39; &#39;an&#39; &#39;and&#39; &#39;are&#39; &#39;area&#39; &#39;article&#39; &#39;automatic&#39;
+ &#39;be&#39; &#39;becomi&#39; &#39;before&#39; &#39;can&#39; &#39;capable&#39; &#39;circulating&#39; &#39;content&#39; &#39;convey&#39;
+ &#39;currently&#39; &#39;data&#39; &#39;develop&#39; &#39;dig&#39; &#39;digital&#39; &#39;documents&#39; &#39;easily&#39;
+ &#39;enhance&#39; &#39;enjoy&#39; &#39;enormous&#39; &#39;example&#39; &#39;explosion&#39; &#39;extracting&#39; &#39;fitted&#39;
+ &#39;for&#39; &#39;from&#39; &#39;get&#39; &#39;getting&#39; &#39;have&#39; &#39;however&#39; &#39;if&#39; &#39;implementing&#39; &#39;in&#39;
+ &#39;inessential&#39; &#39;information&#39; &#39;insights&#39; &#39;insignificant&#39; &#39;intended&#39; &#39;is&#39;
+ &#39;its&#39; &#39;leaves&#39; &#39;looking&#39; &#39;lot&#39; &#39;may&#39; &#39;meaning&#39; &#39;more&#39; &#39;most&#39; &#39;mostly&#39;
+ &#39;need&#39; &#39;news&#39; &#39;ng&#39; &#39;non&#39; &#39;not&#39; &#39;of&#39; &#39;online&#39; &#39;out&#39; &#39;particular&#39; &#39;people&#39;
+ &#39;present&#39; &#39;quick&#39; &#39;readability&#39; &#39;reduce&#39; &#39;redundant&#39; &#39;researching&#39;
+ &#39;space&#39; &#39;specific&#39; &#39;spend&#39; &#39;spent&#39; &#39;structured&#39; &#39;stuff&#39; &#39;summarization&#39;
+ &#39;summarizers&#39; &#39;text&#39; &#39;textual&#39; &#39;that&#39; &#39;the&#39; &#39;them&#39; &#39;there&#39; &#39;therefore&#39;
+ &#39;this&#39; &#39;through&#39; &#39;time&#39; &#39;to&#39; &#39;tools&#39; &#39;unnecessary&#39; &#39;useful&#39; &#39;using&#39;
+ &#39;vital&#39; &#39;want&#39; &#39;we&#39; &#39;weeding&#39; &#39;which&#39; &#39;with&#39; &#39;you&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cv_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 99)	1
+  (0, 82)	2
+  (0, 65)	1
+  (0, 28)	1
+  (0, 60)	1
+  (0, 18)	2
+  (0, 14)	1
+  (0, 21)	1
+  (0, 71)	1
+  (0, 98)	1
+  (0, 45)	2
+  (0, 54)	1
+  (0, 58)	1
+  (0, 75)	1
+  (0, 80)	1
+  (0, 84)	1
+  (0, 55)	1
+  (0, 89)	2
+  (0, 19)	1
+  (0, 8)	1
+  (0, 79)	1
+  (0, 77)	1
+  (0, 90)	1
+  (0, 81)	1
+  (0, 1)	1
+  :	:
+  (4, 57)	1
+  (4, 94)	1
+  (5, 82)	2
+  (5, 60)	1
+  (5, 89)	1
+  (5, 77)	1
+  (5, 1)	1
+  (5, 41)	2
+  (5, 4)	1
+  (5, 31)	2
+  (5, 88)	1
+  (5, 38)	1
+  (5, 12)	1
+  (5, 24)	1
+  (5, 67)	1
+  (5, 22)	1
+  (5, 68)	1
+  (5, 74)	1
+  (5, 39)	2
+  (5, 70)	1
+  (5, 52)	1
+  (5, 9)	1
+  (5, 30)	1
+  (5, 63)	1
+  (5, 6)	1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_matrix</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cv_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         0.14574925 0.         0.         0.         0.
+  0.         0.         0.14574925 0.         0.         0.
+  0.         0.         0.17773988 0.         0.         0.
+  0.29149849 0.17773988 0.         0.17773988 0.         0.17773988
+  0.         0.         0.         0.         0.17773988 0.
+  0.         0.         0.14574925 0.17773988 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.17773988 0.         0.         0.24610306 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.17773988 0.17773988 0.         0.         0.17773988 0.
+  0.07889862 0.         0.         0.         0.17773988 0.17773988
+  0.         0.         0.         0.         0.         0.17773988
+  0.         0.         0.         0.17773988 0.         0.14574925
+  0.         0.14574925 0.17773988 0.14574925 0.21089162 0.17773988
+  0.17773988 0.         0.         0.         0.         0.21089162
+  0.17773988 0.         0.         0.         0.         0.
+  0.         0.         0.17773988 0.17773988 0.        ]
+ [0.35779419 0.         0.35779419 0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.35779419
+  0.         0.         0.         0.         0.         0.
+  0.         0.35779419 0.35779419 0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.18330753
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.15882461 0.         0.         0.         0.         0.
+  0.35779419 0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.21226468
+  0.         0.         0.         0.         0.         0.
+  0.35779419 0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.17897542 0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.30168168 0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.30168168 0.         0.         0.         0.         0.15455959
+  0.         0.2473833  0.30168168 0.20885798 0.         0.
+  0.         0.         0.2473833  0.30168168 0.         0.30168168
+  0.         0.         0.         0.         0.         0.30168168
+  0.1339163  0.         0.         0.         0.         0.
+  0.         0.         0.         0.30168168 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.17897542 0.
+  0.         0.         0.30168168 0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.        ]
+ [0.         0.         0.         0.15863409 0.09411112 0.15863409
+  0.         0.15863409 0.         0.         0.         0.15863409
+  0.         0.         0.         0.15863409 0.         0.
+  0.         0.         0.15863409 0.         0.         0.
+  0.         0.         0.         0.15863409 0.         0.
+  0.         0.26016444 0.13008222 0.         0.15863409 0.15863409
+  0.         0.15863409 0.         0.         0.         0.16254497
+  0.         0.         0.         0.         0.15863409 0.
+  0.15863409 0.15863409 0.13008222 0.         0.         0.
+  0.         0.         0.15863409 0.         0.         0.
+  0.07041757 0.15863409 0.13008222 0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.15863409 0.15863409 0.         0.         0.15863409 0.
+  0.         0.         0.         0.         0.18822225 0.
+  0.         0.         0.         0.15863409 0.13008222 0.09411112
+  0.         0.15863409 0.         0.         0.         0.15863409
+  0.         0.15863409 0.         0.         0.47590227]
+ [0.         0.         0.         0.         0.1468296  0.
+  0.         0.         0.20295072 0.         0.24749656 0.
+  0.         0.24749656 0.         0.         0.         0.
+  0.20295072 0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.24749656
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.24749656 0.1267991
+  0.         0.20295072 0.         0.17134494 0.         0.24749656
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.24749656 0.         0.
+  0.10986356 0.         0.20295072 0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.24749656 0.20295072 0.         0.20295072 0.         0.
+  0.         0.24749656 0.         0.         0.         0.
+  0.         0.         0.24749656 0.24749656 0.24749656 0.
+  0.         0.         0.         0.         0.        ]
+ [0.         0.1637879  0.         0.         0.11849631 0.
+  0.19973786 0.         0.         0.19973786 0.         0.
+  0.19973786 0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.19973786 0.
+  0.19973786 0.         0.         0.         0.         0.
+  0.19973786 0.32757581 0.         0.         0.         0.
+  0.         0.         0.19973786 0.39947572 0.         0.20466209
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.19973786 0.
+  0.         0.         0.         0.         0.         0.
+  0.0886635  0.         0.         0.19973786 0.         0.
+  0.         0.19973786 0.19973786 0.         0.19973786 0.
+  0.         0.         0.19973786 0.         0.         0.1637879
+  0.         0.         0.         0.         0.23699262 0.
+  0.         0.         0.         0.         0.1637879  0.11849631
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">toarray</span><span class="p">)</span>
+<span class="n">res_graph</span> <span class="o">=</span> <span class="n">normal_matrix</span> <span class="o">*</span> <span class="n">normal_matrix</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method _cs_matrix.toarray of &lt;101x6 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
+	with 133 stored elements in Compressed Sparse Column format&gt;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_scipy_sparse_matrix</span><span class="p">(</span><span class="n">res_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw_circular</span><span class="p">(</span><span class="n">nx_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Ringkasan_dokumen_pdf_23_0.png" src="../_images/Ringkasan_dokumen_pdf_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Banyaknya sisi </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nx_graph</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya sisi 21
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_graph</span> <span class="o">=</span> <span class="n">normal_matrix</span> <span class="o">*</span> <span class="n">normal_matrix</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6, 101)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
+<span class="n">A</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(</span><span class="n">normal_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv_matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;6x101 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
+	with 133 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently, we enjoy quick acces s to enormous amounts of information.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranks</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">nx_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ranks</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ranks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 0.1715740345983324
+1 0.15237129975961813
+2 0.16762642378543113
+3 0.1694342719017504
+4 0.16649730391700868
+5 0.17249666603785901
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">res_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 4)	0.19873616686503184
+  (0, 2)	0.09971081403026547
+  (0, 5)	0.12970899299720412
+  (0, 3)	0.08405697742278143
+  (0, 1)	0.05729588417007862
+  (0, 0)	1.0000000000000007
+  (1, 4)	0.04069226658657076
+  (1, 2)	0.049601140572922
+  (1, 5)	0.07675062974398579
+  (1, 3)	0.06095622647585221
+  (1, 0)	0.05729588417007862
+  (1, 1)	0.9999999999999996
+  (2, 4)	0.14658280263910575
+  (2, 1)	0.049601140572922
+  (2, 5)	0.10712975858281432
+  (2, 3)	0.11726384649927656
+  (2, 0)	0.09971081403026547
+  (2, 2)	1.0
+  (3, 4)	0.0685654591804768
+  (3, 2)	0.11726384649927656
+  (3, 5)	0.21295065985194805
+  (3, 1)	0.06095622647585221
+  (3, 0)	0.08405697742278143
+  (3, 3)	1.0
+  (4, 5)	0.05309062281521608
+  (4, 2)	0.14658280263910575
+  (4, 1)	0.04069226658657076
+  (4, 3)	0.0685654591804768
+  (4, 0)	0.19873616686503184
+  (4, 4)	0.9999999999999999
+  (5, 4)	0.05309062281521608
+  (5, 2)	0.10712975858281432
+  (5, 5)	1.0000000000000002
+  (5, 3)	0.21295065985194805
+  (5, 1)	0.07675062974398579
+  (5, 0)	0.12970899299720412
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Muhammad Fahmi Ady Susilo<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -76,7 +76,7 @@ import nest_asyncio
 nest_asyncio.apply() 
 
 
-# configurasi Twint seperti halnya example di website library Twint
+# \configurasi Twint dengan value seperti dibawah
 
 # In[8]:
 
@@ -103,7 +103,7 @@ twint.run.Search(c)
 import pandas as pd
 
 
-# Baca data excel dataGanjar.xlsx yang telah diberi label yang telah simpan di Google Drive
+# Baca data excel dataGanjar.xlsx yang telah diberi label (Positif,Negatif dan Netral) yang telah simpan di Google Drive
 
 # In[10]:
 
@@ -262,7 +262,7 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/c
 #data['tweet'].apply(preprocessing).to_excel('preprocessing.xlsx')
 
 
-# berikutnya jadikan data menjadi bentuk Matrik numerik
+# Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.
 
 # In[18]:
 
@@ -273,6 +273,8 @@ vectorizer = CountVectorizer(min_df=1)
 bag = vectorizer.fit_transform(dataTextPre['tweet'])
 dataTextPre
 
+
+# Melihat Jumlah Baris dan Kata
 
 # In[19]:
 
@@ -293,7 +295,7 @@ matrik_vsm[0]
 a=vectorizer.get_feature_names()
 
 
-# selanjutnya data Matrik dikasih nama column sesuai Fitur
+# Tampilan data VSM dengan labelnya 
 
 # In[22]:
 
@@ -302,7 +304,13 @@ dataTF =pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1,
 dataTF
 
 
-# lalu data fitur ditambahkan dengan label positif,netral dan negatif
+# 
+# 
+# ```
+# # Ini diformat sebagai kode
+# ```
+# 
+# lalu data diatas ditambahkan dengan label (positif,netral dan negatif)
 
 # In[23]:
 
@@ -318,19 +326,13 @@ dj
 dj['label'].unique()
 
 
-# In[25]:
-
-
-dj.info()
-
-
 # ## Penjelasan Scikit-learn
 
 # Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.
 
 # install scikit-learn
 
-# In[26]:
+# In[25]:
 
 
 get_ipython().system('pip install -U scikit-learn')
@@ -372,17 +374,21 @@ get_ipython().system('pip install -U scikit-learn')
 # (Sv) : entropy untuk sampel sampel yang memiliki nilai v
 # 
 
-# In[27]:
+# In[26]:
 
 
 from sklearn.model_selection import train_test_split
+#membagi kumpulan data menjadi data pelatihan dan data pengujian.
 X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1),
     dj['label'],
     test_size=0.3,
     random_state=0)
 
 
-# In[28]:
+# **Penjelasan mutual_info_classif**
+# mengukur ketergantungan antara variabel. Itu sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi berarti ketergantungan yang lebih tinggi.
+
+# In[27]:
 
 
 from sklearn.feature_selection import mutual_info_classif
@@ -390,9 +396,9 @@ mutual_info = mutual_info_classif(X_train, y_train)
 mutual_info
 
 
-# merangking fitur sesuai dengan fitur yang paling banyak keluar
+# merangking fitur(Kata) sesuai dengan fitur(Kata) yang paling banyak keluar
 
-# In[29]:
+# In[28]:
 
 
 mutual_info = pd.Series(mutual_info)
@@ -402,19 +408,23 @@ mutual_info.sort_values(ascending=False)
 
 # menvisualkan data dengan grafik bar dengan urutan paling besar ke rendah
 
-# In[30]:
+# In[29]:
 
 
 mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
 
 
-# In[31]:
+# Import SelectKBest
+
+# In[30]:
 
 
 from sklearn.feature_selection import SelectKBest
 
 
-# In[32]:
+# Pilih fitur menurut k skor tertinggi.
+
+# In[31]:
 
 
 sel_five_cols = SelectKBest(mutual_info_classif, k=100)
@@ -422,7 +432,7 @@ sel_five_cols.fit(X_train, y_train)
 X_train.columns[sel_five_cols.get_support()]
 
 
-# In[33]:
+# In[32]:
 
 
 X_train=X_train.values
@@ -435,7 +445,7 @@ y_test=y_test.values
 
 # Naive Bayes adalah algoritma machine learning yang digunakan untuk keperluan klasifikasi atau pengelompokan suatu data. Algoritma ini didasarkan pada teorema probabilitas yang dikenalkan oleh ilmuwan Inggris Thomas Bayes. Naive Bayes berfungsi memprediksi probabilitas di masa depan berdasarkan pengalaman sebelumnya, sehingga dapat digunakan untuk pengambilan keputusan.
 
-# In[34]:
+# In[77]:
 
 
 # from sklearn.neighbors import KNeighborsClassifier
@@ -444,11 +454,11 @@ from sklearn.naive_bayes import GaussianNB
 # from sklearn.preprocessing import StandardScaler
 gauss = GaussianNB()
 gauss.fit(X_train, y_train)
-Y_pred = gauss.predict(X_test) 
-Y_pred
 
 
-# In[35]:
+# Menampilkan accuracy dari nilai test dengan method Gaussion Naive Bayes
+
+# In[75]:
 
 
 from sklearn.metrics import make_scorer, accuracy_score,precision_score
@@ -461,10 +471,12 @@ accuracy_gauss
 
 # Matplotlib adalah library Python yang fokus pada visualisasi data seperti membuat plot grafik. Matplotlib pertama kali diciptakan oleh John D. Hunter dan sekarang telah dikelola oleh tim developer yang besar. Awalnya matplotlib dirancang untuk menghasilkan plot grafik yang sesuai pada publikasi jurnal atau artikel ilmiah. Matplotlib dapat digunakan dalam skrip Python, Python dan IPython shell, server aplikasi web, dan beberapa toolkit graphical user interface (GUI) lainnya.
 
-# In[36]:
+# In[35]:
 
 
+#import plt
 import matplotlib.pyplot as plt
+#import metrics
 from sklearn import metrics
 
 
@@ -472,20 +484,15 @@ from sklearn import metrics
 
 # Confusion matrix juga sering disebut error matrix. Pada dasarnya confusion matrix memberikan informasi perbandingan hasil klasifikasi yang dilakukan oleh sistem (model) dengan hasil klasifikasi sebenarnya. Confusion matrix berbentuk tabel matriks yang menggambarkan kinerja model klasifikasi pada serangkaian data uji yang nilai sebenarnya diketahui.
 
-# In[37]:
+# membuat Confusion Matrix dengan column vertical (negatif,netral dan positif) dan column horizontal (negatif,netral dan positif)
+
+# In[76]:
 
 
-conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=Y_pred)
+conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=testing)
 cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = conf_matrix, display_labels = ['negatif', 'netral','positif'])
 cm_display.plot()
 plt.show()
-
-
-# In[38]:
-
-
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA, TruncatedSVD
 
 
 # ## Penjelasan K-Means
@@ -504,19 +511,323 @@ from sklearn.decomposition import PCA, TruncatedSVD
 # 
 # q = centroid
 
-# In[59]:
+# TruncatedSVD adalah Teknik pengurangan dimensi menggunakan SVD terpotong
+
+# In[78]:
 
 
-"""Train the Kmeans with the best n of clusters"""
+from sklearn.cluster import KMeans
+from sklearn.decomposition import TruncatedSVD
+
+
+# In[80]:
+
+
+# Latih Kmeans dengan n cluster terbaik
 modelKm = KMeans(n_clusters=3, random_state=12)
 modelKm.fit(dataTF.values)
 prediksi = modelKm.predict(dataTF.values)
 
-"""Dimensionality reduction used to plot in 2d representation"""
+# Pengurangan dimensi digunakan untuk memplot dalam representasi 2d
 pc=TruncatedSVD(n_components=2)
 X_new=pc.fit_transform(dataTF.values)
 centroids=pc.transform(modelKm.cluster_centers_)
 print(centroids)
 plt.scatter(X_new[:,0],X_new[:,1],c=prediksi, cmap='viridis')
 plt.scatter(centroids[:,0] , centroids[:,1] , s = 50, color = 'red')
+
+
+# ## Perangkingan Kalimat Berita dengan Method Page Rank
+
+# ## Penjelasan Scrapy
+
+# Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.
+
+# In[39]:
+
+
+get_ipython().system('pip install scrapy')
+get_ipython().system('pip install crochet')
+
+
+# In[40]:
+
+
+import scrapy
+
+
+# In[81]:
+
+
+import scrapy
+from scrapy.crawler import CrawlerRunner
+import re
+from crochet import setup, wait_for
+setup()
+
+class QuotesToCsv(scrapy.Spider):
+    name = "MJKQuotesToCsv"
+    start_urls = [
+        'https://nasional.tempo.co/read/1642981/usai-tragedi-kanjuruhan-jokowi-klaim-indonesia-tak-dikenai-sanksi-dari-fifa',
+    ]
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            '__main__.ExtractFirstLine': 1
+        },
+        'FEEDS': {
+            'news.csv': {
+                'format': 'csv',
+                'overwrite': True
+            }
+        }
+    }
+
+    def parse(self, response):
+        """parse data from urls"""
+        for quote in response.css('#isi > p'):
+            yield {'news': quote.extract()}
+
+
+class ExtractFirstLine(object):
+    def process_item(self, item, spider):
+        """text processing"""
+        lines = dict(item)["news"].splitlines()
+        first_line = self.__remove_html_tags__(lines[0])
+
+        return {'news': first_line}
+
+    def __remove_html_tags__(self, text):
+        """remove html tags from string"""
+        html_tags = re.compile('<.*?>')
+        return re.sub(html_tags, '', text)
+
+@wait_for(10)
+def run_spider():
+    """run spider with MJKQuotesToCsv"""
+    crawler = CrawlerRunner()
+    d = crawler.crawl(QuotesToCsv)
+    return d
+
+
+# In[42]:
+
+
+# run_spider()
+
+
+# Mengambil dan Membaca data CSV yang bernama news.csv
+
+# In[43]:
+
+
+dataNews = pd.read_csv('news.csv')
+dataNews
+
+
+# PyPDF2 adalah pustaka PDF python murni gratis dan open-source yang mampu memisahkan, menggabungkan , memotong, dan mengubah halaman file PDF.
+
+# Install PyPDF2
+
+# In[44]:
+
+
+get_ipython().system('pip install PyPDF2')
+
+
+# import PyPDF2
+
+# In[45]:
+
+
+import PyPDF2
+
+
+# Membaca Pdf dari file lalu dibuat menjadi bentuk document Text
+
+# In[46]:
+
+
+pdfReader = PyPDF2.PdfFileReader('/content/drive/MyDrive/webmining/webmining/contents/news.pdf')
+pageObj = pdfReader.getPage(0)
+document = pageObj.extractText()
+document
+
+
+# PunktSentenceTokenizer adalah Sebuah tokenizer kalimat yang menggunakan algoritma tanpa pengawasan untuk membangun model untuk kata-kata singkatan, kolokasi, dan kata-kata yang memulai kalimat dan kemudian menggunakan model itu untuk menemukan batas kalimat.
+
+# In[47]:
+
+
+from nltk.tokenize.punkt import PunktSentenceTokenizer
+
+
+# In[82]:
+
+
+def tokenize(document):
+    # Kita memecahnya menggunakan  PunktSentenceTokenizer
+    doc_tokenizer = PunktSentenceTokenizer()
+    # sentences_list adalah daftar masing masing kalimat dari dokumen yang ada.
+    sentences_list = doc_tokenizer.tokenize(document)
+    return sentences_list
+
+
+# In[49]:
+
+
+sentences_list = tokenize(document)
+sentences_list
+
+
+# Merapikan data di atas sehingga lebih enak dibaca
+
+# In[83]:
+
+
+kal=1
+for i in sentences_list:
+    print('\nKalimat {}'.format(kal))
+    kal+=1
+    print(i)
+
+
+# Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.
+
+# In[51]:
+
+
+from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
+vectorizer = CountVectorizer()
+cv_matrix=vectorizer.fit_transform(sentences_list)
+
+
+# Menampilkan jumlah Kosa Kata dari Data
+
+# In[52]:
+
+
+print ("Banyaknya kosa kata = ", len((vectorizer.get_feature_names_out())))
+
+
+# Menampilkan jumlah Kalimat dari Data
+
+# In[53]:
+
+
+print ("Banyaknya kalimat = ", (len(sentences_list)))
+
+
+# Menampilkan Kosa Kata dari Data
+
+# In[54]:
+
+
+print ("kosa kata = ", (vectorizer.get_feature_names_out()))
+
+
+# In[84]:
+
+
+# mengubah kumpulan dokumen mentah menjadi matriks fitur TF-IDF
+normal_matrix = TfidfTransformer().fit_transform(cv_matrix)
+print(normal_matrix.toarray())
+
+
+# Menampilkan Jumlah Kalimat dan Kosa Kata
+
+# In[56]:
+
+
+normal_matrix.shape
+
+
+# NetworkX adalah paket Python untuk pembuatan, manipulasi, dan studi tentang struktur, dinamika, dan fungsi jaringan yang kompleks. Ini menyediakan:
+
+# In[57]:
+
+
+import networkx as nx
+
+
+# Graph adalah kumpulan dati titik (node) dan garis dimana pasangan – pasangan titik (node) tersebut dihubungkan oleh segmen garis. Node ini biasa disebut simpul (vertex) dan segmen garis disebut ruas (edge)
+
+# In[58]:
+
+
+res_graph = normal_matrix * normal_matrix.T
+print(res_graph)
+
+
+# In[59]:
+
+
+nx_graph = nx.from_scipy_sparse_matrix(res_graph)
+
+
+# In[60]:
+
+
+nx.draw_circular(nx_graph)
+
+
+# Jumlah Banyak Sisi 
+
+# In[61]:
+
+
+print('Banyaknya sisi {}'.format(nx_graph.number_of_edges()))
+
+
+# Menkalikan data dengan data Transpose
+
+# In[62]:
+
+
+res_graph = normal_matrix * normal_matrix.T
+
+
+# PageRank menghitung peringkat node dalam grafik G berdasarkan struktur tautan masuk. Awalnya dirancang sebagai algoritma untuk menentukan peringkat halaman web.
+
+# In[96]:
+
+
+ranks=nx.pagerank(nx_graph,)
+
+
+# memasukkan data ke array
+
+# In[93]:
+
+
+arrRank=[]
+for i in ranks:
+    arrRank.append(ranks[i])
+
+
+# menjadikan data kedalam bentuk tabel lalu digabungkan 
+
+# In[94]:
+
+
+dfRanks = pd.DataFrame(arrRank,columns=['PageRank'])
+dfSentence = pd.DataFrame(sentences_list,columns=['News'])
+dfJoin = pd.concat([dfSentence,dfRanks], axis=1)
+dfJoin
+
+
+# Mengurutkan data berdasarkan hasil tertinggi
+
+# In[68]:
+
+
+sortSentence=dfJoin.sort_values(by=['PageRank'],ascending=False)
+sortSentence
+
+
+# Menampilkan data dari 5 ke atas
+
+# In[69]:
+
+
+sortSentence.head(5)
 

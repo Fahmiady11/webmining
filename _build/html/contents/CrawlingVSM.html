@@ -397,6 +397,16 @@ title="Print to PDF"
    Penjelasan K-Means
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perangkingan-kalimat-berita-dengan-method-page-rank">
+   Perangkingan Kalimat Berita dengan Method Page Rank
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-scrapy">
+   Penjelasan Scrapy
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -471,6 +481,16 @@ title="Print to PDF"
    Penjelasan K-Means
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perangkingan-kalimat-berita-dengan-method-page-rank">
+   Perangkingan Kalimat Berita dengan Method Page Rank
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penjelasan-scrapy">
+   Penjelasan Scrapy
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -500,19 +520,19 @@ title="Print to PDF"
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms)</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
 <span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">timeout_ms</span><span class="o">=</span><span class="n">timeout_ms</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">105</span>       <span class="n">ephemeral</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span> 
+<span class="g g-Whitespace">    </span><span class="mi">105</span>       <span class="n">ephemeral</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>       <span class="n">readonly</span><span class="o">=</span><span class="n">readonly</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">107</span> 
+<span class="g g-Whitespace">    </span><span class="mi">108</span> 
 
-<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral)</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">120</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span> 
-<span class="g g-Whitespace">    </span><span class="mi">122</span>   <span class="n">mountpoint</span> <span class="o">=</span> <span class="n">_os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">)</span>
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral, readonly)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">125</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> 
+<span class="g g-Whitespace">    </span><span class="mi">127</span>   <span class="n">mountpoint</span> <span class="o">=</span> <span class="n">_os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">)</span>
 
 <span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
 <span class="g g-Whitespace">    </span><span class="mi">169</span>   <span class="n">request_id</span> <span class="o">=</span> <span class="n">send_request</span><span class="p">(</span>
@@ -560,81 +580,50 @@ Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-whe
 Processing /content/drive/MyDrive/webmining/webmining/twint
 <span class=" -Color -Color-Yellow">  DEPRECATION: A future pip version will change local packages to be built in-place without first copying to a temporary directory. We recommend you use --use-feature=in-tree-build to test your packages with this new behavior before it becomes the default.</span>
 <span class=" -Color -Color-Yellow">   pip 21.3 will remove support for this functionality. You can find discussion regarding this at https://github.com/pypa/pip/issues/7555.</span>
-Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 1)) (3.8.1)
-Collecting aiodns
-  Downloading aiodns-3.0.0-py3-none-any.whl (5.0 kB)
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 1)) (3.7.0)
+Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 2)) (3.0.0)
 Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 3)) (4.6.3)
-Collecting cchardet
-  Downloading cchardet-2.1.7-cp37-cp37m-manylinux2010_x86_64.whl (263 kB)
-     |████████████████████████████████| 263 kB 5.1 MB/s 
-?25hCollecting dataclasses
-  Downloading dataclasses-0.6-py3-none-any.whl (14 kB)
-Collecting elasticsearch
-  Downloading elasticsearch-8.4.2-py3-none-any.whl (384 kB)
-     |████████████████████████████████| 384 kB 68.7 MB/s 
-?25hRequirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
+Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 4)) (2.1.7)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 5)) (0.6)
+Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 6)) (8.4.3)
+Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
 Requirement already satisfied: pandas&gt;=0.23.0 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 8)) (1.3.5)
-Collecting aiohttp_socks&lt;=0.4.1
-  Downloading aiohttp_socks-0.4.1-py3-none-any.whl (17 kB)
-Collecting schedule
-  Downloading schedule-1.1.0-py2.py3-none-any.whl (10 kB)
+Requirement already satisfied: aiohttp_socks&lt;=0.4.1 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 9)) (0.4.1)
+Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 10)) (1.1.0)
 Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 11)) (1.17.0)
-Collecting fake-useragent
-  Downloading fake-useragent-0.1.11.tar.gz (13 kB)
-Collecting googletransx
-  Downloading googletransx-2.4.2.tar.gz (13 kB)
+Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 12)) (0.1.11)
+Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 13)) (2.4.2)
 Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2.8.2)
 Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.21.6)
-Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2022.2.1)
+Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2022.4)
 Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp_socks&lt;=0.4.1-&gt;-r requirements.txt (line 9)) (22.1.0)
-Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.0.2)
-Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (0.13.0)
+Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (3.0.4)
 Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.8.1)
-Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (2.1.1)
 Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (6.0.2)
-Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.2.0)
-Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
-Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.3.1)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (3.0.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.15.0)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (2.10)
-Collecting pycares&gt;=4.0.0
-  Downloading pycares-4.2.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (288 kB)
-     |████████████████████████████████| 288 kB 24.2 MB/s 
-?25hRequirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
+Requirement already satisfied: pycares&gt;=4.0.0 in /usr/local/lib/python3.7/dist-packages (from aiodns-&gt;-r requirements.txt (line 2)) (4.2.2)
+Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (2.21)
-Collecting elastic-transport&lt;9,&gt;=8
-  Downloading elastic_transport-8.4.0-py3-none-any.whl (59 kB)
-     |████████████████████████████████| 59 kB 6.8 MB/s 
-?25hCollecting urllib3&lt;2,&gt;=1.26.2
-  Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
-     |████████████████████████████████| 140 kB 60.6 MB/s 
-?25hRequirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.6.15)
+Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in /usr/local/lib/python3.7/dist-packages (from elasticsearch-&gt;-r requirements.txt (line 6)) (8.4.0)
+Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (1.26.12)
+Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.9.24)
 Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (1.52)
-Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.23.0)
-Collecting requests
-  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
-     |████████████████████████████████| 62 kB 1.4 MB/s 
-?25hBuilding wheels for collected packages: twint, fake-useragent, googletransx
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.28.1)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;-r requirements.txt (line 13)) (2.1.1)
+Building wheels for collected packages: twint
   Building wheel for twint (setup.py) ... ?25l?25hdone
-  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=01e6fabef52d319797c3661b4c59c6a6fc40979e849cdb9104e96a9762576100
-  Stored in directory: /tmp/pip-ephem-wheel-cache-rn14vam5/wheels/88/61/06/bd5d6a887f43cd7ea07380c2bc1fb104f5cc0d03f92a3c50c4
-  Building wheel for fake-useragent (setup.py) ... ?25l?25hdone
-  Created wheel for fake-useragent: filename=fake_useragent-0.1.11-py3-none-any.whl size=13502 sha256=0c262bcc3c880d1af6bacc1823f6d74fd00257d151668dc2f04a9d1d571ffbf9
-  Stored in directory: /root/.cache/pip/wheels/ed/f7/62/50ab6c9a0b5567267ab76a9daa9d06315704209b2c5d032031
-  Building wheel for googletransx (setup.py) ... ?25l?25hdone
-  Created wheel for googletransx: filename=googletransx-2.4.2-py3-none-any.whl size=15968 sha256=c0e714b837314987ac2aa88b025853dd4fb40cd81e55f2dc55524507997e0874
-  Stored in directory: /root/.cache/pip/wheels/66/d5/b1/31104b338f7fd45aa8f7d22587765db06773b13df48a89735f
-Successfully built twint fake-useragent googletransx
-Installing collected packages: urllib3, requests, pycares, elastic-transport, schedule, googletransx, fake-useragent, elasticsearch, dataclasses, cchardet, aiohttp-socks, aiodns, twint
-  Attempting uninstall: urllib3
-    Found existing installation: urllib3 1.24.3
-    Uninstalling urllib3-1.24.3:
-      Successfully uninstalled urllib3-1.24.3
-  Attempting uninstall: requests
-    Found existing installation: requests 2.23.0
-    Uninstalling requests-2.23.0:
-      Successfully uninstalled requests-2.23.0
-Successfully installed aiodns-3.0.0 aiohttp-socks-0.4.1 cchardet-2.1.7 dataclasses-0.6 elastic-transport-8.4.0 elasticsearch-8.4.2 fake-useragent-0.1.11 googletransx-2.4.2 pycares-4.2.2 requests-2.28.1 schedule-1.1.0 twint-2.1.21 urllib3-1.26.12
+  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=4c35f531d6247b07802a891aa7f106051064d44cfa839ebd5d59c801ebed5252
+  Stored in directory: /tmp/pip-ephem-wheel-cache-ptfowovb/wheels/88/61/06/bd5d6a887f43cd7ea07380c2bc1fb104f5cc0d03f92a3c50c4
+Successfully built twint
+Installing collected packages: twint
+  Attempting uninstall: twint
+    Found existing installation: twint 2.1.21
+    Uninstalling twint-2.1.21:
+      Successfully uninstalled twint-2.1.21
+Successfully installed twint-2.1.21
 </pre></div>
 </div>
 </div>
@@ -652,41 +641,39 @@ Successfully installed aiodns-3.0.0 aiohttp-socks-0.4.1 cchardet-2.1.7 dataclass
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: twint in /usr/local/lib/python3.7/dist-packages (2.1.21)
-Requirement already satisfied: dataclasses in /usr/local/lib/python3.7/dist-packages (from twint) (0.6)
-Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from twint) (1.1.0)
-Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from twint) (3.8.1)
-Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from twint) (8.4.2)
-Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from twint) (0.1.11)
-Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from twint) (1.17.0)
-Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from twint) (4.6.3)
-Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from twint) (2.1.7)
 Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from twint) (3.0.0)
 Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from twint) (1.3.5)
-Requirement already satisfied: aiohttp-socks in /usr/local/lib/python3.7/dist-packages (from twint) (0.4.1)
-Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from twint) (1.7.1)
 Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from twint) (2.4.2)
+Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from twint) (1.1.0)
+Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from twint) (1.7.1)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from twint) (1.17.0)
+Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from twint) (2.1.7)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.7/dist-packages (from twint) (0.6)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from twint) (4.6.3)
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from twint) (3.7.0)
+Requirement already satisfied: aiohttp-socks in /usr/local/lib/python3.7/dist-packages (from twint) (0.4.1)
+Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from twint) (0.1.11)
+Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from twint) (8.4.3)
 Requirement already satisfied: pycares&gt;=4.0.0 in /usr/local/lib/python3.7/dist-packages (from aiodns-&gt;twint) (4.2.2)
 Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (1.15.1)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (2.21)
-Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.3.1)
-Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.1.1)
-Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (0.13.0)
-Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.2.0)
-Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.8.1)
-Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (2.1.1)
+Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (3.0.4)
 Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (6.0.2)
 Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (22.1.0)
-Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.0.2)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (3.0.1)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.8.1)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;twint) (2.10)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;twint) (4.1.1)
 Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in /usr/local/lib/python3.7/dist-packages (from elasticsearch-&gt;twint) (8.4.0)
-Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (2022.6.15)
+Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (2022.9.24)
 Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (1.26.12)
 Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;twint) (1.52)
 Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;twint) (2.28.1)
-Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (1.21.6)
 Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2.8.2)
-Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2022.2.1)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (1.21.6)
+Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2022.4)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas-&gt;twint) (1.15.0)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;twint) (2.1.1)
 </pre></div>
 </div>
 </div>
@@ -700,27 +687,14 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-pack
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting aiohttp==3.7.0
-  Downloading aiohttp-3.7.0-cp37-cp37m-manylinux2014_x86_64.whl (1.3 MB)
-     |████████████████████████████████| 1.3 MB 5.2 MB/s 
-?25hCollecting async-timeout&lt;4.0,&gt;=3.0
-  Downloading async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+Requirement already satisfied: aiohttp==3.7.0 in /usr/local/lib/python3.7/dist-packages (3.7.0)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (6.0.2)
 Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (22.1.0)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.1)
 Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.4)
 Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (1.8.1)
-Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (6.0.2)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (2.10)
 Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (4.1.1)
-Installing collected packages: async-timeout, aiohttp
-  Attempting uninstall: async-timeout
-    Found existing installation: async-timeout 4.0.2
-    Uninstalling async-timeout-4.0.2:
-      Successfully uninstalled async-timeout-4.0.2
-  Attempting uninstall: aiohttp
-    Found existing installation: aiohttp 3.8.1
-    Uninstalling aiohttp-3.8.1:
-      Successfully uninstalled aiohttp-3.8.1
-Successfully installed aiohttp-3.7.0 async-timeout-3.0.1
 </pre></div>
 </div>
 </div>
@@ -744,15 +718,12 @@ Successfully installed aiohttp-3.7.0 async-timeout-3.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting nest_asyncio
-  Downloading nest_asyncio-1.5.6-py3-none-any.whl (5.2 kB)
-Installing collected packages: nest-asyncio
-Successfully installed nest-asyncio-1.5.6
+Requirement already satisfied: nest_asyncio in /usr/local/lib/python3.7/dist-packages (1.5.6)
 </pre></div>
 </div>
 </div>
 </div>
-<p>configurasi Twint seperti halnya example di website library Twint</p>
+<p>\configurasi Twint dengan value seperti dibawah</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">twint</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
@@ -767,66 +738,66 @@ Successfully installed nest-asyncio-1.5.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1577158169842700288 2022-10-04 04:46:24 +0000 &lt;03__nakula&gt; Tragedi kerusuhan suporter di Stadion Kanjuruhan menjadi duka mendalam bagi dunia persepakbolaan Indonesia.  Gubernur Jawa Tengah Ganjar Pranowo pun menyampaikan duka cita dan berdoa untuk semua korban, terutama korban meninggal dunia.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/1ISBb2yG97
-1577157361571336192 2022-10-04 04:43:11 +0000 &lt;sonny_a_sokon&gt; Pemilu belum mulai... Dimulai ketika @PDI_Perjuangan umumkan @ganjarpranowo sebagai calon. Semua peta akan berubah, semua mulai bracing for big impact, semua koalisi saling nego keras. Ramalan kuat: hanya 2 calon  #NasdemBersamaAnies #GanjarPranowo #ganjarist #Pilpres2024
-1577156768353746944 2022-10-04 04:40:50 +0000 &lt;pikiran_rakyat&gt; PSI Usung Ganjar Pranowo Jadi Capres 2024, Grace Natalie: dari Hasil Rumbuk Rakyat #PSI #GanjarPranowo #Capres2024  Selengkapnya:  https://t.co/999vjkzats via @YouTube
-1577155161281044480 2022-10-04 04:34:27 +0000 &lt;Lembayungpbr22&gt; #pbnu #pdip #NU #koruptor #PDIPerjuangan #gpansor #puan #puanmaharani #megawati #indonesia   #GanjarPranowo #pdip #ikn
-1577151800091717632 2022-10-04 04:21:05 +0000 &lt;Jiung1973&gt; Prabowo,Puan,Anies, Ganjar atau siapapun yang layak maju di 2024, janganlah saling menjatuhkan, adu gagasan dan pencapaian saja demi warisan kebaikan untuk anak cucu kita #AniesBaswedan #GanjarPranowo #prabowo #PuanMaharani
-1577150780645048320 2022-10-04 04:17:02 +0000 &lt;Jarikmerahputih&gt; Pak Gubernur Jawa Tengah (Jateng) Ganjar Pranowo dan Pak Menteri BUMN RI Erick Thohir menjadi pemimpin pilihan masyarakat saat ini.  #ganjarpranowo #erickthohir #merahputih #pilpres2024 #relawanjarik  https://t.co/VPr3gzKoPc
-1577149099752624129 2022-10-04 04:10:22 +0000 &lt;KabarS4habat&gt; Klik untuk lihat kontennya👇🏼👇🏼👇🏼  https://t.co/4AOPG6Mxxb  #GanjarPranowo #ganjarpranowo2024 #GanjaranApp @ganjarpranowo #info  https://t.co/TEPJHlM2By
-1577147514306039808 2022-10-04 04:04:04 +0000 &lt;jpnncom&gt; Ganjar Pranowo merupakan opsi yang tepat untuk maju dalam Pilpres 2024, melawan Prabowo Subianto dan Anies Baswedan. #GanjarPranowo  https://t.co/SjEVjqC0Lg
-1577145559382491137 2022-10-04 03:56:17 +0000 &lt;tribunkaltim&gt; Respon Ridwan Kamil dan Ganjar Pranowo terkait Anies Baswedan yang Diusung sebagai Capres Nasdem   #Anies #AniesBaswedan #Ganjar #GanjarPranowo #RidwanKamil #KangEmil #capres #Nasdem #Pilpres2024   https://t.co/dWXqudZLsS lewat @tribunkaltim
-1577145108361015297 2022-10-04 03:54:30 +0000 &lt;sahabatganjar&gt; Gubenur Jawa Tengah Ganjar Pranowo mengenang K.H. Dian Nafi, apa yang disampaikan oleh Ganjar? Simak video berikut.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/1pAiwp4oZt
-1577142819944165376 2022-10-04 03:45:24 +0000 &lt;VideoTRIBUN&gt; Seusai Nasdem Usung Anies, PSI Deklarasikan Ganjar Pranowo &amp;amp; Yenny Wahid Jadi Capres-Cawapres 2024  #PSI #capres #GanjarPranowo #YennyWahid #pilpres2024 #BeritaTerkini   Selengkapnya&amp;gt;  https://t.co/y6PT0yZYWf  https://t.co/q2TTWHg1CV
-1577139371496833025 2022-10-04 03:31:42 +0000 &lt;KoncoErick&gt; Nah iki Pak Menteri BUMN RI Erick Thohir cawapres sing cocok disandingke karo sopo ae. Dipasangke karo Pak Ganjar Pranowo yo iso, karo Pak Prabowo Subianto yo iso. Sing penting Pak Erick Thohir maju Pilpres 2024, Indonesia bakal aman rek.   #ganjarpranowo #prabowo #erickthohir  https://t.co/TebpqZN28u
-1577138037263601664 2022-10-04 03:26:24 +0000 &lt;DewiOzza&gt; Produsen pipa asal Belanda, Wavin, membangun pabrik di Batang  #GanjarPranowo menyebut berdirinya pabrik pipa asal Belanda di Kawasan Industri Terpadu Batang (KITB) sbg bentuk kepercayaan investor berinvestasi di Indonesia, khususnya di Jawa Tengah.   https://t.co/NcOidGFqmJ
-1577138018796072960 2022-10-04 03:26:20 +0000 &lt;DewiOzza&gt; Elektabilitas #GanjarPranowo Tinggi di Sejumlah Lembaga Survei, KGN Optimistis Ketum @PDI_Perjuangan Akan Pilih Jadi Capres 2024   https://t.co/W55bZfFTv3
-1577137801383927808 2022-10-04 03:25:28 +0000 &lt;sahabatganjarid&gt; Kerjasama kedua belah pihak berorientasi pada upaya peningkatan kesejahteraan masyarakat, khususnya di wilayah Sulawesi Barat.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/Q2J3gUtESx
-1577137764310470656 2022-10-04 03:25:19 +0000 &lt;sahabatganjarid&gt; Pemerintah Provinsi (Pemprov) Sulawesi Barat menandatangani Memorandum of Understanding (MoU), dengan Pemprov Jawa Tengah  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/tHKtp4gST2
-1577137520319479808 2022-10-04 03:24:21 +0000 &lt;jpnncom&gt; #BeritaJabar Masyarakat Pangandaran Nobatkan Ganjar Pranowo Sebagai Bapak Pariwisata @ganjarpranowo  #ganjarmudapadjajaran #ganjarpranowo #bapakpariwisata   https://t.co/UidE1aoVI1
-1577136296287313921 2022-10-04 03:19:29 +0000 &lt;sahabatganjarid&gt; Beliau mengajarkan dan menanamkan kepada para mahasiswa karakter yang kuat sesuai dengan pemahaman agama Islam.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/y9OfrXlIPY
-1577135320830615554 2022-10-04 03:15:36 +0000 &lt;insideindo_id&gt; Ganjar Pranowo angkat suara setelah Partai NasDem resmi mengusung Anies Baswedan sebagai Capres 2024.   Baca berita selengkapnya hanya di  https://t.co/NuJENM2ro9  #ganjarpranowo #pilpres2024 #aniesbaswedan #caprescawapres2024 #capres2024 #presiden2024 #FYP  https://t.co/LJXuMupo5o
-1577133546837512193 2022-10-04 03:08:33 +0000 &lt;terkinidotid&gt; Terbukti Dorong Kemandirian Ekonomi, Emak-Emak di Bone Dukung Ganjar Jadi Presiden: Relawan Mak Ganjar Sulawesi Selatan bersama 500 emak-emak Kabupaten Bone berkumpul dan menyuarakan aspirasi &#39;Ganjar Presiden 2024&#39; di Desa…  https://t.co/slAvjRWBL8 #Bone #GanjarPranowo #Ganjar
-1577130318569476096 2022-10-04 02:55:44 +0000 &lt;sahabatganjar&gt; Saat perayaan hari batik nasional, Ganjar Pranowo menggelar pameran 1000 motif batik dari kuno hingga kekinian.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/BaQoPFsFC7
-1577127187961896960 2022-10-04 02:43:17 +0000 &lt;jalanmerdeka3&gt; Duh, ketahuan lagi pacaran sama Pak Ganjar 🤭😄😍❤🇮🇩 #Ganjar #GanjarPranowo #GanjarRI1 #GanjarKita #GanjarTheNextJokowi #ganjarpranowo2024  https://t.co/2NRVReV0dt
-1577126079621656578 2022-10-04 02:38:53 +0000 &lt;sahabatganjar&gt; Ganjar menerbitkan surat edaran berisi instruksi bagi kepala daerah di seluruh Jateng agar menggunakan aspal Buton sebagai implementasi peningkatan penggunaan produk dalam negeri (P3DN).  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/YfW4IfpCuW
-1577125591362416640 2022-10-04 02:36:57 +0000 &lt;fajaronline&gt; Deklarasikan Ganjar Capres 2024 Usai Cibir Nasdem, Kader Demokrat: Masih Percaya PSI?  https://t.co/KoUw3HHwRq #AniesBaswedan #GanjarPranowo #GiringGanesha #NasDem
-1577121540457758721 2022-10-04 02:20:51 +0000 &lt;fajaronline&gt; Giring Bilang Tak Mau Bahas Politik Dulu, PSI Malah Deklarasikan Ganjar, Loyalis Anies: Perilaku Pecundang  https://t.co/xkdio5DW65 #AniesBaswedan #GanjarPranowo #GeiszChalifah #GiringGanesha
-1577121251189219329 2022-10-04 02:19:42 +0000 &lt;Arigato_98&gt; #GanjarPranowo #tgb #PDIPerjuangan #perindo #adp2022 @ganjarpranowo @TGBMZainulMajdi @_ekokuntadhi @Hary_Tanoe  https://t.co/NwGf4opn5L
-1577114443959308288 2022-10-04 01:52:39 +0000 &lt;PSI_Bali&gt; #GanjarPranowo #YennyWahid   &quot;Kombinasi Ganjar-Yenny Wahid kami anggap terbaik untuk melanjutkan kepemimpinan nasional. Inilah pasangan calon untuk capres-cawapres untuk mewujudkan Indonesia sebagai negeri yang adil dan toleran&quot; sebut Wakil Ketua Dewan Pembina PSI Sis @grace_nat  https://t.co/C4wNbzyM8q
-1577111803448164353 2022-10-04 01:42:09 +0000 &lt;geboeja_&gt; #GANJARPRANOWO  capres 2024
-1577109554420408321 2022-10-04 01:33:13 +0000 &lt;von_edison&gt; Di tengah duka yg mendalam #panjuruhan bahkan duka nasional dan internasional, justru PSI sibuk deklarasi  agar #ganjarpranowo  MAJU CAPRES 2024.  SITU WARAS ?  https://t.co/q3q8Z3AESb
-1577109433070387200 2022-10-04 01:32:44 +0000 &lt;Lembayungpbr22&gt; #pbnu #pdip #NU #koruptor #PDIPerjuangan #gpansor #puan #puanmaharani #megawati #indonesia   #GanjarPranowo #pdip #ikn
-1577098894517075969 2022-10-04 00:50:52 +0000 &lt;SobatUno&gt; Kita harapkan apapun yang bisa kita kolaborasikan, contohnya di bidang Ekraf.  #sandiuno #SobatSandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo #presidenjokowi #kaesangpangarep  https://t.co/EmOhwTLFZY
-1577098571962519552 2022-10-04 00:49:35 +0000 &lt;SobatUno&gt; Banyak FIlm Indonesia yang mengisahkan keunggulan Pariwisata dan Ekonomi Kreatif Tanah Air.  #sandiuno #SobatSandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo #presidenjokowi  https://t.co/vHGg0WGLd7
-1577096325602025472 2022-10-04 00:40:39 +0000 &lt;GP_Lombok&gt; Ada backing vocalnya 😂🤭  #GanjarPranowo #SahabatGanjar  https://t.co/CGPwRwokIe
-1577095621466808320 2022-10-04 00:37:51 +0000 &lt;ds_martakusumah&gt; @tjhinfar Ketika jabatan adalah suatu pekerjaan yg harus dipertanggungjawabkan, maka itu adalah amanah yg wajib dijalankan dgn sebaik²nya. Dan ketika jabatan diserahkan pada orang yg tidak tepat, maka kehancuran sdh menunggu didepan mata. 😊☕🙏  #TemanGanjar #GanjarPranowo #TegarSukabumi
-1577089885495734273 2022-10-04 00:15:04 +0000 &lt;Kanjeng2022&gt; Pilpres 2024 selesai kalau ini mah...  #GanjarPranowo
-1577085651094118400 2022-10-03 23:58:14 +0000 &lt;fajaronline&gt; Terbukti Dorong Kemandirian Ekonomi, Ganjar Raih Dukungan Emak-Emak Kabupaten Bone Jadi Presiden  https://t.co/XDK7kQpCsN #GanjarPranowo #Pilpres2024 #RelawanEmak-emak
-1577082172636532736 2022-10-03 23:44:25 +0000 &lt;Ismail34599891&gt; @detikcom @Giring_Ganesha lucu gak ni mas giring,,,, anda gak tahu ya kalau psi juga deklarasi,,, #GanjarPranowo
-1577078908788219904 2022-10-03 23:31:27 +0000 &lt;RizkiR4madani&gt; Anies Baswedan Dideklarasikan Sebagai Capres 2024, Ini Komentar @ganjarpranowo . Ini Lah Yg Membuat, Aye Ingin Slalu Mendukung Beliau Gubernur Jawa Tengah #GanjarPranowo Menjadi Presiden 🇮🇩 Periode 2024-2029. Gimane Sobat Tweps? Yg Cihuyy☕☕   https://t.co/SnsDg25sGO
-1577051023847268352 2022-10-03 21:40:38 +0000 &lt;lawjusticeco&gt; PSI Deklarasikan Ganjar Pranowo Capres di Pilpres 2024  https://t.co/cNGjmZdGF8 #psi #GanjarPranowo #jokowi #PDIPerjuangan  https://t.co/CuRSUFc1SF
-1577041402722418690 2022-10-03 21:02:25 +0000 &lt;inisiatifganjar&gt; Gubernur Jawa Tengah Ganjar Pranowo mendampingi Presiden Joko Widodo (Jokowi) dalam groundbreaking pabrik Wavin di Grand Batang City atau Kawasan Industri Terpadu Batang (KITB), Senin (3/10/2022).  #ganjarpranowo #ganjar #ganjar_pranowo #jawatengah #jawatengahhits #indonesia  https://t.co/AmfaF33xal
-1577028977528832002 2022-10-03 20:13:02 +0000 &lt;jpnncom&gt; Ganjar dinilai sebagai pemimpin yang aktif mendorong peran strategis perempuan sebagai pelaku sekaligus penggerak ekonomi kreatif dan inovatif. #GanjarPranowo  https://t.co/jyhyrV2ATv
-1577003110840827904 2022-10-03 18:30:15 +0000 &lt;FitriNatali1&gt; Kocak betul si Giring ini, mksud hati nyindir NasDem deklarasikan Anies Baswedan eh ternyata PSI yg ndak punya kursi ikutan Deklarasi Ganjar.  Ketum koq ndak tau agenda partainya sih ring giring parah loh #giring #giringganesha #psi #ganjar #ganjarpranowo  #NasdemBersamaAnies  https://t.co/OSyeKjnjZn
-1577002883203010561 2022-10-03 18:29:21 +0000 &lt;JSodakain&gt; @imanlagi Anis Bakal menang kalau lawannya mbak puan. Tapiii kalo lawannya adalah Ganjar sorry to say kalau Ganjar yg bakal menang. #GanjarPranowo #GanjarTheNextJokowi
-1576997665577242624 2022-10-03 18:08:37 +0000 &lt;siregaryaakub&gt; @MndJaya @Metro_TV Ngapain juga nyisipkan tagar #KanjuruhanBerdukaCita di narasi politik,apa kalian dan kelompokmu sdh tak berempati dengan ratusan nyawa yg melayang? Jijik aku dengan cara berpikirmu. Makan itu #GanjarPranowo mu!!!
-1576996073641775104 2022-10-03 18:02:17 +0000 &lt;01Negeriku&gt; @Miduk17 bersama selalu dengan Pakde #GanjarPranowo
-1576992906795134977 2022-10-03 17:49:42 +0000 &lt;01Negeriku&gt; @Damai_Itu_Indah @psi_id @psi_id bersama #GanjarPranowo   #SelamatTinggalNasdem  #SelamatTinggalNasdem  #SelamatTinggalNasdem
-1576976136898478080 2022-10-03 16:43:04 +0000 &lt;jpnncom&gt; Gubernur Ganjar Pranowo ingin agar generasi muda terutama yag kurang mampu tetap mendapat hak yang sama dalam mengenyam pendidikan melalui SMKN Jateng. #GanjarPranowo  https://t.co/rO2Me3vV2J
-1576974634091565059 2022-10-03 16:37:06 +0000 &lt;Nien1708&gt; Tragedi supporter di Malang, diharapkan jadi evaluasi besar pada dunia persepakbolaan Indonesia.   Penyelenggara, suporter &amp;amp; petugas keamanan.  Ganjar minta agar para suporter mengadakan kongres untuk mencegah hal tersebut terulang kembali.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/VBPYWIDWK2
-1576974192263581700 2022-10-03 16:35:20 +0000 &lt;tahucampur58&gt; @ElinaDio menurut saya langkah nasdem &quot;cerdas&quot; utk mematikan ! #GanjarPranowo tetap akan next jokowi
-1576973388933136384 2022-10-03 16:32:09 +0000 &lt;Nien1708&gt; Ada yang suka memendam masalah berlarut-larut????   Yuk kita kenali ciri-ciri dari asertif.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/EwJTJfIVH2
-1576973058010533908 2022-10-03 16:30:50 +0000 &lt;Nien1708&gt; Pagi yang cerah enaknya senam sehat nih kayak di Kota Serang, Banten.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/wKC91JIRZ8
-1576972872550993935 2022-10-03 16:30:06 +0000 &lt;ArdiKuncoro_&gt; Santai Saja Bu Mega pasti tau dan melihat reaksi masyarakat (Rakyat)  #GanjarPranowo
-1576972367074844672 2022-10-03 16:28:05 +0000 &lt;mudha_satriya&gt; Loyalis Puan bikin Dewan Kolonel, Relawan Ganjar bikin Dewan KOPRAL &amp;gt;&amp;gt;&amp;gt;&amp;gt;  https://t.co/4X0y2QcM1m #GPMania #ganjarpranowo #GanjarPresiden2024 #DewanKopral
-1576971592898203651 2022-10-03 16:25:01 +0000 &lt;mudha_satriya&gt; Jika Para Elite bisa membentuk &quot; Dewan Kolonel &quot; maka KITA rakyat kecil akan membentuk DEWAN KOPRAL !!!! &amp;gt;&amp;gt;&amp;gt;&amp;gt;  https://t.co/WkDY3w8oyx . . . #GPMania #GanjarPranowo #GanjarPresiden2024 Cc @Rizmaya
-1576961286935412736 2022-10-03 15:44:03 +0000 &lt;jpnncom&gt; Gubernur Jateng Ganjar Pranowo menyambut baik kedatangan Pj Gubernur Sulbar beserta jajarannya. #GanjarPranowo  https://t.co/SfhM8AKbpC
-1576960285814181888 2022-10-03 15:40:05 +0000 &lt;jpnncom&gt; Ganjar Pranowo dinobatkan sebagai Bapak Pariwisata Indonesia oleh masyarakat Pangandaran dalam Festival &#39;Pariwisata Pulih, Indonesia Bangkit&#39; #ganjarpranowo  https://t.co/UidE1aH4W9
-1576959891729977349 2022-10-03 15:38:31 +0000 &lt;InfoSeriyes&gt; #GanjarPranowo lahhh
-1576959497028763650 2022-10-03 15:36:57 +0000 &lt;MndJaya&gt; #GanjarPranowo #KanjuruhanBerdukaCita lawan #BapakPolitikIdentitas usungan Nasdem @Metro_TV
-1576959246809567232 2022-10-03 15:35:57 +0000 &lt;Ardi22319234&gt; #GanjarPranowo #GanjarTheNextJokowi  #2024TenggelamkanNasdem #2024GanjarRI1 #GanjarPresidenRI2024 #TOLAKANIES #Tolakpolitikidentitas 2024 Mari Kita Pilih Pemimpin Merakyat ,, Bukan Pemimpin ambisius ayat dan mayat #Menolaklupa #Pilgub2017  https://t.co/64UPsb2X4C
-1576954770954551296 2022-10-03 15:18:10 +0000 &lt;sahabatganjar&gt; Pagi yang cerah enaknya senam sehat nih kayak di Kota Serang, Banten.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/Y6C82XyICe
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1579011534709493760 2022-10-09 07:31:01 +0000 &lt;Aryprasetyo85&gt; @ganjarpranowo sedang melakukan kunjungan kerja ke Bali, ia menyempatkan ziarah ke Taman Pujaan Bangsa, lokasi gugurnya Pahlawan Nasional I Gusti Ngurah Rai   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/IGED7eByds
+1579011396108709888 2022-10-09 07:30:28 +0000 &lt;Aryprasetyo85&gt; Gubernur Jawa Tengah, @ganjarpranowo berkunjung ke Desa Wisata Sayan Kecamatan Ubud, Gianyar, Bali. Apa yang disampaikan oleh Ganjar? Simak video berikut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/NZ3aCAI6QE
+1579010370143854592 2022-10-09 07:26:23 +0000 &lt;ganesa4gp&gt; Ewako..... Ewako ....Pak Ganjar disambut meriah di Makassar saat ikut Friendship Run Borobudur Marathon 2022 di Benteng Fort Rotterdam. Minggu 9 Oktober 2022. 🇮🇩❤️❤️🇮🇩🇮🇩  #ganesa  #ganjaruntukindonesiasatu  #ganjarpranowo  #2024GanjarPresiden  #makasarfriendshiprun  https://t.co/EigmAmpnEc
+1579010284328726528 2022-10-09 07:26:03 +0000 &lt;Aryprasetyo85&gt; Tidak hanya itu saja, keseruan berlanjut dengan adanya doorpize menarik yang siap dibagikan kepada warga yang hadir dan beruntung.  #GanjarPranowo #SahabatGanjar #SenamSehat #JawaTengah  https://t.co/3QwsROlA5e
+1579010198978846720 2022-10-09 07:25:42 +0000 &lt;Aryprasetyo85&gt; Akhir pekan pada ngapain saja nih?   Mari manfaatkan akhir pekan dgn berolahraga. Seperti yg dilakukan oleh Sahabat Ganjar bersama Komunitas Senam yang hadir di Kota Semarang, Jawa Tengah, yang melakukan senam sehat bersama. #GanjarPranowo #SahabatGanjar #SenamSehat #JawaTengah  https://t.co/hlisNAHDCf
+1579008077000761351 2022-10-09 07:17:16 +0000 &lt;Aryprasetyo85&gt; Aksi solidaritas ini juga sebagai penyambung tali silaturahmi dan kekompakan antar para petani dengan Sahabat Ganjar.   #GanjarPranowo #SahabatGanjar #Deklarasi #JawaTimur  https://t.co/SxDFJ85XJd
+1579007986772873216 2022-10-09 07:16:55 +0000 &lt;Aryprasetyo85&gt; Popularitas @ganjarpranowo terkenal dibanyak lapisan masyarakat tak terkecuali Komunitas Petani Kopi, Rempah, dan Palawija di Kabupaten Jember, Jawa Timur.   Para petani berkumpul untuk menyuarakan kawal Ganjar Pranowo bersama Sahabat Ganjar.  #GanjarPranowo #SahabatGanjar  https://t.co/BPLsBj8ARV
+1579007674582466561 2022-10-09 07:15:40 +0000 &lt;ganesa4gp&gt; Ganjar Pranowo silahturahmi ke  kediaman  Habib Syech Abdul Rahim Puang Makka (Habib Puang Makka)   Tokoh NU Makassar  Puang Rama, ayahanda Puang Makka adlh sahabat KH Hisyam Kalijaran, simbah mertua Ganjar  #GanjarPranowo  #GanjarUntukIndonesiaSat #Ganesa #ganesaindonesia  https://t.co/lT0z3VyLyl
+1579006836740849664 2022-10-09 07:12:21 +0000 &lt;LuciferArmor&gt; Isi tweets ttg anies sama dedengkotnya terus. #StopAngkatBeritaKadrun . Naikin berita #JokowiSukses dan #GanjarPranowo
+1579005613996376070 2022-10-09 07:07:29 +0000 &lt;SobatUno&gt; Sektor Wisata Indonesia sudah Bangkit.  #sandiuno #SobatSandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo #presidenjokowi #kaesangpangarep #irianajokowi #gibranrakabumingraka #basukibtp  https://t.co/3f5Tc4DK8U
+1579005350464073728 2022-10-09 07:06:26 +0000 &lt;SobatUno&gt; Ambon bukan hanya kaya akan potensi wisatanya, namun juga kulinernya.  #sandiuno #SobatSandi #prabowoIndonesia #prabowosubianto #menteripertahanan #ridwankamil #ataliapr #ganjarpranowo #sahabatganjar #trirismaharini #jokowidodo #presidenjokowi  https://t.co/oZ7izbCVi0
+1579003819027206152 2022-10-09 07:00:21 +0000 &lt;sahabatganjar&gt; Ganjar berbagi pengalaman banyak hal. Mulai teknis dari sisi hulu sampai hilir. Mereka tidak hanya belajar bercocok tanam, tapi juga pemasaran, packaging, dan menghitung secara skala ekonomi.  #SahabatGanjar #GanjarPranowo #Ganjar
+1579003810944806912 2022-10-09 07:00:19 +0000 &lt;sahabatganjar&gt; Puluhan petani muda dari berbagai daerah di Indonesia berkumpul di Desa Gobleg, Buleleng, Bali.  Ganjar belajar dan diskusi terkait pertanian modern saat ini.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/1GJjb3NCQN
+1579003734759280641 2022-10-09 07:00:01 +0000 &lt;GanjaranApp&gt; Masyarakat di wilayah bekas kekuasaan Kerajaan Pajajaran banyak yg mendukung Ganjar menjadi Presiden. Salah satu barisan relawan tersebut yaitu Baladhika Ganjar berbasis di Bandung.  #GanjaranApp #DeklarasiGanjar2024 #RelawanGanjarPranowo #pilpres2024 #GanjarKita #GanjarPranowo  https://t.co/MRahmsNEaS
+1579001804935008261 2022-10-09 06:52:21 +0000 &lt;jalanmerdeka3&gt; Pokoknya, untuk para orang tua / lansia kita ini,  harus selalu bahagia terus, ya Pak 🙏❤👍😄🇮🇩 #GanjarPranowo #GanjarKita #GanjarTheNextJokowi  https://t.co/LCLe98qX5S
+1579000013656854530 2022-10-09 06:45:14 +0000 &lt;von_edison&gt; A. WAJAH ASLI JOKOWI B.WAJAH ORANG YG LULUS UGM.  LIHAT HIDUNGNYA..  BEDA TOH ?   BERARTI..YG LULUS  BUKAN JOKOWI..🤣🤣  #UGM  #AniesBaswedan  #SuryaPaloh  #jokowi #Prabowo  #GanjarPranowo  #PuanMaharani  #Ahy  #PKB  #PKS  #Nasdem  https://t.co/83j3vmWBsn
+1578999690905157633 2022-10-09 06:43:57 +0000 &lt;sahabatganjar&gt; Ganjar Pranowo terharu saat menaburkan bunga di depan Candi Puputan Margarana kompleks Taman Pujaan Bangsa Margarana, Tabanan, Bali.  Ganjar juga diajak mengunjungi museum yang menceritakan kisah perjuangan pahlawan Bali.  #SahabatGanjar #Ganjar #GanjarPranowo  https://t.co/lB1RVh4zC2
+1578998394114437123 2022-10-09 06:38:48 +0000 &lt;sahabatganjarid&gt; Tidak hanya itu saja, keseruan berlanjut dengan adanya doorpize menarik yang siap dibagikan kepada warga yang hadir dan beruntung.  #GanjarPranowo #SahabatGanjar #SenamSehat #JawaTengah
+1578998391614291968 2022-10-09 06:38:47 +0000 &lt;sahabatganjarid&gt; Akhir pekan pada ngapain saja nih?   Mari manfaatkan akhir pekan dengan berolahraga. Seperti yang dilakukan oleh Sahabat Ganjar bersama Komunitas Senam yang hadir di Kota Semarang, yang melakukan senam sehat bersama.  #GanjarPranowo #SahabatGanjar #SenamSehat #JawaTengah  https://t.co/2D5uwQPE9K
+1578998211607678976 2022-10-09 06:38:04 +0000 &lt;terkinidotid&gt; Ganjar dan Istri Ikuti Ajang Friendship Run 2022 di Makassar: Gubernur Jawa Tengah (Jateng), Ganjar Pranowo turut ambil bagian dalam event olahraga &#39;Bank Jateng Friendship Run 2022&#39; di Kota Makassar, Sulawesi Selatan…  https://t.co/jrbI21Llwh #Makassar #ganjarpranowo #Ganjar
+1578997408377118720 2022-10-09 06:34:53 +0000 &lt;fajaronline&gt; Ganjar Pranowo dan Istri Meriahkan Ajang Friendship Run 2022 di Makassar  https://t.co/pOCI9Jn9wg #FriendshipRun2022 #GanjarPranowo
+1578994365216628737 2022-10-09 06:22:47 +0000 &lt;sahabatganjarid&gt; Dukungan terhadap Ganjar Pranowo bertambah, kali ini datangnya dari Penari Gandrung asal Kabupaten Banyuwangi, Jawa Timur.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/2Bj7wra7lS
+1578993439118532608 2022-10-09 06:19:06 +0000 &lt;sahabatganjar&gt; Tidak hanya itu saja, keseruan berlanjut dengan adanya doorpize menarik yang siap dibagikan kepada warga yang hadir dan beruntung.  #GanjarPranowo #SahabatGanjar #SenamSehat #JawaTengah  https://t.co/1Lw3EMeFh0
+1578993421045272577 2022-10-09 06:19:02 +0000 &lt;sahabatganjar&gt; Akhir pekan pada ngapain saja nih?   Mari manfaatkan akhir pekan dengan berolahraga. Seperti yang dilakukan oleh Sahabat Ganjar bersama Komunitas Senam yang hadir di Kota Semarang, Jawa Tengah, yang melakukan senam sehat bersama.  #GanjarPranowo #SahabatGanjar #SenamSehat  https://t.co/4ng0hfWEer
+1578990642424090624 2022-10-09 06:08:00 +0000 &lt;awituchuz&gt; @MuhammadTuhasan @Verraagustian_ Makassar untuk @ganjarpranowo   #GanjarPranowo untuk Makassar  https://t.co/V7ne3TiIPV
+1578989983175626752 2022-10-09 06:05:22 +0000 &lt;sahabatganjarid&gt; Match Day Turnamen Offline PUBG Mobile Saga Esports di Kabupaten Jepara, Jawa Tengah.  Tonton melalui Media Sosial Facebook dan Youtube Sahabat Ganjar.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/I0LuvKwUAA
+1578988821298827265 2022-10-09 06:00:45 +0000 &lt;sahabatganjarid&gt; Puluhan petani muda dari berbagai daerah di Indonesia berkumpul di Desa Gobleg, Buleleng, Bali.  Ganjar belajar dan diskusi terkait pertanian modern saat ini.  Ganjar berbagi pengalaman banyak hal. Mulai teknis dari sisi hulu sampai hilir.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/dHHZ7Nqvh0
+1578987404022939648 2022-10-09 05:55:07 +0000 &lt;sahabatganjarid&gt; Ganjar terharu saat menaburkan bunga di depan Candi Puputan Margarana kompleks Taman Pujaan Bangsa Margarana, Tabanan, Bali  Di kompleks itu, berdiri sebuah candi dan ribuan batu nisan para pahlawan yang gugur dalam pertempuran 20 November 1946 itu.  #SahabatGanjar #GanjarPranowo  https://t.co/f9T2sHS3Ns
+1578986323649908737 2022-10-09 05:50:50 +0000 &lt;makganjarbanten&gt; Mak Ganjar berbagi di Bojongmanik, Banten.  #makganjarbanten  #ganjarpranowo  #makganjar  https://t.co/8cBX9hU4ft
+1578986000944025600 2022-10-09 05:49:33 +0000 &lt;makganjarbanten&gt; Mak Ganjar berbagi di Bojongmanik, Banten.  #makganjarbanten  #ganjarpranowo  #makganjar  https://t.co/niwX3tbJnc
+1578985506163286016 2022-10-09 05:47:35 +0000 &lt;sahabatganjarid&gt; Sayangnya, manusia juga mengembangkan mekanisme marah ketika dia takut, khawatir dan malu. Kamu tipe yang boros marah atau marah pada saat yang &#39;mahal&#39;, Sahabat?  #SahabatGanjar #Ganjar #GanjarPranowo #Milenial #CerdasEmosi #Marah #Mahal #Eksklusif
+1578985503768317952 2022-10-09 05:47:34 +0000 &lt;sahabatganjarid&gt; Marah itu menguras energi. mahal harganya. pastikan kalo mau marah, emang dipakai utk hal yang benar2 layak utk mendapat marah kita.  #SahabatGanjar #Ganjar #GanjarPranowo #Milenial #CerdasEmosi #Marah #Mahal #Eksklusif  https://t.co/qolnnqQFXV
+1578984694753787904 2022-10-09 05:44:22 +0000 &lt;sahabatganjarid&gt; Kemudian, pembangunan kembali dilanjutkan sepanjang 700 meter di Tahun 2022 ini dengan anggaran Rp12,75 Milliar.   Keberadaan tanggul cukup banyak dirasakan dampak positifnya oleh masyarakat, terutama mereka yang tinggal di wilayah Pesisir  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/5rDCq9rMRY
+1578984681147863041 2022-10-09 05:44:18 +0000 &lt;sahabatganjarid&gt; Permukiman pesisir utara yang berada di wilayah Kec Pekalongan Utara, selama ini menjadi wilayah langganan terdampak banjir dan rob.   Di tahun 2021, tanggul telah terbangun sepanjang 400 meter dengan anggaran senilai Rp5 Milliar.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/kIh0p7beAL
+1578983324051156992 2022-10-09 05:38:55 +0000 &lt;sahabatganjarid&gt; Ketika kamu sedang beraktivitas di lapangan, Topi dari Sahabat Ganjar bisa menjadi atribut kamu.  Langsung cek Shopee dan Tokopedia kamu yaa dan jangan lupa check out.  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/dPGISmBRsk
+1578982406165782528 2022-10-09 05:35:16 +0000 &lt;iansudarsana24&gt; Mas @ganjarpranowo disambut ibu ibu muda di tengah keceriaan dan joke joke ringannya saat jalan santai di kawasan wisata dunia Ubud, 8 Oktober 2024...#GanjarPranowo #GungAriDwipayana #BaliForGP1 @ganjarpranowo @ganjar1st @aridwipayanaugm @infokagama  https://t.co/IIqBucAXjx
+1578981760108724224 2022-10-09 05:32:42 +0000 &lt;sahabatganjarid&gt; Ganjar Pranowo sedang melakukan kunjungan kerja ke Bali, ia menyempatkan ziarah ke Taman Pujaan Bangsa, lokasi gugurnya Pahlawan Nasional I Gusti Ngurah Rai   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/t6BpxeXxh8
+1578980900708093952 2022-10-09 05:29:17 +0000 &lt;portalmediaid&gt; Ditanya Soal Sikap Politiknya, Ganjar Pranowo: &#39;Semuanya lari bareng saya&#39;  Gimana Gimana? @ganjarpranowo 🤔  Baca Selengkapnya:  https://t.co/kVhyPw29HM  #BeritaTerkini #media #Online #news #BreakingNews #soal #sikap #Politik #attitude #Statement #GanjarPranowo #Indonesia
+1578980431751712769 2022-10-09 05:27:25 +0000 &lt;Abercio_Wiwoho&gt; @ganjarpranowo Ganjar Pranowo Presiden RI ke-8 tahun 2024-2029.  #GanjarTheNextJokowi #GanjarPranowo #GanjarKita #GanjarRI1  https://t.co/LEfmKqxL9n
+1578976154434023424 2022-10-09 05:10:25 +0000 &lt;sahabatganjar&gt; Kalian pernah gak sih bayangin Nonton Konser Musik Gratis dan bawa Doorprize Motor???  Eittsss, itu sedikit bocoran acara Ganjar Pranowo Festival #4 di Dieng, Jawa Tengah.  #GanjarPranowoFestival #GPFest4 #GPFestJawaTengah #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/bkNjSl0Wxz
+1578974295694671872 2022-10-09 05:03:02 +0000 &lt;bb_sports_id&gt; Ganjar Jadi Rebutan Peserta Bank Jateng Friendship Run di Makassar  https://t.co/lIIH4cKvZW baca juga berita dari media lainnya di Indonesia di  https://t.co/GkwQxScVr9   #ganjarpranowo #borobudurmarathon #bankjateng #bankjatengfriendshiprun
+1578973534486790144 2022-10-09 05:00:01 +0000 &lt;GanjaranApp&gt; Indonesia butuh sosok pemimpin seperti Ganjar Pranowo yang memiliki semangat untuk terus berinovasi bersama para petani dan masyarakat lainnya  #GanjarPranowo #Petani #Bali #GanjaranApp  https://t.co/Bi6q0sVYsU
+1578971873601531909 2022-10-09 04:53:25 +0000 &lt;sahabatganjarid&gt; Gubernur Jawa Tengah, Ganjar Pranowoberkunjung ke Desa Wisata Sayan Kecamatan Ubud, Gianyar, Bali. Apa yang disampaikan oleh Ganjar? Simak video berikut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/5UsSh3UDHP
+1578970204667015168 2022-10-09 04:46:47 +0000 &lt;sahabatganjarid&gt; Gubernur Jawa Tengah, Ganjar Pranowo yang sedang kunjungan kerja ke Bali menyempatkan mampir. Bersama anak-anak muda itu, Ganjar belajar dan diskusi terkait pertanian modern saat ini.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/FSndTK9yXs
+1578970190955843591 2022-10-09 04:46:44 +0000 &lt;sahabatganjarid&gt; Puluhan petani muda dari berbagai daerah di Indonesia berkumpul di Desa Gobleg, Buleleng, Bali.  Mereka belajar smart farming dengan komunitas Petani Muda Keren yang ada di lokasi itu.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/aueQ3U2JJm
+1578969827301294080 2022-10-09 04:45:17 +0000 &lt;smartcity_Mks&gt; Ini Kunjungan Lengkap Ganjar Pranowo di Bali #ganjarpranowo   https://t.co/1wSZO8sxNM
+1578969690516652032 2022-10-09 04:44:44 +0000 &lt;sahabatganjarid&gt; Ganjar Pranowo nampak terharu saat menaburkan bunga di depan Candi Puputan Margarana dan diajak mengunjungi museum yang menceritakan kisah perjuangan pahlawan Bali.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/BemSrDMeBX
+1578969676784496640 2022-10-09 04:44:41 +0000 &lt;sahabatganjarid&gt; Gubernur Jawa Tengah Ganjar Pranowo di sela-sela kunjungan kerja ke Bali menyempatkan ziarah dan melakukan tabur bunga di Taman Pujaan Bangsa (TPB) Margarana.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/ejPdOhg7Pu
+1578967165344296961 2022-10-09 04:34:42 +0000 &lt;ganesa4gp&gt; Pak Ganjar hadir di SAYAN UBUD DALAM RANGKA MENGHADIRI ACARA RUMAKET. RUMAH KREATIF . . Seorang PEMIMPIN HARUS KREARIF ..  #Ganjar2024  #ganesa  #ganjaruntukindonesiasatu  #ganjarpranowo  #2024GanjarPresiden  https://t.co/1Hn0QL5ZM2
+1578966655241433088 2022-10-09 04:32:41 +0000 &lt;sahabatganjarid&gt; Didampingi Bupati dan Wakil Bupati Gianyar, Rektor UGM dan tamu undangan lain, Ganjar ikut menatah tebing padas sungai Beji Sudamala yang sudah dipenuhi relief sangat indah.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/vYK0J9ShSg
+1578966641656090624 2022-10-09 04:32:37 +0000 &lt;sahabatganjarid&gt; Gubernur Jawa Tengah, Ganjar Pranowo mendadak jadi seniman saat berkunjung ke Desa Wisata Sayan Kecamatan Ubud, Gianyar, Bali.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/mWtwy5SsLO
+1578966103543279616 2022-10-09 04:30:29 +0000 &lt;sahabatganjar&gt; Match Day Turnamen Offline PUBG Mobile Saga Esports di Kabupaten Jepara, Jawa Tengah.  Tonton melalui Media Sosial Facebook dan Youtube Sahabat Ganjar.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/FcPwm5sw31
+1578964421359316993 2022-10-09 04:23:48 +0000 &lt;RK_Lamongan&gt; Bukan Figur Pemecah Belah,Ganjar Pranowo Dideklarasikan Capres 2024 oleh Kader PPP DKI Jakarta #GanjarPranowo  #GanjarTheNextJokowi  https://t.co/foUHtifrqc
+1578963758520889344 2022-10-09 04:21:10 +0000 &lt;SDG_Sumut&gt; Assalamu&#39;alaikum wr.wb Alhamdulillah telah terlaksana kegiatan jumat berbagi berkah oleh santri dukung ganjar sumut pada hari jumat 7 oktober 2022 #darisantriuntuknegeri #Sdg_sumut #GanjarPranowo #santridukungganjar  https://t.co/4z1Hyqu9Bl
+1578963381356498944 2022-10-09 04:19:40 +0000 &lt;SDG_Sumut&gt; Assalamu&#39;alaikum wr.wb Alhamdulillah telah terlaksana kegiatan bantuan usaha kecil (umkm) oleh santri dukung ganjar pada hari kamis 6 oktober 2022 #santridukungganjar #GanjarPranowo #SDG_Sumut #Ganjarforpresiden2024  https://t.co/5RkY7dNX2q
+1578962385414803457 2022-10-09 04:15:43 +0000 &lt;SDG_Sumut&gt; Assalamu&#39;alaikum wr.wb Alhamdulillah telah terlaksana kegiatan silaturahmi pesantren oleh tim santri dukung ganjar pada hari selasa 4 oktober 2022 #santridukungganjar #GanjarPranowo #darisantriuntuknegeri #ganjarforpresiden2024  https://t.co/To1PDxKqNB
+1578960868435714048 2022-10-09 04:09:41 +0000 &lt;sahabatganjar&gt; Keberadaan tanggul cukup banyak dirasakan dampak positifnya oleh masyarakat Kota Pekalongan, terutama mereka yang tinggal di wilayah Pesisir yang lokasinya berdekatan langsung dengan pantai.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/7gsVWvEbyi
+1578960856356118528 2022-10-09 04:09:38 +0000 &lt;sahabatganjar&gt; Di tahun 2021, tanggul telah terbangun sepanjang 400 meter dengan anggaran senilai Rp5 Milliar. Kemudian, pembangunan kembali dilanjutkan sepanjang 700 meter di Tahun 2022 ini dengan anggaran Rp12,75 Milliar.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/Rz0xDZGZfZ
+1578960848051089408 2022-10-09 04:09:36 +0000 &lt;sahabatganjar&gt; Permukiman pesisir utara yang berada di wilayah Kecamatan Pekalongan Utara, Kota Pekalongan selama ini menjadi wilayah langganan terdampak banjir dan rob.   #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/zY0jbbbITV
+1578959607229476864 2022-10-09 04:04:40 +0000 &lt;fajaronline&gt; Ngaret 1,5 Jam, Ganjar Pranowo Disambut Ratusan Warga Makassar di Lorong Wisata  https://t.co/CbueF4Ys0u #DannyPomanto #GanjarPranowo #LorongWisata #PemkotMakassar
 </pre></div>
 </div>
 </div>
@@ -843,7 +814,7 @@ Successfully installed nest-asyncio-1.5.6
 </div>
 </div>
 </div>
-<p>Baca data excel dataGanjar.xlsx yang telah diberi label yang telah simpan di Google Drive</p>
+<p>Baca data excel dataGanjar.xlsx yang telah diberi label (Positif,Negatif dan Netral) yang telah simpan di Google Drive</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;dataGanjar.xlsx&#39;</span><span class="p">)</span>
@@ -853,7 +824,7 @@ Successfully installed nest-asyncio-1.5.6
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-9d23355c-5c66-4f4e-a65d-6172eabd5790">
+  <div id="df-97504471-7395-4c48-992b-e6fa8fea253a">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -937,7 +908,7 @@ Successfully installed nest-asyncio-1.5.6
 </table>
 <p>73 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-9d23355c-5c66-4f4e-a65d-6172eabd5790')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-97504471-7395-4c48-992b-e6fa8fea253a')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -988,12 +959,12 @@ Successfully installed nest-asyncio-1.5.6
 
       <script>
         const buttonEl =
-          document.querySelector('#df-9d23355c-5c66-4f4e-a65d-6172eabd5790 button.colab-df-convert');
+          document.querySelector('#df-97504471-7395-4c48-992b-e6fa8fea253a button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-9d23355c-5c66-4f4e-a65d-6172eabd5790');
+          const element = document.querySelector('#df-97504471-7395-4c48-992b-e6fa8fea253a');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1033,16 +1004,12 @@ Successfully installed nest-asyncio-1.5.6
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: nltk in /usr/local/lib/python3.7/dist-packages (3.7)
-Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.1.0)
 Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
-Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
+Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.2.0)
 Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
+Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting Sastrawi
-  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
-     |████████████████████████████████| 209 kB 5.1 MB/s 
-?25hInstalling collected packages: Sastrawi
-Successfully installed Sastrawi-1.0.1
+Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-packages (1.0.1)
 </pre></div>
 </div>
 </div>
@@ -1067,7 +1034,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Unzipping tokenizers/punkt.zip.
+[nltk_data]   Package punkt is already up-to-date!
 </pre></div>
 </div>
 </div>
@@ -1184,7 +1151,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 </div>
 </div>
-<p>berikutnya jadikan data menjadi bentuk Matrik numerik</p>
+<p>Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
@@ -1197,7 +1164,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1b817ba6-3109-4d28-9dc9-3faa4b00b221">
+  <div id="df-73581415-bf75-4100-9594-e1530dd08393">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1293,7 +1260,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>73 rows × 3 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-1b817ba6-3109-4d28-9dc9-3faa4b00b221')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-73581415-bf75-4100-9594-e1530dd08393')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1344,12 +1311,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-1b817ba6-3109-4d28-9dc9-3faa4b00b221 button.colab-df-convert');
+          document.querySelector('#df-73581415-bf75-4100-9594-e1530dd08393 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-1b817ba6-3109-4d28-9dc9-3faa4b00b221');
+          const element = document.querySelector('#df-73581415-bf75-4100-9594-e1530dd08393');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1370,6 +1337,7 @@ Successfully installed Sastrawi-1.0.1
   </div>
 </div></div>
 </div>
+<p>Melihat Jumlah Baris dan Kata</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrik_vsm</span><span class="o">=</span><span class="n">bag</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
@@ -1426,7 +1394,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 </div>
 </div>
-<p>selanjutnya data Matrik dikasih nama column sesuai Fitur</p>
+<p>Tampilan data VSM dengan labelnya</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataTF</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">matrik_vsm</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrik_vsm</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">)),</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
@@ -1436,7 +1404,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-91f2aebe-473e-4825-8df4-3597040bfcf5">
+  <div id="df-9c1db9a9-900b-44f0-922a-6c87672e5957">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1748,7 +1716,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>73 rows × 398 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-91f2aebe-473e-4825-8df4-3597040bfcf5')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-9c1db9a9-900b-44f0-922a-6c87672e5957')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1799,12 +1767,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-91f2aebe-473e-4825-8df4-3597040bfcf5 button.colab-df-convert');
+          document.querySelector('#df-9c1db9a9-900b-44f0-922a-6c87672e5957 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-91f2aebe-473e-4825-8df4-3597040bfcf5');
+          const element = document.querySelector('#df-9c1db9a9-900b-44f0-922a-6c87672e5957');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1825,7 +1793,10 @@ Successfully installed Sastrawi-1.0.1
   </div>
 </div></div>
 </div>
-<p>lalu data fitur ditambahkan dengan label positif,netral dan negatif</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ini diformat sebagai kode</span>
+</pre></div>
+</div>
+<p>lalu data diatas ditambahkan dengan label (positif,netral dan negatif)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/webmining/webmining/twint/dataGanjar.xlsx&#39;</span><span class="p">)</span>
@@ -1836,7 +1807,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c9666548-20f5-4ab1-a976-b55f1e503e7f">
+  <div id="df-c84ff181-4c53-493e-a55e-2d61a631e0a3">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -2148,7 +2119,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>73 rows × 400 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-c9666548-20f5-4ab1-a976-b55f1e503e7f')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c84ff181-4c53-493e-a55e-2d61a631e0a3')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -2199,12 +2170,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-c9666548-20f5-4ab1-a976-b55f1e503e7f button.colab-df-convert');
+          document.querySelector('#df-c84ff181-4c53-493e-a55e-2d61a631e0a3 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-c9666548-20f5-4ab1-a976-b55f1e503e7f');
+          const element = document.querySelector('#df-c84ff181-4c53-493e-a55e-2d61a631e0a3');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2237,22 +2208,6 @@ Successfully installed Sastrawi-1.0.1
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dj</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 73 entries, 0 to 72
-Columns: 400 entries, (&#39;index&#39;,) to label
-dtypes: int64(399), object(1)
-memory usage: 228.2+ KB
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="penjelasan-scikit-learn">
 <h2>Penjelasan Scikit-learn<a class="headerlink" href="#penjelasan-scikit-learn" title="Permalink to this headline">#</a></h2>
@@ -2267,10 +2222,10 @@ memory usage: 228.2+ KB
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: scikit-learn in /usr/local/lib/python3.7/dist-packages (1.0.2)
-Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
 Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
 Requirement already satisfied: scipy&gt;=1.1.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.7.3)
-Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.1.0)
+Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
+Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.2.0)
 </pre></div>
 </div>
 </div>
@@ -2301,6 +2256,7 @@ $$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="c1">#membagi kumpulan data menjadi data pelatihan dan data pengujian.</span>
 <span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
     <span class="n">dj</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
     <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
@@ -2309,6 +2265,8 @@ $$</p>
 </div>
 </div>
 </div>
+<p><strong>Penjelasan mutual_info_classif</strong>
+mengukur ketergantungan antara variabel. Itu sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi berarti ketergantungan yang lebih tinggi.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
@@ -2318,111 +2276,111 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000000e+00, 2.84604011e-02, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 5.17902441e-02, 0.00000000e+00, 0.00000000e+00,
-       1.77270249e-02, 1.03918050e-01, 0.00000000e+00, 0.00000000e+00,
-       4.39585356e-02, 0.00000000e+00, 4.26304105e-02, 0.00000000e+00,
-       1.12099037e-02, 0.00000000e+00, 0.00000000e+00, 2.51185590e-03,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000000e+00, 0.00000000e+00, 1.95834366e-03, 1.54413556e-02,
+       2.94106651e-02, 0.00000000e+00, 2.25165244e-02, 0.00000000e+00,
+       6.94669052e-02, 3.02057531e-02, 0.00000000e+00, 5.24293900e-02,
+       0.00000000e+00, 8.01483806e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 5.79756888e-02,
+       0.00000000e+00, 2.42986203e-02, 0.00000000e+00, 1.76369338e-03,
        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 1.60582648e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 9.84590307e-02, 1.67357941e-03,
+       2.43013728e-02, 0.00000000e+00, 3.91525845e-02, 0.00000000e+00,
+       0.00000000e+00, 4.42119778e-02, 3.82679411e-02, 0.00000000e+00,
+       0.00000000e+00, 1.43946938e-01, 0.00000000e+00, 2.13807321e-02,
+       0.00000000e+00, 0.00000000e+00, 1.63900392e-02, 1.79413610e-02,
+       0.00000000e+00, 9.79350601e-02, 0.00000000e+00, 1.58802072e-01,
+       9.93094584e-03, 2.22170710e-02, 3.05259457e-03, 4.06513580e-02,
+       2.92261072e-03, 1.30479887e-01, 0.00000000e+00, 4.09604171e-02,
+       0.00000000e+00, 4.47851669e-03, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.14014071e-01, 0.00000000e+00, 1.25028038e-01,
+       0.00000000e+00, 4.63283468e-02, 4.78580322e-02, 0.00000000e+00,
+       0.00000000e+00, 8.03195602e-02, 1.65189273e-02, 8.57442553e-02,
+       0.00000000e+00, 0.00000000e+00, 9.33237742e-03, 0.00000000e+00,
+       0.00000000e+00, 4.26370217e-02, 3.84701827e-02, 3.72441907e-02,
+       0.00000000e+00, 1.24364217e-02, 0.00000000e+00, 0.00000000e+00,
+       2.12428022e-02, 3.01554834e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       3.65999104e-02, 2.83271439e-03, 0.00000000e+00, 3.02287933e-02,
+       0.00000000e+00, 3.91605346e-02, 1.46390846e-02, 0.00000000e+00,
+       0.00000000e+00, 5.75120572e-02, 0.00000000e+00, 1.73298994e-01,
+       0.00000000e+00, 1.11517012e-01, 0.00000000e+00, 5.20940195e-02,
+       0.00000000e+00, 3.37914906e-01, 9.20090065e-02, 7.59690360e-02,
+       0.00000000e+00, 8.22222891e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 3.82063277e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 2.98145097e-02, 9.83176910e-03,
+       0.00000000e+00, 5.29359256e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 4.77005957e-02, 1.03047569e-01,
+       6.73266707e-02, 6.40551328e-03, 1.27260426e-02, 0.00000000e+00,
+       8.43475080e-02, 5.52111174e-02, 2.58025155e-03, 6.81864025e-02,
+       0.00000000e+00, 5.46153564e-02, 1.02909661e-01, 0.00000000e+00,
+       0.00000000e+00, 1.25537134e-01, 0.00000000e+00, 8.26301229e-02,
+       0.00000000e+00, 4.51470994e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 6.50402861e-02, 0.00000000e+00, 0.00000000e+00,
+       8.90612462e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       9.87648856e-04, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       1.01803490e-01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       1.74861458e-02, 3.47031668e-02, 2.30665031e-02, 8.57534578e-03,
+       0.00000000e+00, 0.00000000e+00, 3.41465651e-02, 1.28783061e-02,
+       5.68303350e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 2.47641473e-02, 5.81590799e-03, 2.62950408e-02,
+       1.40177584e-01, 2.91673424e-03, 6.02470401e-02, 8.18741059e-02,
+       0.00000000e+00, 6.14098820e-03, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.73624465e-02, 2.93933056e-02, 0.00000000e+00,
+       1.19763636e-01, 2.76354251e-02, 0.00000000e+00, 4.70555143e-02,
+       0.00000000e+00, 1.00651958e-02, 4.89054133e-02, 9.45739333e-02,
+       1.18908676e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       9.25761489e-02, 0.00000000e+00, 0.00000000e+00, 7.91345927e-03,
        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 9.62553129e-02, 7.88902081e-02, 5.36709405e-02,
-       1.01283857e-01, 8.01676888e-02, 0.00000000e+00, 5.49635981e-02,
-       3.09403718e-03, 0.00000000e+00, 2.08958956e-02, 0.00000000e+00,
-       7.59963761e-02, 6.41115360e-02, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 1.24812159e-01, 0.00000000e+00, 0.00000000e+00,
-       1.17132494e-01, 0.00000000e+00, 0.00000000e+00, 1.49218900e-02,
-       5.47215955e-02, 3.14093473e-02, 0.00000000e+00, 0.00000000e+00,
-       1.11640464e-01, 4.01680450e-02, 0.00000000e+00, 7.82808713e-03,
        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 8.45713142e-02, 3.11636427e-02, 1.79769424e-02,
-       1.54038597e-01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 3.66745815e-03, 0.00000000e+00,
-       0.00000000e+00, 5.51656403e-02, 1.53549983e-01, 6.01740699e-02,
-       1.08221861e-01, 0.00000000e+00, 6.36324347e-02, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 4.70459527e-02, 2.45766866e-04,
-       0.00000000e+00, 2.58575654e-02, 0.00000000e+00, 0.00000000e+00,
-       2.13290306e-02, 8.85375949e-02, 4.50020727e-02, 1.46220627e-01,
+       1.28961060e-01, 2.48593341e-02, 2.18640643e-02, 1.28271919e-01,
+       0.00000000e+00, 7.35064456e-03, 0.00000000e+00, 8.32136160e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 8.38452353e-03,
+       6.97630687e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.75067658e-02, 0.00000000e+00, 0.00000000e+00,
+       4.55681684e-04, 0.00000000e+00, 0.00000000e+00, 7.67919059e-02,
+       3.72507041e-02, 5.77404700e-02, 0.00000000e+00, 9.90768882e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 5.63691605e-02,
+       0.00000000e+00, 8.91046748e-02, 0.00000000e+00, 0.00000000e+00,
+       8.90513181e-02, 5.15397343e-02, 2.57486449e-02, 4.73363669e-02,
+       1.85734551e-02, 3.20922498e-03, 0.00000000e+00, 5.60677227e-02,
+       1.06072332e-01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       7.66428549e-03, 7.66025474e-04, 1.80064296e-02, 0.00000000e+00,
+       5.60620014e-02, 0.00000000e+00, 8.15584085e-02, 0.00000000e+00,
+       0.00000000e+00, 1.12570535e-02, 1.12486250e-01, 1.31059234e-01,
+       9.31245404e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       8.78306492e-03, 0.00000000e+00, 0.00000000e+00, 2.77579333e-02,
+       1.42020361e-01, 0.00000000e+00, 9.48542106e-02, 6.04799771e-02,
+       0.00000000e+00, 0.00000000e+00, 9.46492113e-02, 0.00000000e+00,
+       1.23248550e-01, 0.00000000e+00, 0.00000000e+00, 1.11279044e-01,
+       1.11464098e-01, 0.00000000e+00, 0.00000000e+00, 8.68882558e-02,
        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 3.21296215e-02, 0.00000000e+00,
-       0.00000000e+00, 5.99875714e-02, 0.00000000e+00, 6.92935784e-02,
-       0.00000000e+00, 4.10456362e-01, 0.00000000e+00, 0.00000000e+00,
-       7.45371910e-02, 0.00000000e+00, 1.38372781e-01, 2.63756283e-02,
-       0.00000000e+00, 2.16997406e-02, 2.17128891e-02, 8.17366173e-03,
-       2.23834463e-02, 4.04643558e-02, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 1.21946064e-02, 0.00000000e+00, 0.00000000e+00,
-       1.26650237e-01, 1.40845889e-02, 3.57341347e-02, 0.00000000e+00,
-       0.00000000e+00, 4.78668125e-03, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 6.88653471e-03, 3.38683452e-02, 0.00000000e+00,
-       0.00000000e+00, 2.93960284e-02, 0.00000000e+00, 0.00000000e+00,
-       1.15223650e-01, 7.27655129e-02, 6.99499653e-02, 3.33099227e-02,
-       0.00000000e+00, 6.53198832e-02, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 1.38348092e-01, 0.00000000e+00, 0.00000000e+00,
-       2.27039731e-02, 1.86889442e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 6.52455834e-03, 3.30285030e-02, 0.00000000e+00,
+       0.00000000e+00, 3.69574826e-03, 1.48146947e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 1.84077791e-02, 3.37606724e-02,
+       1.37822689e-01, 0.00000000e+00, 0.00000000e+00, 1.41982970e-01,
        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.38703012e-02, 1.45272010e-01, 2.54989783e-02,
+       2.60779796e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       4.70003739e-02, 0.00000000e+00, 3.70648262e-02, 0.00000000e+00,
+       1.12500861e-01, 0.00000000e+00, 0.00000000e+00, 1.00751010e-01,
        0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       9.14922724e-03, 0.00000000e+00, 0.00000000e+00, 2.06910039e-02,
-       7.93130029e-03, 0.00000000e+00, 9.10727503e-02, 3.21500743e-02,
-       0.00000000e+00, 7.02026004e-03, 0.00000000e+00, 0.00000000e+00,
-       2.44985294e-02, 1.65343251e-01, 2.58163292e-02, 5.09616088e-02,
-       0.00000000e+00, 1.53884507e-04, 6.57786070e-03, 7.56192565e-03,
-       2.11710422e-02, 0.00000000e+00, 1.55818469e-02, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 3.09134412e-02, 2.94582755e-02,
-       2.20053159e-02, 5.93333845e-04, 5.93605083e-02, 0.00000000e+00,
-       0.00000000e+00, 5.78219652e-02, 0.00000000e+00, 1.26397070e-01,
-       0.00000000e+00, 0.00000000e+00, 1.06317157e-02, 2.02839531e-02,
-       0.00000000e+00, 6.17499238e-02, 0.00000000e+00, 0.00000000e+00,
-       3.53708659e-03, 0.00000000e+00, 0.00000000e+00, 6.17469237e-03,
-       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 3.35526988e-02, 0.00000000e+00,
-       5.38796139e-02, 2.05018916e-02, 1.01458885e-02, 0.00000000e+00,
-       0.00000000e+00, 6.66148989e-02, 1.09268980e-01, 3.81131495e-02,
-       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       6.31974666e-02, 0.00000000e+00, 9.06011671e-02, 1.48784446e-01,
-       1.66978877e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 1.96588621e-02, 0.00000000e+00,
-       0.00000000e+00, 3.32808261e-02, 2.81257278e-02, 0.00000000e+00,
-       0.00000000e+00, 2.17326181e-01, 2.97131485e-02, 0.00000000e+00,
-       9.38689113e-02, 6.54823346e-03, 1.05465280e-02, 0.00000000e+00,
-       2.15009006e-02, 1.13285806e-01, 6.68731130e-02, 0.00000000e+00,
-       6.66023950e-02, 3.59183671e-02, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 7.96104926e-02, 6.87758020e-03,
-       3.55545405e-02, 2.79438233e-02, 0.00000000e+00, 1.20633767e-01,
-       0.00000000e+00, 1.33873888e-01, 0.00000000e+00, 7.41925989e-02,
-       0.00000000e+00, 6.45246545e-02, 0.00000000e+00, 0.00000000e+00,
-       7.29736925e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 1.70055614e-02, 1.86632055e-02, 7.43867051e-02,
-       3.38508818e-02, 0.00000000e+00, 0.00000000e+00, 2.46562692e-02,
-       0.00000000e+00, 4.38127583e-02, 8.28502207e-02, 3.10538477e-02,
-       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       6.27665794e-02, 6.36742072e-02, 0.00000000e+00, 5.00132944e-02,
-       0.00000000e+00, 0.00000000e+00, 1.30362949e-03, 0.00000000e+00,
-       1.88172121e-02, 2.64989255e-02, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 2.51388689e-02, 2.79404790e-02,
-       5.17328419e-02, 0.00000000e+00, 2.61935956e-02, 2.19647886e-02,
-       3.55357512e-02, 0.00000000e+00, 6.76056149e-02, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       6.62877042e-02, 0.00000000e+00, 0.00000000e+00, 8.56572508e-02,
-       3.10962637e-02, 2.02153398e-02, 0.00000000e+00, 6.28528237e-03,
-       2.45569596e-02, 0.00000000e+00, 4.81962833e-02, 4.13266935e-02,
-       0.00000000e+00, 0.00000000e+00, 3.00008450e-02, 0.00000000e+00,
-       0.00000000e+00, 0.00000000e+00, 9.73508334e-03, 0.00000000e+00,
-       0.00000000e+00, 2.88440749e-02, 0.00000000e+00, 4.66830442e-02,
-       1.74917058e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-       2.39887994e-02, 1.05605607e-01, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 1.73506309e-02, 0.00000000e+00, 0.00000000e+00,
-       0.00000000e+00, 2.62008100e-03, 4.95165701e-02, 1.71748114e-02,
-       0.00000000e+00, 0.00000000e+00, 2.18801782e-02, 2.71858939e-02,
-       0.00000000e+00, 0.00000000e+00, 4.94747901e-02])
+       0.00000000e+00, 5.18654450e-03, 1.05013165e-01, 4.30785060e-02,
+       3.93295429e-02, 0.00000000e+00, 9.62351850e-05, 3.81403342e-02,
+       0.00000000e+00, 0.00000000e+00, 9.75183785e-02, 0.00000000e+00,
+       6.72193042e-02, 0.00000000e+00, 9.41160578e-02, 2.16626670e-02,
+       2.90877623e-02, 0.00000000e+00, 2.67598434e-02, 2.14837004e-01,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.72843655e-02,
+       1.48567278e-02, 4.18022336e-02, 5.71207839e-02, 0.00000000e+00,
+       1.97688012e-02, 0.00000000e+00, 1.06328251e-01, 0.00000000e+00,
+       6.16865661e-03, 6.41742745e-03, 0.00000000e+00])
 </pre></div>
 </div>
 </div>
 </div>
-<p>merangking fitur sesuai dengan fitur yang paling banyak keluar</p>
+<p>merangking fitur(Kata) sesuai dengan fitur(Kata) yang paling banyak keluar</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mutual_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">mutual_info</span><span class="p">)</span>
@@ -2432,17 +2390,17 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(ganjar,)         0.410456
-(pranowo,)        0.217326
-(komunitas,)      0.165343
-(daerah,)         0.154039
-(deklarasi,)      0.153550
-                    ...   
-(ekokuntadhi,)    0.000000
-(eko,)            0.000000
-(padi,)           0.000000
-(padjajaran,)     0.000000
-(index,)          0.000000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(ganjar,)      0.337915
+(undang,)      0.214837
+(essay,)       0.173299
+(bekas,)       0.158802
+(syukur,)      0.145272
+                 ...   
+(kesel,)       0.000000
+(khas,)        0.000000
+(kuntadhi,)    0.000000
+(kurang,)      0.000000
+(zaman,)       0.000000
 Length: 399, dtype: float64
 </pre></div>
 </div>
@@ -2456,12 +2414,13 @@ Length: 399, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fa2911d24d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb0707ecf90&gt;
 </pre></div>
 </div>
-<img alt="../_images/CrawlingVSM_72_1.png" src="../_images/CrawlingVSM_72_1.png" />
+<img alt="../_images/CrawlingVSM_73_1.png" src="../_images/CrawlingVSM_73_1.png" />
 </div>
 </div>
+<p>Import SelectKBest</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
@@ -2469,6 +2428,7 @@ Length: 399, dtype: float64
 </div>
 </div>
 </div>
+<p>Pilih fitur menurut k skor tertinggi.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_five_cols</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">mutual_info_classif</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -2482,31 +2442,40 @@ Length: 399, dtype: float64
   FutureWarning,
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([       (&#39;1000&#39;,),          (&#39;ah&#39;,),   (&#39;airlangga&#39;,),        (&#39;apem&#39;,),
-              (&#39;away&#39;,),       (&#39;bahan&#39;,),      (&#39;banget&#39;,),      (&#39;banjar&#39;,),
-            (&#39;bidang&#39;,),       (&#39;bogor&#39;,),          (&#39;bu&#39;,),     (&#39;cirebon&#39;,),
-            (&#39;daerah&#39;,),          (&#39;dg&#39;,),         (&#39;doa&#39;,),   (&#39;doorprize&#39;,),
-                (&#39;dr&#39;,),       (&#39;drama&#39;,),         (&#39;eko&#39;,),   (&#39;emosional&#39;,),
-             (&#39;essay&#39;,),        (&#39;film&#39;,),       (&#39;forum&#39;,),         (&#39;gak&#39;,),
-            (&#39;ganjar&#39;,),       (&#39;gedeh&#39;,),       (&#39;gelas&#39;,),      (&#39;gelora&#39;,),
-              (&#39;giat&#39;,),      (&#39;gimana&#39;,),        (&#39;girl&#39;,),       (&#39;hallo&#39;,),
-            (&#39;hubung&#39;,),   (&#39;indonesia&#39;,),          (&#39;it&#39;,),        (&#39;jasa&#39;,),
-            (&#39;jateng&#39;,),      (&#39;jibaku&#39;,),      (&#39;jokowi&#39;,),       (&#39;juara&#39;,),
-             (&#39;kapal&#39;,),       (&#39;kartu&#39;,),       (&#39;kerja&#39;,),       (&#39;kesan&#39;,),
-              (&#39;khas&#39;,),      (&#39;kurang&#39;,),        (&#39;kyai&#39;,),        (&#39;laku&#39;,),
-            (&#39;lanjut&#39;,),      (&#39;lapang&#39;,),      (&#39;lempar&#39;,),       (&#39;lomba&#39;,),
-              (&#39;lupa&#39;,),        (&#39;maju&#39;,),     (&#39;marinah&#39;,),         (&#39;mas&#39;,),
-            (&#39;medsos&#39;,),         (&#39;men&#39;,), (&#39;menganggumi&#39;,),       (&#39;murah&#39;,),
-               (&#39;mus&#39;,),     (&#39;nelayan&#39;,),      (&#39;nikmat&#39;,),        (&#39;padi&#39;,),
-             (&#39;panen&#39;,),      (&#39;pangan&#39;,),         (&#39;pdb&#39;,),     (&#39;pranowo&#39;,),
-        (&#39;presentasi&#39;,),       (&#39;ramai&#39;,),      (&#39;rangka&#39;,),   (&#39;realisasi&#39;,),
-            (&#39;rendah&#39;,),         (&#39;rss&#39;,),       (&#39;rumah&#39;,),       (&#39;rutin&#39;,),
-             (&#39;salur&#39;,),      (&#39;sambut&#39;,),      (&#39;santri&#39;,),        (&#39;satu&#39;,),
-         (&#39;sejahtera&#39;,),     (&#39;selatan&#39;,),    (&#39;semarang&#39;,),     (&#39;senayan&#39;,),
-            (&#39;sesuai&#39;,),      (&#39;shopee&#39;,), (&#39;silaturahmi&#39;,),       (&#39;suara&#39;,),
-            (&#39;sukses&#39;,),    (&#39;sulawesi&#39;,),      (&#39;sungai&#39;,),      (&#39;syukur&#39;,),
-           (&#39;tanggal&#39;,),        (&#39;tara&#39;,),       (&#39;tarik&#39;,), (&#39;tasikmalaya&#39;,),
-          (&#39;trending&#39;,),        (&#39;typa&#39;,),          (&#39;ya&#39;,),    (&#39;yaqowiyu&#39;,)],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([          (&#39;20&#39;,),        (&#39;ageng&#39;,),         (&#39;ajar&#39;,),
+                 (&#39;al&#39;,),         (&#39;alam&#39;,),     (&#39;antusias&#39;,),
+                (&#39;asa&#39;,),    (&#39;banyuasin&#39;,),        (&#39;bazar&#39;,),
+              (&#39;bekas&#39;,),     (&#39;bektonah&#39;,),       (&#39;bidang&#39;,),
+                 (&#39;bu&#39;,),         (&#39;buka&#39;,),          (&#39;cek&#39;,),
+            (&#39;cipedes&#39;,),       (&#39;daerah&#39;,),        (&#39;dapet&#39;,),
+             (&#39;debian&#39;,),          (&#39;deh&#39;,),         (&#39;desa&#39;,),
+             (&#39;dokter&#39;,),          (&#39;dpw&#39;,),       (&#39;dukung&#39;,),
+             (&#39;galang&#39;,),       (&#39;ganjar&#39;,),        (&#39;garut&#39;,),
+             (&#39;gegara&#39;,),       (&#39;gimana&#39;,),     (&#39;gubernur&#39;,),
+                (&#39;gwe&#39;,),        (&#39;hadap&#39;,),       (&#39;hangat&#39;,),
+                (&#39;hrt&#39;,),      (&#39;inflasi&#39;,),   (&#39;insyaallah&#39;,),
+              (&#39;jalan&#39;,),         (&#39;jawa&#39;,),        (&#39;juara&#39;,),
+             (&#39;kendal&#39;,),    (&#39;komunitas&#39;,),         (&#39;kota&#39;,),
+           (&#39;kuntadhi&#39;,),      (&#39;kuntadi&#39;,),       (&#39;kurang&#39;,),
+               (&#39;maju&#39;,),       (&#39;marina&#39;,),      (&#39;marinah&#39;,),
+                (&#39;mas&#39;,),   (&#39;masyarakat&#39;,),      (&#39;mending&#39;,),
+              (&#39;menko&#39;,),         (&#39;nama&#39;,),       (&#39;nonton&#39;,),
+             (&#39;pangan&#39;,),      (&#39;pranowo&#39;,),     (&#39;presiden&#39;,),
+            (&#39;program&#39;,),         (&#39;puri&#39;,),      (&#39;rangkai&#39;,),
+              (&#39;ratus&#39;,),        (&#39;rawan&#39;,),         (&#39;riah&#39;,),
+       (&#39;rismawidiono&#39;,),         (&#39;rugi&#39;,),        (&#39;rumah&#39;,),
+            (&#39;sahabat&#39;,),       (&#39;sambut&#39;,),       (&#39;sampah&#39;,),
+          (&#39;sejahtera&#39;,),      (&#39;selatan&#39;,),      (&#39;selesai&#39;,),
+           (&#39;semarang&#39;,),      (&#39;sembako&#39;,),       (&#39;sempat&#39;,),
+            (&#39;senayan&#39;,),       (&#39;sesuai&#39;,),       (&#39;sleman&#39;,),
+                (&#39;smk&#39;,),        (&#39;suara&#39;,),       (&#39;sukses&#39;,),
+           (&#39;sulawesi&#39;,),       (&#39;sungai&#39;,),        (&#39;tahap&#39;,),
+              (&#39;tajuk&#39;,),         (&#39;tiga&#39;,),          (&#39;tim&#39;,),
+            (&#39;tradisi&#39;,),        (&#39;tugas&#39;,),       (&#39;tuntut&#39;,),
+            (&#39;twitter&#39;,),        (&#39;ujung&#39;,),      (&#39;umamlik&#39;,),
+             (&#39;undang&#39;,),       (&#39;unjung&#39;,),        (&#39;utara&#39;,),
+                 (&#39;uu&#39;,),        (&#39;warga&#39;,),      (&#39;yayasan&#39;,),
+               (&#39;yeah&#39;,)],
       dtype=&#39;object&#39;)
 </pre></div>
 </div>
@@ -2534,20 +2503,16 @@ Length: 399, dtype: float64
 <span class="c1"># from sklearn.preprocessing import StandardScaler</span>
 <span class="n">gauss</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
 <span class="n">gauss</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">gauss</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> 
-<span class="n">Y_pred</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;, &#39;netral&#39;, &#39;positif&#39;,
-       &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;,
-       &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;, &#39;positif&#39;,
-       &#39;positif&#39;, &#39;positif&#39;, &#39;netral&#39;, &#39;positif&#39;], dtype=&#39;&lt;U7&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GaussianNB()
 </pre></div>
 </div>
 </div>
 </div>
+<p>Menampilkan accuracy dari nilai test dengan method Gaussion Naive Bayes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span><span class="n">precision_score</span>
@@ -2569,7 +2534,9 @@ Length: 399, dtype: float64
 <p>Matplotlib adalah library Python yang fokus pada visualisasi data seperti membuat plot grafik. Matplotlib pertama kali diciptakan oleh John D. Hunter dan sekarang telah dikelola oleh tim developer yang besar. Awalnya matplotlib dirancang untuk menghasilkan plot grafik yang sesuai pada publikasi jurnal atau artikel ilmiah. Matplotlib dapat digunakan dalam skrip Python, Python dan IPython shell, server aplikasi web, dan beberapa toolkit graphical user interface (GUI) lainnya.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#import metrics</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
 </pre></div>
 </div>
@@ -2579,9 +2546,10 @@ Length: 399, dtype: float64
 <section id="penjelasan-confusion-matrix">
 <h2>Penjelasan Confusion Matrix<a class="headerlink" href="#penjelasan-confusion-matrix" title="Permalink to this headline">#</a></h2>
 <p>Confusion matrix juga sering disebut error matrix. Pada dasarnya confusion matrix memberikan informasi perbandingan hasil klasifikasi yang dilakukan oleh sistem (model) dengan hasil klasifikasi sebenarnya. Confusion matrix berbentuk tabel matriks yang menggambarkan kinerja model klasifikasi pada serangkaian data uji yang nilai sebenarnya diketahui.</p>
+<p>membuat Confusion Matrix dengan column vertical (negatif,netral dan positif) dan column horizontal (negatif,netral dan positif)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conf_matrix</span> <span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">Y_pred</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conf_matrix</span> <span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">testing</span><span class="p">)</span>
 <span class="n">cm_display</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">conf_matrix</span><span class="p">,</span> <span class="n">display_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;negatif&#39;</span><span class="p">,</span> <span class="s1">&#39;netral&#39;</span><span class="p">,</span><span class="s1">&#39;positif&#39;</span><span class="p">])</span>
 <span class="n">cm_display</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2589,15 +2557,7 @@ Length: 399, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/CrawlingVSM_85_0.png" src="../_images/CrawlingVSM_85_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span><span class="p">,</span> <span class="n">TruncatedSVD</span>
-</pre></div>
-</div>
+<img alt="../_images/CrawlingVSM_90_0.png" src="../_images/CrawlingVSM_90_0.png" />
 </div>
 </div>
 </section>
@@ -2610,14 +2570,23 @@ $$</p>
 <p>d = jarak obyek</p>
 <p>p = data</p>
 <p>q = centroid</p>
+<p>TruncatedSVD adalah Teknik pengurangan dimensi menggunakan SVD terpotong</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Train the Kmeans with the best n of clusters&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Latih Kmeans dengan n cluster terbaik</span>
 <span class="n">modelKm</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">modelKm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="n">prediksi</span> <span class="o">=</span> <span class="n">modelKm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
-<span class="sd">&quot;&quot;&quot;Dimensionality reduction used to plot in 2d representation&quot;&quot;&quot;</span>
+<span class="c1"># Pengurangan dimensi digunakan untuk memplot dalam representasi 2d</span>
 <span class="n">pc</span><span class="o">=</span><span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">X_new</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="n">centroids</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">modelKm</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">)</span>
@@ -2628,16 +2597,1286 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.82414771  0.32502974]
- [ 2.93246918 -0.25487717]
- [ 4.43672943 -1.57711502]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.82414898  0.32508326]
+ [ 2.93245837 -0.25500394]
+ [ 4.43672689 -1.57718958]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fa289f1d450&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb065ceced0&gt;
 </pre></div>
 </div>
-<img alt="../_images/CrawlingVSM_90_2.png" src="../_images/CrawlingVSM_90_2.png" />
+<img alt="../_images/CrawlingVSM_96_2.png" src="../_images/CrawlingVSM_96_2.png" />
 </div>
+</div>
+</section>
+<section id="perangkingan-kalimat-berita-dengan-method-page-rank">
+<h2>Perangkingan Kalimat Berita dengan Method Page Rank<a class="headerlink" href="#perangkingan-kalimat-berita-dengan-method-page-rank" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="penjelasan-scrapy">
+<h2>Penjelasan Scrapy<a class="headerlink" href="#penjelasan-scrapy" title="Permalink to this headline">#</a></h2>
+<p>Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install scrapy
+<span class="o">!</span>pip install crochet
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: scrapy in /usr/local/lib/python3.7/dist-packages (2.6.3)
+Requirement already satisfied: tldextract in /usr/local/lib/python3.7/dist-packages (from scrapy) (3.4.0)
+Requirement already satisfied: cssselect&gt;=0.9.1 in /usr/local/lib/python3.7/dist-packages (from scrapy) (1.1.0)
+Requirement already satisfied: w3lib&gt;=1.17.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (2.0.1)
+Requirement already satisfied: zope.interface&gt;=5.0.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (5.4.0)
+Requirement already satisfied: parsel&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (1.6.0)
+Requirement already satisfied: protego&gt;=0.1.15 in /usr/local/lib/python3.7/dist-packages (from scrapy) (0.2.1)
+Requirement already satisfied: pyOpenSSL&gt;=21.0.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (22.1.0)
+Requirement already satisfied: itemadapter&gt;=0.1.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (0.7.0)
+Requirement already satisfied: itemloaders&gt;=1.0.1 in /usr/local/lib/python3.7/dist-packages (from scrapy) (1.0.6)
+Requirement already satisfied: cryptography&gt;=3.3 in /usr/local/lib/python3.7/dist-packages (from scrapy) (38.0.1)
+Requirement already satisfied: queuelib&gt;=1.4.2 in /usr/local/lib/python3.7/dist-packages (from scrapy) (1.6.2)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from scrapy) (57.4.0)
+Requirement already satisfied: lxml&gt;=3.5.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (4.9.1)
+Requirement already satisfied: Twisted&gt;=18.9.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (22.8.0)
+Requirement already satisfied: service-identity&gt;=18.1.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (21.1.0)
+Requirement already satisfied: PyDispatcher&gt;=2.0.5 in /usr/local/lib/python3.7/dist-packages (from scrapy) (2.0.6)
+Requirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.7/dist-packages (from cryptography&gt;=3.3-&gt;scrapy) (1.15.1)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=3.3-&gt;scrapy) (2.21)
+Requirement already satisfied: jmespath&gt;=0.9.5 in /usr/local/lib/python3.7/dist-packages (from itemloaders&gt;=1.0.1-&gt;scrapy) (1.0.1)
+Requirement already satisfied: six&gt;=1.6.0 in /usr/local/lib/python3.7/dist-packages (from parsel&gt;=1.5.0-&gt;scrapy) (1.15.0)
+Requirement already satisfied: attrs&gt;=19.1.0 in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=18.1.0-&gt;scrapy) (22.1.0)
+Requirement already satisfied: pyasn1-modules in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=18.1.0-&gt;scrapy) (0.2.8)
+Requirement already satisfied: pyasn1 in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=18.1.0-&gt;scrapy) (0.4.8)
+Requirement already satisfied: Automat&gt;=0.8.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=18.9.0-&gt;scrapy) (20.2.0)
+Requirement already satisfied: incremental&gt;=21.3.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=18.9.0-&gt;scrapy) (21.3.0)
+Requirement already satisfied: hyperlink&gt;=17.1.1 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=18.9.0-&gt;scrapy) (21.0.0)
+Requirement already satisfied: constantly&gt;=15.1 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=18.9.0-&gt;scrapy) (15.1.0)
+Requirement already satisfied: typing-extensions&gt;=3.6.5 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=18.9.0-&gt;scrapy) (4.1.1)
+Requirement already satisfied: idna&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from hyperlink&gt;=17.1.1-&gt;Twisted&gt;=18.9.0-&gt;scrapy) (2.10)
+Requirement already satisfied: requests-file&gt;=1.4 in /usr/local/lib/python3.7/dist-packages (from tldextract-&gt;scrapy) (1.5.1)
+Requirement already satisfied: filelock&gt;=3.0.8 in /usr/local/lib/python3.7/dist-packages (from tldextract-&gt;scrapy) (3.8.0)
+Requirement already satisfied: requests&gt;=2.1.0 in /usr/local/lib/python3.7/dist-packages (from tldextract-&gt;scrapy) (2.28.1)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (2.1.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (2022.9.24)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (1.26.12)
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: crochet in /usr/local/lib/python3.7/dist-packages (2.0.0)
+Requirement already satisfied: wrapt in /usr/local/lib/python3.7/dist-packages (from crochet) (1.14.1)
+Requirement already satisfied: Twisted&gt;=16.0 in /usr/local/lib/python3.7/dist-packages (from crochet) (22.8.0)
+Requirement already satisfied: incremental&gt;=21.3.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (21.3.0)
+Requirement already satisfied: hyperlink&gt;=17.1.1 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (21.0.0)
+Requirement already satisfied: typing-extensions&gt;=3.6.5 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (4.1.1)
+Requirement already satisfied: zope.interface&gt;=4.4.2 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (5.4.0)
+Requirement already satisfied: Automat&gt;=0.8.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (20.2.0)
+Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (22.1.0)
+Requirement already satisfied: constantly&gt;=15.1 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (15.1.0)
+Requirement already satisfied: six in /usr/local/lib/python3.7/dist-packages (from Automat&gt;=0.8.0-&gt;Twisted&gt;=16.0-&gt;crochet) (1.15.0)
+Requirement already satisfied: idna&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from hyperlink&gt;=17.1.1-&gt;Twisted&gt;=16.0-&gt;crochet) (2.10)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from zope.interface&gt;=4.4.2-&gt;Twisted&gt;=16.0-&gt;crochet) (57.4.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scrapy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scrapy</span>
+<span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="kn">import</span> <span class="n">CrawlerRunner</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">crochet</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">wait_for</span>
+<span class="n">setup</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">QuotesToCsv</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MJKQuotesToCsv&quot;</span>
+    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;https://nasional.tempo.co/read/1642981/usai-tragedi-kanjuruhan-jokowi-klaim-indonesia-tak-dikenai-sanksi-dari-fifa&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">custom_settings</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;ITEM_PIPELINES&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;__main__.ExtractFirstLine&#39;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;FEEDS&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;news.csv&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;csv&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;overwrite&#39;</span><span class="p">:</span> <span class="kc">True</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;parse data from urls&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">quote</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;#isi &gt; p&#39;</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="p">{</span><span class="s1">&#39;news&#39;</span><span class="p">:</span> <span class="n">quote</span><span class="o">.</span><span class="n">extract</span><span class="p">()}</span>
+
+
+<span class="k">class</span> <span class="nc">ExtractFirstLine</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;text processing&quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="s2">&quot;news&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+        <span class="n">first_line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__remove_html_tags__</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;news&#39;</span><span class="p">:</span> <span class="n">first_line</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__remove_html_tags__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;remove html tags from string&quot;&quot;&quot;</span>
+        <span class="n">html_tags</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;&lt;.*?&gt;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">html_tags</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nd">@wait_for</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">run_spider</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;run spider with MJKQuotesToCsv&quot;&quot;&quot;</span>
+    <span class="n">crawler</span> <span class="o">=</span> <span class="n">CrawlerRunner</span><span class="p">()</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">crawler</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">QuotesToCsv</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run_spider()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mengambil dan Membaca data CSV yang bernama news.csv</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataNews</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;news.csv&#39;</span><span class="p">)</span>
+<span class="n">dataNews</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-f38918b4-4085-4ca3-a96e-c81a26559584">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>news</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TEMPO.CO, Jakarta - Presiden Joko Widodo atau ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>"Alhamdulillah sepak bola Indonesia tidak dike...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jokowi menjelaskan selain FIFA, Asian Football...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>"Kita juga akan bersama-sama melakukan sosiali...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FIFA dan AFC bakal membantu</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Selain itu, FIFA dan AFC bakal membantu membua...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Sebelumnya, Menteri BUMN Erick Thohir membeber...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>"Selain menyampaikan belasungkawa atas kejadia...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Di dalam pertemuan itu, menurut Erick, FIFA me...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Dukungan itu diberikan FIFA, kata Erick, agar ...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>"Pada kesempatan ini saya juga menyampaikan sa...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Adapun Presiden Jokowi sebelumnya telah menele...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>M JULNIS FIRMANSYAH</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Baca: Kronologi Tragedi Kanjuruhan Malang yan...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-f38918b4-4085-4ca3-a96e-c81a26559584')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-f38918b4-4085-4ca3-a96e-c81a26559584 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-f38918b4-4085-4ca3-a96e-c81a26559584');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>PyPDF2 adalah pustaka PDF python murni gratis dan open-source yang mampu memisahkan, menggabungkan , memotong, dan mengubah halaman file PDF.</p>
+<p>Install PyPDF2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install PyPDF2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: PyPDF2 in /usr/local/lib/python3.7/dist-packages (2.11.0)
+Requirement already satisfied: typing-extensions&gt;=3.10.0.0 in /usr/local/lib/python3.7/dist-packages (from PyPDF2) (4.1.1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>import PyPDF2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyPDF2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Membaca Pdf dari file lalu dibuat menjadi bentuk document Text</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdfReader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/webmining/webmining/contents/news.pdf&#39;</span><span class="p">)</span>
+<span class="n">pageObj</span> <span class="o">=</span> <span class="n">pdfReader</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">pageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span>
+<span class="n">document</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;TEMPO.CO, Jakarta - Presiden Joko Widodo atau Jokowi mengklaim Indonesia tidak dikenai sanksi \noleh Federasi Sepak Bola Internasional (FIFA) usai Tragedi Kanjuruhan di Malang, Jawa Timur yang \nmenelan korban jiwa hingga 131 orang. Sebelumnya, Jokowi khawatir Indonesia dikenai sanksi \nhingga menelepon dan mengutus Menteri BUMN Erick Thohir untuk bertemu Presiden FIFA Gianni \nInvantino.  \n&quot;Alhamdulillah sepak bola Indonesia tidak dikenakan sanksi oleh FIFA dan FIFA bersama -sama \ndengan pemerintah akan membentuk tim transformasi sepak bola Indonesia dan FIFA akan \nberkantor di Indonesia selama proses -proses tersebut,&quot; ujar Jokowi dalam keterangan nya, Sabtu, \n8 Oktober 2022.   \nJokowi menjelaskan selain FIFA, Asian Football Confederation atau AFC juga akan membantu \npemerintah Indonesia membangun stadion dengan standar keamanan tinggi. Selain itu, kedua \norganisasi sepak bola itu bakal membantu Indonesia memformulasikan standar protokol dan \nprosedur pengamanan yang dilakukan kepolisian berdasarkan standar keamanan internasional.  \n&quot;Kita juga akan bersama -sama melakukan sosialisasi dan diskusi dengan klub -klub bola di \nIndonesia, termasuk perwakilan suporter untuk mendapatkan saran dan masukan, serta \nkomitmen bersama,&quot; kata Jokowi.   \nFIFA dan AFC bakal membantu      \nSelain itu, FIF A dan AFC bakal membantu membuat pengaturan jadwal pertandingan yang \nmemperhitungkan potensi -potensi risiko. Jokowi menyebut Presiden FIFA akan datang ke \nIndonesia pada Oktober atau November untuk memberikan pendampingan tersebut serta \nberdiskusi dengan pe merintah.  \nSebelumnya, Menteri BUMN Erick Thohir membeberkan agenda pertemuannya dengan Gianni \nInfantino di Qatar, pada Rabu, 5 Oktober 2022. Pertemuan itu membahas soal tragedi Kanjuruhan \ndan masa depan sepak bola Indonesia.   \n&quot;Selain menyampaikan belasungkawa atas kejadian di Kanjuruhan, kami juga membahas banyak \nhal untuk kemajuan sepak bola di masa depan, khususnya di Indonesia,&quot; kata Erick.  \nDi dalam pert emuan itu, menurut Erick, FIFA melihat adanya potensi, popularitas, dan \nperkembangan sepak bola yang besar di Indonesia. Dikaitkan dengan pertumbuhan ekonomi \nnasional yang konstan, pasar yang besar, dan kondisi sosial politik yang stabil, FIFA menyatakan \nsiap memberikan dukungan maksimal.  \nDukungan itu diberikan FIFA, kata Erick, agar sepak bola yang merupakan olahraga paling populer \ndan dicintai di Indonesia dapat menjadi kebanggaan bangsa dan salah satu pilar yang \nberkontribusi bagi kemajuan bangsa.  \n&quot;Pada kesempatan ini saya juga menyampaikan salam dan surat khusus dari Presiden Joko Widodo \nkepada Presiden FIFA, Gianni Infantino,&quot; ucap Erick Thohir.  \nAdapun Presiden Jokowi sebelumnya telah menelepon Presiden FIFA Giovanni Vincenzo Infantino \nuntuk membahas tragedi Kanjuruhan setelah pertandingan sepak bola di Stadion Kanjuruhan, \nKabupaten Malang, Jawa Timur.  \nM JULNIS FIRMANSYAH      \nBaca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri  \n &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>PunktSentenceTokenizer adalah Sebuah tokenizer kalimat yang menggunakan algoritma tanpa pengawasan untuk membangun model untuk kata-kata singkatan, kolokasi, dan kata-kata yang memulai kalimat dan kemudian menggunakan model itu untuk menemukan batas kalimat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.tokenize.punkt</span> <span class="kn">import</span> <span class="n">PunktSentenceTokenizer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
+    <span class="c1"># Kita memecahnya menggunakan  PunktSentenceTokenizer</span>
+    <span class="n">doc_tokenizer</span> <span class="o">=</span> <span class="n">PunktSentenceTokenizer</span><span class="p">()</span>
+    <span class="c1"># sentences_list adalah daftar masing masing kalimat dari dokumen yang ada.</span>
+    <span class="n">sentences_list</span> <span class="o">=</span> <span class="n">doc_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sentences_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences_list</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+<span class="n">sentences_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;TEMPO.CO, Jakarta - Presiden Joko Widodo atau Jokowi mengklaim Indonesia tidak dikenai sanksi \noleh Federasi Sepak Bola Internasional (FIFA) usai Tragedi Kanjuruhan di Malang, Jawa Timur yang \nmenelan korban jiwa hingga 131 orang.&#39;,
+ &#39;Sebelumnya, Jokowi khawatir Indonesia dikenai sanksi \nhingga menelepon dan mengutus Menteri BUMN Erick Thohir untuk bertemu Presiden FIFA Gianni \nInvantino.&#39;,
+ &#39;&quot;Alhamdulillah sepak bola Indonesia tidak dikenakan sanksi oleh FIFA dan FIFA bersama -sama \ndengan pemerintah akan membentuk tim transformasi sepak bola Indonesia dan FIFA akan \nberkantor di Indonesia selama proses -proses tersebut,&quot; ujar Jokowi dalam keterangan nya, Sabtu, \n8 Oktober 2022.&#39;,
+ &#39;Jokowi menjelaskan selain FIFA, Asian Football Confederation atau AFC juga akan membantu \npemerintah Indonesia membangun stadion dengan standar keamanan tinggi.&#39;,
+ &#39;Selain itu, kedua \norganisasi sepak bola itu bakal membantu Indonesia memformulasikan standar protokol dan \nprosedur pengamanan yang dilakukan kepolisian berdasarkan standar keamanan internasional.&#39;,
+ &#39;&quot;Kita juga akan bersama -sama melakukan sosialisasi dan diskusi dengan klub -klub bola di \nIndonesia, termasuk perwakilan suporter untuk mendapatkan saran dan masukan, serta \nkomitmen bersama,&quot; kata Jokowi.&#39;,
+ &#39;FIFA dan AFC bakal membantu      \nSelain itu, FIF A dan AFC bakal membantu membuat pengaturan jadwal pertandingan yang \nmemperhitungkan potensi -potensi risiko.&#39;,
+ &#39;Jokowi menyebut Presiden FIFA akan datang ke \nIndonesia pada Oktober atau November untuk memberikan pendampingan tersebut serta \nberdiskusi dengan pe merintah.&#39;,
+ &#39;Sebelumnya, Menteri BUMN Erick Thohir membeberkan agenda pertemuannya dengan Gianni \nInfantino di Qatar, pada Rabu, 5 Oktober 2022.&#39;,
+ &#39;Pertemuan itu membahas soal tragedi Kanjuruhan \ndan masa depan sepak bola Indonesia.&#39;,
+ &#39;&quot;Selain menyampaikan belasungkawa atas kejadian di Kanjuruhan, kami juga membahas banyak \nhal untuk kemajuan sepak bola di masa depan, khususnya di Indonesia,&quot; kata Erick.&#39;,
+ &#39;Di dalam pert emuan itu, menurut Erick, FIFA melihat adanya potensi, popularitas, dan \nperkembangan sepak bola yang besar di Indonesia.&#39;,
+ &#39;Dikaitkan dengan pertumbuhan ekonomi \nnasional yang konstan, pasar yang besar, dan kondisi sosial politik yang stabil, FIFA menyatakan \nsiap memberikan dukungan maksimal.&#39;,
+ &#39;Dukungan itu diberikan FIFA, kata Erick, agar sepak bola yang merupakan olahraga paling populer \ndan dicintai di Indonesia dapat menjadi kebanggaan bangsa dan salah satu pilar yang \nberkontribusi bagi kemajuan bangsa.&#39;,
+ &#39;&quot;Pada kesempatan ini saya juga menyampaikan salam dan surat khusus dari Presiden Joko Widodo \nkepada Presiden FIFA, Gianni Infantino,&quot; ucap Erick Thohir.&#39;,
+ &#39;Adapun Presiden Jokowi sebelumnya telah menelepon Presiden FIFA Giovanni Vincenzo Infantino \nuntuk membahas tragedi Kanjuruhan setelah pertandingan sepak bola di Stadion Kanjuruhan, \nKabupaten Malang, Jawa Timur.&#39;,
+ &#39;M JULNIS FIRMANSYAH      \nBaca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Merapikan data di atas sehingga lebih enak dibaca</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kal</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sentences_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Kalimat </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kal</span><span class="p">))</span>
+    <span class="n">kal</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kalimat 1
+TEMPO.CO, Jakarta - Presiden Joko Widodo atau Jokowi mengklaim Indonesia tidak dikenai sanksi 
+oleh Federasi Sepak Bola Internasional (FIFA) usai Tragedi Kanjuruhan di Malang, Jawa Timur yang 
+menelan korban jiwa hingga 131 orang.
+
+Kalimat 2
+Sebelumnya, Jokowi khawatir Indonesia dikenai sanksi 
+hingga menelepon dan mengutus Menteri BUMN Erick Thohir untuk bertemu Presiden FIFA Gianni 
+Invantino.
+
+Kalimat 3
+&quot;Alhamdulillah sepak bola Indonesia tidak dikenakan sanksi oleh FIFA dan FIFA bersama -sama 
+dengan pemerintah akan membentuk tim transformasi sepak bola Indonesia dan FIFA akan 
+berkantor di Indonesia selama proses -proses tersebut,&quot; ujar Jokowi dalam keterangan nya, Sabtu, 
+8 Oktober 2022.
+
+Kalimat 4
+Jokowi menjelaskan selain FIFA, Asian Football Confederation atau AFC juga akan membantu 
+pemerintah Indonesia membangun stadion dengan standar keamanan tinggi.
+
+Kalimat 5
+Selain itu, kedua 
+organisasi sepak bola itu bakal membantu Indonesia memformulasikan standar protokol dan 
+prosedur pengamanan yang dilakukan kepolisian berdasarkan standar keamanan internasional.
+
+Kalimat 6
+&quot;Kita juga akan bersama -sama melakukan sosialisasi dan diskusi dengan klub -klub bola di 
+Indonesia, termasuk perwakilan suporter untuk mendapatkan saran dan masukan, serta 
+komitmen bersama,&quot; kata Jokowi.
+
+Kalimat 7
+FIFA dan AFC bakal membantu      
+Selain itu, FIF A dan AFC bakal membantu membuat pengaturan jadwal pertandingan yang 
+memperhitungkan potensi -potensi risiko.
+
+Kalimat 8
+Jokowi menyebut Presiden FIFA akan datang ke 
+Indonesia pada Oktober atau November untuk memberikan pendampingan tersebut serta 
+berdiskusi dengan pe merintah.
+
+Kalimat 9
+Sebelumnya, Menteri BUMN Erick Thohir membeberkan agenda pertemuannya dengan Gianni 
+Infantino di Qatar, pada Rabu, 5 Oktober 2022.
+
+Kalimat 10
+Pertemuan itu membahas soal tragedi Kanjuruhan 
+dan masa depan sepak bola Indonesia.
+
+Kalimat 11
+&quot;Selain menyampaikan belasungkawa atas kejadian di Kanjuruhan, kami juga membahas banyak 
+hal untuk kemajuan sepak bola di masa depan, khususnya di Indonesia,&quot; kata Erick.
+
+Kalimat 12
+Di dalam pert emuan itu, menurut Erick, FIFA melihat adanya potensi, popularitas, dan 
+perkembangan sepak bola yang besar di Indonesia.
+
+Kalimat 13
+Dikaitkan dengan pertumbuhan ekonomi 
+nasional yang konstan, pasar yang besar, dan kondisi sosial politik yang stabil, FIFA menyatakan 
+siap memberikan dukungan maksimal.
+
+Kalimat 14
+Dukungan itu diberikan FIFA, kata Erick, agar sepak bola yang merupakan olahraga paling populer 
+dan dicintai di Indonesia dapat menjadi kebanggaan bangsa dan salah satu pilar yang 
+berkontribusi bagi kemajuan bangsa.
+
+Kalimat 15
+&quot;Pada kesempatan ini saya juga menyampaikan salam dan surat khusus dari Presiden Joko Widodo 
+kepada Presiden FIFA, Gianni Infantino,&quot; ucap Erick Thohir.
+
+Kalimat 16
+Adapun Presiden Jokowi sebelumnya telah menelepon Presiden FIFA Giovanni Vincenzo Infantino 
+untuk membahas tragedi Kanjuruhan setelah pertandingan sepak bola di Stadion Kanjuruhan, 
+Kabupaten Malang, Jawa Timur.
+
+Kalimat 17
+M JULNIS FIRMANSYAH      
+Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">cv_matrix</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menampilkan jumlah Kosa Kata dari Data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Banyaknya kosa kata = &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">((</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya kosa kata =  202
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menampilkan jumlah Kalimat dari Data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Banyaknya kalimat = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya kalimat =  17
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menampilkan Kosa Kata dari Data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;kosa kata = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kosa kata =  [&#39;131&#39; &#39;2022&#39; &#39;adanya&#39; &#39;adapun&#39; &#39;afc&#39; &#39;agar&#39; &#39;agenda&#39; &#39;akan&#39;
+ &#39;alhamdulillah&#39; &#39;asian&#39; &#39;atas&#39; &#39;atau&#39; &#39;baca&#39; &#39;bagi&#39; &#39;bakal&#39; &#39;bangsa&#39;
+ &#39;banyak&#39; &#39;belasungkawa&#39; &#39;berdasarkan&#39; &#39;berdiskusi&#39; &#39;berkantor&#39;
+ &#39;berkontribusi&#39; &#39;bersama&#39; &#39;bertemu&#39; &#39;besar&#39; &#39;bola&#39; &#39;bumn&#39; &#39;co&#39;
+ &#39;confederation&#39; &#39;dalam&#39; &#39;dan&#39; &#39;dapat&#39; &#39;dari&#39; &#39;datang&#39; &#39;dengan&#39; &#39;depan&#39;
+ &#39;di&#39; &#39;diberikan&#39; &#39;dicintai&#39; &#39;dikaitkan&#39; &#39;dikenai&#39; &#39;dikenakan&#39; &#39;dilakukan&#39;
+ &#39;dipaparkan&#39; &#39;diskusi&#39; &#39;dukungan&#39; &#39;ekonomi&#39; &#39;emuan&#39; &#39;erick&#39; &#39;federasi&#39;
+ &#39;fif&#39; &#39;fifa&#39; &#39;firmansyah&#39; &#39;football&#39; &#39;gianni&#39; &#39;giovanni&#39; &#39;hal&#39; &#39;hingga&#39;
+ &#39;indonesia&#39; &#39;infantino&#39; &#39;ini&#39; &#39;internasional&#39; &#39;invantino&#39; &#39;itu&#39; &#39;jadwal&#39;
+ &#39;jakarta&#39; &#39;jawa&#39; &#39;jiwa&#39; &#39;joko&#39; &#39;jokowi&#39; &#39;juga&#39; &#39;julnis&#39; &#39;kabupaten&#39;
+ &#39;kami&#39; &#39;kanjuruhan&#39; &#39;kapolri&#39; &#39;kata&#39; &#39;ke&#39; &#39;keamanan&#39; &#39;kebanggaan&#39; &#39;kedua&#39;
+ &#39;kejadian&#39; &#39;kemajuan&#39; &#39;kepada&#39; &#39;kepolisian&#39; &#39;kesempatan&#39; &#39;keterangan&#39;
+ &#39;khawatir&#39; &#39;khusus&#39; &#39;khususnya&#39; &#39;kita&#39; &#39;klub&#39; &#39;komitmen&#39; &#39;kondisi&#39;
+ &#39;konstan&#39; &#39;korban&#39; &#39;kronologi&#39; &#39;maksimal&#39; &#39;malang&#39; &#39;masa&#39; &#39;masukan&#39;
+ &#39;melakukan&#39; &#39;melihat&#39; &#39;membahas&#39; &#39;membangun&#39; &#39;membantu&#39; &#39;membeberkan&#39;
+ &#39;membentuk&#39; &#39;memberikan&#39; &#39;membuat&#39; &#39;memformulasikan&#39; &#39;memperhitungkan&#39;
+ &#39;mendapatkan&#39; &#39;menelan&#39; &#39;menelepon&#39; &#39;mengklaim&#39; &#39;mengutus&#39; &#39;menjadi&#39;
+ &#39;menjelaskan&#39; &#39;menteri&#39; &#39;menurut&#39; &#39;menyampaikan&#39; &#39;menyatakan&#39; &#39;menyebut&#39;
+ &#39;merintah&#39; &#39;merupakan&#39; &#39;nasional&#39; &#39;november&#39; &#39;nya&#39; &#39;oktober&#39; &#39;olahraga&#39;
+ &#39;oleh&#39; &#39;orang&#39; &#39;organisasi&#39; &#39;pada&#39; &#39;paling&#39; &#39;pasar&#39; &#39;pe&#39; &#39;pemerintah&#39;
+ &#39;pendampingan&#39; &#39;pengamanan&#39; &#39;pengaturan&#39; &#39;perkembangan&#39; &#39;pert&#39;
+ &#39;pertandingan&#39; &#39;pertemuan&#39; &#39;pertemuannya&#39; &#39;pertumbuhan&#39; &#39;perwakilan&#39;
+ &#39;pilar&#39; &#39;politik&#39; &#39;popularitas&#39; &#39;populer&#39; &#39;potensi&#39; &#39;presiden&#39; &#39;prosedur&#39;
+ &#39;proses&#39; &#39;protokol&#39; &#39;qatar&#39; &#39;rabu&#39; &#39;risiko&#39; &#39;sabtu&#39; &#39;salah&#39; &#39;salam&#39;
+ &#39;sama&#39; &#39;sanksi&#39; &#39;saran&#39; &#39;satu&#39; &#39;saya&#39; &#39;sebelumnya&#39; &#39;selain&#39; &#39;selama&#39;
+ &#39;sepak&#39; &#39;serta&#39; &#39;setelah&#39; &#39;siap&#39; &#39;soal&#39; &#39;sosial&#39; &#39;sosialisasi&#39; &#39;stabil&#39;
+ &#39;stadion&#39; &#39;standar&#39; &#39;suporter&#39; &#39;surat&#39; &#39;telah&#39; &#39;tempo&#39; &#39;termasuk&#39;
+ &#39;tersebut&#39; &#39;thohir&#39; &#39;tidak&#39; &#39;tim&#39; &#39;timur&#39; &#39;tinggi&#39; &#39;tragedi&#39;
+ &#39;transformasi&#39; &#39;ucap&#39; &#39;ujar&#39; &#39;untuk&#39; &#39;usai&#39; &#39;vincenzo&#39; &#39;widodo&#39; &#39;yang&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mengubah kumpulan dokumen mentah menjadi matriks fitur TF-IDF</span>
+<span class="n">normal_matrix</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cv_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.20893039 0.         0.         ... 0.         0.18243429 0.11833962]
+ [0.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.15486352 0.         ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.         0.2133249  0.        ]
+ [0.         0.         0.         ... 0.23587291 0.         0.        ]
+ [0.         0.         0.         ... 0.         0.         0.20185071]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menampilkan Jumlah Kalimat dan Kosa Kata</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(17, 202)
+</pre></div>
+</div>
+</div>
+</div>
+<p>NetworkX adalah paket Python untuk pembuatan, manipulasi, dan studi tentang struktur, dinamika, dan fungsi jaringan yang kompleks. Ini menyediakan:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Graph adalah kumpulan dati titik (node) dan garis dimana pasangan – pasangan titik (node) tersebut dihubungkan oleh segmen garis. Node ini biasa disebut simpul (vertex) dan segmen garis disebut ruas (edge)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_graph</span> <span class="o">=</span> <span class="n">normal_matrix</span> <span class="o">*</span> <span class="n">normal_matrix</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 8)	0.016922784978310058
+  (0, 5)	0.044476229416547094
+  (0, 3)	0.07470507531673126
+  (0, 7)	0.09585456914285453
+  (0, 1)	0.1942213246421451
+  (0, 10)	0.10165371278754455
+  (0, 2)	0.18353774740874507
+  (0, 15)	0.28051691717998695
+  (0, 9)	0.13660061427043854
+  (0, 14)	0.1316822405035506
+  (0, 16)	0.13953329173052492
+  (0, 13)	0.0762655091348627
+  (0, 12)	0.05545907185229088
+  (0, 11)	0.10540780689091514
+  (0, 6)	0.02361139650449116
+  (0, 4)	0.08774693053033637
+  (0, 0)	1.0000000000000004
+  (1, 12)	0.02679277158898258
+  (1, 6)	0.03923635955100562
+  (1, 13)	0.06726236381671076
+  (1, 11)	0.07768078633033922
+  (1, 9)	0.045941343628468176
+  (1, 4)	0.027163452336286264
+  (1, 3)	0.054329672164743555
+  (1, 2)	0.12728192723024565
+  :	:
+  (15, 14)	0.14579337689260602
+  (15, 8)	0.1026815863923701
+  (15, 13)	0.04694037434692812
+  (15, 11)	0.08492566544152216
+  (15, 4)	0.028949538948435584
+  (15, 2)	0.09350206458577603
+  (15, 3)	0.08151611797404915
+  (15, 16)	0.16677525808873744
+  (15, 9)	0.23327088145908648
+  (15, 0)	0.28051691717998695
+  (15, 10)	0.1885945236007393
+  (15, 7)	0.11161585112148718
+  (15, 5)	0.06167086426659253
+  (15, 1)	0.2129762375293368
+  (15, 15)	1.0000000000000002
+  (16, 10)	0.037492873034486555
+  (16, 15)	0.16677525808873744
+  (16, 9)	0.13190208965584627
+  (16, 16)	1.0
+  (16, 13)	0.04547079188001421
+  (16, 12)	0.07877893045655979
+  (16, 11)	0.03212965960427992
+  (16, 6)	0.025134426032986
+  (16, 4)	0.02662294835074497
+  (16, 0)	0.13953329173052492
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_scipy_sparse_matrix</span><span class="p">(</span><span class="n">res_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw_circular</span><span class="p">(</span><span class="n">nx_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/CrawlingVSM_135_0.png" src="../_images/CrawlingVSM_135_0.png" />
+</div>
+</div>
+<p>Jumlah Banyak Sisi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Banyaknya sisi </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nx_graph</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya sisi 142
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menkalikan data dengan data Transpose</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_graph</span> <span class="o">=</span> <span class="n">normal_matrix</span> <span class="o">*</span> <span class="n">normal_matrix</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>PageRank menghitung peringkat node dalam grafik G berdasarkan struktur tautan masuk. Awalnya dirancang sebagai algoritma untuk menentukan peringkat halaman web.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranks</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">nx_graph</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>memasukkan data ke array</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arrRank</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ranks</span><span class="p">:</span>
+    <span class="n">arrRank</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ranks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>menjadikan data kedalam bentuk tabel lalu digabungkan</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfRanks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">arrRank</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PageRank&#39;</span><span class="p">])</span>
+<span class="n">dfSentence</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;News&#39;</span><span class="p">])</span>
+<span class="n">dfJoin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dfSentence</span><span class="p">,</span><span class="n">dfRanks</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dfJoin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-50324927-b932-42fd-b25e-7332a3b7e3e2">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>News</th>
+      <th>PageRank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TEMPO.CO, Jakarta - Presiden Joko Widodo atau ...</td>
+      <td>0.065057</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sebelumnya, Jokowi khawatir Indonesia dikenai ...</td>
+      <td>0.062935</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>"Alhamdulillah sepak bola Indonesia tidak dike...</td>
+      <td>0.068197</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Jokowi menjelaskan selain FIFA, Asian Football...</td>
+      <td>0.057320</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Selain itu, kedua \norganisasi sepak bola itu ...</td>
+      <td>0.057742</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>"Kita juga akan bersama -sama melakukan sosial...</td>
+      <td>0.055186</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FIFA dan AFC bakal membantu      \nSelain itu,...</td>
+      <td>0.054671</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Jokowi menyebut Presiden FIFA akan datang ke \...</td>
+      <td>0.055650</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Sebelumnya, Menteri BUMN Erick Thohir membeber...</td>
+      <td>0.053352</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Pertemuan itu membahas soal tragedi Kanjuruhan...</td>
+      <td>0.063451</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>"Selain menyampaikan belasungkawa atas kejadia...</td>
+      <td>0.063975</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Di dalam pert emuan itu, menurut Erick, FIFA m...</td>
+      <td>0.065238</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Dikaitkan dengan pertumbuhan ekonomi \nnasiona...</td>
+      <td>0.049587</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Dukungan itu diberikan FIFA, kata Erick, agar ...</td>
+      <td>0.058770</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>"Pada kesempatan ini saya juga menyampaikan sa...</td>
+      <td>0.054695</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Adapun Presiden Jokowi sebelumnya telah menele...</td>
+      <td>0.068102</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>M JULNIS FIRMANSYAH      \nBaca: Kronologi Tra...</td>
+      <td>0.046070</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-50324927-b932-42fd-b25e-7332a3b7e3e2')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-50324927-b932-42fd-b25e-7332a3b7e3e2 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-50324927-b932-42fd-b25e-7332a3b7e3e2');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Mengurutkan data berdasarkan hasil tertinggi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sortSentence</span><span class="o">=</span><span class="n">dfJoin</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PageRank&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sortSentence</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-ec5cd308-d197-49d1-becf-12175d4b5c62">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>News</th>
+      <th>PageRank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>"Alhamdulillah sepak bola Indonesia tidak dike...</td>
+      <td>0.068197</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Adapun Presiden Jokowi sebelumnya telah menele...</td>
+      <td>0.068102</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Di dalam pert emuan itu, menurut Erick, FIFA m...</td>
+      <td>0.065238</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>TEMPO.CO, Jakarta - Presiden Joko Widodo atau ...</td>
+      <td>0.065057</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>"Selain menyampaikan belasungkawa atas kejadia...</td>
+      <td>0.063975</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Pertemuan itu membahas soal tragedi Kanjuruhan...</td>
+      <td>0.063451</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sebelumnya, Jokowi khawatir Indonesia dikenai ...</td>
+      <td>0.062935</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Dukungan itu diberikan FIFA, kata Erick, agar ...</td>
+      <td>0.058770</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Selain itu, kedua \norganisasi sepak bola itu ...</td>
+      <td>0.057742</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Jokowi menjelaskan selain FIFA, Asian Football...</td>
+      <td>0.057320</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Jokowi menyebut Presiden FIFA akan datang ke \...</td>
+      <td>0.055650</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>"Kita juga akan bersama -sama melakukan sosial...</td>
+      <td>0.055186</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>"Pada kesempatan ini saya juga menyampaikan sa...</td>
+      <td>0.054695</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FIFA dan AFC bakal membantu      \nSelain itu,...</td>
+      <td>0.054671</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Sebelumnya, Menteri BUMN Erick Thohir membeber...</td>
+      <td>0.053352</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Dikaitkan dengan pertumbuhan ekonomi \nnasiona...</td>
+      <td>0.049587</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>M JULNIS FIRMANSYAH      \nBaca: Kronologi Tra...</td>
+      <td>0.046070</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-ec5cd308-d197-49d1-becf-12175d4b5c62')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-ec5cd308-d197-49d1-becf-12175d4b5c62 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-ec5cd308-d197-49d1-becf-12175d4b5c62');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Menampilkan data dari 5 ke atas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sortSentence</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-71f461f6-83cc-459d-9f6f-3f9e98f98b64">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>News</th>
+      <th>PageRank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>"Alhamdulillah sepak bola Indonesia tidak dike...</td>
+      <td>0.068197</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Adapun Presiden Jokowi sebelumnya telah menele...</td>
+      <td>0.068102</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Di dalam pert emuan itu, menurut Erick, FIFA m...</td>
+      <td>0.065238</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>TEMPO.CO, Jakarta - Presiden Joko Widodo atau ...</td>
+      <td>0.065057</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>"Selain menyampaikan belasungkawa atas kejadia...</td>
+      <td>0.063975</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-71f461f6-83cc-459d-9f6f-3f9e98f98b64')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-71f461f6-83cc-459d-9f6f-3f9e98f98b64 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-71f461f6-83cc-459d-9f6f-3f9e98f98b64');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
 </div>
 </section>
 </section>
