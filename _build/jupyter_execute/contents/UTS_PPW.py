@@ -324,9 +324,8 @@ from sklearn import metrics
 # K-Means Clustering merupakan algoritma yang efektif untuk menentukan cluster dalam sekumpulan data, di mana pada algortima tersebut dilakukan analisis kelompok yang mengacu pada pemartisian N objek ke dalam K kelompok (Cluster) berdasarkan nilai rata-rata (means) terdekat. Adapun persamaan yang sering digunakan dalam pemecahan masalah dalam menentukan jarak terdekat adalah persamaan Euclidean berikut :
 
 # 
-# $$
-# d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}
-# $$
+# $$d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}$$
+# 
 # 
 # 
 # d = jarak obyek
@@ -335,7 +334,13 @@ from sklearn import metrics
 # 
 # q = centroid
 
-# TruncatedSVD adalah Teknik pengurangan dimensi menggunakan SVD terpotong
+# In[ ]:
+
+
+
+
+
+# *TruncatedSVD* adalah Teknik pengurangan dimensi menggunakan SVD terpotong
 
 # In[26]:
 
