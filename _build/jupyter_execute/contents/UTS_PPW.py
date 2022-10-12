@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# ## UTS PPW
+
 # # CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL
 
 # Crawling Data adalah teknik pengumpulan data yang digunakan untuk mengindeks informasi pada halaman menggunakan URL (Uniform Resource Locator) dengan menyertakan API (Application Programming Interface) untuk melakukan penambangan dataset yang lebih besar.
