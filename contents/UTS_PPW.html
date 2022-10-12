@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="CRAWLING DATA TWITTER MENGGUNAKAN METODE VECTOR SPACE MODEL" href="CrawlingVSM.html" />
@@ -1779,7 +1781,10 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-package
 <section id="penjelasan-k-means">
 <h2>Penjelasan K-Means<a class="headerlink" href="#penjelasan-k-means" title="Permalink to this headline">#</a></h2>
 <p>K-Means Clustering merupakan algoritma yang efektif untuk menentukan cluster dalam sekumpulan data, di mana pada algortima tersebut dilakukan analisis kelompok yang mengacu pada pemartisian N objek ke dalam K kelompok (Cluster) berdasarkan nilai rata-rata (means) terdekat. Adapun persamaan yang sering digunakan dalam pemecahan masalah dalam menentukan jarak terdekat adalah persamaan Euclidean berikut :</p>
-<p>$$d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}$$</p>
+<div class="math notranslate nohighlight">
+\[
+d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}
+\]</div>
 <p>d = jarak obyek</p>
 <p>p = data</p>
 <p>q = centroid</p>

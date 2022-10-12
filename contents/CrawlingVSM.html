@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="UTS PPW" href="UTS_PPW.html" />
@@ -2252,14 +2254,16 @@ digunakan untuk mendefinisikan nilai Information Gain. Entropy menggambarkan ban
 yang dibutuhkan untuk mengkodekan suatu kelas. Information Gain (IG) dari suatu term diukur
 dengan menghitung jumlah bit informasi yang diambil dari prediksi kategori dengan ada atau tidaknya
 term dalam suatu dokumen.</p>
-<p>$$
-Entropy \ (S) \equiv \sum ^{c}<em>{i}P</em>{i}\log <em>{2}p</em>{i}
-$$</p>
+<div class="math notranslate nohighlight">
+\[
+Entropy \ (S) \equiv \sum ^{c}_{i}P_{i}\log _{2}p_{i}
+\]</div>
 <p>c : jumlah nilai yang ada pada atribut target (jumlah kelas klasifikasi).</p>
 <p>Pi : porsi sampel untuk kelas i.</p>
-<p>$$
-Gain \ (S,A) \equiv Entropy(S) - \sum <em>{\nu \varepsilon \ values } \dfrac{\left| S</em>{i}\right| }{\left| S\right|} Entropy(S_{v})
-$$</p>
+<div class="math notranslate nohighlight">
+\[
+Gain \ (S,A) \equiv Entropy(S) - \sum _{\nu \varepsilon \ values } \dfrac{\left| S_{i}\right| }{\left| S\right|} Entropy(S_{v})
+\]</div>
 <p>A : atribut</p>
 <p>V : menyatakan suatu nilai yang mungkin untuk atribut A</p>
 <p>Values (A) : himpunan nilai-nilai yang mungkin untuk atribut A</p>
@@ -2557,9 +2561,10 @@ Length: 399, dtype: float64
 <section id="penjelasan-k-means">
 <h2>Penjelasan K-Means<a class="headerlink" href="#penjelasan-k-means" title="Permalink to this headline">#</a></h2>
 <p>K-Means Clustering merupakan algoritma yang efektif untuk menentukan cluster dalam sekumpulan data, di mana pada algortima tersebut dilakukan analisis kelompok yang mengacu pada pemartisian N objek ke dalam K kelompok (Cluster) berdasarkan nilai rata-rata (means) terdekat. Adapun persamaan yang sering digunakan dalam pemecahan masalah dalam menentukan jarak terdekat adalah persamaan Euclidean berikut :</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}
-$$</p>
+\]</div>
 <p>d = jarak obyek</p>
 <p>p = data</p>
 <p>q = centroid</p>
