@@ -76,9 +76,9 @@ import nest_asyncio
 nest_asyncio.apply() 
 
 
-# \configurasi Twint dengan value seperti dibawah
+# configurasi Twint dengan value seperti dibawah
 
-# In[72]:
+# In[8]:
 
 
 c = twint.Config()
@@ -87,7 +87,7 @@ c.Pandas = True
 c.Limit = 60
 c.Store_csv = True
 c.Custom["tweet"] = ["tweet"]
-c.Output = "dataGanjar.csv"
+c.Output = "tragediKanjuruhan127.csv"
 twint.run.Search(c)
 
 
@@ -97,18 +97,18 @@ twint.run.Search(c)
 
 # melakukan Import Pandas
 
-# In[9]:
+# In[10]:
 
 
 import pandas as pd
 
 
-# Baca data excel dataGanjar.xlsx yang telah diberi label (Positif,Negatif dan Netral) yang telah simpan di Google Drive
+# Baca data excel Tragedi Kanjuruhan yang telah simpan di Google Drive
 
-# In[10]:
+# In[12]:
 
 
-data = pd.read_excel('dataGanjar.xlsx')
+data = pd.read_csv('tragediKanjuruhan127.csv')
 data
 
 
@@ -122,7 +122,7 @@ data
 
 # Install Library nltk dan Sastrawi
 
-# In[11]:
+# In[13]:
 
 
 get_ipython().system('pip install nltk')
@@ -135,7 +135,7 @@ get_ipython().system('pip install Sastrawi')
 
 # Lakukan Import beberapa Library seperti Pandas,re,nltk,string dan Sastrawi
 
-# In[12]:
+# In[14]:
 
 
 import pandas as pd
@@ -150,7 +150,7 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 # Selanjutnya membuat Function Remove Stopwords yang fungsinya adalah menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM
 
-# In[13]:
+# In[15]:
 
 
 def remove_stopwords(text):
@@ -166,7 +166,7 @@ def remove_stopwords(text):
 
 # Steming merupakan proses mengubah kata dalam bahasa Indonesia ke akar katanya misalkan 'Mereka meniru-nirukannya' menjadi 'mereka tiru'
 
-# In[14]:
+# In[16]:
 
 
 def stemming(text):
@@ -211,7 +211,7 @@ def stemming(text):
 # 
 # 
 
-# In[15]:
+# In[17]:
 
 
 def preprocessing(text):
@@ -248,7 +248,7 @@ def preprocessing(text):
 
 # Selanjutnya pindah Path ke Folder contents
 
-# In[16]:
+# In[18]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/contents')
@@ -256,19 +256,19 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/c
 
 # Simpan hasil dari preprocessing ke dalam bentuk CSV
 
-# In[17]:
+# In[19]:
 
 
-#data['tweet'].apply(preprocessing).to_excel('preprocessing.xlsx')
+# data['tweet'].apply(preprocessing).to_excel('preprocessingTK.xlsx')
 
 
 # Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.
 
-# In[18]:
+# In[20]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
-dataTextPre = pd.read_excel('/content/drive/MyDrive/webmining/webmining/contents/preprocessing.xlsx')
+dataTextPre = pd.read_excel('/content/drive/MyDrive/webmining/webmining/contents/preprocessingTK.xlsx')
 vectorizer = CountVectorizer(min_df=1)
 bag = vectorizer.fit_transform(dataTextPre['tweet'])
 dataTextPre
@@ -276,20 +276,20 @@ dataTextPre
 
 # Melihat Jumlah Baris dan Kata
 
-# In[19]:
+# In[21]:
 
 
 matrik_vsm=bag.toarray()
 matrik_vsm.shape
 
 
-# In[20]:
+# In[22]:
 
 
 matrik_vsm[0]
 
 
-# In[21]:
+# In[23]:
 
 
 a=vectorizer.get_feature_names()
@@ -297,202 +297,24 @@ a=vectorizer.get_feature_names()
 
 # Tampilan data VSM dengan labelnya 
 
-# In[22]:
+# In[24]:
 
 
 dataTF =pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
 dataTF
 
 
-# 
-# 
-# ```
-# # Ini diformat sebagai kode
-# ```
-# 
-# lalu data diatas ditambahkan dengan label (positif,netral dan negatif)
-
-# In[23]:
-
-
-label = pd.read_excel('/content/drive/MyDrive/webmining/webmining/twint/dataGanjar.xlsx')
-dj = pd.concat([dataTF.reset_index(), label["label"]], axis=1)
-dj
-
-
-# In[24]:
-
-
-dj['label'].unique()
-
-
-# ## Penjelasan Scikit-learn
-
-# Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.
-
-# install scikit-learn
-
-# In[25]:
-
-
-get_ipython().system('pip install -U scikit-learn')
-
-
-# ## Penjelasan Information Gain
-
-# Information Gain merupakan teknik seleksi fitur yang memakai metode scoring untuk nominal
-# ataupun pembobotan atribut kontinue yang didiskretkan menggunakan maksimal entropy. Suatu entropy
-# digunakan untuk mendefinisikan nilai Information Gain. Entropy menggambarkan banyaknya informasi
-# yang dibutuhkan untuk mengkodekan suatu kelas. Information Gain (IG) dari suatu term diukur
-# dengan menghitung jumlah bit informasi yang diambil dari prediksi kategori dengan ada atau tidaknya
-# term dalam suatu dokumen.
-
-# 
-# $$
-# Entropy \ (S) \equiv \sum ^{c}_{i}P_{i}\log _{2}p_{i}
-# $$
-# 
-# c : jumlah nilai yang ada pada atribut target (jumlah kelas klasifikasi).
-# 
-# Pi : porsi sampel untuk kelas i.
-
-# 
-# $$
-# Gain \ (S,A) \equiv Entropy(S) - \sum _{\nu \varepsilon \ values } \dfrac{\left| S_{i}\right| }{\left| S\right|} Entropy(S_{v})
-# $$
-# 
-# A : atribut
-# 
-# V : menyatakan suatu nilai yang mungkin untuk atribut A
-# 
-# Values (A) : himpunan nilai-nilai yang mungkin untuk atribut A
-# 
-# |Sv| : jumlah Sampel untuk nilai v
-# 
-# |S| : jumlah seluruh sample data Entropy 
-# 
-# (Sv) : entropy untuk sampel sampel yang memiliki nilai v
-# 
-
-# In[26]:
-
-
-from sklearn.model_selection import train_test_split
-#membagi kumpulan data menjadi data pelatihan dan data pengujian.
-X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1),
-    dj['label'],
-    test_size=0.3,
-    random_state=0)
-
-
-# **Penjelasan mutual_info_classif**
-# mengukur ketergantungan antara variabel. Itu sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi berarti ketergantungan yang lebih tinggi.
-
-# In[27]:
-
-
-from sklearn.feature_selection import mutual_info_classif
-mutual_info = mutual_info_classif(X_train, y_train)
-mutual_info
-
-
-# merangking fitur(Kata) sesuai dengan fitur(Kata) yang paling banyak keluar
-
-# In[28]:
-
-
-mutual_info = pd.Series(mutual_info)
-mutual_info.index = X_train.columns
-mutual_info.sort_values(ascending=False)
-
-
-# menvisualkan data dengan grafik bar dengan urutan paling besar ke rendah
-
-# In[29]:
-
-
-mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
-
-
-# Import SelectKBest
-
-# In[30]:
-
-
-from sklearn.feature_selection import SelectKBest
-
-
-# Pilih fitur menurut k skor tertinggi.
-
-# In[31]:
-
-
-sel_five_cols = SelectKBest(mutual_info_classif, k=100)
-sel_five_cols.fit(X_train, y_train)
-X_train.columns[sel_five_cols.get_support()]
-
-
-# In[32]:
-
-
-X_train=X_train.values
-y_train=y_train.values
-X_test=X_test.values
-y_test=y_test.values
-
-
-# ## Penjelasan Naive Bayes
-
-# Naive Bayes adalah algoritma machine learning yang digunakan untuk keperluan klasifikasi atau pengelompokan suatu data. Algoritma ini didasarkan pada teorema probabilitas yang dikenalkan oleh ilmuwan Inggris Thomas Bayes. Naive Bayes berfungsi memprediksi probabilitas di masa depan berdasarkan pengalaman sebelumnya, sehingga dapat digunakan untuk pengambilan keputusan.
-
-# In[33]:
-
-
-# from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
-# from sklearn.pipeline import make_pipeline
-# from sklearn.preprocessing import StandardScaler
-gauss = GaussianNB()
-gauss.fit(X_train, y_train)
-
-
-# Menampilkan accuracy dari nilai test dengan method Gaussion Naive Bayes
-
-# In[34]:
-
-
-from sklearn.metrics import make_scorer, accuracy_score,precision_score
-testing = gauss.predict(X_test) 
-accuracy_gauss=round(accuracy_score(y_test,testing)* 100, 2)
-accuracy_gauss
-
-
 # ## Penjelasan Matplotib
 
 # Matplotlib adalah library Python yang fokus pada visualisasi data seperti membuat plot grafik. Matplotlib pertama kali diciptakan oleh John D. Hunter dan sekarang telah dikelola oleh tim developer yang besar. Awalnya matplotlib dirancang untuk menghasilkan plot grafik yang sesuai pada publikasi jurnal atau artikel ilmiah. Matplotlib dapat digunakan dalam skrip Python, Python dan IPython shell, server aplikasi web, dan beberapa toolkit graphical user interface (GUI) lainnya.
 
-# In[35]:
+# In[25]:
 
 
 #import plt
 import matplotlib.pyplot as plt
 #import metrics
 from sklearn import metrics
-
-
-# ## Penjelasan Confusion Matrix
-
-# Confusion matrix juga sering disebut error matrix. Pada dasarnya confusion matrix memberikan informasi perbandingan hasil klasifikasi yang dilakukan oleh sistem (model) dengan hasil klasifikasi sebenarnya. Confusion matrix berbentuk tabel matriks yang menggambarkan kinerja model klasifikasi pada serangkaian data uji yang nilai sebenarnya diketahui.
-
-# membuat Confusion Matrix dengan column vertical (negatif,netral dan positif) dan column horizontal (negatif,netral dan positif)
-
-# In[36]:
-
-
-conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=testing)
-cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = conf_matrix, display_labels = ['negatif', 'netral','positif'])
-cm_display.plot()
-plt.show()
 
 
 # ## Penjelasan K-Means
@@ -513,14 +335,14 @@ plt.show()
 
 # TruncatedSVD adalah Teknik pengurangan dimensi menggunakan SVD terpotong
 
-# In[37]:
+# In[26]:
 
 
 from sklearn.cluster import KMeans
 from sklearn.decomposition import TruncatedSVD
 
 
-# In[38]:
+# In[59]:
 
 
 # Latih Kmeans dengan n cluster terbaik
@@ -543,20 +365,20 @@ plt.scatter(centroids[:,0] , centroids[:,1] , s = 50, color = 'red')
 
 # Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.
 
-# In[39]:
+# In[28]:
 
 
 get_ipython().system('pip install scrapy')
 get_ipython().system('pip install crochet')
 
 
-# In[40]:
+# In[29]:
 
 
 import scrapy
 
 
-# In[41]:
+# In[30]:
 
 
 import scrapy
@@ -609,7 +431,7 @@ def run_spider():
     return d
 
 
-# In[42]:
+# In[31]:
 
 
 # run_spider()
@@ -617,7 +439,7 @@ def run_spider():
 
 # Mengambil dan Membaca data CSV yang bernama news.csv
 
-# In[43]:
+# In[32]:
 
 
 dataNews = pd.read_csv('news.csv')
@@ -628,7 +450,7 @@ dataNews
 
 # Install PyPDF2
 
-# In[44]:
+# In[33]:
 
 
 get_ipython().system('pip install PyPDF2')
@@ -636,7 +458,7 @@ get_ipython().system('pip install PyPDF2')
 
 # import PyPDF2
 
-# In[45]:
+# In[34]:
 
 
 import PyPDF2
@@ -644,7 +466,7 @@ import PyPDF2
 
 # Membaca Pdf dari file lalu dibuat menjadi bentuk document Text
 
-# In[46]:
+# In[35]:
 
 
 pdfReader = PyPDF2.PdfFileReader('/content/drive/MyDrive/webmining/webmining/contents/news.pdf')
@@ -655,13 +477,13 @@ document
 
 # PunktSentenceTokenizer adalah Sebuah tokenizer kalimat yang menggunakan algoritma tanpa pengawasan untuk membangun model untuk kata-kata singkatan, kolokasi, dan kata-kata yang memulai kalimat dan kemudian menggunakan model itu untuk menemukan batas kalimat.
 
-# In[47]:
+# In[36]:
 
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 
-# In[48]:
+# In[37]:
 
 
 def tokenize(document):
@@ -672,7 +494,7 @@ def tokenize(document):
     return sentences_list
 
 
-# In[49]:
+# In[38]:
 
 
 sentences_list = tokenize(document)
@@ -681,7 +503,7 @@ sentences_list
 
 # Merapikan data di atas sehingga lebih enak dibaca
 
-# In[50]:
+# In[39]:
 
 
 kal=1
@@ -693,7 +515,7 @@ for i in sentences_list:
 
 # Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.
 
-# In[51]:
+# In[40]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
@@ -703,7 +525,7 @@ cv_matrix=vectorizer.fit_transform(sentences_list)
 
 # Menampilkan jumlah Kosa Kata dari Data
 
-# In[52]:
+# In[41]:
 
 
 print ("Banyaknya kosa kata = ", len((vectorizer.get_feature_names_out())))
@@ -711,7 +533,7 @@ print ("Banyaknya kosa kata = ", len((vectorizer.get_feature_names_out())))
 
 # Menampilkan jumlah Kalimat dari Data
 
-# In[53]:
+# In[42]:
 
 
 print ("Banyaknya kalimat = ", (len(sentences_list)))
@@ -719,13 +541,13 @@ print ("Banyaknya kalimat = ", (len(sentences_list)))
 
 # Menampilkan Kosa Kata dari Data
 
-# In[54]:
+# In[43]:
 
 
 print ("kosa kata = ", (vectorizer.get_feature_names_out()))
 
 
-# In[55]:
+# In[44]:
 
 
 # mengubah kumpulan dokumen mentah menjadi matriks fitur TF-IDF
@@ -735,7 +557,7 @@ print(normal_matrix.toarray())
 
 # Menampilkan Jumlah Kalimat dan Kosa Kata
 
-# In[56]:
+# In[45]:
 
 
 normal_matrix.shape
@@ -743,7 +565,7 @@ normal_matrix.shape
 
 # NetworkX adalah paket Python untuk pembuatan, manipulasi, dan studi tentang struktur, dinamika, dan fungsi jaringan yang kompleks. Ini menyediakan:
 
-# In[57]:
+# In[46]:
 
 
 import networkx as nx
@@ -751,20 +573,20 @@ import networkx as nx
 
 # Graph adalah kumpulan dati titik (node) dan garis dimana pasangan – pasangan titik (node) tersebut dihubungkan oleh segmen garis. Node ini biasa disebut simpul (vertex) dan segmen garis disebut ruas (edge)
 
-# In[58]:
+# In[47]:
 
 
 res_graph = normal_matrix * normal_matrix.T
 print(res_graph)
 
 
-# In[59]:
+# In[48]:
 
 
 nx_graph = nx.from_scipy_sparse_matrix(res_graph)
 
 
-# In[60]:
+# In[49]:
 
 
 nx.draw_circular(nx_graph)
@@ -772,7 +594,7 @@ nx.draw_circular(nx_graph)
 
 # Jumlah Banyak Sisi 
 
-# In[61]:
+# In[50]:
 
 
 print('Banyaknya sisi {}'.format(nx_graph.number_of_edges()))
@@ -780,15 +602,17 @@ print('Banyaknya sisi {}'.format(nx_graph.number_of_edges()))
 
 # Menkalikan data dengan data Transpose
 
-# In[62]:
+# In[51]:
 
 
 res_graph = normal_matrix * normal_matrix.T
 
 
-# PageRank menghitung peringkat node dalam grafik G berdasarkan struktur tautan masuk. Awalnya dirancang sebagai algoritma untuk menentukan peringkat halaman web.
+# ## Penjelasan PageRabk
 
-# In[63]:
+# PageRank adalah menghitung peringkat node dalam grafik G berdasarkan struktur tautan masuk. Awalnya dirancang sebagai algoritma untuk menentukan peringkat halaman web.
+
+# In[52]:
 
 
 ranks=nx.pagerank(nx_graph,)
@@ -796,7 +620,7 @@ ranks=nx.pagerank(nx_graph,)
 
 # memasukkan data ke array
 
-# In[64]:
+# In[53]:
 
 
 arrRank=[]
@@ -806,7 +630,7 @@ for i in ranks:
 
 # menjadikan data kedalam bentuk tabel lalu digabungkan 
 
-# In[65]:
+# In[54]:
 
 
 dfRanks = pd.DataFrame(arrRank,columns=['PageRank'])
@@ -817,7 +641,7 @@ dfJoin
 
 # Mengurutkan data berdasarkan hasil tertinggi
 
-# In[66]:
+# In[55]:
 
 
 sortSentence=dfJoin.sort_values(by=['PageRank'],ascending=False)
@@ -826,7 +650,7 @@ sortSentence
 
 # Menampilkan data dari 5 ke atas
 
-# In[67]:
+# In[56]:
 
 
 sortSentence.head(5)
