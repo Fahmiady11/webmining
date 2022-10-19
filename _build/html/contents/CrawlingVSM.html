@@ -415,6 +415,11 @@ title="Print to PDF"
    Penjelasan Scrapy
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#latent-semantic-indexing-lsi-topik-berita">
+   Latent Semantic Indexing(LSI) Topik Berita
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -497,6 +502,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#penjelasan-scrapy">
    Penjelasan Scrapy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#latent-semantic-indexing-lsi-topik-berita">
+   Latent Semantic Indexing(LSI) Topik Berita
   </a>
  </li>
 </ul>
@@ -588,50 +598,82 @@ Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-whe
 Processing /content/drive/MyDrive/webmining/webmining/twint
 <span class=" -Color -Color-Yellow">  DEPRECATION: A future pip version will change local packages to be built in-place without first copying to a temporary directory. We recommend you use --use-feature=in-tree-build to test your packages with this new behavior before it becomes the default.</span>
 <span class=" -Color -Color-Yellow">   pip 21.3 will remove support for this functionality. You can find discussion regarding this at https://github.com/pypa/pip/issues/7555.</span>
-Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 1)) (3.7.0)
-Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 2)) (3.0.0)
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 1)) (3.8.3)
+Collecting aiodns
+  Downloading aiodns-3.0.0-py3-none-any.whl (5.0 kB)
 Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 3)) (4.6.3)
-Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 4)) (2.1.7)
-Requirement already satisfied: dataclasses in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 5)) (0.6)
-Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 6)) (8.4.3)
-Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
+Collecting cchardet
+  Downloading cchardet-2.1.7-cp37-cp37m-manylinux2010_x86_64.whl (263 kB)
+     |████████████████████████████████| 263 kB 8.0 MB/s 
+?25hCollecting dataclasses
+  Downloading dataclasses-0.6-py3-none-any.whl (14 kB)
+Collecting elasticsearch
+  Downloading elasticsearch-8.4.3-py3-none-any.whl (384 kB)
+     |████████████████████████████████| 384 kB 50.3 MB/s 
+?25hRequirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
 Requirement already satisfied: pandas&gt;=0.23.0 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 8)) (1.3.5)
-Requirement already satisfied: aiohttp_socks&lt;=0.4.1 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 9)) (0.4.1)
-Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 10)) (1.1.0)
+Collecting aiohttp_socks&lt;=0.4.1
+  Downloading aiohttp_socks-0.4.1-py3-none-any.whl (17 kB)
+Collecting schedule
+  Downloading schedule-1.1.0-py2.py3-none-any.whl (10 kB)
 Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 11)) (1.17.0)
-Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 12)) (0.1.11)
-Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 13)) (2.4.2)
-Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.21.6)
+Collecting fake-useragent
+  Downloading fake-useragent-0.1.11.tar.gz (13 kB)
+Collecting googletransx
+  Downloading googletransx-2.4.2.tar.gz (13 kB)
 Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2022.4)
 Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2.8.2)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.21.6)
 Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp_socks&lt;=0.4.1-&gt;-r requirements.txt (line 9)) (22.1.0)
-Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (3.0.1)
-Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (3.0.4)
-Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.8.1)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.2.0)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
+Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (2.1.1)
+Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (4.0.2)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.3.1)
 Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (6.0.2)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.8.1)
+Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (0.13.0)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.15.0)
-Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (2.10)
-Requirement already satisfied: pycares&gt;=4.0.0 in /usr/local/lib/python3.7/dist-packages (from aiodns-&gt;-r requirements.txt (line 2)) (4.2.2)
-Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
+Collecting pycares&gt;=4.0.0
+  Downloading pycares-4.2.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (288 kB)
+     |████████████████████████████████| 288 kB 45.7 MB/s 
+?25hRequirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (2.21)
-Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in /usr/local/lib/python3.7/dist-packages (from elasticsearch-&gt;-r requirements.txt (line 6)) (8.4.0)
-Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.9.24)
-Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (1.26.12)
-Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (1.52)
-Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.28.1)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;-r requirements.txt (line 13)) (2.1.1)
-Building wheels for collected packages: twint
+Collecting elastic-transport&lt;9,&gt;=8
+  Downloading elastic_transport-8.4.0-py3-none-any.whl (59 kB)
+     |████████████████████████████████| 59 kB 5.6 MB/s 
+?25hRequirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.9.24)
+Collecting urllib3&lt;2,&gt;=1.26.2
+  Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+     |████████████████████████████████| 140 kB 65.0 MB/s 
+?25hRequirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (1.52)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.23.0)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;-r requirements.txt (line 13)) (3.0.4)
+Collecting requests
+  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+     |████████████████████████████████| 62 kB 1.4 MB/s 
+?25hBuilding wheels for collected packages: twint, fake-useragent, googletransx
   Building wheel for twint (setup.py) ... ?25l?25hdone
-  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=0e0ea6dad7a188520e0ca6d1006816106fe998e95d9687fb97d35bcc6c1c9374
-  Stored in directory: /tmp/pip-ephem-wheel-cache-qup2s21a/wheels/88/61/06/bd5d6a887f43cd7ea07380c2bc1fb104f5cc0d03f92a3c50c4
-Successfully built twint
-Installing collected packages: twint
-  Attempting uninstall: twint
-    Found existing installation: twint 2.1.21
-    Uninstalling twint-2.1.21:
-      Successfully uninstalled twint-2.1.21
-Successfully installed twint-2.1.21
+  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=965b66b40c97c629c7867a0234cfa1c5e4f69cc43a7e2e4a0eff18e9d8fe043e
+  Stored in directory: /tmp/pip-ephem-wheel-cache-yz67uxd6/wheels/88/61/06/bd5d6a887f43cd7ea07380c2bc1fb104f5cc0d03f92a3c50c4
+  Building wheel for fake-useragent (setup.py) ... ?25l?25hdone
+  Created wheel for fake-useragent: filename=fake_useragent-0.1.11-py3-none-any.whl size=13502 sha256=f1a8751673bbcaffc4d2ea38c18a4b1f91f90a4184379c666c4e515d5535436f
+  Stored in directory: /root/.cache/pip/wheels/ed/f7/62/50ab6c9a0b5567267ab76a9daa9d06315704209b2c5d032031
+  Building wheel for googletransx (setup.py) ... ?25l?25hdone
+  Created wheel for googletransx: filename=googletransx-2.4.2-py3-none-any.whl size=15968 sha256=42bf62205fd7a88469dc95ca3ebf30a27af9f2821f93492c45dd31a874135d63
+  Stored in directory: /root/.cache/pip/wheels/66/d5/b1/31104b338f7fd45aa8f7d22587765db06773b13df48a89735f
+Successfully built twint fake-useragent googletransx
+Installing collected packages: urllib3, requests, pycares, elastic-transport, schedule, googletransx, fake-useragent, elasticsearch, dataclasses, cchardet, aiohttp-socks, aiodns, twint
+  Attempting uninstall: urllib3
+    Found existing installation: urllib3 1.24.3
+    Uninstalling urllib3-1.24.3:
+      Successfully uninstalled urllib3-1.24.3
+  Attempting uninstall: requests
+    Found existing installation: requests 2.23.0
+    Uninstalling requests-2.23.0:
+      Successfully uninstalled requests-2.23.0
+Successfully installed aiodns-3.0.0 aiohttp-socks-0.4.1 cchardet-2.1.7 dataclasses-0.6 elastic-transport-8.4.0 elasticsearch-8.4.3 fake-useragent-0.1.11 googletransx-2.4.2 pycares-4.2.2 requests-2.28.1 schedule-1.1.0 twint-2.1.21 urllib3-1.26.12
 </pre></div>
 </div>
 </div>
@@ -649,29 +691,32 @@ Successfully installed twint-2.1.21
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: twint in /usr/local/lib/python3.7/dist-packages (2.1.21)
-Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from twint) (3.7.0)
-Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from twint) (1.17.0)
-Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from twint) (2.1.7)
-Requirement already satisfied: aiohttp-socks in /usr/local/lib/python3.7/dist-packages (from twint) (0.4.1)
-Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from twint) (1.3.5)
-Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from twint) (8.4.3)
-Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from twint) (3.0.0)
 Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from twint) (1.7.1)
-Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from twint) (1.1.0)
+Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from twint) (3.0.0)
+Requirement already satisfied: aiohttp-socks in /usr/local/lib/python3.7/dist-packages (from twint) (0.4.1)
 Requirement already satisfied: dataclasses in /usr/local/lib/python3.7/dist-packages (from twint) (0.6)
+Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from twint) (2.1.7)
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from twint) (3.8.3)
+Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from twint) (8.4.3)
 Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from twint) (4.6.3)
-Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from twint) (2.4.2)
+Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from twint) (1.3.5)
+Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from twint) (1.1.0)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from twint) (1.17.0)
 Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from twint) (0.1.11)
+Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from twint) (2.4.2)
 Requirement already satisfied: pycares&gt;=4.0.0 in /usr/local/lib/python3.7/dist-packages (from aiodns-&gt;twint) (4.2.2)
 Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (1.15.1)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;twint) (2.21)
-Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (22.1.0)
-Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (3.0.1)
-Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (6.0.2)
-Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (3.0.4)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.2.0)
+Requirement already satisfied: charset-normalizer&lt;3.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (2.1.1)
 Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.8.1)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.1.1)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (1.3.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (6.0.2)
+Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (4.0.2)
+Requirement already satisfied: asynctest==0.13.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (0.13.0)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;twint) (22.1.0)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;twint) (2.10)
-Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;twint) (4.1.1)
 Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in /usr/local/lib/python3.7/dist-packages (from elasticsearch-&gt;twint) (8.4.0)
 Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (1.26.12)
 Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;twint) (2022.9.24)
@@ -681,7 +726,6 @@ Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/pytho
 Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (1.21.6)
 Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;twint) (2022.4)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas-&gt;twint) (1.15.0)
-Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;twint) (2.1.1)
 </pre></div>
 </div>
 </div>
@@ -695,14 +739,27 @@ Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: aiohttp==3.7.0 in /usr/local/lib/python3.7/dist-packages (3.7.0)
-Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.4)
+Collecting aiohttp==3.7.0
+  Downloading aiohttp-3.7.0-cp37-cp37m-manylinux2014_x86_64.whl (1.3 MB)
+     |████████████████████████████████| 1.3 MB 7.9 MB/s 
+?25hRequirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (22.1.0)
+Collecting async-timeout&lt;4.0,&gt;=3.0
+  Downloading async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
 Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (6.0.2)
-Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (22.1.0)
 Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (1.8.1)
-Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.1)
-Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (4.1.1)
+Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.4)
 Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (2.10)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (4.1.1)
+Installing collected packages: async-timeout, aiohttp
+  Attempting uninstall: async-timeout
+    Found existing installation: async-timeout 4.0.2
+    Uninstalling async-timeout-4.0.2:
+      Successfully uninstalled async-timeout-4.0.2
+  Attempting uninstall: aiohttp
+    Found existing installation: aiohttp 3.8.3
+    Uninstalling aiohttp-3.8.3:
+      Successfully uninstalled aiohttp-3.8.3
+Successfully installed aiohttp-3.7.0 async-timeout-3.0.1
 </pre></div>
 </div>
 </div>
@@ -749,66 +806,66 @@ Successfully installed nest-asyncio-1.5.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1579987355355607040 2022-10-12 00:08:34 +0000 &lt;KartumerahNews&gt; Mahfud MD Bicara Gas Air Mata Kedaluarsa Tragedi Kanjuruhan, Pengamat Cium Indikasi Korupsi  https://t.co/pelC79zL1a
-1579987252834603008 2022-10-12 00:08:10 +0000 &lt;detik_jatim&gt; Kematian Helen yang Menambah Duka Tragedi Kanjuruhan: Korban Jiwa 132 Orang  https://t.co/HMdgdOSS3B
-1579987240520151042 2022-10-12 00:08:07 +0000 &lt;BatamPos&gt; Lusa Kirim Laporan Tragedi Kanjuruhan ke Presiden  https://t.co/KIqX0e9gKA
-1579987171947479042 2022-10-12 00:07:51 +0000 &lt;NurulIm81316494&gt; Polresta Malang Kota Sambangi Korban Tragedi Kanjuruhan Alami Iritasi Mata  https://t.co/KcpArqn33M  https://t.co/Y9bL6yVFzX
-1579986986093645824 2022-10-12 00:07:06 +0000 &lt;tvOneNews&gt; Machfud MD Sebut TGIPF akan Serahkan Hasil Investigasi Tragedi Kanjuruhan Kepada Presiden Jokowi pada Jumat 14/10  https://t.co/AJoW0IYERt
-1579986946570715136 2022-10-12 00:06:57 +0000 &lt;boedyirh&gt; @detikcom Di luar tragedi Kanjuruhan, saya rasa kalau klub bisa mengedukasi supporter, pasti perannya sangat besar dalam memajukan kompetisi sepakbola di Indonesia yang sehat berbasis prestasi.
-1579986863762599936 2022-10-12 00:06:37 +0000 &lt;tempodotco&gt; Sejumlah Polisi Malang Sujud Massal Mohon Maaf Tragedi Kanjuruhan, Mirip Etiket Dogeza di Jepang?  https://t.co/PrvOvPCCcg #TempoNasional
-1579986726139080704 2022-10-12 00:06:04 +0000 &lt;tauberitamedia&gt; Gas air mata kedaluarsa dalam tragedi Kanjuruhan terus disorot, pengamat nilai ada indikasi korupsi hingga kandungannya diperiksa di Laboratorium. -    https://t.co/Sso6CRheuo
-1579986600549056512 2022-10-12 00:05:34 +0000 &lt;Furqanjurdi1&gt;  https://t.co/9KrwxhyDJT  Ade Armando dipolisikan lantaran menyebut Aremania sok jagoan. Ucapan itu dilontarkan Ade dalam video terkait tragedi kerusuhan di Stadion Kanjuruhan.
-1579986228119625728 2022-10-12 00:04:06 +0000 &lt;tauberitamedia&gt; Ade Armando dipolisikan lantaran menyebut Aremania sok jagoan. Ucapan itu dilontarkan Ade dalam video terkait tragedi kerusuhan di Stadion Kanjuruhan.  https://t.co/YeCanhkDiC
-1579986221517852672 2022-10-12 00:04:04 +0000 &lt;BongkahI&gt; Ini Sosok Pengganti dan Harta Kekayaannya Kapolda Jawa Timur Pengganti Irjen Nico Afinta yang Dicopot Buntut Tragedi Kanjuruhan #Kanjuruhan #kanjuruhanberduka #kapoldajatim   https://t.co/KZud4B0sRl
-1579986102781612032 2022-10-12 00:03:36 +0000 &lt;KompasTV&gt; Dua Tersangka Tragedi Kanjuruhan Ketua Panpel Arema dan Security Officer Diperiksa 12 Jam  https://t.co/RqGJJKKXcp  https://t.co/KGLQTu7oKg
-1579985726661603329 2022-10-12 00:02:06 +0000 &lt;lawjusticeco&gt; Gas Air Mata Sebab Tragedi Kanjuruhan, Said Didu Sebut Malaikat Maut   https://t.co/QkhlGYJd0O  https://t.co/VGvz1jsqbq
-1579985706457264128 2022-10-12 00:02:01 +0000 &lt;Popularitascom&gt; Ade Armando dipolisikan terkait Tragedi Kanjuruhan   #Arema #AdeArmando #Kanjuruhan #popularitascom  https://t.co/s73tHQEiRp
-1579985557081366529 2022-10-12 00:01:26 +0000 &lt;doelsmiths&gt; 11 HARI DALAM PERAWATAN. sebuah catatan buat teman teman penyintas tragedi kanjuruhan dan keluarga.  Ketika sampai dirumah pasien usahakan banyak di ajak ngobrol ,jangan biarkan sendirian. atur jadwal istirahatnya. bila ada yg besuk hindari obrolan kejadian .
-1579985355486347264 2022-10-12 00:00:38 +0000 &lt;MSNindonesia&gt; Polisi dalam Tragedi Kanjuruhan: Sujud Minta Maaf di Malang, Pembelaan di Jakarta  https://t.co/latV28ibqk
-1579985315401375744 2022-10-12 00:00:28 +0000 &lt;mochsirodjuddin&gt; Aamiin, Aamiin, aamiin ya Allah ya rabbal allamin... Usut tuntas tragedi Kanjuruhan
-1579985239929106433 2022-10-12 00:00:10 +0000 &lt;aksesdisini_com&gt; Tersangka Tragedi Kanjuruhan Berdalih Ada Penambahan Tiket  https://t.co/3TaMZKvmVK
-1579985230529978368 2022-10-12 00:00:08 +0000 &lt;tempodotco&gt; Korban Meninggal dalam Tragedi Kanjuruhan Bertambah Satu, Total 132 Orang  https://t.co/4Uqm8BJriJ #TempoNasional
-1579985151936765953 2022-10-11 23:59:49 +0000 &lt;NurbainiRatna&gt; @geloraco Ya Allah....... Pantesan.... Bny warga yg meninggal di Tragedi Kanjuruhan....😭😭😭
-1579984861624143877 2022-10-11 23:58:40 +0000 &lt;JakMasseur&gt; @CNNIndonesia Kenapa Kasus Sambo &amp;amp; Tragedi Kanjuruhan terjadi &amp;amp; Tuhan Izinkan ? Karena selain penguasa &amp;amp; Aparat yg Arogan,Rakyatnya pun memang sudah terpecah akibat fitnah yg sengaja disebarkan,demi kekuasaan agar tetap aman. Jika Kasus Sambo ibarat SP 1,&amp;amp; Kanjuruhan SP2,bersiaplah tuk Bahagia
-1579984825125318656 2022-10-11 23:58:31 +0000 &lt;officialntv_&gt; #TragediKanjuruhan  Sanksi FIFA Tahun 2015 Silam Tak Terulang Kembali   https://t.co/ul2pbbkxhq  #sepakbola #SanksiFIFA #Kanjuruhan #KanjuruhanStadium #rusuh #gasairmata #supporters #aremaniaberduka #UsutTuntasTragediKanjuruhan #UsutTuntas #Bola
-1579984811808038914 2022-10-11 23:58:28 +0000 &lt;Tribun_Bogor&gt; Bukti Penting Tragedi Kanjuruhan Kini Dipegang Komnas HAM, Ada Video Kunci Berisi Penyebab Kericuhan    https://t.co/wLpDzY3F2x lewat @tribunnews
-1579984451622166528 2022-10-11 23:57:02 +0000 &lt;bb_sports_id&gt; Sekjen PSSI: Pemberhentian Kompetisi Tidak Termasuk Level Grassroot  https://t.co/bUg1odqvMp baca juga berita dari media lainnya di Indonesia di  https://t.co/GkwQxRUMd1   #kompetisigrassroot #ligausiamuda #pssi #sekjenpssi #yunusnusi #tragedikanjuruhan
-1579984201281310721 2022-10-11 23:56:02 +0000 &lt;tauberitamedia&gt; Polisi di Kota Malang sujud minta maaf terkait Tragedi Kanjuruhan. Namun, mereka juga membela diri di Jakarta.   https://t.co/a94JsABY6g
-1579984100668362752 2022-10-11 23:55:38 +0000 &lt;floresterkini&gt; Tragedi Kanjuruhan: Pemerintah Indonesia Waspadai Sanksi FIFA, Memori 2015 Bakal Terulang?  https://t.co/G9YICatyns
-1579984092992790529 2022-10-11 23:55:37 +0000 &lt;floresterkini&gt; Imbas Tragedi Kanjuruhan, Piala Dunia U20 Tahun 2023 Batal Digelar di Indonesia?  https://t.co/X5xkSjOCeN
-1579983605282922496 2022-10-11 23:53:40 +0000 &lt;detikcom&gt; Ade Armando dipolisikan lantaran menyebut Aremania sok jagoan. Ucapan itu dilontarkan Ade dalam video terkait tragedi kerusuhan di Stadion Kanjuruhan.  https://t.co/vf7KZ1LQoN
-1579983325628092416 2022-10-11 23:52:34 +0000 &lt;OposisiCerdas&gt; Komnas HAM Klaim Punya Video Kunci Awal Mula dari Tragedi Kanjuruhan  https://t.co/4twheiOnmf
-1579983080655572992 2022-10-11 23:51:35 +0000 &lt;KulinoKepenak&gt; @detikcom Pengakuan Iwan Londo sebelum tragedi Kanjuruhan. Jelas ya karna cuan.  https://t.co/k4x1OrNQX0
-1579982883262865408 2022-10-11 23:50:48 +0000 &lt;KonradKun&gt; Tragedi Kanjuruhan: Indosiar Bantah Ada Kepentingan Iklan Rokok di Pertandingan Arema Vs Persebaya Malam Hari  https://t.co/WC4lp9937L
-1579982837893079040 2022-10-11 23:50:37 +0000 &lt;PRFMnews&gt; Korban Meninggal Tragedi Kanjuruhan Bertambah, Polri: Jumlah Total 132 Orang  https://t.co/jzCe9xI7RI
-1579982687628328960 2022-10-11 23:50:02 +0000 &lt;KompasBola&gt; Polisi dalam Tragedi Kanjuruhan: Sujud Minta Maaf di Malang, Pembelaan di Jakarta  https://t.co/VuWnGcRJxP
-1579982503468707841 2022-10-11 23:49:18 +0000 &lt;Monitorind_news&gt; Diperiksa 12 Jam, 2 Tersangka Tragedi Kanjuruhan Tak Ditahan, Ada Apa?  https://t.co/BkwPbHX3CB
-1579982412896825344 2022-10-11 23:48:56 +0000 &lt;WaspadaOnline&gt; Korban Meninggal Tragedi Kanjuruhan Bertambah, Total 132 Orang  https://t.co/M1BLElBRK8
-1579982240754577408 2022-10-11 23:48:15 +0000 &lt;eldidito&gt; @rskuntowiyoga Dalam Tragedi Kanjuruhan, FIFA datang layaknya &quot;penyelamat&quot;. Jadi penasaran aja apakah mereka sudah bersih2 setelah Sepp Blater ga disana.
-1579982171745685504 2022-10-11 23:47:59 +0000 &lt;JokoHar68301204&gt; Polresta Malang Gelar Sujud Massal atas Tragedi Kanjuruhan, Warganet Penasaran Tak sejak Awal Permintaan Maaf Dilakukan  https://t.co/yb7KbyZjJB
-1579981971513835520 2022-10-11 23:47:11 +0000 &lt;ikhwan2a&gt; Korban Meninggal dalam Tragedi Kanjuruhan Bertambah Satu Orang Total 132 Orang  https://t.co/VDb3q3zI70  https://t.co/1IFtO9UY57
-1579981940421447680 2022-10-11 23:47:03 +0000 &lt;tempodotco&gt; Korban Meninggal dalam Tragedi Kanjuruhan Bertambah Satu Orang Total 132 Orang  https://t.co/dpBYAq57Au #TempoNasional
-1579981794447085568 2022-10-11 23:46:29 +0000 &lt;most1058&gt; Presiden RI Joko Widodo akan membentuk tim khusus utk menindaklanjuti surat balasan FIFA yg mencantumkan sejumlah poin transformasi sepak bola Indonesia menyusul Tragedi Kanjuruhan. Tim tsb akan berbeda dengan TGIPF Tragedi Kanjuruhan yg saat ini sedang bekerja. #MostUpdate1058
-1579981613374373888 2022-10-11 23:45:45 +0000 &lt;RadioElshinta&gt; Kepala dinas kesehatan Kab. Malang Wiyanto : &quot; Santunan korban meninggal tragedi Kanjuruhan Malang mencapai 100 Juta lebih per orang, sumbangan diantaranya dari Presiden, Gubernur, Bupati dan Masyarakat&quot;  https://t.co/diCvWlAthi
-1579981430981287937 2022-10-11 23:45:02 +0000 &lt;bb_sports_id&gt; TGIPF Ungkap Pengakuan LIB : Laga Malam Hari Arema FC Vs Persebaya Permintaan Indosiar  https://t.co/y6hQMdWFqQ baca juga berita dari media lainnya di Indonesia di  https://t.co/GkwQxScVr9   #tragedikanjuruhan #aremafc #aremafcvspersebaya #tgipf #indosiar
-1579981313594957825 2022-10-11 23:44:34 +0000 &lt;RadioElshinta&gt; Kepala dinas kesehatan Kab. Malang Wiyanto memastikan informasi yang beredar adanya beberapa Jenazah korban Tragedi Kanjuruhan Malang yang belum teridentifikasi adalah Hoax, seluruh jenazh korban Kanjuruhan total 132 sudah teridentifikasi semua.  https://t.co/Oj3IWaRIR0
-1579980959465603072 2022-10-11 23:43:10 +0000 &lt;P_Eneste&gt; @alisyarief Tidak ada keharusan mundur. Kalian, para 🦎🦎🦎 hanya tidak ingin prestasi @PSSI menjadi lebih baik, karena presiden RI adalah Pak Jokowi. Hati kalian lebih busuk dari bangkai, dan lebih menjijikkan dari belatung pemakan bangkai !  Politisasi Tragedi Kanjuruhan!  @KEMENPORA_RI
-1579980926930804736 2022-10-11 23:43:02 +0000 &lt;JokoHar68301204&gt; Alvin Lim Curiga Tragedi Kanjuruhan Disengaja demi Balas Jasa ke Ferdy Sambo: Gak Sangka Korban Banyak  https://t.co/OzL9tfpPuq
-1579980804855590912 2022-10-11 23:42:33 +0000 &lt;VIVAcoid&gt; Brigjen TNI Bangun Ungkap Kisah Pilu Pendiri Aremania Hilang Usai Tragedi Kanjuruhan  https://t.co/qSIMVguYnG
-1579980557340921856 2022-10-11 23:41:34 +0000 &lt;sonorafmjogja&gt; #SelamatPagiJogja | Tribun Jogja : Nestapa Belum Sirna. Korban Tewas Tragedi Kanjuruhan Bertambah.
-1579980462369693696 2022-10-11 23:41:11 +0000 &lt;LiniHandini&gt; Berita Bola07 - Bertambah, Korban Jiwa Tragedi Kanjuruhan jadi 132 Orang - - Link :  https://t.co/Yay13MfzqX  - #beritaViral #BeritaTerkini #Bola #berduka #sepakbolapialadunia #SepakatDamai #sporter #penonton #liga  https://t.co/H1dKgBmG1M
-1579980347248607232 2022-10-11 23:40:44 +0000 &lt;khalidbw19&gt; Kenapa tv swasta (indosiar) ikut diperiksa dalam tragedi kanjuruhan? Apa hubungannya? Sy bukannya membela tv swasta tsb , tapi aneh saja tv kok dijadikan saksi ..apalagi sampai tersangka. Jelas² penyebab ini semua gas air mata yg ditembakan oleh polisi!
-1579980339061338112 2022-10-11 23:40:42 +0000 &lt;most1058&gt; Direktur Utama PT Liga Indonesia Baru (LIB), Akhmad Hadian Lukita dan tiga anggota Polri yang jadi tersangka Tragedi Kanjuruhan, akan diperiksa di Mapolda Jatim, hari ini. #MostUpdate1058
-1579980312175513601 2022-10-11 23:40:35 +0000 &lt;MSNindonesia&gt; Tragedi Kanjuruhan: Orang Kuat di Balik Jam Malam Arema Vs Persebaya  https://t.co/bKfIEvNJIK
-1579980259021426689 2022-10-11 23:40:23 +0000 &lt;JokoHar68301204&gt; Gegara Tragedi Kanjuruhan, FIFA Bakal Berkantor di Indonesia: Awas Nanti PSSI Caper  https://t.co/pacSqy7353
-1579980246459129856 2022-10-11 23:40:20 +0000 &lt;OmarTara_2&gt; @ajengcute16__ Beetuuul uumpaan laambuung Siis. Jg sekaligus buat mengalihkan isu netizen dari masalah besar yg hingga hr ini masih mnjadi keprihatinan kita semua : #TragediKanjuruhan
-1579979679162695680 2022-10-11 23:38:04 +0000 &lt;Sugiant71401887&gt; @DivHumas_Polri Lagi mencari keseimbangan dg kasus tragedi Kanjuruhan yg kontroversial ??!!
-1579979380486737922 2022-10-11 23:36:53 +0000 &lt;JokoHar68301204&gt; Rocky Gerung Heran Jokowi Salahkan Pintu dan Tangga di Tragedi Kanjuruhan: Kan Kepanikan Datangnya dari Gas Air Mata..  https://t.co/woSd6DHH4Z
-1579979234579476480 2022-10-11 23:36:18 +0000 &lt;Havertzaniceday&gt; Pagi dipertengahan oktober tapi masih belum juga melihat sikap, tuntutan, dan official statement @persib terkait tragedi kanjuruhan. Enya sih apal haji umuh cees ibul, ngan nya selama klub voterna balad orang-orang pssi kabeh mah nya bakal hese revolusina ge.
-1579979188383395846 2022-10-11 23:36:07 +0000 &lt;JokoHar68301204&gt; Polisi Sebut Penggunaan Gas Air Mata di Tragedi Kanjuruhan Sudah Sesuai Prosedur, Rocky Gerung: Bunuh, Investigasi, Ngarang  https://t.co/tJcp3D2fHR
-1579979181613805569 2022-10-11 23:36:06 +0000 &lt;KompasTV&gt; Sambil Terbata-bata, Direktur Utama PT LIB Siap Bertanggung Jawab atas Tragedi Kanjuruhan  https://t.co/ZpwAv4rZrw  https://t.co/pMGi1h0opV
-1579977734788648961 2022-10-11 23:30:21 +0000 &lt;neoplatic_&gt; @PSSI ini bner bner harus di revolusi total  Wartawan nanya dmna kantor PSSI ko jawabannya malah gtu. Ini bentuk Klo PSSI sama sekali ga bertransparansi, bahkan tidak merasa bersalah ketika #TragediKanjuruhan   Ketua pulang lewat jalur belakang Takut di gruduk kantornya ya pak?
-1579977461525544961 2022-10-11 23:29:16 +0000 &lt;acehretorika&gt; Tragedi Kanjuruhan Bawa Hikmah Besar dalam Tata Kelola Sepakbola Tanah Air  https://t.co/cWlVdpKzKS
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1582699597251608576 2022-10-19 11:46:03 +0000 &lt;BeritaDotMedia&gt; – Salah satu keluarga korban tragedi Kanjuruhan yang berencana meminta autopsi mendadak membatalkan  #berita #nasional   https://t.co/Co80FQUhie
+1582699564552708097 2022-10-19 11:45:55 +0000 &lt;bamsoebagio&gt; @CNNIndonesia Tujuan awal datang ke Indonesia adalah menyelesaikan Tragedi Kanjuruhan..lah kok???
+1582699467631132673 2022-10-19 11:45:32 +0000 &lt;rindubaewish&gt; Alasan stadion #kanjuruhan markas @AremafcOfficial yg jd tragedi pembantaian nyawa aremania akan di hancurkan sbgmn rest area #KM50  https://t.co/B4DslYXGEC
+1582699050075590657 2022-10-19 11:43:53 +0000 &lt;detik_jatim&gt; Penyesalan Athok yang Kehilangan 2 Putrinya di Tragedi Kanjuruhan  https://t.co/As1ZWPVVMR
+1582698980831809537 2022-10-19 11:43:36 +0000 &lt;DrEvaChaniago&gt; TRAGEDI KANJURUHAN: “PSSI HARUS BERTANGGUNG JAWAB!” TAYANG 20.30 WIB MALAM INI!   SUBSCRIBE YOUTUBE:  https://t.co/P2QNpznkv7 (KARNI ILYAS CLUB) @karniilyasclub oleh datuk @karniilyas  https://t.co/lmmgp5Rvd2
+1582698944374579200 2022-10-19 11:43:28 +0000 &lt;hartrio&gt; @afcasiancup Indonesia demi menghormati para korban,Mending selesaikan dulu kasus tragedi Kanjuruhan baru ikut turnamen Internasional
+1582698833993076736 2022-10-19 11:43:01 +0000 &lt;AuisGrand&gt; Polri diingatkan agar jalankan rekomendasi Tim Gabungan Independen Pencari Fakta, yakni ekshumasi korban Tragedi Kanjuruhan, guna memastikan penyebab kematian 133 jiwa dalam insiden karena penembakan gas air mata itu. #Nusantara #AdadiKompas  https://t.co/iiAJ1iJM5A
+1582698793929125890 2022-10-19 11:42:52 +0000 &lt;Arenanews1&gt; Komnas HAM Diminta untuk Bentuk Tim Penyelidikan Tragedi Kanjuruhan – Sportstars –  https://t.co/up4QmkOTW4 – #Arenanews- https://t.co/PF2LCGe8LR
+1582698592535744512 2022-10-19 11:42:04 +0000 &lt;bb_sports_id&gt; PSSI dan FIFA Gelar Fun Football, Akmal Marhali: Makin Dibenci Masyarakat  https://t.co/NwKRiwk9cW baca juga berita dari media lainnya di Indonesia di  https://t.co/GkwQxScVr9   #pssi #fifa #gianniinfantino #funfootball #saveoursoccer #tragedikanjuruhan #akmalmarhali
+1582698552274190336 2022-10-19 11:41:54 +0000 &lt;hariankompas&gt; Polri diingatkan agar jalankan rekomendasi Tim Gabungan Independen Pencari Fakta, yakni ekshumasi korban Tragedi Kanjuruhan, guna memastikan penyebab kematian 133 jiwa dalam insiden karena penembakan gas air mata itu. #Nusantara #AdadiKompas  https://t.co/CIH41BSjeT
+1582698133796319232 2022-10-19 11:40:14 +0000 &lt;Antara_Jabar&gt; Tragedi Kanjuruhan, tersangka peragakan penembakan gas air mata saat rekonstruksi    https://t.co/fXKcgwE0bh
+1582698058525310976 2022-10-19 11:39:56 +0000 &lt;Kotakmi1&gt; Komnas HAM Diminta untuk Bentuk Tim Penyelidikan Tragedi Kanjuruhan – Sportstars –  https://t.co/lYTlrsvdOI – #Arenanews  https://t.co/psspLnOVmF
+1582697719231307776 2022-10-19 11:38:36 +0000 &lt;idntimes&gt; TGIPF keluarkan rekomendasi usai tragedi Kanjuruhan  https://t.co/LezAjcR08I
+1582697616118538240 2022-10-19 11:38:11 +0000 &lt;slaksmi&gt; Dia pikir kita nggak ngerti.   Rekonstruksi Tragedi Kanjuruhan, Tak Ada Gas Air Mata ke Arah Tribun  https://t.co/iVyokAvfJr
+1582697532869648386 2022-10-19 11:37:51 +0000 &lt;detikcom&gt; Devi Athok (43) masih belum bisa melupakan kesedihannya karena kehilangan dua putrinya di Tragedi Kanjuruhan. Ia menyesal tak bisa menemani kedua putrinya itu.  https://t.co/5YWr5xodUs
+1582697392763449344 2022-10-19 11:37:18 +0000 &lt;blackboysMP&gt; Sikap kita sudah jelas. Sementara kita menarik diri dalam mendukung @psmpofficial selama kasus tragedi kanjuruhan belum menemui titik terang yang jelas. Untuk sementara kita fokuskan fokus kita ke agenda &quot;foreverred&quot; bersama @mojokertofinest 🇾🇪
+1582697336907538432 2022-10-19 11:37:04 +0000 &lt;beritajatimcom&gt; Kapolda Jatim Bantah Polisi Intimidasi Keinginan Autopsi Korban Tragedi Kanjuruhan.  Malang ( https://t.co/ksziGGG4m3) – Kapolda Jatim Irjen Pol Toni Harmanto membantah dugaan intimidasi anggota Polri…  https://t.co/Gk44Ps9Hgb #Olahraga #Arema #Aremania via @beritajatimcom
+1582697197224665098 2022-10-19 11:36:31 +0000 &lt;karniilyasclub&gt; TRAGEDI KANJURUHAN: “PSSI HARUS BERTANGGUNG JAWAB!” TAYANG 20.30 WIB MALAM INI! SUBSCRIBE YOUTUBE:  https://t.co/nFylNA9OFG (KARNI ILYAS CLUB)  https://t.co/aemNUeRIB9
+1582697172520566784 2022-10-19 11:36:25 +0000 &lt;detikcom&gt; Tim Asops selesai dimintai keterangan oleh Komnas HAM. Dia menyebut menjelaskan soal kerja sama pengamanan dengan PSSI, tidak spesifik soal Tragedi Kanjuruhan.  https://t.co/sEVSASlzlU
+1582696830306877440 2022-10-19 11:35:04 +0000 &lt;Ak_ko567&gt; @siapkawalpolri @ListyoSigitP setuju, @DivHumas_Polri dan @ListyoSigitP sudah mengambil tindakan yang cepat dan tepat untuk melakukan penyelidikan dalam mengusut kasus tragedi kanjuruhan.
+1582696710496583680 2022-10-19 11:34:35 +0000 &lt;Shencong191&gt; Sementara mek ISO dungakno dulurku Kabeh ndek malang dan suporter klub lain yang masih peduli dengan carut marut persepakbolaan dan tragedi kanjuruhan.   Mugi paring sehat selamet Kabeh. Gusti kang dumadi ngijabahi.
+1582696605186392065 2022-10-19 11:34:10 +0000 &lt;insideindo_id&gt; Setelah bertemu Presiden FIFA, Presiden Jokowi akan runtuhkan Stadion Kanjuruhan 😰  Baca berita selengkapnya hanya di  https://t.co/NuJENMkACh  #presidenjokowi #jokowidodo #presidenfifa #fifa #fifa23 #fypシ #news #stadionkanjuruhan #TragediKanjuruhan  https://t.co/VD9DeyJrbm
+1582696320216616960 2022-10-19 11:33:02 +0000 &lt;choice_potatoes&gt; Fifa adalah investor untuk tragedi kanjuruhan
+1582696201807200257 2022-10-19 11:32:34 +0000 &lt;VIVAcoid&gt; Kata Polri soal Polemik Otopsi Jenazah Korban Tragedi Kanjuruhan  https://t.co/d5ewE3F0wR  https://t.co/phHLA1QIaS
+1582695883199561731 2022-10-19 11:31:18 +0000 &lt;hincapandjaitan&gt; Hasil rekonstruksi tragedi Kanjuruhan harus terus kita awasi agar semua menjadi terang benderang.  Publik akan mengadili jika ada yang ditutupi, terlebih sudah banyak hasil kerja jurnalistik teman&quot; wartawan yang merangkum kronologi kejadian.  https://t.co/enTUm3ENrd
+1582695783421575168 2022-10-19 11:30:54 +0000 &lt;derizzaa&gt; Halloo min, kenapa mainnya ga di kanjuruhan aja, sekalian simulasikan tragedi yg kemaren?
+1582695559642591232 2022-10-19 11:30:01 +0000 &lt;tvOneNews&gt; Penyidik Ditreskrimum Polda Jawa Timur, Rabu (19/10/2022) pagi, melakukan rekonstruksi untuk melengkapi berkas pemeriksaan Tragedi Kanjuruhan yang menewaskan 133 suporter Aremania.  Simak berita selengkapnya di  https://t.co/iPucnlyLXz #HardNews_Hukum #NewsOne #CariBeritaditvOne  https://t.co/okM8qoRSgW
+1582695558816452608 2022-10-19 11:30:00 +0000 &lt;Bolanet&gt; Wali Kota Malang Tanggung Pendidikan Putra-Putri Almarhum Andi Setiawan, Korban Jiwa ke-133 Tragedi Kanjuruhan  https://t.co/DyYpfVIbf6
+1582695558262693891 2022-10-19 11:30:00 +0000 &lt;holopiscom&gt; Tim Gabungan Independen Pencari Fakta (TGIPF) Peristiwa Stadion Kanjuruhan Malang mengaku sangat kecewa dengan tingkah Presiden FIFA, Gianni Infantino dan Ketua Umum PSSI, Mochamad Iriawan alias Iwan Bule. @PSSI  @FIFANTINO  @iriawan84  #TragediKanjuruhan   https://t.co/7DgS0nqajj
+1582695317245669378 2022-10-19 11:29:03 +0000 &lt;idntimes&gt; MENGURAI BENANG KUSUT TRAGEDI KANJURUHAN  https://t.co/eFCAjCxW4e
+1582695070263672832 2022-10-19 11:28:04 +0000 &lt;KompasTV&gt; Polisi Periksa 3 Peran Tersangka di 30 Adegan dalam Rekonstruksi Tragedi Kanjuruhan  https://t.co/pcpMYAyYRH  https://t.co/HyyVIaa13d
+1582695043814432768 2022-10-19 11:27:58 +0000 &lt;_fafauziah&gt; @siapkawalpolri @ListyoSigitP Kapolri sangat lah hebat dengan mengambil langkah yg cepat untuk mengusut tragedi kanjuruhan ini. Apresiasi untuk beliau! @ListyoSigitP
+1582694982263054340 2022-10-19 11:27:43 +0000 &lt;karniilyasclub&gt; TRAGEDI KANJURUHAN: “PSSI HARUS BERTANGGUNG JAWAB!” TAYANG 20.30 WIB MALAM INI! SUBSCRIBE YOUTUBE:  https://t.co/nFylNA9OFG (KARNI ILYAS CLUB)  https://t.co/il9DFv4Vzt
+1582694870518747136 2022-10-19 11:27:16 +0000 &lt;beritaKBR&gt; Polri berkomitmen segera menuntaskan tragedi Kanjuruhan secara transparan, akuntabel, dan secara ilmiah.  #TragediKanjuruhan   https://t.co/Yvw4qyZCLW
+1582694851211993089 2022-10-19 11:27:12 +0000 &lt;sophia_diba&gt; @siapkawalpolri @ListyoSigitP Harus banget ini pak @ListyoSigitP korban yang terjadi di tragedi Kanjuruhan ini harus mendapatkan jaminan pengobatan,
+1582694831242981377 2022-10-19 11:27:07 +0000 &lt;detiksport&gt; Pemilik Madura United, Achsanul Qosasi, menyebut bahwa kedatangan FIFA tak menunjukkan empati kepada para korban tragedi Kanjuruhan.  https://t.co/9e1sWpQjQx
+ https://t.co/do19hBMw0H
+1582694804994936833 2022-10-19 11:27:01 +0000 &lt;detiksport&gt; Kaesang memberikan sindiran pada momen itu. FIFA datang ke Indonesia karena tragedi Kanjuruhan. Kejadian usai Arema FC vs Persebaya Surabaya itu menelan 133 korban jiwa.
+1582694580624846848 2022-10-19 11:26:07 +0000 &lt;jamilahchr_&gt; @siapkawalpolri @ListyoSigitP Sebagai bentuk tanggungjawab Pak @ListyoSigitP berusaha memfasilitasi pengobatan bagi korban tragedi Kanjuruhan. Sepakat kalau di adakan ini pak. Mantepp.
+1582694487444582400 2022-10-19 11:25:45 +0000 &lt;Ale01087reds&gt; @mohmahfudmd #UsutTuntas #UsutTuntasTragediKanjuruhan  #TragediKanjuruhan  https://t.co/sSq3Gb1dZ2
+1582694442363867136 2022-10-19 11:25:34 +0000 &lt;ngopibareng_id&gt; Dalam proses yang berlangsung di Polda, adegan penembakan gas air mata hilang dalam rekonstruksi Tragedi Kanjuruhan.  https://t.co/99hnm18hKL
+1582694372424155136 2022-10-19 11:25:18 +0000 &lt;Ale01087reds&gt; #UsutTuntas #TragediKanjuruhan #UsutTuntasTragediKanjuruhan  https://t.co/d25qAPUgBZ
+1582694364173991937 2022-10-19 11:25:16 +0000 &lt;z5_rifky&gt; @AchsanulQosasi Setau gw ya masa berkabung itu antara 7 hari juga udh cukup, dan tragedi Kanjuruhan udah lama terjadi dan FIFA pun sudah mengucapkan duka ke Indonesia, masih aja ada orng tolol kek gini TOLOL
+1582694232040476674 2022-10-19 11:24:44 +0000 &lt;Om_HME&gt; @msaid_didu Krn lobi Israel punya misi diplomatik utk bs masuk ke Indonesia, maka FIFA tdk jd memberi sanksi pembatalan tuan rumah Piala Dunia U-20 akibat tragedi Kanjuruhan.
+1582694194178510848 2022-10-19 11:24:35 +0000 &lt;indozonemedia&gt; Tragedi Kanjuruhan yang terjadi Sabtu (1/10/2022) dalam pertandingan Arema FC vs Persebaya Surabaya menyebabkan 133 orang meninggal dunia.  https://t.co/RUeAwrT3b4
+1582693922706718720 2022-10-19 11:23:30 +0000 &lt;subsubsab___&gt; @PSSI Tolol! Orang-orang masih kritis di rumah sakit karena tragedi Kanjuruhan!  Manusia punya hati dan akal tapi gak dipake, semoga cepat kena azab! Aji mumpung banget lo mentang2 presiden FIFA di Indonesia.
+1582693841391407104 2022-10-19 11:23:11 +0000 &lt;Om_HME&gt; Krn lobi Israel punya misi diplomatik utk bs masuk ke Indonesia, maka FIFA tdk jd memberi sanksi pembatalan tuan rumah Piala Dunia U-20 akibat tragedi Kanjuruhan.
+1582693805253222400 2022-10-19 11:23:02 +0000 &lt;Om_HME&gt; @PSSI Krn lobi Israel punya misi diplomatik utk bs masuk ke Indonesia, maka FIFA tdk jd memberi sanksi pembatalan tuan rumah Piala Dunia U-20 akibat tragedi Kanjuruhan.
+1582693667240038401 2022-10-19 11:22:29 +0000 &lt;msaid_didu&gt; Sepertinya tdk ada rasa duka dari Presiden FIFA atas tragedi Kanjuruhan - Malang
+1582693661825204224 2022-10-19 11:22:28 +0000 &lt;Ravico27&gt; @FaktaSepakbola @Arie_Kriting Di jadwalkan sejak lama? Mungkin ngga sih kalo ngga ada tragedi kanjuruhan presiden fifa ke Indo sekarang?
+1582693551682379777 2022-10-19 11:22:02 +0000 &lt;Om_HME&gt; @kaesangp Krn lobi Israel punya misi diplomatik utk bs masuk ke Indonesia, maka FIFA tdk jd memberi sanksi pembatalan tuan rumah Piala Dunia U-20 akibat tragedi Kanjuruhan.
+1582693432668999681 2022-10-19 11:21:34 +0000 &lt;koranjakarta_id&gt; Pesan Vino G Bastian ke Ketum PSSI-Presiden FIFA yang Main Bola Bareng  &quot;Dibanding main bola bareng, lebih baik main ke rumah korban tragedi kanjuruhan bareng-bareng. Mereka lebih penting,&quot; kata Vino melalui unggahan akun Twitter pribadinya @VinoGBastian_   https://t.co/OF68vkOsSK
+1582693419054665728 2022-10-19 11:21:30 +0000 &lt;makdatuak02&gt; @PSSI Ratusan org meninggal di tragedi kanjuruhan, ngingatin kalian aja, mana tau udh lupa.
+1582693374230171654 2022-10-19 11:21:20 +0000 &lt;Ravico27&gt; @CNNIndonesia Lah buat apa pake VAR? Tragedi kanjuruhan aja ngga ada tanggung jawab nya.
+1582693234912137216 2022-10-19 11:20:46 +0000 &lt;rillamaria_&gt; Ada korban ratusan tragedi Kanjuruhan loh 😔
+1582692402149851136 2022-10-19 11:17:28 +0000 &lt;posbakumpranaja&gt; Iwan Bule Main Bola Bareng Presiden FIFA Usai Pemakaman Korban ke-133 Tragedi Kanjuruhan, Bikin Komnas HAM Prihatin  https://t.co/XzYjXD9pKi
+1582692356687646721 2022-10-19 11:17:17 +0000 &lt;pantau24jam&gt; Iwan Bule Main Bola Bareng Presiden FIFA Usai Pemakaman Korban ke-133 Tragedi Kanjuruhan, Bikin Komnas HAM Prihatin  https://t.co/RyoxXGcmqy
+1582692345375399937 2022-10-19 11:17:14 +0000 &lt;karniilyasclub&gt; TRAGEDI KANJURUHAN: “PSSI HARUS BERTANGGUNG JAWAB!” TAYANG 20.30 WIB MALAM INI! SUBSCRIBE YOUTUBE:  https://t.co/nFylNA9OFG (KARNI ILYAS CLUB)  https://t.co/Wuk8G62Wsm
+1582692255248560128 2022-10-19 11:16:53 +0000 &lt;BimataIndonesia&gt; PSSI Tolak Rekomendasi TGIPF Tragedi Kanjuruhan Soal Permintaan Mundur Iwan Bule Cs  https://t.co/Iat01LQEnQ
+1582692240769810433 2022-10-19 11:16:49 +0000 &lt;atiga9312&gt; @PartaiSocmed Datang karena tragedi kanjuruhan,  Yang diharap ketegasan,  Nyampe sini malah cengengesan.  #ShameOnYouFIFA
 </pre></div>
 </div>
 </div>
@@ -835,7 +892,7 @@ Successfully installed nest-asyncio-1.5.6
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-730003c2-224c-424e-a882-31e343546099">
+  <div id="df-7eb0507f-8a45-4f93-9933-d425dc67129a">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -919,7 +976,7 @@ Successfully installed nest-asyncio-1.5.6
 </table>
 <p>73 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-730003c2-224c-424e-a882-31e343546099')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7eb0507f-8a45-4f93-9933-d425dc67129a')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -970,12 +1027,12 @@ Successfully installed nest-asyncio-1.5.6
 
       <script>
         const buttonEl =
-          document.querySelector('#df-730003c2-224c-424e-a882-31e343546099 button.colab-df-convert');
+          document.querySelector('#df-7eb0507f-8a45-4f93-9933-d425dc67129a button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-730003c2-224c-424e-a882-31e343546099');
+          const element = document.querySelector('#df-7eb0507f-8a45-4f93-9933-d425dc67129a');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1015,14 +1072,14 @@ Successfully installed nest-asyncio-1.5.6
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: nltk in /usr/local/lib/python3.7/dist-packages (3.7)
-Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.2.0)
 Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
-Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
 Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
+Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.2.0)
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting Sastrawi
   Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
-     |████████████████████████████████| 209 kB 2.1 MB/s 
+     |████████████████████████████████| 209 kB 8.2 MB/s 
 ?25hInstalling collected packages: Sastrawi
 Successfully installed Sastrawi-1.0.1
 </pre></div>
@@ -1179,7 +1236,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d6646e6e-e731-4feb-8399-aaa34cac6a7e">
+  <div id="df-1ad980e4-22a7-447e-aec6-06017a99836f">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1275,7 +1332,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>73 rows × 3 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-d6646e6e-e731-4feb-8399-aaa34cac6a7e')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-1ad980e4-22a7-447e-aec6-06017a99836f')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1326,12 +1383,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-d6646e6e-e731-4feb-8399-aaa34cac6a7e button.colab-df-convert');
+          document.querySelector('#df-1ad980e4-22a7-447e-aec6-06017a99836f button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-d6646e6e-e731-4feb-8399-aaa34cac6a7e');
+          const element = document.querySelector('#df-1ad980e4-22a7-447e-aec6-06017a99836f');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1419,7 +1476,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b20ca7fe-36a0-4f0b-8e93-f5bc5a953958">
+  <div id="df-ef9e7299-aa01-4118-95fe-1d5c1ec9b111">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1731,7 +1788,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>73 rows × 398 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-b20ca7fe-36a0-4f0b-8e93-f5bc5a953958')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-ef9e7299-aa01-4118-95fe-1d5c1ec9b111')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1782,12 +1839,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-b20ca7fe-36a0-4f0b-8e93-f5bc5a953958 button.colab-df-convert');
+          document.querySelector('#df-ef9e7299-aa01-4118-95fe-1d5c1ec9b111 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-b20ca7fe-36a0-4f0b-8e93-f5bc5a953958');
+          const element = document.querySelector('#df-ef9e7299-aa01-4118-95fe-1d5c1ec9b111');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1822,7 +1879,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ef263ce2-22d2-48af-a0fb-826c9ccc447b">
+  <div id="df-007524f2-aed5-46ae-aa72-6e440135df11">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -2134,7 +2191,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>73 rows × 400 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-ef263ce2-22d2-48af-a0fb-826c9ccc447b')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-007524f2-aed5-46ae-aa72-6e440135df11')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -2185,12 +2242,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-ef263ce2-22d2-48af-a0fb-826c9ccc447b button.colab-df-convert');
+          document.querySelector('#df-007524f2-aed5-46ae-aa72-6e440135df11 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-ef263ce2-22d2-48af-a0fb-826c9ccc447b');
+          const element = document.querySelector('#df-007524f2-aed5-46ae-aa72-6e440135df11');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2237,10 +2294,10 @@ Successfully installed Sastrawi-1.0.1
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: scikit-learn in /usr/local/lib/python3.7/dist-packages (1.0.2)
-Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
 Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
 Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.2.0)
 Requirement already satisfied: scipy&gt;=1.1.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.7.3)
+Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
 </pre></div>
 </div>
 </div>
@@ -2293,86 +2350,106 @@ mengukur ketergantungan antara variabel. Itu sama dengan nol jika dan hanya jika
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.        , 0.06930987, 0.04091137, 0.05973178,
-       0.        , 0.02823866, 0.03142613, 0.        , 0.        ,
-       0.02384986, 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.07845353, 0.        , 0.        , 0.00238972,
-       0.01908711, 0.07458268, 0.0081268 , 0.        , 0.03899338,
-       0.        , 0.        , 0.04284777, 0.06373848, 0.02300764,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.0158737 , 0.01557037, 0.07146865, 0.01113477, 0.01308537,
-       0.        , 0.        , 0.02620034, 0.01819   , 0.0073205 ,
-       0.0419287 , 0.        , 0.00658355, 0.        , 0.06900449,
-       0.06337515, 0.07348671, 0.00299335, 0.        , 0.        ,
-       0.        , 0.        , 0.0264194 , 0.        , 0.00784878,
-       0.        , 0.16112552, 0.01955857, 0.        , 0.        ,
-       0.01112239, 0.        , 0.01172032, 0.07635348, 0.        ,
-       0.04399298, 0.        , 0.        , 0.11985622, 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.0247088 , 0.        , 0.03218312, 0.04770444, 0.00580697,
-       0.        , 0.06193075, 0.01672996, 0.07367092, 0.02283212,
-       0.        , 0.        , 0.01145776, 0.        , 0.        ,
-       0.        , 0.00920732, 0.00559405, 0.07424969, 0.        ,
-       0.        , 0.        , 0.        , 0.02075279, 0.0727102 ,
-       0.        , 0.        , 0.        , 0.22835219, 0.14820222,
-       0.        , 0.        , 0.        , 0.08970586, 0.01350237,
-       0.        , 0.0701797 , 0.35856588, 0.03378409, 0.03384825,
-       0.        , 0.05198964, 0.03082432, 0.        , 0.02258731,
-       0.08678161, 0.00976261, 0.        , 0.        , 0.        ,
-       0.        , 0.00149332, 0.        , 0.        , 0.03562647,
-       0.06786411, 0.        , 0.        , 0.        , 0.        ,
-       0.05685484, 0.        , 0.06645087, 0.00134521, 0.        ,
-       0.        , 0.09062391, 0.03423564, 0.01418901, 0.        ,
-       0.        , 0.        , 0.07504684, 0.        , 0.05432508,
-       0.00045958, 0.00532903, 0.        , 0.        , 0.10009129,
-       0.00337227, 0.04043604, 0.        , 0.06975615, 0.        ,
-       0.        , 0.05231278, 0.04093237, 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.05058807, 0.        , 0.1068294 , 0.        , 0.        ,
-       0.05602104, 0.        , 0.01874965, 0.01507039, 0.        ,
-       0.        , 0.        , 0.03726238, 0.        , 0.00247727,
-       0.02998104, 0.10373651, 0.        , 0.01266301, 0.05891504,
-       0.06563873, 0.        , 0.        , 0.        , 0.02512359,
-       0.        , 0.00759942, 0.06508238, 0.        , 0.        ,
-       0.05661875, 0.        , 0.        , 0.08245272, 0.        ,
-       0.        , 0.0157417 , 0.07255799, 0.        , 0.        ,
-       0.        , 0.        , 0.04467631, 0.        , 0.07822687,
-       0.        , 0.03028261, 0.        , 0.        , 0.00679248,
-       0.10208213, 0.07386133, 0.0392863 , 0.        , 0.        ,
-       0.        , 0.08928214, 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.0813362 , 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.03980206, 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.08015891, 0.        , 0.02342274,
-       0.02905032, 0.00629663, 0.00151971, 0.0440302 , 0.        ,
-       0.        , 0.10360628, 0.07028412, 0.        , 0.        ,
-       0.        , 0.0320229 , 0.04306791, 0.        , 0.03671687,
-       0.03028232, 0.        , 0.        , 0.00065647, 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.04324352, 0.        , 0.04133189, 0.00862459,
-       0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.0439001 , 0.00656762, 0.        , 0.00584964, 0.03923502,
-       0.16799341, 0.10590764, 0.        , 0.00620629, 0.        ,
-       0.        , 0.02887607, 0.01649813, 0.        , 0.02844167,
-       0.00196019, 0.        , 0.1200354 , 0.        , 0.06485906,
-       0.0551326 , 0.        , 0.        , 0.        , 0.        ,
-       0.01627114, 0.02868061, 0.02342269, 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.11645685, 0.06815126,
-       0.09261693, 0.        , 0.        , 0.        , 0.        ,
-       0.01994609, 0.        , 0.        , 0.        , 0.0033645 ,
-       0.        , 0.        , 0.03458536, 0.        , 0.04031855,
-       0.17333558, 0.        , 0.        , 0.        , 0.        ,
-       0.07914953, 0.        , 0.        , 0.03041489, 0.        ,
-       0.02407114, 0.00681469, 0.09624842, 0.        , 0.08470118,
-       0.        , 0.        , 0.05863131, 0.        , 0.0084041 ,
-       0.        , 0.0834399 , 0.10577665, 0.        , 0.02661444,
-       0.03000685, 0.        , 0.01010407, 0.02221612, 0.        ,
-       0.06140274, 0.11808832, 0.        , 0.        , 0.05875771,
-       0.        , 0.01162968, 0.09688033, 0.08467153, 0.01000848,
-       0.        , 0.        , 0.00079299, 0.        , 0.07783283,
-       0.        , 0.0567409 , 0.02222134, 0.        , 0.00077238,
-       0.        , 0.01160948, 0.05316612, 0.        , 0.        ,
-       0.        , 0.09438316, 0.05556675, 0.00430357])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000000e+00, 0.00000000e+00, 2.01431645e-02, 9.98419980e-02,
+       0.00000000e+00, 5.61879476e-02, 3.89860299e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 2.14156746e-03, 3.61490984e-03,
+       0.00000000e+00, 0.00000000e+00, 4.19403740e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       1.90583828e-03, 4.18378562e-02, 6.44738318e-03, 9.04233917e-02,
+       2.71611787e-03, 1.29023953e-02, 1.79605895e-01, 5.53420515e-02,
+       0.00000000e+00, 1.19160452e-01, 0.00000000e+00, 5.02469387e-02,
+       6.05830944e-03, 8.37823283e-02, 3.37042314e-02, 0.00000000e+00,
+       1.25929161e-02, 3.50656523e-02, 4.63581512e-02, 1.37615198e-01,
+       0.00000000e+00, 1.11008896e-02, 0.00000000e+00, 3.81489072e-02,
+       0.00000000e+00, 7.51327455e-02, 0.00000000e+00, 6.97631865e-02,
+       8.20083328e-03, 7.76316204e-02, 0.00000000e+00, 6.22467289e-02,
+       0.00000000e+00, 0.00000000e+00, 5.66629949e-03, 8.35123158e-02,
+       6.23989772e-02, 5.70404731e-03, 0.00000000e+00, 1.93278286e-02,
+       6.44013638e-03, 0.00000000e+00, 1.21259890e-02, 0.00000000e+00,
+       0.00000000e+00, 1.44485031e-02, 5.34689054e-02, 0.00000000e+00,
+       7.12466070e-02, 7.61590218e-03, 1.27439985e-02, 4.87142586e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 7.81056296e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 2.78742850e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 6.31363893e-03, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 2.20787017e-02, 9.19259119e-02, 0.00000000e+00,
+       6.02195349e-02, 1.22147961e-03, 3.00464885e-02, 1.29753133e-03,
+       5.81680865e-03, 9.17258635e-02, 5.94499886e-02, 1.28314927e-02,
+       8.54900897e-02, 6.68117173e-02, 0.00000000e+00, 7.41604687e-02,
+       0.00000000e+00, 2.01975540e-03, 2.20477455e-02, 1.17537034e-02,
+       0.00000000e+00, 0.00000000e+00, 2.42756233e-02, 2.34172033e-02,
+       0.00000000e+00, 3.83846208e-01, 0.00000000e+00, 7.98690917e-03,
+       4.40247880e-02, 3.94569914e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 4.90821701e-02,
+       0.00000000e+00, 2.29059962e-02, 0.00000000e+00, 0.00000000e+00,
+       2.22789896e-02, 1.04046174e-01, 0.00000000e+00, 6.09650935e-02,
+       0.00000000e+00, 1.23400001e-01, 0.00000000e+00, 6.31394092e-02,
+       7.28077752e-02, 8.45431688e-02, 6.71061236e-02, 0.00000000e+00,
+       0.00000000e+00, 4.20150612e-03, 8.42380737e-02, 0.00000000e+00,
+       1.93764296e-02, 0.00000000e+00, 0.00000000e+00, 7.70755291e-03,
+       0.00000000e+00, 3.03911874e-02, 1.82205481e-02, 5.22627346e-02,
+       6.49956604e-02, 0.00000000e+00, 2.18116757e-02, 0.00000000e+00,
+       0.00000000e+00, 1.80140600e-01, 0.00000000e+00, 1.71782113e-02,
+       1.99256977e-02, 3.57433959e-02, 1.90573584e-01, 4.03575374e-02,
+       0.00000000e+00, 0.00000000e+00, 1.85156859e-02, 2.49429943e-02,
+       1.25811098e-01, 9.24536492e-03, 0.00000000e+00, 0.00000000e+00,
+       6.17612122e-02, 8.25902267e-03, 6.84089762e-02, 0.00000000e+00,
+       0.00000000e+00, 1.10088600e-02, 1.16248322e-02, 5.04640208e-02,
+       0.00000000e+00, 5.60239324e-02, 0.00000000e+00, 1.16839626e-01,
+       1.19686830e-01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       4.81312148e-02, 4.19277233e-02, 3.20787487e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 5.66762565e-02, 0.00000000e+00,
+       1.97983236e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 3.88337584e-02, 0.00000000e+00, 1.32360990e-02,
+       0.00000000e+00, 0.00000000e+00, 3.46738036e-02, 1.12877844e-01,
+       0.00000000e+00, 7.73387015e-02, 0.00000000e+00, 6.23106628e-02,
+       4.60662318e-02, 4.14000374e-02, 0.00000000e+00, 4.82841391e-03,
+       9.37778067e-02, 0.00000000e+00, 1.67259571e-01, 0.00000000e+00,
+       8.50265564e-03, 0.00000000e+00, 3.82569851e-02, 0.00000000e+00,
+       0.00000000e+00, 2.05137806e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.48540399e-02,
+       1.70289484e-02, 2.44837485e-02, 2.59353924e-03, 0.00000000e+00,
+       0.00000000e+00, 2.29602028e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 1.95743958e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 5.61959633e-02, 0.00000000e+00,
+       3.89782058e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       1.59409941e-02, 2.01233586e-02, 1.32867312e-02, 0.00000000e+00,
+       4.18364746e-02, 0.00000000e+00, 7.29141890e-02, 1.29618703e-03,
+       2.00624154e-02, 1.72819489e-01, 0.00000000e+00, 8.08598151e-02,
+       5.50893902e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 8.73302323e-03, 1.08494520e-01,
+       8.30269715e-02, 0.00000000e+00, 0.00000000e+00, 8.39433621e-02,
+       2.26142985e-02, 0.00000000e+00, 0.00000000e+00, 3.05164892e-04,
+       2.84930098e-02, 0.00000000e+00, 5.11916660e-02, 1.56552153e-02,
+       0.00000000e+00, 4.23795046e-02, 4.28956551e-02, 1.72493889e-01,
+       0.00000000e+00, 0.00000000e+00, 1.46732543e-02, 6.66337125e-02,
+       4.80147804e-03, 0.00000000e+00, 6.92079886e-02, 0.00000000e+00,
+       3.00162083e-02, 3.04303971e-02, 1.91245460e-02, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       2.31376102e-02, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 4.65731825e-02, 7.04243004e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.11117477e-01,
+       0.00000000e+00, 8.94288911e-02, 0.00000000e+00, 2.64683859e-02,
+       0.00000000e+00, 0.00000000e+00, 3.82264873e-02, 6.66727105e-04,
+       0.00000000e+00, 2.34894078e-02, 0.00000000e+00, 1.02188388e-02,
+       1.18002712e-01, 2.04091764e-03, 0.00000000e+00, 1.82774084e-02,
+       1.14124690e-01, 6.63226306e-02, 0.00000000e+00, 9.34146089e-02,
+       0.00000000e+00, 6.62531799e-02, 0.00000000e+00, 3.03806395e-02,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.38815904e-02,
+       6.05631456e-02, 6.80370634e-02, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 1.65001909e-03, 3.48517612e-02, 0.00000000e+00,
+       1.50280714e-01, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 8.13162003e-02, 0.00000000e+00,
+       9.88736969e-02, 3.19186067e-02, 1.37671334e-01, 3.51201810e-02,
+       0.00000000e+00, 7.23432228e-02, 4.51820397e-02, 0.00000000e+00,
+       0.00000000e+00, 7.54674541e-02, 2.77052103e-02, 1.31608823e-01,
+       0.00000000e+00, 2.90843867e-02, 0.00000000e+00, 8.32677291e-03,
+       0.00000000e+00, 5.33441460e-03, 0.00000000e+00, 0.00000000e+00,
+       0.00000000e+00, 0.00000000e+00, 8.61214108e-02, 0.00000000e+00,
+       7.00099421e-03, 0.00000000e+00, 0.00000000e+00])
 </pre></div>
 </div>
 </div>
@@ -2387,17 +2464,17 @@ mengukur ketergantungan antara variabel. Itu sama dengan nol jika dan hanya jika
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(ganjar,)      0.358566
-(elu,)         0.228352
-(sulawesi,)    0.173336
-(sahabat,)     0.167993
-(buka,)        0.161126
-                 ...   
-(pangan,)      0.000000
-(give,)        0.000000
-(girl,)        0.000000
-(gelas,)       0.000000
-(index,)       0.000000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(ganjar,)        0.383846
+(jum,)           0.190574
+(jawa,)          0.180141
+(apung,)         0.179606
+(pranowo,)       0.172819
+                   ...   
+(lanjut,)        0.000000
+(lapang,)        0.000000
+(legendaris,)    0.000000
+(lie,)           0.000000
+(zaman,)         0.000000
 Length: 399, dtype: float64
 </pre></div>
 </div>
@@ -2411,7 +2488,7 @@ Length: 399, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f55fefd4c90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f34f5dc33d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/CrawlingVSM_73_1.png" src="../_images/CrawlingVSM_73_1.png" />
@@ -2439,40 +2516,40 @@ Length: 399, dtype: float64
   FutureWarning,
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([           (&#39;20&#39;,),           (&#39;ada&#39;,),        (&#39;agenda&#39;,),
-               (&#39;ageng&#39;,),        (&#39;akibat&#39;,), (&#39;alhamdulillah&#39;,),
-               (&#39;ambil&#39;,),        (&#39;anggar&#39;,),      (&#39;antusias&#39;,),
-                 (&#39;asa&#39;,),          (&#39;bagi&#39;,),         (&#39;bakar&#39;,),
-               (&#39;bantu&#39;,),         (&#39;barat&#39;,),           (&#39;bbm&#39;,),
-            (&#39;bektonah&#39;,),        (&#39;bidang&#39;,),          (&#39;buka&#39;,),
-               (&#39;camat&#39;,),           (&#39;cek&#39;,),        (&#39;cerita&#39;,),
-               (&#39;check&#39;,),       (&#39;cipedes&#39;,),       (&#39;damping&#39;,),
-                 (&#39;deh&#39;,),           (&#39;dpw&#39;,),        (&#39;dukung&#39;,),
-                (&#39;emak&#39;,),        (&#39;ganjar&#39;,),        (&#39;gelora&#39;,),
-              (&#39;gimana&#39;,),      (&#39;gubernur&#39;,),         (&#39;hallo&#39;,),
-              (&#39;hangat&#39;,),         (&#39;hotel&#39;,),           (&#39;hrt&#39;,),
-                (&#39;huni&#39;,),            (&#39;id&#39;,),       (&#39;inflasi&#39;,),
-               (&#39;jalan&#39;,),        (&#39;kebaya&#39;,),           (&#39;kec&#39;,),
-           (&#39;kecbekasi&#39;,),       (&#39;kendara&#39;,),       (&#39;kendari&#39;,),
-                (&#39;khas&#39;,),     (&#39;komunitas&#39;,),       (&#39;kuliner&#39;,),
-            (&#39;kuntadhi&#39;,),        (&#39;kurang&#39;,),       (&#39;laksana&#39;,),
-            (&#39;langsung&#39;,),        (&#39;lanjut&#39;,),        (&#39;lapang&#39;,),
-                (&#39;lupa&#39;,),        (&#39;marina&#39;,),           (&#39;men&#39;,),
-             (&#39;mending&#39;,),   (&#39;menganggumi&#39;,),         (&#39;milik&#39;,),
-                (&#39;muda&#39;,),        (&#39;padang&#39;,),       (&#39;pandang&#39;,),
-               (&#39;panen&#39;,),         (&#39;penny&#39;,),       (&#39;percaya&#39;,),
-             (&#39;pranowo&#39;,),      (&#39;presiden&#39;,),         (&#39;ramai&#39;,),
-             (&#39;rangkai&#39;,),         (&#39;ratus&#39;,),          (&#39;rp35&#39;,),
-                (&#39;rugi&#39;,),         (&#39;rutin&#39;,),        (&#39;safari&#39;,),
-             (&#39;sahabat&#39;,),         (&#39;sakit&#39;,),        (&#39;sambut&#39;,),
-              (&#39;sampah&#39;,),       (&#39;selatan&#39;,),       (&#39;selesai&#39;,),
-            (&#39;semarang&#39;,),         (&#39;sepak&#39;,),         (&#39;serta&#39;,),
-              (&#39;sidrap&#39;,),         (&#39;siswa&#39;,),        (&#39;sleman&#39;,),
-                (&#39;sogo&#39;,),         (&#39;sosok&#39;,),      (&#39;srikandi&#39;,),
-               (&#39;suara&#39;,),      (&#39;sumatera&#39;,),       (&#39;tanggal&#39;,),
-             (&#39;tangkap&#39;,),        (&#39;tegang&#39;,),         (&#39;teman&#39;,),
-                (&#39;temu&#39;,),     (&#39;tokopedia&#39;,),       (&#39;umamlik&#39;,),
-              (&#39;unjung&#39;,)],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([          (&#39;17&#39;,),           (&#39;20&#39;,),         (&#39;2024&#39;,),
+                 (&#39;ah&#39;,),         (&#39;ajar&#39;,),        (&#39;akrab&#39;,),
+             (&#39;anggar&#39;,),    (&#39;australia&#39;,),          (&#39;ayu&#39;,),
+              (&#39;bahan&#39;,),        (&#39;bakar&#39;,),    (&#39;banyuasin&#39;,),
+              (&#39;barat&#39;,),        (&#39;bazar&#39;,),        (&#39;bekas&#39;,),
+           (&#39;bektonah&#39;,),       (&#39;bentuk&#39;,),       (&#39;berkah&#39;,),
+              (&#39;cinta&#39;,),      (&#39;cipedes&#39;,),        (&#39;dapet&#39;,),
+          (&#39;deklarasi&#39;,),    (&#39;dharmawan&#39;,),     (&#39;disamput&#39;,),
+                (&#39;doa&#39;,),          (&#39;eko&#39;,),          (&#39;elu&#39;,),
+              (&#39;forum&#39;,),          (&#39;gak&#39;,),       (&#39;ganjar&#39;,),
+             (&#39;gelora&#39;,),         (&#39;giat&#39;,),     (&#39;gubernur&#39;,),
+              (&#39;heran&#39;,),        (&#39;hotel&#39;,),         (&#39;huni&#39;,),
+                 (&#39;id&#39;,),   (&#39;insyaallah&#39;,),        (&#39;jamin&#39;,),
+             (&#39;jateng&#39;,),         (&#39;jawa&#39;,),       (&#39;jibaku&#39;,),
+              (&#39;kapal&#39;,),        (&#39;kesan&#39;,),         (&#39;khas&#39;,),
+         (&#39;komunikasi&#39;,),         (&#39;kota&#39;,),      (&#39;kuntadi&#39;,),
+               (&#39;kyai&#39;,),      (&#39;laksana&#39;,),     (&#39;langsung&#39;,),
+              (&#39;layak&#39;,),        (&#39;lilin&#39;,),        (&#39;lokal&#39;,),
+         (&#39;masyarakat&#39;,),        (&#39;medis&#39;,),          (&#39;men&#39;,),
+              (&#39;milik&#39;,),       (&#39;nikmat&#39;,),         (&#39;nila&#39;,),
+            (&#39;optimal&#39;,),      (&#39;optimis&#39;,),       (&#39;padang&#39;,),
+        (&#39;partisipasi&#39;,),    (&#39;penasaran&#39;,),      (&#39;percaya&#39;,),
+       (&#39;personalized&#39;,),    (&#39;pesantren&#39;,),      (&#39;praktik&#39;,),
+            (&#39;pranowo&#39;,),      (&#39;rangkai&#39;,),       (&#39;rendah&#39;,),
+               (&#39;riah&#39;,),          (&#39;rss&#39;,),        (&#39;rutin&#39;,),
+               (&#39;saba&#39;,),        (&#39;salur&#39;,),         (&#39;satu&#39;,),
+           (&#39;semarang&#39;,),        (&#39;sepak&#39;,),    (&#39;september&#39;,),
+                (&#39;smk&#39;,),     (&#39;sumatera&#39;,),       (&#39;swasta&#39;,),
+             (&#39;syukur&#39;,),      (&#39;tangkap&#39;,),        (&#39;tarik&#39;,),
+        (&#39;tasikmalaya&#39;,),       (&#39;teaser&#39;,),        (&#39;teman&#39;,),
+                (&#39;tim&#39;,),     (&#39;trending&#39;,),        (&#39;tugas&#39;,),
+           (&#39;ufotable&#39;,),        (&#39;ulama&#39;,),       (&#39;undang&#39;,),
+              (&#39;usaha&#39;,),      (&#39;wilayah&#39;,),       (&#39;wiliam&#39;,),
+           (&#39;yaqowiyu&#39;,)],
       dtype=&#39;object&#39;)
 </pre></div>
 </div>
@@ -2595,12 +2672,12 @@ d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.82414645  0.32505654]
- [ 2.93247414 -0.25518105]
- [ 4.43672804 -1.57717881]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.82415039  0.3250541 ]
+ [ 2.9324436  -0.25514807]
+ [ 4.43672435 -1.57716124]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f55f9336b50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f34f0120f90&gt;
 </pre></div>
 </div>
 <img alt="../_images/CrawlingVSM_96_2.png" src="../_images/CrawlingVSM_96_2.png" />
@@ -2623,88 +2700,90 @@ d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting scrapy
-  Downloading Scrapy-2.6.3-py2.py3-none-any.whl (264 kB)
-     |████████████████████████████████| 264 kB 2.1 MB/s 
-?25hCollecting pyOpenSSL&gt;=21.0.0
-  Downloading pyOpenSSL-22.1.0-py3-none-any.whl (57 kB)
-     |████████████████████████████████| 57 kB 5.2 MB/s 
-?25hCollecting service-identity&gt;=18.1.0
-  Downloading service_identity-21.1.0-py2.py3-none-any.whl (12 kB)
+  Downloading Scrapy-2.7.0-py2.py3-none-any.whl (270 kB)
+     |████████████████████████████████| 270 kB 8.3 MB/s 
+?25hRequirement already satisfied: lxml&gt;=4.3.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (4.9.1)
 Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from scrapy) (57.4.0)
-Collecting Twisted&gt;=18.9.0
-  Downloading Twisted-22.8.0-py3-none-any.whl (3.1 MB)
-     |████████████████████████████████| 3.1 MB 46.7 MB/s 
-?25hCollecting PyDispatcher&gt;=2.0.5
-  Downloading PyDispatcher-2.0.6.tar.gz (38 kB)
 Collecting queuelib&gt;=1.4.2
   Downloading queuelib-1.6.2-py2.py3-none-any.whl (13 kB)
-Collecting cssselect&gt;=0.9.1
-  Downloading cssselect-1.1.0-py2.py3-none-any.whl (16 kB)
-Collecting parsel&gt;=1.5.0
-  Downloading parsel-1.6.0-py2.py3-none-any.whl (13 kB)
-Collecting itemadapter&gt;=0.1.0
-  Downloading itemadapter-0.7.0-py3-none-any.whl (10 kB)
-Collecting protego&gt;=0.1.15
-  Downloading Protego-0.2.1-py2.py3-none-any.whl (8.2 kB)
-Requirement already satisfied: lxml&gt;=3.5.0 in /usr/local/lib/python3.7/dist-packages (from scrapy) (4.9.1)
-Collecting tldextract
-  Downloading tldextract-3.4.0-py3-none-any.whl (93 kB)
-     |████████████████████████████████| 93 kB 2.7 MB/s 
+Collecting cryptography&gt;=3.3
+  Downloading cryptography-38.0.1-cp36-abi3-manylinux_2_24_x86_64.whl (4.0 MB)
+     |████████████████████████████████| 4.0 MB 4.1 MB/s 
+?25hCollecting Twisted&gt;=18.9.0
+  Downloading Twisted-22.8.0-py3-none-any.whl (3.1 MB)
+     |████████████████████████████████| 3.1 MB 43.0 MB/s 
 ?25hCollecting itemloaders&gt;=1.0.1
   Downloading itemloaders-1.0.6-py3-none-any.whl (11 kB)
-Collecting zope.interface&gt;=5.0.0
+Collecting zope.interface&gt;=5.1.0
   Downloading zope.interface-5.5.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (254 kB)
-     |████████████████████████████████| 254 kB 58.6 MB/s 
-?25hCollecting w3lib&gt;=1.17.0
+     |████████████████████████████████| 254 kB 45.9 MB/s 
+?25hCollecting pyOpenSSL&gt;=21.0.0
+  Downloading pyOpenSSL-22.1.0-py3-none-any.whl (57 kB)
+     |████████████████████████████████| 57 kB 4.0 MB/s 
+?25hRequirement already satisfied: packaging in /usr/local/lib/python3.7/dist-packages (from scrapy) (21.3)
+Collecting w3lib&gt;=1.17.0
   Downloading w3lib-2.0.1-py3-none-any.whl (20 kB)
-Collecting cryptography&gt;=3.3
-  Downloading cryptography-38.0.2-cp36-abi3-manylinux_2_24_x86_64.whl (4.1 MB)
-     |████████████████████████████████| 4.1 MB 44.9 MB/s 
-?25hRequirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.7/dist-packages (from cryptography&gt;=3.3-&gt;scrapy) (1.15.1)
+Collecting tldextract
+  Downloading tldextract-3.4.0-py3-none-any.whl (93 kB)
+     |████████████████████████████████| 93 kB 1.5 MB/s 
+?25hCollecting protego&gt;=0.1.15
+  Downloading Protego-0.2.1-py2.py3-none-any.whl (8.2 kB)
+Collecting cssselect&gt;=0.9.1
+  Downloading cssselect-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting service-identity&gt;=18.1.0
+  Downloading service_identity-21.1.0-py2.py3-none-any.whl (12 kB)
+Collecting PyDispatcher&gt;=2.0.5
+  Downloading PyDispatcher-2.0.6.tar.gz (38 kB)
+Collecting itemadapter&gt;=0.1.0
+  Downloading itemadapter-0.7.0-py3-none-any.whl (10 kB)
+Collecting parsel&gt;=1.5.0
+  Downloading parsel-1.6.0-py2.py3-none-any.whl (13 kB)
+Requirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.7/dist-packages (from cryptography&gt;=3.3-&gt;scrapy) (1.15.1)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=3.3-&gt;scrapy) (2.21)
 Collecting jmespath&gt;=0.9.5
   Downloading jmespath-1.0.1-py3-none-any.whl (20 kB)
 Requirement already satisfied: six&gt;=1.6.0 in /usr/local/lib/python3.7/dist-packages (from parsel&gt;=1.5.0-&gt;scrapy) (1.15.0)
+Requirement already satisfied: attrs&gt;=19.1.0 in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=18.1.0-&gt;scrapy) (22.1.0)
 Requirement already satisfied: pyasn1 in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=18.1.0-&gt;scrapy) (0.4.8)
 Requirement already satisfied: pyasn1-modules in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=18.1.0-&gt;scrapy) (0.2.8)
-Requirement already satisfied: attrs&gt;=19.1.0 in /usr/local/lib/python3.7/dist-packages (from service-identity&gt;=18.1.0-&gt;scrapy) (22.1.0)
-Collecting incremental&gt;=21.3.0
-  Downloading incremental-21.3.0-py2.py3-none-any.whl (15 kB)
-Collecting Automat&gt;=0.8.0
-  Downloading Automat-20.2.0-py2.py3-none-any.whl (31 kB)
-Collecting constantly&gt;=15.1
-  Downloading constantly-15.1.0-py2.py3-none-any.whl (7.9 kB)
 Collecting hyperlink&gt;=17.1.1
   Downloading hyperlink-21.0.0-py2.py3-none-any.whl (74 kB)
-     |████████████████████████████████| 74 kB 1.7 MB/s 
-?25hRequirement already satisfied: typing-extensions&gt;=3.6.5 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=18.9.0-&gt;scrapy) (4.1.1)
+     |████████████████████████████████| 74 kB 2.9 MB/s 
+?25hCollecting incremental&gt;=21.3.0
+  Downloading incremental-22.10.0-py2.py3-none-any.whl (16 kB)
+Collecting constantly&gt;=15.1
+  Downloading constantly-15.1.0-py2.py3-none-any.whl (7.9 kB)
+Collecting Automat&gt;=0.8.0
+  Downloading Automat-20.2.0-py2.py3-none-any.whl (31 kB)
+Requirement already satisfied: typing-extensions&gt;=3.6.5 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=18.9.0-&gt;scrapy) (4.1.1)
 Requirement already satisfied: idna&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from hyperlink&gt;=17.1.1-&gt;Twisted&gt;=18.9.0-&gt;scrapy) (2.10)
-Requirement already satisfied: filelock&gt;=3.0.8 in /usr/local/lib/python3.7/dist-packages (from tldextract-&gt;scrapy) (3.8.0)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /usr/local/lib/python3.7/dist-packages (from packaging-&gt;scrapy) (3.0.9)
 Requirement already satisfied: requests&gt;=2.1.0 in /usr/local/lib/python3.7/dist-packages (from tldextract-&gt;scrapy) (2.28.1)
 Collecting requests-file&gt;=1.4
   Downloading requests_file-1.5.1-py2.py3-none-any.whl (3.7 kB)
+Requirement already satisfied: filelock&gt;=3.0.8 in /usr/local/lib/python3.7/dist-packages (from tldextract-&gt;scrapy) (3.8.0)
 Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (2.1.1)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (2022.9.24)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (1.26.12)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;scrapy) (2022.9.24)
 Building wheels for collected packages: PyDispatcher
   Building wheel for PyDispatcher (setup.py) ... ?25l?25hdone
-  Created wheel for PyDispatcher: filename=PyDispatcher-2.0.6-py3-none-any.whl size=11958 sha256=1e5f7489b0558d31eabccf6ed9fe808c789ca623795f7e3f50dafeb4b8a26be0
+  Created wheel for PyDispatcher: filename=PyDispatcher-2.0.6-py3-none-any.whl size=11958 sha256=97656ae94aa0f696012644af630ddd480d1eb6b45ec99dab5d013fe888dd574a
   Stored in directory: /root/.cache/pip/wheels/c9/d6/6a/de198d890277cde60ca3dbebe7ae592d3b381c7d9bb2455f4d
 Successfully built PyDispatcher
 Installing collected packages: w3lib, cssselect, zope.interface, requests-file, parsel, jmespath, itemadapter, incremental, hyperlink, cryptography, constantly, Automat, Twisted, tldextract, service-identity, queuelib, pyOpenSSL, PyDispatcher, protego, itemloaders, scrapy
-Successfully installed Automat-20.2.0 PyDispatcher-2.0.6 Twisted-22.8.0 constantly-15.1.0 cryptography-38.0.2 cssselect-1.1.0 hyperlink-21.0.0 incremental-21.3.0 itemadapter-0.7.0 itemloaders-1.0.6 jmespath-1.0.1 parsel-1.6.0 protego-0.2.1 pyOpenSSL-22.1.0 queuelib-1.6.2 requests-file-1.5.1 scrapy-2.6.3 service-identity-21.1.0 tldextract-3.4.0 w3lib-2.0.1 zope.interface-5.5.0
+Successfully installed Automat-20.2.0 PyDispatcher-2.0.6 Twisted-22.8.0 constantly-15.1.0 cryptography-38.0.1 cssselect-1.1.0 hyperlink-21.0.0 incremental-22.10.0 itemadapter-0.7.0 itemloaders-1.0.6 jmespath-1.0.1 parsel-1.6.0 protego-0.2.1 pyOpenSSL-22.1.0 queuelib-1.6.2 requests-file-1.5.1 scrapy-2.7.0 service-identity-21.1.0 tldextract-3.4.0 w3lib-2.0.1 zope.interface-5.5.0
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting crochet
   Downloading crochet-2.0.0-py3-none-any.whl (31 kB)
-Requirement already satisfied: wrapt in /usr/local/lib/python3.7/dist-packages (from crochet) (1.14.1)
 Requirement already satisfied: Twisted&gt;=16.0 in /usr/local/lib/python3.7/dist-packages (from crochet) (22.8.0)
-Requirement already satisfied: incremental&gt;=21.3.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (21.3.0)
+Requirement already satisfied: wrapt in /usr/local/lib/python3.7/dist-packages (from crochet) (1.14.1)
 Requirement already satisfied: constantly&gt;=15.1 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (15.1.0)
-Requirement already satisfied: hyperlink&gt;=17.1.1 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (21.0.0)
-Requirement already satisfied: typing-extensions&gt;=3.6.5 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (4.1.1)
-Requirement already satisfied: zope.interface&gt;=4.4.2 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (5.5.0)
 Requirement already satisfied: Automat&gt;=0.8.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (20.2.0)
 Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (22.1.0)
+Requirement already satisfied: typing-extensions&gt;=3.6.5 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (4.1.1)
+Requirement already satisfied: incremental&gt;=21.3.0 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (22.10.0)
+Requirement already satisfied: hyperlink&gt;=17.1.1 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (21.0.0)
+Requirement already satisfied: zope.interface&gt;=4.4.2 in /usr/local/lib/python3.7/dist-packages (from Twisted&gt;=16.0-&gt;crochet) (5.5.0)
 Requirement already satisfied: six in /usr/local/lib/python3.7/dist-packages (from Automat&gt;=0.8.0-&gt;Twisted&gt;=16.0-&gt;crochet) (1.15.0)
 Requirement already satisfied: idna&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from hyperlink&gt;=17.1.1-&gt;Twisted&gt;=16.0-&gt;crochet) (2.10)
 Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from zope.interface&gt;=4.4.2-&gt;Twisted&gt;=16.0-&gt;crochet) (57.4.0)
@@ -2792,7 +2871,7 @@ Successfully installed crochet-2.0.0
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a44f9a56-aaa1-4f69-a194-689f7780a11c">
+  <div id="df-e6c16184-fdb2-45ab-8834-2f875c00e6a4">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -2875,7 +2954,7 @@ Successfully installed crochet-2.0.0
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-a44f9a56-aaa1-4f69-a194-689f7780a11c')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-e6c16184-fdb2-45ab-8834-2f875c00e6a4')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -2926,12 +3005,12 @@ Successfully installed crochet-2.0.0
 
       <script>
         const buttonEl =
-          document.querySelector('#df-a44f9a56-aaa1-4f69-a194-689f7780a11c button.colab-df-convert');
+          document.querySelector('#df-e6c16184-fdb2-45ab-8834-2f875c00e6a4 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-a44f9a56-aaa1-4f69-a194-689f7780a11c');
+          const element = document.querySelector('#df-e6c16184-fdb2-45ab-8834-2f875c00e6a4');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2964,7 +3043,7 @@ Successfully installed crochet-2.0.0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting PyPDF2
   Downloading PyPDF2-2.11.1-py3-none-any.whl (220 kB)
-     |████████████████████████████████| 220 kB 2.2 MB/s 
+     |████████████████████████████████| 220 kB 7.9 MB/s 
 ?25hRequirement already satisfied: typing-extensions&gt;=3.10.0.0 in /usr/local/lib/python3.7/dist-packages (from PyPDF2) (4.1.1)
 Installing collected packages: PyPDF2
 Successfully installed PyPDF2-2.11.1
@@ -3389,7 +3468,7 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4fdb16fd-2570-4032-8e6e-ea3c99f4a522">
+  <div id="df-899c6286-c550-4498-a5e0-fcf9bcc2dd56">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -3502,7 +3581,7 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-4fdb16fd-2570-4032-8e6e-ea3c99f4a522')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-899c6286-c550-4498-a5e0-fcf9bcc2dd56')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -3553,12 +3632,12 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
 
       <script>
         const buttonEl =
-          document.querySelector('#df-4fdb16fd-2570-4032-8e6e-ea3c99f4a522 button.colab-df-convert');
+          document.querySelector('#df-899c6286-c550-4498-a5e0-fcf9bcc2dd56 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-4fdb16fd-2570-4032-8e6e-ea3c99f4a522');
+          const element = document.querySelector('#df-899c6286-c550-4498-a5e0-fcf9bcc2dd56');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -3589,7 +3668,7 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-88dac0a7-7dbf-41c0-a6be-a3fb5728c845">
+  <div id="df-9f279050-fe9f-4784-a6dc-b3fbcae6f4c5">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -3702,7 +3781,7 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-88dac0a7-7dbf-41c0-a6be-a3fb5728c845')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-9f279050-fe9f-4784-a6dc-b3fbcae6f4c5')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -3753,12 +3832,12 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
 
       <script>
         const buttonEl =
-          document.querySelector('#df-88dac0a7-7dbf-41c0-a6be-a3fb5728c845 button.colab-df-convert');
+          document.querySelector('#df-9f279050-fe9f-4784-a6dc-b3fbcae6f4c5 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-88dac0a7-7dbf-41c0-a6be-a3fb5728c845');
+          const element = document.querySelector('#df-9f279050-fe9f-4784-a6dc-b3fbcae6f4c5');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -3788,7 +3867,7 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8a16e458-96fc-456a-b6cd-f97e6e3d4551">
+  <div id="df-0150e0f8-642c-4fb8-821d-4012a37e3109">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -3841,7 +3920,7 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-8a16e458-96fc-456a-b6cd-f97e6e3d4551')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0150e0f8-642c-4fb8-821d-4012a37e3109')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -3892,12 +3971,12 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
 
       <script>
         const buttonEl =
-          document.querySelector('#df-8a16e458-96fc-456a-b6cd-f97e6e3d4551 button.colab-df-convert');
+          document.querySelector('#df-0150e0f8-642c-4fb8-821d-4012a37e3109 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-8a16e458-96fc-456a-b6cd-f97e6e3d4551');
+          const element = document.querySelector('#df-0150e0f8-642c-4fb8-821d-4012a37e3109');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -3917,6 +3996,254 @@ Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri
     </div>
   </div>
 </div></div>
+</div>
+</section>
+<section id="latent-semantic-indexing-lsi-topik-berita">
+<h2>Latent Semantic Indexing(LSI) Topik Berita<a class="headerlink" href="#latent-semantic-indexing-lsi-topik-berita" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nltk
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: nltk in /usr/local/lib/python3.7/dist-packages (3.7)
+Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.2.0)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
+Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
+Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install PySastrawi
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: PySastrawi in /usr/local/lib/python3.7/dist-packages (1.2.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install Sastrawi
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: Sastrawi in /usr/local/lib/python3.7/dist-packages (1.0.1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyPDF2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdfReader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/webmining/webmining/contents/news.pdf&#39;</span><span class="p">)</span>
+<span class="n">pageObj</span> <span class="o">=</span> <span class="n">pdfReader</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">pageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TEMPO.CO, Jakarta - Presiden Joko Widodo atau Jokowi mengklaim Indonesia tidak dikenai sanksi 
+oleh Federasi Sepak Bola Internasional (FIFA) usai Tragedi Kanjuruhan di Malang, Jawa Timur yang 
+menelan korban jiwa hingga 131 orang. Sebelumnya, Jokowi khawatir Indonesia dikenai sanksi 
+hingga menelepon dan mengutus Menteri BUMN Erick Thohir untuk bertemu Presiden FIFA Gianni 
+Invantino.  
+&quot;Alhamdulillah sepak bola Indonesia tidak dikenakan sanksi oleh FIFA dan FIFA bersama -sama 
+dengan pemerintah akan membentuk tim transformasi sepak bola Indonesia dan FIFA akan 
+berkantor di Indonesia selama proses -proses tersebut,&quot; ujar Jokowi dalam keterangan nya, Sabtu, 
+8 Oktober 2022.   
+Jokowi menjelaskan selain FIFA, Asian Football Confederation atau AFC juga akan membantu 
+pemerintah Indonesia membangun stadion dengan standar keamanan tinggi. Selain itu, kedua 
+organisasi sepak bola itu bakal membantu Indonesia memformulasikan standar protokol dan 
+prosedur pengamanan yang dilakukan kepolisian berdasarkan standar keamanan internasional.  
+&quot;Kita juga akan bersama -sama melakukan sosialisasi dan diskusi dengan klub -klub bola di 
+Indonesia, termasuk perwakilan suporter untuk mendapatkan saran dan masukan, serta 
+komitmen bersama,&quot; kata Jokowi.   
+FIFA dan AFC bakal membantu      
+Selain itu, FIF A dan AFC bakal membantu membuat pengaturan jadwal pertandingan yang 
+memperhitungkan potensi -potensi risiko. Jokowi menyebut Presiden FIFA akan datang ke 
+Indonesia pada Oktober atau November untuk memberikan pendampingan tersebut serta 
+berdiskusi dengan pe merintah.  
+Sebelumnya, Menteri BUMN Erick Thohir membeberkan agenda pertemuannya dengan Gianni 
+Infantino di Qatar, pada Rabu, 5 Oktober 2022. Pertemuan itu membahas soal tragedi Kanjuruhan 
+dan masa depan sepak bola Indonesia.   
+&quot;Selain menyampaikan belasungkawa atas kejadian di Kanjuruhan, kami juga membahas banyak 
+hal untuk kemajuan sepak bola di masa depan, khususnya di Indonesia,&quot; kata Erick.  
+Di dalam pert emuan itu, menurut Erick, FIFA melihat adanya potensi, popularitas, dan 
+perkembangan sepak bola yang besar di Indonesia. Dikaitkan dengan pertumbuhan ekonomi 
+nasional yang konstan, pasar yang besar, dan kondisi sosial politik yang stabil, FIFA menyatakan 
+siap memberikan dukungan maksimal.  
+Dukungan itu diberikan FIFA, kata Erick, agar sepak bola yang merupakan olahraga paling populer 
+dan dicintai di Indonesia dapat menjadi kebanggaan bangsa dan salah satu pilar yang 
+berkontribusi bagi kemajuan bangsa.  
+&quot;Pada kesempatan ini saya juga menyampaikan salam dan surat khusus dari Presiden Joko Widodo 
+kepada Presiden FIFA, Gianni Infantino,&quot; ucap Erick Thohir.  
+Adapun Presiden Jokowi sebelumnya telah menelepon Presiden FIFA Giovanni Vincenzo Infantino 
+untuk membahas tragedi Kanjuruhan setelah pertandingan sepak bola di Stadion Kanjuruhan, 
+Kabupaten Malang, Jawa Timur.  
+M JULNIS FIRMANSYAH      
+Baca: Kronologi Tragedi Kanjuruhan Malang yang Dipaparkan Kapolri  
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;TEMPO.CO&#39;, &#39;,&#39;, &#39;Jakarta&#39;, &#39;-&#39;, &#39;Presiden&#39;, &#39;Joko&#39;, &#39;Widodo&#39;, &#39;atau&#39;, &#39;Jokowi&#39;, &#39;mengklaim&#39;, &#39;Indonesia&#39;, &#39;tidak&#39;, &#39;dikenai&#39;, &#39;sanksi&#39;, &#39;oleh&#39;, &#39;Federasi&#39;, &#39;Sepak&#39;, &#39;Bola&#39;, &#39;Internasional&#39;, &#39;(&#39;, &#39;FIFA&#39;, &#39;)&#39;, &#39;usai&#39;, &#39;Tragedi&#39;, &#39;Kanjuruhan&#39;, &#39;di&#39;, &#39;Malang&#39;, &#39;,&#39;, &#39;Jawa&#39;, &#39;Timur&#39;, &#39;yang&#39;, &#39;menelan&#39;, &#39;korban&#39;, &#39;jiwa&#39;, &#39;hingga&#39;, &#39;131&#39;, &#39;orang&#39;, &#39;.&#39;, &#39;Sebelumnya&#39;, &#39;,&#39;, &#39;Jokowi&#39;, &#39;khawatir&#39;, &#39;Indonesia&#39;, &#39;dikenai&#39;, &#39;sanksi&#39;, &#39;hingga&#39;, &#39;menelepon&#39;, &#39;dan&#39;, &#39;mengutus&#39;, &#39;Menteri&#39;, &#39;BUMN&#39;, &#39;Erick&#39;, &#39;Thohir&#39;, &#39;untuk&#39;, &#39;bertemu&#39;, &#39;Presiden&#39;, &#39;FIFA&#39;, &#39;Gianni&#39;, &#39;Invantino&#39;, &#39;.&#39;, &#39;``&#39;, &#39;Alhamdulillah&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;Indonesia&#39;, &#39;tidak&#39;, &#39;dikenakan&#39;, &#39;sanksi&#39;, &#39;oleh&#39;, &#39;FIFA&#39;, &#39;dan&#39;, &#39;FIFA&#39;, &#39;bersama&#39;, &#39;-sama&#39;, &#39;dengan&#39;, &#39;pemerintah&#39;, &#39;akan&#39;, &#39;membentuk&#39;, &#39;tim&#39;, &#39;transformasi&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;Indonesia&#39;, &#39;dan&#39;, &#39;FIFA&#39;, &#39;akan&#39;, &#39;berkantor&#39;, &#39;di&#39;, &#39;Indonesia&#39;, &#39;selama&#39;, &#39;proses&#39;, &#39;-proses&#39;, &#39;tersebut&#39;, &#39;,&#39;, &quot;&#39;&#39;&quot;, &#39;ujar&#39;, &#39;Jokowi&#39;, &#39;dalam&#39;, &#39;keterangan&#39;, &#39;nya&#39;, &#39;,&#39;, &#39;Sabtu&#39;, &#39;,&#39;, &#39;8&#39;, &#39;Oktober&#39;, &#39;2022&#39;, &#39;.&#39;, &#39;Jokowi&#39;, &#39;menjelaskan&#39;, &#39;selain&#39;, &#39;FIFA&#39;, &#39;,&#39;, &#39;Asian&#39;, &#39;Football&#39;, &#39;Confederation&#39;, &#39;atau&#39;, &#39;AFC&#39;, &#39;juga&#39;, &#39;akan&#39;, &#39;membantu&#39;, &#39;pemerintah&#39;, &#39;Indonesia&#39;, &#39;membangun&#39;, &#39;stadion&#39;, &#39;dengan&#39;, &#39;standar&#39;, &#39;keamanan&#39;, &#39;tinggi&#39;, &#39;.&#39;, &#39;Selain&#39;, &#39;itu&#39;, &#39;,&#39;, &#39;kedua&#39;, &#39;organisasi&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;itu&#39;, &#39;bakal&#39;, &#39;membantu&#39;, &#39;Indonesia&#39;, &#39;memformulasikan&#39;, &#39;standar&#39;, &#39;protokol&#39;, &#39;dan&#39;, &#39;prosedur&#39;, &#39;pengamanan&#39;, &#39;yang&#39;, &#39;dilakukan&#39;, &#39;kepolisian&#39;, &#39;berdasarkan&#39;, &#39;standar&#39;, &#39;keamanan&#39;, &#39;internasional&#39;, &#39;.&#39;, &#39;``&#39;, &#39;Kita&#39;, &#39;juga&#39;, &#39;akan&#39;, &#39;bersama&#39;, &#39;-sama&#39;, &#39;melakukan&#39;, &#39;sosialisasi&#39;, &#39;dan&#39;, &#39;diskusi&#39;, &#39;dengan&#39;, &#39;klub&#39;, &#39;-klub&#39;, &#39;bola&#39;, &#39;di&#39;, &#39;Indonesia&#39;, &#39;,&#39;, &#39;termasuk&#39;, &#39;perwakilan&#39;, &#39;suporter&#39;, &#39;untuk&#39;, &#39;mendapatkan&#39;, &#39;saran&#39;, &#39;dan&#39;, &#39;masukan&#39;, &#39;,&#39;, &#39;serta&#39;, &#39;komitmen&#39;, &#39;bersama&#39;, &#39;,&#39;, &quot;&#39;&#39;&quot;, &#39;kata&#39;, &#39;Jokowi&#39;, &#39;.&#39;, &#39;FIFA&#39;, &#39;dan&#39;, &#39;AFC&#39;, &#39;bakal&#39;, &#39;membantu&#39;, &#39;Selain&#39;, &#39;itu&#39;, &#39;,&#39;, &#39;FIF&#39;, &#39;A&#39;, &#39;dan&#39;, &#39;AFC&#39;, &#39;bakal&#39;, &#39;membantu&#39;, &#39;membuat&#39;, &#39;pengaturan&#39;, &#39;jadwal&#39;, &#39;pertandingan&#39;, &#39;yang&#39;, &#39;memperhitungkan&#39;, &#39;potensi&#39;, &#39;-potensi&#39;, &#39;risiko&#39;, &#39;.&#39;, &#39;Jokowi&#39;, &#39;menyebut&#39;, &#39;Presiden&#39;, &#39;FIFA&#39;, &#39;akan&#39;, &#39;datang&#39;, &#39;ke&#39;, &#39;Indonesia&#39;, &#39;pada&#39;, &#39;Oktober&#39;, &#39;atau&#39;, &#39;November&#39;, &#39;untuk&#39;, &#39;memberikan&#39;, &#39;pendampingan&#39;, &#39;tersebut&#39;, &#39;serta&#39;, &#39;berdiskusi&#39;, &#39;dengan&#39;, &#39;pe&#39;, &#39;merintah&#39;, &#39;.&#39;, &#39;Sebelumnya&#39;, &#39;,&#39;, &#39;Menteri&#39;, &#39;BUMN&#39;, &#39;Erick&#39;, &#39;Thohir&#39;, &#39;membeberkan&#39;, &#39;agenda&#39;, &#39;pertemuannya&#39;, &#39;dengan&#39;, &#39;Gianni&#39;, &#39;Infantino&#39;, &#39;di&#39;, &#39;Qatar&#39;, &#39;,&#39;, &#39;pada&#39;, &#39;Rabu&#39;, &#39;,&#39;, &#39;5&#39;, &#39;Oktober&#39;, &#39;2022&#39;, &#39;.&#39;, &#39;Pertemuan&#39;, &#39;itu&#39;, &#39;membahas&#39;, &#39;soal&#39;, &#39;tragedi&#39;, &#39;Kanjuruhan&#39;, &#39;dan&#39;, &#39;masa&#39;, &#39;depan&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;Indonesia&#39;, &#39;.&#39;, &#39;``&#39;, &#39;Selain&#39;, &#39;menyampaikan&#39;, &#39;belasungkawa&#39;, &#39;atas&#39;, &#39;kejadian&#39;, &#39;di&#39;, &#39;Kanjuruhan&#39;, &#39;,&#39;, &#39;kami&#39;, &#39;juga&#39;, &#39;membahas&#39;, &#39;banyak&#39;, &#39;hal&#39;, &#39;untuk&#39;, &#39;kemajuan&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;di&#39;, &#39;masa&#39;, &#39;depan&#39;, &#39;,&#39;, &#39;khususnya&#39;, &#39;di&#39;, &#39;Indonesia&#39;, &#39;,&#39;, &quot;&#39;&#39;&quot;, &#39;kata&#39;, &#39;Erick&#39;, &#39;.&#39;, &#39;Di&#39;, &#39;dalam&#39;, &#39;pert&#39;, &#39;emuan&#39;, &#39;itu&#39;, &#39;,&#39;, &#39;menurut&#39;, &#39;Erick&#39;, &#39;,&#39;, &#39;FIFA&#39;, &#39;melihat&#39;, &#39;adanya&#39;, &#39;potensi&#39;, &#39;,&#39;, &#39;popularitas&#39;, &#39;,&#39;, &#39;dan&#39;, &#39;perkembangan&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;yang&#39;, &#39;besar&#39;, &#39;di&#39;, &#39;Indonesia&#39;, &#39;.&#39;, &#39;Dikaitkan&#39;, &#39;dengan&#39;, &#39;pertumbuhan&#39;, &#39;ekonomi&#39;, &#39;nasional&#39;, &#39;yang&#39;, &#39;konstan&#39;, &#39;,&#39;, &#39;pasar&#39;, &#39;yang&#39;, &#39;besar&#39;, &#39;,&#39;, &#39;dan&#39;, &#39;kondisi&#39;, &#39;sosial&#39;, &#39;politik&#39;, &#39;yang&#39;, &#39;stabil&#39;, &#39;,&#39;, &#39;FIFA&#39;, &#39;menyatakan&#39;, &#39;siap&#39;, &#39;memberikan&#39;, &#39;dukungan&#39;, &#39;maksimal&#39;, &#39;.&#39;, &#39;Dukungan&#39;, &#39;itu&#39;, &#39;diberikan&#39;, &#39;FIFA&#39;, &#39;,&#39;, &#39;kata&#39;, &#39;Erick&#39;, &#39;,&#39;, &#39;agar&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;yang&#39;, &#39;merupakan&#39;, &#39;olahraga&#39;, &#39;paling&#39;, &#39;populer&#39;, &#39;dan&#39;, &#39;dicintai&#39;, &#39;di&#39;, &#39;Indonesia&#39;, &#39;dapat&#39;, &#39;menjadi&#39;, &#39;kebanggaan&#39;, &#39;bangsa&#39;, &#39;dan&#39;, &#39;salah&#39;, &#39;satu&#39;, &#39;pilar&#39;, &#39;yang&#39;, &#39;berkontribusi&#39;, &#39;bagi&#39;, &#39;kemajuan&#39;, &#39;bangsa&#39;, &#39;.&#39;, &#39;``&#39;, &#39;Pada&#39;, &#39;kesempatan&#39;, &#39;ini&#39;, &#39;saya&#39;, &#39;juga&#39;, &#39;menyampaikan&#39;, &#39;salam&#39;, &#39;dan&#39;, &#39;surat&#39;, &#39;khusus&#39;, &#39;dari&#39;, &#39;Presiden&#39;, &#39;Joko&#39;, &#39;Widodo&#39;, &#39;kepada&#39;, &#39;Presiden&#39;, &#39;FIFA&#39;, &#39;,&#39;, &#39;Gianni&#39;, &#39;Infantino&#39;, &#39;,&#39;, &quot;&#39;&#39;&quot;, &#39;ucap&#39;, &#39;Erick&#39;, &#39;Thohir&#39;, &#39;.&#39;, &#39;Adapun&#39;, &#39;Presiden&#39;, &#39;Jokowi&#39;, &#39;sebelumnya&#39;, &#39;telah&#39;, &#39;menelepon&#39;, &#39;Presiden&#39;, &#39;FIFA&#39;, &#39;Giovanni&#39;, &#39;Vincenzo&#39;, &#39;Infantino&#39;, &#39;untuk&#39;, &#39;membahas&#39;, &#39;tragedi&#39;, &#39;Kanjuruhan&#39;, &#39;setelah&#39;, &#39;pertandingan&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;di&#39;, &#39;Stadion&#39;, &#39;Kanjuruhan&#39;, &#39;,&#39;, &#39;Kabupaten&#39;, &#39;Malang&#39;, &#39;,&#39;, &#39;Jawa&#39;, &#39;Timur&#39;, &#39;.&#39;, &#39;M&#39;, &#39;JULNIS&#39;, &#39;FIRMANSYAH&#39;, &#39;Baca&#39;, &#39;:&#39;, &#39;Kronologi&#39;, &#39;Tragedi&#39;, &#39;Kanjuruhan&#39;, &#39;Malang&#39;, &#39;yang&#39;, &#39;Dipaparkan&#39;, &#39;Kapolri&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
+<span class="n">word_tokens_no_stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_tokens</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_tokens_no_stopwords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;TEMPO.CO&#39;, &#39;,&#39;, &#39;Jakarta&#39;, &#39;-&#39;, &#39;Presiden&#39;, &#39;Joko&#39;, &#39;Widodo&#39;, &#39;Jokowi&#39;, &#39;mengklaim&#39;, &#39;Indonesia&#39;, &#39;dikenai&#39;, &#39;sanksi&#39;, &#39;Federasi&#39;, &#39;Sepak&#39;, &#39;Bola&#39;, &#39;Internasional&#39;, &#39;(&#39;, &#39;FIFA&#39;, &#39;)&#39;, &#39;Tragedi&#39;, &#39;Kanjuruhan&#39;, &#39;Malang&#39;, &#39;,&#39;, &#39;Jawa&#39;, &#39;Timur&#39;, &#39;menelan&#39;, &#39;korban&#39;, &#39;jiwa&#39;, &#39;131&#39;, &#39;orang&#39;, &#39;.&#39;, &#39;Sebelumnya&#39;, &#39;,&#39;, &#39;Jokowi&#39;, &#39;khawatir&#39;, &#39;Indonesia&#39;, &#39;dikenai&#39;, &#39;sanksi&#39;, &#39;menelepon&#39;, &#39;mengutus&#39;, &#39;Menteri&#39;, &#39;BUMN&#39;, &#39;Erick&#39;, &#39;Thohir&#39;, &#39;bertemu&#39;, &#39;Presiden&#39;, &#39;FIFA&#39;, &#39;Gianni&#39;, &#39;Invantino&#39;, &#39;.&#39;, &#39;``&#39;, &#39;Alhamdulillah&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;Indonesia&#39;, &#39;dikenakan&#39;, &#39;sanksi&#39;, &#39;FIFA&#39;, &#39;FIFA&#39;, &#39;-sama&#39;, &#39;pemerintah&#39;, &#39;membentuk&#39;, &#39;tim&#39;, &#39;transformasi&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;Indonesia&#39;, &#39;FIFA&#39;, &#39;berkantor&#39;, &#39;Indonesia&#39;, &#39;proses&#39;, &#39;-proses&#39;, &#39;,&#39;, &quot;&#39;&#39;&quot;, &#39;Jokowi&#39;, &#39;keterangan&#39;, &#39;nya&#39;, &#39;,&#39;, &#39;Sabtu&#39;, &#39;,&#39;, &#39;8&#39;, &#39;Oktober&#39;, &#39;2022&#39;, &#39;.&#39;, &#39;Jokowi&#39;, &#39;FIFA&#39;, &#39;,&#39;, &#39;Asian&#39;, &#39;Football&#39;, &#39;Confederation&#39;, &#39;AFC&#39;, &#39;membantu&#39;, &#39;pemerintah&#39;, &#39;Indonesia&#39;, &#39;membangun&#39;, &#39;stadion&#39;, &#39;standar&#39;, &#39;keamanan&#39;, &#39;.&#39;, &#39;Selain&#39;, &#39;,&#39;, &#39;organisasi&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;membantu&#39;, &#39;Indonesia&#39;, &#39;memformulasikan&#39;, &#39;standar&#39;, &#39;protokol&#39;, &#39;prosedur&#39;, &#39;pengamanan&#39;, &#39;kepolisian&#39;, &#39;berdasarkan&#39;, &#39;standar&#39;, &#39;keamanan&#39;, &#39;internasional&#39;, &#39;.&#39;, &#39;``&#39;, &#39;Kita&#39;, &#39;-sama&#39;, &#39;sosialisasi&#39;, &#39;diskusi&#39;, &#39;klub&#39;, &#39;-klub&#39;, &#39;bola&#39;, &#39;Indonesia&#39;, &#39;,&#39;, &#39;perwakilan&#39;, &#39;suporter&#39;, &#39;saran&#39;, &#39;masukan&#39;, &#39;,&#39;, &#39;komitmen&#39;, &#39;,&#39;, &quot;&#39;&#39;&quot;, &#39;Jokowi&#39;, &#39;.&#39;, &#39;FIFA&#39;, &#39;AFC&#39;, &#39;membantu&#39;, &#39;Selain&#39;, &#39;,&#39;, &#39;FIF&#39;, &#39;A&#39;, &#39;AFC&#39;, &#39;membantu&#39;, &#39;pengaturan&#39;, &#39;jadwal&#39;, &#39;pertandingan&#39;, &#39;memperhitungkan&#39;, &#39;potensi&#39;, &#39;-potensi&#39;, &#39;risiko&#39;, &#39;.&#39;, &#39;Jokowi&#39;, &#39;menyebut&#39;, &#39;Presiden&#39;, &#39;FIFA&#39;, &#39;Indonesia&#39;, &#39;Oktober&#39;, &#39;November&#39;, &#39;pendampingan&#39;, &#39;berdiskusi&#39;, &#39;pe&#39;, &#39;merintah&#39;, &#39;.&#39;, &#39;Sebelumnya&#39;, &#39;,&#39;, &#39;Menteri&#39;, &#39;BUMN&#39;, &#39;Erick&#39;, &#39;Thohir&#39;, &#39;membeberkan&#39;, &#39;agenda&#39;, &#39;pertemuannya&#39;, &#39;Gianni&#39;, &#39;Infantino&#39;, &#39;Qatar&#39;, &#39;,&#39;, &#39;Rabu&#39;, &#39;,&#39;, &#39;5&#39;, &#39;Oktober&#39;, &#39;2022&#39;, &#39;.&#39;, &#39;Pertemuan&#39;, &#39;membahas&#39;, &#39;tragedi&#39;, &#39;Kanjuruhan&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;Indonesia&#39;, &#39;.&#39;, &#39;``&#39;, &#39;Selain&#39;, &#39;belasungkawa&#39;, &#39;kejadian&#39;, &#39;Kanjuruhan&#39;, &#39;,&#39;, &#39;membahas&#39;, &#39;kemajuan&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;,&#39;, &#39;Indonesia&#39;, &#39;,&#39;, &quot;&#39;&#39;&quot;, &#39;Erick&#39;, &#39;.&#39;, &#39;Di&#39;, &#39;pert&#39;, &#39;emuan&#39;, &#39;,&#39;, &#39;Erick&#39;, &#39;,&#39;, &#39;FIFA&#39;, &#39;potensi&#39;, &#39;,&#39;, &#39;popularitas&#39;, &#39;,&#39;, &#39;perkembangan&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;Indonesia&#39;, &#39;.&#39;, &#39;Dikaitkan&#39;, &#39;pertumbuhan&#39;, &#39;ekonomi&#39;, &#39;nasional&#39;, &#39;konstan&#39;, &#39;,&#39;, &#39;pasar&#39;, &#39;,&#39;, &#39;kondisi&#39;, &#39;sosial&#39;, &#39;politik&#39;, &#39;stabil&#39;, &#39;,&#39;, &#39;FIFA&#39;, &#39;dukungan&#39;, &#39;maksimal&#39;, &#39;.&#39;, &#39;Dukungan&#39;, &#39;FIFA&#39;, &#39;,&#39;, &#39;Erick&#39;, &#39;,&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;olahraga&#39;, &#39;populer&#39;, &#39;dicintai&#39;, &#39;Indonesia&#39;, &#39;kebanggaan&#39;, &#39;bangsa&#39;, &#39;salah&#39;, &#39;pilar&#39;, &#39;berkontribusi&#39;, &#39;kemajuan&#39;, &#39;bangsa&#39;, &#39;.&#39;, &#39;``&#39;, &#39;Pada&#39;, &#39;kesempatan&#39;, &#39;salam&#39;, &#39;surat&#39;, &#39;khusus&#39;, &#39;Presiden&#39;, &#39;Joko&#39;, &#39;Widodo&#39;, &#39;Presiden&#39;, &#39;FIFA&#39;, &#39;,&#39;, &#39;Gianni&#39;, &#39;Infantino&#39;, &#39;,&#39;, &quot;&#39;&#39;&quot;, &#39;Erick&#39;, &#39;Thohir&#39;, &#39;.&#39;, &#39;Adapun&#39;, &#39;Presiden&#39;, &#39;Jokowi&#39;, &#39;menelepon&#39;, &#39;Presiden&#39;, &#39;FIFA&#39;, &#39;Giovanni&#39;, &#39;Vincenzo&#39;, &#39;Infantino&#39;, &#39;membahas&#39;, &#39;tragedi&#39;, &#39;Kanjuruhan&#39;, &#39;pertandingan&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;Stadion&#39;, &#39;Kanjuruhan&#39;, &#39;,&#39;, &#39;Kabupaten&#39;, &#39;Malang&#39;, &#39;,&#39;, &#39;Jawa&#39;, &#39;Timur&#39;, &#39;.&#39;, &#39;M&#39;, &#39;JULNIS&#39;, &#39;FIRMANSYAH&#39;, &#39;Baca&#39;, &#39;:&#39;, &#39;Kronologi&#39;, &#39;Tragedi&#39;, &#39;Kanjuruhan&#39;, &#39;Malang&#39;, &#39;Dipaparkan&#39;, &#39;Kapolri&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">RegexpTokenizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vectorize document using TF-IDF</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">ngram_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Fit and Transform the documents</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">word_tokens_no_stopwords</span><span class="p">)</span>
+<span class="n">train_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;315x141 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
+	with 253 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_components</span><span class="o">=</span><span class="mi">10</span>
+
+<span class="c1"># Create SVD object</span>
+<span class="n">lsa</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">num_components</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Fit SVD model on data</span>
+<span class="n">lsa</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+
+<span class="c1"># Get Singular values and Components </span>
+<span class="n">Sigma</span> <span class="o">=</span> <span class="n">lsa</span><span class="o">.</span><span class="n">singular_values_</span> 
+<span class="n">V_transpose</span> <span class="o">=</span> <span class="n">lsa</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">T</span>
+<span class="n">V_transpose</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.76411253e-40, -6.05571388e-34,  1.29759521e-28, ...,
+         3.58308622e-47, -8.56927179e-42,  1.51873740e-41],
+       [-1.51182000e-41,  1.47888260e-41,  1.11202112e-29, ...,
+         2.78209105e-36,  7.09623423e-32,  1.36102024e-31],
+       [ 1.25877713e-38, -3.35498012e-36,  1.89228285e-26, ...,
+         2.61724925e-35, -6.23459073e-30,  1.10486958e-29],
+       ...,
+       [ 8.95224200e-82,  2.04375092e-71,  4.21445647e-81, ...,
+         3.81834753e-67,  2.24323584e-62, -7.88042045e-62],
+       [ 1.34216341e-82,  3.42339915e-72,  1.84045500e-81, ...,
+        -9.51542727e-66,  4.58719364e-62,  1.14798657e-62],
+       [-5.86541397e-51, -1.34215608e-40, -2.05482515e-41, ...,
+        -6.58044396e-19, -3.69409347e-31,  1.41803731e-31]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the topics with their terms</span>
+<span class="n">terms</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">component</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lsa</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
+    <span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">component</span><span class="p">)</span>
+    <span class="n">top_terms_key</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">zipped</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">top_terms_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">top_terms_key</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Topic &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;: &quot;</span><span class="p">,</span><span class="n">top_terms_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 1:  [&#39;indonesia&#39;, &#39;fifa&#39;, &#39;bola&#39;, &#39;sepak&#39;, &#39;afc&#39;]
+Topic 2:  [&#39;fifa&#39;, &#39;co&#39;, &#39;tempo&#39;, &#39;presiden&#39;, &#39;jokowi&#39;]
+Topic 3:  [&#39;bola&#39;, &#39;sepak&#39;, &#39;adapun&#39;, &#39;jakarta&#39;, &#39;131&#39;]
+Topic 4:  [&#39;sepak&#39;, &#39;fifa&#39;, &#39;adapun&#39;, &#39;jakarta&#39;, &#39;presiden&#39;]
+Topic 5:  [&#39;presiden&#39;, &#39;jokowi&#39;, &#39;indonesia&#39;, &#39;afc&#39;, &#39;standar&#39;]
+Topic 6:  [&#39;jokowi&#39;, &#39;erick&#39;, &#39;agenda&#39;, &#39;selain&#39;, &#39;tragedi&#39;]
+Topic 7:  [&#39;erick&#39;, &#39;membantu&#39;, &#39;potensi&#39;, &#39;oktober&#39;, &#39;infantino&#39;]
+Topic 8:  [&#39;kanjuruhan&#39;, &#39;erick&#39;, &#39;membantu&#39;, &#39;joko&#39;, &#39;potensi&#39;]
+Topic 9:  [&#39;tragedi&#39;, &#39;gianni&#39;, &#39;membahas&#39;, &#39;standar&#39;, &#39;selain&#39;]
+Topic 10:  [&#39;membantu&#39;, &#39;tragedi&#39;, &#39;gianni&#39;, &#39;membahas&#39;, &#39;standar&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>

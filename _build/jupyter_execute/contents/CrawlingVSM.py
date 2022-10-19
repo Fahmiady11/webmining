@@ -78,7 +78,7 @@ nest_asyncio.apply()
 
 # \configurasi Twint dengan value seperti dibawah
 
-# In[72]:
+# In[8]:
 
 
 c = twint.Config()
@@ -830,4 +830,116 @@ sortSentence
 
 
 sortSentence.head(5)
+
+
+# ## Latent Semantic Indexing(LSI) Topik Berita
+
+# In[55]:
+
+
+get_ipython().system('pip install nltk')
+
+
+# In[56]:
+
+
+get_ipython().system('pip install PySastrawi')
+
+
+# In[57]:
+
+
+get_ipython().system('pip install Sastrawi')
+
+
+# In[58]:
+
+
+import PyPDF2
+
+
+# In[59]:
+
+
+pdfReader = PyPDF2.PdfFileReader('/content/drive/MyDrive/webmining/webmining/contents/news.pdf')
+pageObj = pdfReader.getPage(0)
+document = pageObj.extractText()
+print(document)
+
+
+# In[60]:
+
+
+import pandas as pd
+import re
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import nltk
+nltk.download('stopwords')
+
+
+# In[61]:
+
+
+word_tokens = word_tokenize(document)
+print(word_tokens)
+
+
+# In[62]:
+
+
+stop_words = set(stopwords.words('indonesian'))
+word_tokens_no_stopwords = [w for w in word_tokens if not w in stop_words]
+print(word_tokens_no_stopwords)
+
+
+# In[63]:
+
+
+import os
+from nltk.tokenize import RegexpTokenizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import TruncatedSVD
+
+
+# In[64]:
+
+
+# Vectorize document using TF-IDF
+tfidf = TfidfVectorizer(lowercase=True,
+                        ngram_range = (1,1))
+
+# Fit and Transform the documents
+train_data = tfidf.fit_transform(word_tokens_no_stopwords)
+train_data
+
+
+# In[65]:
+
+
+num_components=10
+
+# Create SVD object
+lsa = TruncatedSVD(n_components=num_components, n_iter=100, random_state=42)
+
+# Fit SVD model on data
+lsa.fit_transform(train_data)
+
+# Get Singular values and Components 
+Sigma = lsa.singular_values_ 
+V_transpose = lsa.components_.T
+V_transpose
+
+
+# In[66]:
+
+
+# Print the topics with their terms
+terms = tfidf.get_feature_names()
+
+for index, component in enumerate(lsa.components_):
+    zipped = zip(terms, component)
+    top_terms_key=sorted(zipped, key = lambda t: t[1], reverse=True)[:5]
+    top_terms_list=list(dict(top_terms_key).keys())
+    print("Topic "+str(index+1)+": ",top_terms_list)
 
