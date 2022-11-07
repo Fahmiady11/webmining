@@ -385,10 +385,99 @@ X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1)
     random_state=0)
 
 
+# In[27]:
+
+
+# from sklearn import model_selection
+# from sklearn.ensemble import BaggingClassifier
+# from sklearn.tree import DecisionTreeClassifier
+# import pandas as pd
+
+# X = X_train
+# Y = y_train
+
+# # seed = 8
+# # kfold = model_selection.KFold(n_splits = 3,
+# # 					random_state = seed)
+
+# # initialize the base classifier
+# base_cls = DecisionTreeClassifier()
+
+# # no. of base classifier
+# num_trees = 500
+
+# # bagging classifier
+# model = BaggingClassifier(base_estimator = base_cls,
+# 						n_estimators = num_trees)
+
+# results = model_selection.cross_val_score(model, X, Y)
+# print("accuracy :")
+# print(results.mean())
+
+
+# In[28]:
+
+
+# from sklearn import model_selection
+# from sklearn.ensemble import BaggingClassifier
+# from sklearn.svm import SVC
+# import pandas as pd
+
+# X = X_train
+# Y = y_train
+
+# # seed = 8
+# # kfold = model_selection.KFold(n_splits = 3,
+# # 					random_state = seed)
+
+# # initialize the base classifier
+# base_cls = SVC()
+
+# # no. of base classifier
+# num_trees = 500
+
+# # bagging classifier
+# model = BaggingClassifier(base_estimator = base_cls,
+# 						n_estimators = num_trees)
+
+# results = model_selection.cross_val_score(model, X, Y)
+# print("accuracy :")
+# print(results.mean())
+
+
+# In[29]:
+
+
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.datasets import make_classification
+# from sklearn.model_selection import GridSearchCV
+
+# n_estimators = [i for i in (5,21,1)]
+# parameters = dict(n_estimators)
+# # Instantiating the GridSearchCV object
+# rand=RandomForestClassifier()
+# logreg_cv = GridSearchCV(rand, parameters)
+# logrec_cv
+
+# # X = X_train
+# # Y = y_train
+# # clf = RandomForestClassifier(n_estimators, random_state=0)
+# # clf.fit(X, Y)
+
+# # # performing predictions on the test dataset
+# # y_pred = clf.predict(X_test)
+ 
+# # # metrics are used to find accuracy or error
+# # from sklearn import metrics 
+ 
+# # # using metrics module for accuracy calculation
+# # print("ACCURACY OF THE MODEL: ", metrics.accuracy_score(y_test, y_pred))
+
+
 # **Penjelasan mutual_info_classif**
 # mengukur ketergantungan antara variabel. Itu sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi berarti ketergantungan yang lebih tinggi.
 
-# In[27]:
+# In[30]:
 
 
 from sklearn.feature_selection import mutual_info_classif
@@ -398,7 +487,7 @@ mutual_info
 
 # merangking fitur(Kata) sesuai dengan fitur(Kata) yang paling banyak keluar
 
-# In[28]:
+# In[31]:
 
 
 mutual_info = pd.Series(mutual_info)
@@ -408,7 +497,7 @@ mutual_info.sort_values(ascending=False)
 
 # menvisualkan data dengan grafik bar dengan urutan paling besar ke rendah
 
-# In[29]:
+# In[32]:
 
 
 mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
@@ -416,7 +505,7 @@ mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
 
 # Import SelectKBest
 
-# In[30]:
+# In[33]:
 
 
 from sklearn.feature_selection import SelectKBest
@@ -424,7 +513,7 @@ from sklearn.feature_selection import SelectKBest
 
 # Pilih fitur menurut k skor tertinggi.
 
-# In[31]:
+# In[34]:
 
 
 sel_five_cols = SelectKBest(mutual_info_classif, k=100)
@@ -432,7 +521,7 @@ sel_five_cols.fit(X_train, y_train)
 X_train.columns[sel_five_cols.get_support()]
 
 
-# In[32]:
+# In[35]:
 
 
 X_train=X_train.values
@@ -445,7 +534,7 @@ y_test=y_test.values
 
 # Naive Bayes adalah algoritma machine learning yang digunakan untuk keperluan klasifikasi atau pengelompokan suatu data. Algoritma ini didasarkan pada teorema probabilitas yang dikenalkan oleh ilmuwan Inggris Thomas Bayes. Naive Bayes berfungsi memprediksi probabilitas di masa depan berdasarkan pengalaman sebelumnya, sehingga dapat digunakan untuk pengambilan keputusan.
 
-# In[33]:
+# In[36]:
 
 
 # from sklearn.neighbors import KNeighborsClassifier
@@ -458,7 +547,7 @@ gauss.fit(X_train, y_train)
 
 # Menampilkan accuracy dari nilai test dengan method Gaussion Naive Bayes
 
-# In[34]:
+# In[37]:
 
 
 from sklearn.metrics import make_scorer, accuracy_score,precision_score
@@ -471,7 +560,7 @@ accuracy_gauss
 
 # Matplotlib adalah library Python yang fokus pada visualisasi data seperti membuat plot grafik. Matplotlib pertama kali diciptakan oleh John D. Hunter dan sekarang telah dikelola oleh tim developer yang besar. Awalnya matplotlib dirancang untuk menghasilkan plot grafik yang sesuai pada publikasi jurnal atau artikel ilmiah. Matplotlib dapat digunakan dalam skrip Python, Python dan IPython shell, server aplikasi web, dan beberapa toolkit graphical user interface (GUI) lainnya.
 
-# In[35]:
+# In[38]:
 
 
 #import plt
@@ -486,7 +575,7 @@ from sklearn import metrics
 
 # membuat Confusion Matrix dengan column vertical (negatif,netral dan positif) dan column horizontal (negatif,netral dan positif)
 
-# In[36]:
+# In[39]:
 
 
 conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=testing)
@@ -513,14 +602,14 @@ plt.show()
 
 # TruncatedSVD adalah Teknik pengurangan dimensi menggunakan SVD terpotong
 
-# In[37]:
+# In[40]:
 
 
 from sklearn.cluster import KMeans
 from sklearn.decomposition import TruncatedSVD
 
 
-# In[38]:
+# In[41]:
 
 
 # Latih Kmeans dengan n cluster terbaik
@@ -543,20 +632,20 @@ plt.scatter(centroids[:,0] , centroids[:,1] , s = 50, color = 'red')
 
 # Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.
 
-# In[39]:
+# In[42]:
 
 
 get_ipython().system('pip install scrapy')
 get_ipython().system('pip install crochet')
 
 
-# In[40]:
+# In[43]:
 
 
 import scrapy
 
 
-# In[41]:
+# In[44]:
 
 
 import scrapy
@@ -609,7 +698,7 @@ def run_spider():
     return d
 
 
-# In[42]:
+# In[45]:
 
 
 # run_spider()
@@ -617,7 +706,7 @@ def run_spider():
 
 # Mengambil dan Membaca data CSV yang bernama news.csv
 
-# In[43]:
+# In[46]:
 
 
 dataNews = pd.read_csv('news.csv')
@@ -628,7 +717,7 @@ dataNews
 
 # Install PyPDF2
 
-# In[44]:
+# In[47]:
 
 
 get_ipython().system('pip install PyPDF2')
@@ -636,7 +725,7 @@ get_ipython().system('pip install PyPDF2')
 
 # import PyPDF2
 
-# In[45]:
+# In[48]:
 
 
 import PyPDF2
@@ -644,7 +733,7 @@ import PyPDF2
 
 # Membaca Pdf dari file lalu dibuat menjadi bentuk document Text
 
-# In[46]:
+# In[49]:
 
 
 pdfReader = PyPDF2.PdfFileReader('/content/drive/MyDrive/webmining/webmining/contents/news.pdf')
@@ -655,13 +744,13 @@ document
 
 # PunktSentenceTokenizer adalah Sebuah tokenizer kalimat yang menggunakan algoritma tanpa pengawasan untuk membangun model untuk kata-kata singkatan, kolokasi, dan kata-kata yang memulai kalimat dan kemudian menggunakan model itu untuk menemukan batas kalimat.
 
-# In[47]:
+# In[50]:
 
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 
-# In[48]:
+# In[51]:
 
 
 def tokenize(document):
@@ -672,7 +761,7 @@ def tokenize(document):
     return sentences_list
 
 
-# In[49]:
+# In[52]:
 
 
 sentences_list = tokenize(document)
@@ -681,7 +770,7 @@ sentences_list
 
 # Merapikan data di atas sehingga lebih enak dibaca
 
-# In[50]:
+# In[53]:
 
 
 kal=1
@@ -693,7 +782,7 @@ for i in sentences_list:
 
 # Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.
 
-# In[51]:
+# In[54]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
@@ -703,7 +792,7 @@ cv_matrix=vectorizer.fit_transform(sentences_list)
 
 # Menampilkan jumlah Kosa Kata dari Data
 
-# In[52]:
+# In[55]:
 
 
 print ("Banyaknya kosa kata = ", len((vectorizer.get_feature_names_out())))
@@ -711,7 +800,7 @@ print ("Banyaknya kosa kata = ", len((vectorizer.get_feature_names_out())))
 
 # Menampilkan jumlah Kalimat dari Data
 
-# In[53]:
+# In[56]:
 
 
 print ("Banyaknya kalimat = ", (len(sentences_list)))
@@ -719,13 +808,13 @@ print ("Banyaknya kalimat = ", (len(sentences_list)))
 
 # Menampilkan Kosa Kata dari Data
 
-# In[54]:
+# In[57]:
 
 
 print ("kosa kata = ", (vectorizer.get_feature_names_out()))
 
 
-# In[55]:
+# In[58]:
 
 
 # mengubah kumpulan dokumen mentah menjadi matriks fitur TF-IDF
@@ -735,7 +824,7 @@ print(normal_matrix.toarray())
 
 # Menampilkan Jumlah Kalimat dan Kosa Kata
 
-# In[56]:
+# In[59]:
 
 
 normal_matrix.shape
@@ -743,7 +832,7 @@ normal_matrix.shape
 
 # NetworkX adalah paket Python untuk pembuatan, manipulasi, dan studi tentang struktur, dinamika, dan fungsi jaringan yang kompleks. Ini menyediakan:
 
-# In[57]:
+# In[60]:
 
 
 import networkx as nx
@@ -751,20 +840,20 @@ import networkx as nx
 
 # Graph adalah kumpulan dati titik (node) dan garis dimana pasangan – pasangan titik (node) tersebut dihubungkan oleh segmen garis. Node ini biasa disebut simpul (vertex) dan segmen garis disebut ruas (edge)
 
-# In[58]:
+# In[61]:
 
 
 res_graph = normal_matrix * normal_matrix.T
 print(res_graph)
 
 
-# In[59]:
+# In[62]:
 
 
 nx_graph = nx.from_scipy_sparse_matrix(res_graph)
 
 
-# In[60]:
+# In[63]:
 
 
 nx.draw_circular(nx_graph)
@@ -772,7 +861,7 @@ nx.draw_circular(nx_graph)
 
 # Jumlah Banyak Sisi 
 
-# In[61]:
+# In[64]:
 
 
 print('Banyaknya sisi {}'.format(nx_graph.number_of_edges()))
@@ -780,7 +869,7 @@ print('Banyaknya sisi {}'.format(nx_graph.number_of_edges()))
 
 # Menkalikan data dengan data Transpose
 
-# In[62]:
+# In[65]:
 
 
 res_graph = normal_matrix * normal_matrix.T
@@ -788,7 +877,7 @@ res_graph = normal_matrix * normal_matrix.T
 
 # PageRank menghitung peringkat node dalam grafik G berdasarkan struktur tautan masuk. Awalnya dirancang sebagai algoritma untuk menentukan peringkat halaman web.
 
-# In[63]:
+# In[66]:
 
 
 ranks=nx.pagerank(nx_graph,)
@@ -796,7 +885,7 @@ ranks=nx.pagerank(nx_graph,)
 
 # memasukkan data ke array
 
-# In[64]:
+# In[67]:
 
 
 arrRank=[]
@@ -806,7 +895,7 @@ for i in ranks:
 
 # menjadikan data kedalam bentuk tabel lalu digabungkan 
 
-# In[65]:
+# In[68]:
 
 
 dfRanks = pd.DataFrame(arrRank,columns=['PageRank'])
@@ -817,7 +906,7 @@ dfJoin
 
 # Mengurutkan data berdasarkan hasil tertinggi
 
-# In[66]:
+# In[69]:
 
 
 sortSentence=dfJoin.sort_values(by=['PageRank'],ascending=False)
@@ -826,7 +915,7 @@ sortSentence
 
 # Menampilkan data dari 5 ke atas
 
-# In[67]:
+# In[70]:
 
 
 sortSentence.head(5)
@@ -834,31 +923,31 @@ sortSentence.head(5)
 
 # ## Latent Semantic Indexing(LSI) Topik Berita
 
-# In[55]:
+# In[71]:
 
 
 get_ipython().system('pip install nltk')
 
 
-# In[56]:
+# In[72]:
 
 
 get_ipython().system('pip install PySastrawi')
 
 
-# In[57]:
+# In[73]:
 
 
 get_ipython().system('pip install Sastrawi')
 
 
-# In[58]:
+# In[74]:
 
 
 import PyPDF2
 
 
-# In[59]:
+# In[75]:
 
 
 pdfReader = PyPDF2.PdfFileReader('/content/drive/MyDrive/webmining/webmining/contents/news.pdf')
@@ -867,7 +956,7 @@ document = pageObj.extractText()
 print(document)
 
 
-# In[60]:
+# In[76]:
 
 
 import pandas as pd
@@ -878,14 +967,14 @@ import nltk
 nltk.download('stopwords')
 
 
-# In[61]:
+# In[77]:
 
 
 word_tokens = word_tokenize(document)
 print(word_tokens)
 
 
-# In[62]:
+# In[78]:
 
 
 stop_words = set(stopwords.words('indonesian'))
@@ -893,7 +982,7 @@ word_tokens_no_stopwords = [w for w in word_tokens if not w in stop_words]
 print(word_tokens_no_stopwords)
 
 
-# In[63]:
+# In[79]:
 
 
 import os
@@ -902,7 +991,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
 
 
-# In[64]:
+# In[80]:
 
 
 # Vectorize document using TF-IDF
@@ -914,7 +1003,7 @@ train_data = tfidf.fit_transform(word_tokens_no_stopwords)
 train_data
 
 
-# In[65]:
+# In[81]:
 
 
 num_components=10
@@ -931,7 +1020,7 @@ V_transpose = lsa.components_.T
 V_transpose
 
 
-# In[66]:
+# In[82]:
 
 
 # Print the topics with their terms
@@ -942,4 +1031,104 @@ for index, component in enumerate(lsa.components_):
     top_terms_key=sorted(zipped, key = lambda t: t[1], reverse=True)[:5]
     top_terms_list=list(dict(top_terms_key).keys())
     print("Topic "+str(index+1)+": ",top_terms_list)
+
+
+# ## 
+
+# In[83]:
+
+
+from sklearn import model_selection
+from sklearn.ensemble import BaggingClassifier
+from sklearn.tree import DecisionTreeClassifier
+import pandas as pd
+
+X = X_train
+Y = y_train
+
+# seed = 8
+# kfold = model_selection.KFold(n_splits = 3,
+# 					random_state = seed)
+
+# initialize the base classifier
+base_cls = DecisionTreeClassifier()
+
+# no. of base classifier
+num_trees = 500
+
+# bagging classifier
+model = BaggingClassifier(base_estimator = base_cls,
+						n_estimators = num_trees)
+
+results = model_selection.cross_val_score(model, X, Y)
+print("accuracy :")
+print(results.mean())
+
+
+# In[84]:
+
+
+from sklearn import model_selection
+from sklearn.ensemble import BaggingClassifier
+from sklearn.svm import SVC
+import pandas as pd
+
+X = X_train
+Y = y_train
+
+# seed = 8
+# kfold = model_selection.KFold(n_splits = 3,
+# 					random_state = seed)
+
+# initialize the base classifier
+base_cls = SVC()
+
+# no. of base classifier
+num_trees = 500
+
+# bagging classifier
+model = BaggingClassifier(base_estimator = base_cls,
+						n_estimators = num_trees)
+
+results = model_selection.cross_val_score(model, X, Y)
+print("accuracy :")
+print(results.mean())
+
+
+# In[156]:
+
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import make_classification
+from sklearn.model_selection import GridSearchCV
+# 'n_estimators': [i for i in range(800)],
+rfc=RandomForestClassifier(random_state=42)
+param_grid = { 
+    'n_estimators': [50,100,200,500],
+    'max_features': ['auto', 'sqrt', 'log2'],
+    'max_depth' : [4,5,6,7,8],
+    'criterion' :['gini', 'entropy']
+}
+CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv= 5)
+CV_rfc.fit(X_train, y_train)
+
+
+# In[160]:
+
+
+CV_rfc.best_params_
+
+
+# In[173]:
+
+
+rfc1=RandomForestClassifier(random_state=42, max_features='auto', n_estimators= 100, max_depth=8, criterion='entropy')
+rfc1.fit(X_train, y_train)
+
+
+# In[174]:
+
+
+pred=rfc1.predict(X_test)
+print("Accuracy for Random Forest on CV data: ",accuracy_score(y_test,pred))
 
