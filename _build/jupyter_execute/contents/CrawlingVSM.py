@@ -385,95 +385,6 @@ X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1)
     random_state=0)
 
 
-# In[27]:
-
-
-# from sklearn import model_selection
-# from sklearn.ensemble import BaggingClassifier
-# from sklearn.tree import DecisionTreeClassifier
-# import pandas as pd
-
-# X = X_train
-# Y = y_train
-
-# # seed = 8
-# # kfold = model_selection.KFold(n_splits = 3,
-# # 					random_state = seed)
-
-# # initialize the base classifier
-# base_cls = DecisionTreeClassifier()
-
-# # no. of base classifier
-# num_trees = 500
-
-# # bagging classifier
-# model = BaggingClassifier(base_estimator = base_cls,
-# 						n_estimators = num_trees)
-
-# results = model_selection.cross_val_score(model, X, Y)
-# print("accuracy :")
-# print(results.mean())
-
-
-# In[28]:
-
-
-# from sklearn import model_selection
-# from sklearn.ensemble import BaggingClassifier
-# from sklearn.svm import SVC
-# import pandas as pd
-
-# X = X_train
-# Y = y_train
-
-# # seed = 8
-# # kfold = model_selection.KFold(n_splits = 3,
-# # 					random_state = seed)
-
-# # initialize the base classifier
-# base_cls = SVC()
-
-# # no. of base classifier
-# num_trees = 500
-
-# # bagging classifier
-# model = BaggingClassifier(base_estimator = base_cls,
-# 						n_estimators = num_trees)
-
-# results = model_selection.cross_val_score(model, X, Y)
-# print("accuracy :")
-# print(results.mean())
-
-
-# In[29]:
-
-
-# from sklearn.ensemble import RandomForestClassifier
-# from sklearn.datasets import make_classification
-# from sklearn.model_selection import GridSearchCV
-
-# n_estimators = [i for i in (5,21,1)]
-# parameters = dict(n_estimators)
-# # Instantiating the GridSearchCV object
-# rand=RandomForestClassifier()
-# logreg_cv = GridSearchCV(rand, parameters)
-# logrec_cv
-
-# # X = X_train
-# # Y = y_train
-# # clf = RandomForestClassifier(n_estimators, random_state=0)
-# # clf.fit(X, Y)
-
-# # # performing predictions on the test dataset
-# # y_pred = clf.predict(X_test)
- 
-# # # metrics are used to find accuracy or error
-# # from sklearn import metrics 
- 
-# # # using metrics module for accuracy calculation
-# # print("ACCURACY OF THE MODEL: ", metrics.accuracy_score(y_test, y_pred))
-
-
 # **Penjelasan mutual_info_classif**
 # mengukur ketergantungan antara variabel. Itu sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi berarti ketergantungan yang lebih tinggi.
 
@@ -1033,7 +944,7 @@ for index, component in enumerate(lsa.components_):
     print("Topic "+str(index+1)+": ",top_terms_list)
 
 
-# ## 
+# ## Ensemble BaggingClassifier dengan Metode DecisionTreeClassifier 
 
 # In[83]:
 
@@ -1065,6 +976,8 @@ print("accuracy :")
 print(results.mean())
 
 
+# ## Ensemble BaggingClassifier dengan Metode SVC 
+
 # In[84]:
 
 
@@ -1095,7 +1008,9 @@ print("accuracy :")
 print(results.mean())
 
 
-# In[156]:
+# ## Ensemble RandomForestClassifier dengan GridSearchCV
+
+# In[85]:
 
 
 from sklearn.ensemble import RandomForestClassifier
@@ -1113,22 +1028,60 @@ CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv= 5)
 CV_rfc.fit(X_train, y_train)
 
 
-# In[160]:
+# In[86]:
 
 
 CV_rfc.best_params_
 
 
-# In[173]:
+# In[87]:
 
 
 rfc1=RandomForestClassifier(random_state=42, max_features='auto', n_estimators= 100, max_depth=8, criterion='entropy')
 rfc1.fit(X_train, y_train)
 
 
-# In[174]:
+# In[88]:
 
 
 pred=rfc1.predict(X_test)
 print("Accuracy for Random Forest on CV data: ",accuracy_score(y_test,pred))
+
+
+# ## Ensemble StackingClassifier 
+
+# In[102]:
+
+
+from sklearn.model_selection import train_test_split
+#membagi kumpulan data menjadi data pelatihan dan data pengujian.
+X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1),
+    dj['label'],
+    test_size=0.3,
+    random_state=0)
+
+
+# In[113]:
+
+
+from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import LinearSVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
+from sklearn.ensemble import StackingClassifier
+from sklearn.naive_bayes import GaussianNB
+estimators = [
+    ('rf', RandomForestClassifier(random_state=42,max_features='auto', n_estimators= 100, max_depth=8, criterion='gini')),
+    ('rf2', RandomForestClassifier(random_state=42,max_features='auto', n_estimators= 100, max_depth=8, criterion='entropy'))
+]
+clf = StackingClassifier(
+    estimators=estimators, final_estimator=RandomForestClassifier(n_estimators=10, random_state=42)
+)
+# from sklearn.model_selection import train_test_split
+# X_train, X_test, y_train, y_test = train_test_split(
+#     X, y, stratify=y, random_state=42
+# )
+clf.fit(X_train.values, y_train.values).score(X_test.values, y_test.values)
 

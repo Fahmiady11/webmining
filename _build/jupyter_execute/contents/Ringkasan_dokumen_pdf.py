@@ -119,6 +119,7 @@ cv_matrix = cv.fit_transform(sentences_list)
 # In[ ]:
 
 
+
 print ("Banyaknya kosa kata = ", len((cv.get_feature_names_out())))
 
 
