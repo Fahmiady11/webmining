@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# # UAS PPW Crawling Data Comment Youtube
+
 # In[1]:
 
 
@@ -8,13 +10,13 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 
-# In[12]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/')
 
 
-# In[14]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', 'contents')
@@ -118,7 +120,7 @@ comments
 
 # #4. Ubah Hasil Crawling ke Dataframe
 
-# In[35]:
+# In[ ]:
 
 
 df = pd.DataFrame(comments, columns=['publishedAt', 'authorDisplayName', 'textDisplay', 'likeCount'])
@@ -127,26 +129,26 @@ df
 
 # #5. Simpan Hasil Crawling ke file CSV
 
-# In[36]:
+# In[ ]:
 
 
 df.to_csv('youtube-comments.csv', index=False)
 
 
-# In[49]:
+# In[ ]:
 
 
 get_ipython().system('pip install numpy')
 
 
-# In[51]:
+# In[ ]:
 
 
 import pandas as pd
 import numpy as np
 
 
-# In[89]:
+# In[ ]:
 
 
 data = pd.read_excel('youtube-comments-cut.xlsx')
@@ -155,14 +157,14 @@ data = pd.read_excel('youtube-comments-cut.xlsx')
 data
 
 
-# In[90]:
+# In[ ]:
 
 
 get_ipython().system('pip install nltk')
 get_ipython().system('pip install Sastrawi')
 
 
-# In[91]:
+# In[ ]:
 
 
 import pandas as pd
@@ -175,7 +177,7 @@ import string
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 
-# In[108]:
+# In[ ]:
 
 
 def remove_stopwords(text):
@@ -189,7 +191,7 @@ def remove_stopwords(text):
     return text
 
 
-# In[109]:
+# In[ ]:
 
 
 def stemming(text):
@@ -201,7 +203,7 @@ def stemming(text):
     return result
 
 
-# In[107]:
+# In[ ]:
 
 
 def preprocessing(text):
@@ -236,13 +238,13 @@ def preprocessing(text):
     return text
 
 
-# In[129]:
+# In[ ]:
 
 
 # data['textDisplay'].apply(preprocessing).to_excel('preprocessing-youtube.xlsx')
 
 
-# In[134]:
+# In[ ]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
@@ -252,20 +254,20 @@ bag = vectorizer.fit_transform(dataTextPre['comment'])
 dataTextPre
 
 
-# In[135]:
+# In[ ]:
 
 
 matrik_vsm=bag.toarray()
 matrik_vsm.shape
 
 
-# In[136]:
+# In[ ]:
 
 
 matrik_vsm[0]
 
 
-# In[137]:
+# In[ ]:
 
 
 a=vectorizer.get_feature_names()
@@ -273,14 +275,14 @@ dataTF =pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1,
 dataTF
 
 
-# In[138]:
+# In[ ]:
 
 
 dataTF =pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
 dataTF
 
 
-# In[147]:
+# In[ ]:
 
 
 label = pd.read_csv('/content/drive/MyDrive/webmining/webmining/contents/youtube-comments.csv')
@@ -288,13 +290,13 @@ dj = pd.concat([dataTF.reset_index(), dj["label"]], axis=1)
 dj
 
 
-# In[146]:
+# In[ ]:
 
 
 dj['label'].unique()
 
 
-# In[148]:
+# In[ ]:
 
 
 from sklearn.model_selection import train_test_split
@@ -305,13 +307,13 @@ X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1)
     random_state=0)
 
 
-# In[149]:
+# In[ ]:
 
 
 X_train
 
 
-# In[150]:
+# In[ ]:
 
 
 from sklearn.model_selection import train_test_split
@@ -322,7 +324,7 @@ X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1)
     random_state=0)
 
 
-# In[153]:
+# In[ ]:
 
 
 from sklearn.datasets import load_iris
