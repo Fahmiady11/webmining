@@ -1,19 +1,19 @@
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/dist-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
-    record_timing=False,
-  File "/usr/local/lib/python3.7/dist-packages/nbclient/client.py", line 1204, in execute
+  File "/usr/local/lib/python3.8/dist-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/usr/local/lib/python3.7/dist-packages/nbclient/util.py", line 84, in wrapped
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/usr/local/lib/python3.7/dist-packages/nbclient/util.py", line 62, in just_run
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/usr/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
     return future.result()
-  File "/usr/local/lib/python3.7/dist-packages/nbclient/client.py", line 664, in async_execute
-    cell, index, execution_count=self.code_cells_executed + 1
-  File "/usr/local/lib/python3.7/dist-packages/nbclient/client.py", line 965, in async_execute_cell
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 965, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/usr/local/lib/python3.7/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -27,12 +27,12 @@ print('Anda telah memanggil dokument  {}'.format(name))
 [0;32m----> 1[0;31m [0mname[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m'Masukkan nama file: '[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0;34m'Anda telah memanggil dokument  {}'[0m[0;34m.[0m[0mformat[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[0;32m/usr/local/lib/python3.8/dist-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    855[0m         """
 [1;32m    856[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    857[0m             raise StdinNotImplementedError(
-[0;32m--> 858[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    859[0m             )
-[1;32m    860[0m         return self._input_request(str(prompt),
+[0;32m--> 857[0;31m             raise StdinNotImplementedError(
+[0m[1;32m    858[0m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    859[0m             )
 
 [0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
 StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.

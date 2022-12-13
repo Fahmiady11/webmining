@@ -28,7 +28,7 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/'
 
 # Clone Twint dari Github Twint Project
 
-# In[3]:
+# In[ ]:
 
 
 get_ipython().system('git clone --depth=1 https://github.com/twintproject/twint.git')
@@ -42,7 +42,7 @@ get_ipython().system('pip3 install . -r requirements.txt')
 
 # install Library Twint
 
-# In[4]:
+# In[ ]:
 
 
 get_ipython().system('pip install twint')
@@ -50,7 +50,7 @@ get_ipython().system('pip install twint')
 
 # install aiohttp versi 3.7.0
 
-# In[5]:
+# In[ ]:
 
 
 get_ipython().system('pip install aiohttp==3.7.0')
@@ -60,7 +60,7 @@ get_ipython().system('pip install aiohttp==3.7.0')
 
 # 
 
-# In[6]:
+# In[ ]:
 
 
 import twint
@@ -68,7 +68,7 @@ import twint
 
 # Install Nest Asyncio dan lakukan Import
 
-# In[7]:
+# In[ ]:
 
 
 get_ipython().system('pip install nest_asyncio')
@@ -78,7 +78,7 @@ nest_asyncio.apply()
 
 # \configurasi Twint dengan value seperti dibawah
 
-# In[8]:
+# In[ ]:
 
 
 c = twint.Config()
@@ -97,7 +97,7 @@ twint.run.Search(c)
 
 # melakukan Import Pandas
 
-# In[9]:
+# In[ ]:
 
 
 import pandas as pd
@@ -105,7 +105,7 @@ import pandas as pd
 
 # Baca data excel dataGanjar.xlsx yang telah diberi label (Positif,Negatif dan Netral) yang telah simpan di Google Drive
 
-# In[10]:
+# In[ ]:
 
 
 data = pd.read_excel('dataGanjar.xlsx')
@@ -122,7 +122,7 @@ data
 
 # Install Library nltk dan Sastrawi
 
-# In[11]:
+# In[ ]:
 
 
 get_ipython().system('pip install nltk')
@@ -135,7 +135,7 @@ get_ipython().system('pip install Sastrawi')
 
 # Lakukan Import beberapa Library seperti Pandas,re,nltk,string dan Sastrawi
 
-# In[12]:
+# In[ ]:
 
 
 import pandas as pd
@@ -150,7 +150,7 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 # Selanjutnya membuat Function Remove Stopwords yang fungsinya adalah menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM
 
-# In[13]:
+# In[ ]:
 
 
 def remove_stopwords(text):
@@ -166,7 +166,7 @@ def remove_stopwords(text):
 
 # Steming merupakan proses mengubah kata dalam bahasa Indonesia ke akar katanya misalkan 'Mereka meniru-nirukannya' menjadi 'mereka tiru'
 
-# In[14]:
+# In[ ]:
 
 
 def stemming(text):
@@ -211,7 +211,7 @@ def stemming(text):
 # 
 # 
 
-# In[15]:
+# In[ ]:
 
 
 def preprocessing(text):
@@ -248,7 +248,7 @@ def preprocessing(text):
 
 # Selanjutnya pindah Path ke Folder contents
 
-# In[16]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/contents')
@@ -256,7 +256,7 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/c
 
 # Simpan hasil dari preprocessing ke dalam bentuk CSV
 
-# In[17]:
+# In[ ]:
 
 
 #data['tweet'].apply(preprocessing).to_excel('preprocessing.xlsx')
@@ -264,7 +264,7 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/webmining/webmining/c
 
 # Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.
 
-# In[18]:
+# In[ ]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
@@ -276,20 +276,20 @@ dataTextPre
 
 # Melihat Jumlah Baris dan Kata
 
-# In[19]:
+# In[ ]:
 
 
 matrik_vsm=bag.toarray()
 matrik_vsm.shape
 
 
-# In[20]:
+# In[ ]:
 
 
 matrik_vsm[0]
 
 
-# In[21]:
+# In[ ]:
 
 
 a=vectorizer.get_feature_names()
@@ -297,7 +297,7 @@ a=vectorizer.get_feature_names()
 
 # Tampilan data VSM dengan labelnya 
 
-# In[22]:
+# In[ ]:
 
 
 dataTF =pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
@@ -312,7 +312,7 @@ dataTF
 # 
 # lalu data diatas ditambahkan dengan label (positif,netral dan negatif)
 
-# In[23]:
+# In[ ]:
 
 
 label = pd.read_excel('/content/drive/MyDrive/webmining/webmining/twint/dataGanjar.xlsx')
@@ -320,7 +320,7 @@ dj = pd.concat([dataTF.reset_index(), label["label"]], axis=1)
 dj
 
 
-# In[24]:
+# In[ ]:
 
 
 dj['label'].unique()
@@ -332,7 +332,7 @@ dj['label'].unique()
 
 # install scikit-learn
 
-# In[25]:
+# In[ ]:
 
 
 get_ipython().system('pip install -U scikit-learn')
@@ -374,7 +374,7 @@ get_ipython().system('pip install -U scikit-learn')
 # (Sv) : entropy untuk sampel sampel yang memiliki nilai v
 # 
 
-# In[26]:
+# In[ ]:
 
 
 from sklearn.model_selection import train_test_split
@@ -388,7 +388,7 @@ X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1)
 # **Penjelasan mutual_info_classif**
 # mengukur ketergantungan antara variabel. Itu sama dengan nol jika dan hanya jika dua variabel acak independen, dan nilai yang lebih tinggi berarti ketergantungan yang lebih tinggi.
 
-# In[30]:
+# In[ ]:
 
 
 from sklearn.feature_selection import mutual_info_classif
@@ -398,7 +398,7 @@ mutual_info
 
 # merangking fitur(Kata) sesuai dengan fitur(Kata) yang paling banyak keluar
 
-# In[31]:
+# In[ ]:
 
 
 mutual_info = pd.Series(mutual_info)
@@ -408,7 +408,7 @@ mutual_info.sort_values(ascending=False)
 
 # menvisualkan data dengan grafik bar dengan urutan paling besar ke rendah
 
-# In[32]:
+# In[ ]:
 
 
 mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
@@ -416,7 +416,7 @@ mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
 
 # Import SelectKBest
 
-# In[33]:
+# In[ ]:
 
 
 from sklearn.feature_selection import SelectKBest
@@ -424,7 +424,7 @@ from sklearn.feature_selection import SelectKBest
 
 # Pilih fitur menurut k skor tertinggi.
 
-# In[34]:
+# In[ ]:
 
 
 sel_five_cols = SelectKBest(mutual_info_classif, k=100)
@@ -432,7 +432,7 @@ sel_five_cols.fit(X_train, y_train)
 X_train.columns[sel_five_cols.get_support()]
 
 
-# In[35]:
+# In[ ]:
 
 
 X_train=X_train.values
@@ -445,7 +445,7 @@ y_test=y_test.values
 
 # Naive Bayes adalah algoritma machine learning yang digunakan untuk keperluan klasifikasi atau pengelompokan suatu data. Algoritma ini didasarkan pada teorema probabilitas yang dikenalkan oleh ilmuwan Inggris Thomas Bayes. Naive Bayes berfungsi memprediksi probabilitas di masa depan berdasarkan pengalaman sebelumnya, sehingga dapat digunakan untuk pengambilan keputusan.
 
-# In[36]:
+# In[ ]:
 
 
 # from sklearn.neighbors import KNeighborsClassifier
@@ -458,7 +458,7 @@ gauss.fit(X_train, y_train)
 
 # Menampilkan accuracy dari nilai test dengan method Gaussion Naive Bayes
 
-# In[37]:
+# In[ ]:
 
 
 from sklearn.metrics import make_scorer, accuracy_score,precision_score
@@ -471,7 +471,7 @@ accuracy_gauss
 
 # Matplotlib adalah library Python yang fokus pada visualisasi data seperti membuat plot grafik. Matplotlib pertama kali diciptakan oleh John D. Hunter dan sekarang telah dikelola oleh tim developer yang besar. Awalnya matplotlib dirancang untuk menghasilkan plot grafik yang sesuai pada publikasi jurnal atau artikel ilmiah. Matplotlib dapat digunakan dalam skrip Python, Python dan IPython shell, server aplikasi web, dan beberapa toolkit graphical user interface (GUI) lainnya.
 
-# In[38]:
+# In[ ]:
 
 
 #import plt
@@ -486,7 +486,7 @@ from sklearn import metrics
 
 # membuat Confusion Matrix dengan column vertical (negatif,netral dan positif) dan column horizontal (negatif,netral dan positif)
 
-# In[39]:
+# In[ ]:
 
 
 conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=testing)
@@ -513,14 +513,14 @@ plt.show()
 
 # TruncatedSVD adalah Teknik pengurangan dimensi menggunakan SVD terpotong
 
-# In[40]:
+# In[ ]:
 
 
 from sklearn.cluster import KMeans
 from sklearn.decomposition import TruncatedSVD
 
 
-# In[41]:
+# In[ ]:
 
 
 # Latih Kmeans dengan n cluster terbaik
@@ -543,20 +543,20 @@ plt.scatter(centroids[:,0] , centroids[:,1] , s = 50, color = 'red')
 
 # Scrapy adalah web crawling dan web scraping framework tingkat tinggi yang cepat, digunakan untuk merayapi situs web dan mengekstrak data terstruktur dari halaman mereka. Ini dapat digunakan untuk berbagai tujuan, mulai dari penambangan data hingga pemantauan dan pengujian otomatis.
 
-# In[42]:
+# In[ ]:
 
 
 get_ipython().system('pip install scrapy')
 get_ipython().system('pip install crochet')
 
 
-# In[43]:
+# In[ ]:
 
 
 import scrapy
 
 
-# In[44]:
+# In[ ]:
 
 
 import scrapy
@@ -609,7 +609,7 @@ def run_spider():
     return d
 
 
-# In[45]:
+# In[ ]:
 
 
 # run_spider()
@@ -617,7 +617,7 @@ def run_spider():
 
 # Mengambil dan Membaca data CSV yang bernama news.csv
 
-# In[46]:
+# In[ ]:
 
 
 dataNews = pd.read_csv('news.csv')
@@ -628,7 +628,7 @@ dataNews
 
 # Install PyPDF2
 
-# In[47]:
+# In[ ]:
 
 
 get_ipython().system('pip install PyPDF2')
@@ -636,7 +636,7 @@ get_ipython().system('pip install PyPDF2')
 
 # import PyPDF2
 
-# In[48]:
+# In[ ]:
 
 
 import PyPDF2
@@ -644,7 +644,7 @@ import PyPDF2
 
 # Membaca Pdf dari file lalu dibuat menjadi bentuk document Text
 
-# In[49]:
+# In[ ]:
 
 
 pdfReader = PyPDF2.PdfFileReader('/content/drive/MyDrive/webmining/webmining/contents/news.pdf')
@@ -655,13 +655,13 @@ document
 
 # PunktSentenceTokenizer adalah Sebuah tokenizer kalimat yang menggunakan algoritma tanpa pengawasan untuk membangun model untuk kata-kata singkatan, kolokasi, dan kata-kata yang memulai kalimat dan kemudian menggunakan model itu untuk menemukan batas kalimat.
 
-# In[50]:
+# In[ ]:
 
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 
 
-# In[51]:
+# In[ ]:
 
 
 def tokenize(document):
@@ -672,7 +672,7 @@ def tokenize(document):
     return sentences_list
 
 
-# In[52]:
+# In[ ]:
 
 
 sentences_list = tokenize(document)
@@ -681,7 +681,7 @@ sentences_list
 
 # Merapikan data di atas sehingga lebih enak dibaca
 
-# In[53]:
+# In[ ]:
 
 
 kal=1
@@ -693,7 +693,7 @@ for i in sentences_list:
 
 # Tokenizing adalah proses pemisahan teks menjadi potongan-potongan yang disebut sebagai token untuk kemudian di analisa. Kata, angka, simbol, tanda baca dan entitas penting lainnya dapat dianggap sebagai token.
 
-# In[54]:
+# In[ ]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
@@ -703,7 +703,7 @@ cv_matrix=vectorizer.fit_transform(sentences_list)
 
 # Menampilkan jumlah Kosa Kata dari Data
 
-# In[55]:
+# In[ ]:
 
 
 print ("Banyaknya kosa kata = ", len((vectorizer.get_feature_names_out())))
@@ -711,7 +711,7 @@ print ("Banyaknya kosa kata = ", len((vectorizer.get_feature_names_out())))
 
 # Menampilkan jumlah Kalimat dari Data
 
-# In[56]:
+# In[ ]:
 
 
 print ("Banyaknya kalimat = ", (len(sentences_list)))
@@ -719,13 +719,13 @@ print ("Banyaknya kalimat = ", (len(sentences_list)))
 
 # Menampilkan Kosa Kata dari Data
 
-# In[57]:
+# In[ ]:
 
 
 print ("kosa kata = ", (vectorizer.get_feature_names_out()))
 
 
-# In[58]:
+# In[ ]:
 
 
 # mengubah kumpulan dokumen mentah menjadi matriks fitur TF-IDF
@@ -735,7 +735,7 @@ print(normal_matrix.toarray())
 
 # Menampilkan Jumlah Kalimat dan Kosa Kata
 
-# In[59]:
+# In[ ]:
 
 
 normal_matrix.shape
@@ -743,7 +743,7 @@ normal_matrix.shape
 
 # NetworkX adalah paket Python untuk pembuatan, manipulasi, dan studi tentang struktur, dinamika, dan fungsi jaringan yang kompleks. Ini menyediakan:
 
-# In[60]:
+# In[ ]:
 
 
 import networkx as nx
@@ -751,20 +751,20 @@ import networkx as nx
 
 # Graph adalah kumpulan dati titik (node) dan garis dimana pasangan – pasangan titik (node) tersebut dihubungkan oleh segmen garis. Node ini biasa disebut simpul (vertex) dan segmen garis disebut ruas (edge)
 
-# In[61]:
+# In[ ]:
 
 
 res_graph = normal_matrix * normal_matrix.T
 print(res_graph)
 
 
-# In[62]:
+# In[ ]:
 
 
 nx_graph = nx.from_scipy_sparse_matrix(res_graph)
 
 
-# In[63]:
+# In[ ]:
 
 
 nx.draw_circular(nx_graph)
@@ -772,7 +772,7 @@ nx.draw_circular(nx_graph)
 
 # Jumlah Banyak Sisi 
 
-# In[64]:
+# In[ ]:
 
 
 print('Banyaknya sisi {}'.format(nx_graph.number_of_edges()))
@@ -780,7 +780,7 @@ print('Banyaknya sisi {}'.format(nx_graph.number_of_edges()))
 
 # Menkalikan data dengan data Transpose
 
-# In[65]:
+# In[ ]:
 
 
 res_graph = normal_matrix * normal_matrix.T
@@ -788,7 +788,7 @@ res_graph = normal_matrix * normal_matrix.T
 
 # PageRank menghitung peringkat node dalam grafik G berdasarkan struktur tautan masuk. Awalnya dirancang sebagai algoritma untuk menentukan peringkat halaman web.
 
-# In[66]:
+# In[ ]:
 
 
 ranks=nx.pagerank(nx_graph,)
@@ -796,7 +796,7 @@ ranks=nx.pagerank(nx_graph,)
 
 # memasukkan data ke array
 
-# In[67]:
+# In[ ]:
 
 
 arrRank=[]
@@ -806,7 +806,7 @@ for i in ranks:
 
 # menjadikan data kedalam bentuk tabel lalu digabungkan 
 
-# In[68]:
+# In[ ]:
 
 
 dfRanks = pd.DataFrame(arrRank,columns=['PageRank'])
@@ -817,7 +817,7 @@ dfJoin
 
 # Mengurutkan data berdasarkan hasil tertinggi
 
-# In[69]:
+# In[ ]:
 
 
 sortSentence=dfJoin.sort_values(by=['PageRank'],ascending=False)
@@ -826,7 +826,7 @@ sortSentence
 
 # Menampilkan data dari 5 ke atas
 
-# In[70]:
+# In[ ]:
 
 
 sortSentence.head(5)
@@ -834,31 +834,31 @@ sortSentence.head(5)
 
 # ## Latent Semantic Indexing(LSI) Topik Berita
 
-# In[71]:
+# In[ ]:
 
 
 get_ipython().system('pip install nltk')
 
 
-# In[72]:
+# In[ ]:
 
 
 get_ipython().system('pip install PySastrawi')
 
 
-# In[73]:
+# In[ ]:
 
 
 get_ipython().system('pip install Sastrawi')
 
 
-# In[74]:
+# In[ ]:
 
 
 import PyPDF2
 
 
-# In[75]:
+# In[ ]:
 
 
 pdfReader = PyPDF2.PdfFileReader('/content/drive/MyDrive/webmining/webmining/contents/news.pdf')
@@ -867,7 +867,7 @@ document = pageObj.extractText()
 print(document)
 
 
-# In[76]:
+# In[ ]:
 
 
 import pandas as pd
@@ -878,14 +878,14 @@ import nltk
 nltk.download('stopwords')
 
 
-# In[77]:
+# In[ ]:
 
 
 word_tokens = word_tokenize(document)
 print(word_tokens)
 
 
-# In[78]:
+# In[ ]:
 
 
 stop_words = set(stopwords.words('indonesian'))
@@ -893,7 +893,7 @@ word_tokens_no_stopwords = [w for w in word_tokens if not w in stop_words]
 print(word_tokens_no_stopwords)
 
 
-# In[79]:
+# In[ ]:
 
 
 import os
@@ -902,7 +902,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
 
 
-# In[80]:
+# In[ ]:
 
 
 # Vectorize document using TF-IDF
@@ -914,7 +914,7 @@ train_data = tfidf.fit_transform(word_tokens_no_stopwords)
 train_data
 
 
-# In[81]:
+# In[ ]:
 
 
 num_components=10
@@ -931,7 +931,7 @@ V_transpose = lsa.components_.T
 V_transpose
 
 
-# In[82]:
+# In[ ]:
 
 
 # Print the topics with their terms
@@ -946,7 +946,7 @@ for index, component in enumerate(lsa.components_):
 
 # ## Ensemble BaggingClassifier dengan Metode DecisionTreeClassifier 
 
-# In[83]:
+# In[ ]:
 
 
 from sklearn import model_selection
@@ -978,7 +978,7 @@ print(results.mean())
 
 # ## Ensemble BaggingClassifier dengan Metode SVC 
 
-# In[84]:
+# In[ ]:
 
 
 from sklearn import model_selection
@@ -1010,7 +1010,7 @@ print(results.mean())
 
 # ## Ensemble RandomForestClassifier dengan GridSearchCV
 
-# In[85]:
+# In[ ]:
 
 
 from sklearn.ensemble import RandomForestClassifier
@@ -1028,20 +1028,20 @@ CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv= 5)
 CV_rfc.fit(X_train, y_train)
 
 
-# In[86]:
+# In[ ]:
 
 
 CV_rfc.best_params_
 
 
-# In[87]:
+# In[ ]:
 
 
 rfc1=RandomForestClassifier(random_state=42, max_features='auto', n_estimators= 100, max_depth=8, criterion='entropy')
 rfc1.fit(X_train, y_train)
 
 
-# In[88]:
+# In[ ]:
 
 
 pred=rfc1.predict(X_test)
@@ -1050,7 +1050,7 @@ print("Accuracy for Random Forest on CV data: ",accuracy_score(y_test,pred))
 
 # ## Ensemble StackingClassifier 
 
-# In[102]:
+# In[ ]:
 
 
 from sklearn.model_selection import train_test_split
@@ -1061,7 +1061,7 @@ X_train,X_test,y_train,y_test=train_test_split(dj.drop(labels=['label'], axis=1)
     random_state=0)
 
 
-# In[113]:
+# In[ ]:
 
 
 from sklearn.datasets import load_iris
@@ -1084,4 +1084,10 @@ clf = StackingClassifier(
 #     X, y, stratify=y, random_state=42
 # )
 clf.fit(X_train.values, y_train.values).score(X_test.values, y_test.values)
+
+
+# In[ ]:
+
+
+
 
